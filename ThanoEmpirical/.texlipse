@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Sat Jul 12 16:33:04 CEST 2014
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=ThanoEmpirical.tex
+outputFile=ThanoEmpirical.pdf
+langSpell=en
+markDer=true
+srcDir=
