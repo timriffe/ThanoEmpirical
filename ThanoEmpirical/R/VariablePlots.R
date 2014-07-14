@@ -51,16 +51,33 @@ Colors        <- brewer.pal(ncol(Means),"Dark2")
 Colors2 <- sapply(Colors, function(x){
             colorRampPalette(c(x,"white"), space = "Lab")(3)[2]
         })
-par(mai = c(1,.5,.5,.5))
+ylim    <- range(pretty(MeansScaled,n=10))
+ytix    <- unique(round(pretty(MeansScaled,n=10)))
+mai     <- c(.3,.3,.3,1.5)
+height  <- 4 + sum(mai[c(1,3)])
+width   <- 4 + sum(mai[c(2,4)])
+par(mai = mai)
+
+plot(NULL, type = 'n', axes = FALSE, xlim = c(0,15), ylim = ylim, xlab = "", ylab = "", panel.first =list(
+                rect(0, ylim[1], 15, ylim[2], col = gray(.95), border = NA),
+                segments(seq(0, 14, by = 2), ylim[1], seq(0, 14, by = 2), ylim[2], col = "white"),
+                text(seq(0, 14, by = 2), ylim[1], seq(0, 14, by = 2), pos = 1, xpd = TRUE, cex = .8),
+                segments(0, ytix, 15, ytix, col = "white"),
+                text(0, ytix, ytix, pos = 2, cex = .8)))
+matplot(0:15, MeansScaled[1:16, ], type = 'l', lty = 1, lwd = 1.5, col = Colors, add = TRUE)
+legend(0,-2.5,lty=1,lwd=1.5,col=Colors,legend=colnames(Means),xpd=TRUE,bty="n")
+
+
+par(mai = c(.3,.3,.3,1.5))
 ylim <- range(pretty(MeansScaled,n=10))
 ytix <- unique(round(pretty(MeansScaled,n=10)))
 plot(NULL, type = 'n', axes = FALSE, xlim = c(0,15), ylim = ylim, xlab = "", ylab = "", panel.first =list(
-                rect(0, ylim[1] ,15, ylim[2], col = gray(.95), border = NA),
-                segments(seq(0,14,by=2),ylim[1],seq(0,14,by=2),ylim[2],col="white"),
-                text(seq(0,14,by=2),ylim[1],seq(0,14,by=2),pos=1,xpd=TRUE,cex=.8),
-                segments(0,ytix,15,ytix,col="white"),
-                text(0,ytix,ytix,pos=2,cex=.8)))
-matplot(0:15, MeansScaled[1:16, ], type = 'l', lty = 1, lwd = 2.5, col = Colors2, add = TRUE)
-matplot(0:15, MeansScaled[17:32, ], type = 'l', lty = 1, lwd = 1.5, col = Colors, add = TRUE )
+                rect(0, ylim[1], 15, ylim[2], col = gray(.95), border = NA),
+                segments(seq(0, 14, by = 2), ylim[1], seq(0, 14, by = 2), ylim[2], col = "white"),
+                text(seq(0, 14, by = 2), ylim[1], seq(0, 14, by = 2), pos = 1, xpd = TRUE, cex = .8),
+                segments(0, ytix, 15, ytix, col = "white"),
+                text(0, ytix, ytix, pos = 2, cex = .8)))
+matplot(0:15, MeansScaled[17:32, ], type = 'l', lty = 1, lwd = 1.5, col = Colors, add = TRUE)
+legend(0,-2.5,lty=1,lwd=1.5,col=Colors,legend=colnames(Means),xpd=TRUE,bty="n")
 
 

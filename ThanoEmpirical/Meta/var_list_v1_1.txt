@@ -11,7 +11,7 @@ Variable Description (variable name)
 IDENTIFIERS
 -Person ID (id)
 -Sample Cohort (cohort)
--Sampling Weight (wt)
+-Sampling Weight (s_wt)
 -Birth Month (b_mo)
 -Birth Year (b_yr)
 -Birth Date (b_dt)
@@ -29,6 +29,7 @@ IDENTIFIERS
 -Days Alive (days_alive)
 
 REPEATED MEASURES: LOGISTICS
+-Person-Level Weight (p_wt1 -- p_wt10)
 -Interview Response (int1 -- int10)
 -Interview Mid-Point Date (int_dt1 -- int_dt10)
 -Age at Interview Mid-Point (age1 -- age10)

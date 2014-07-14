@@ -45,10 +45,10 @@ getLong <- function(Dat,
 # is in a 'Data' folder, and actually has the .gz suffix on it :-)
 
 # setwd("/home/triffe/git/ThanoEmpirical/ThanoEmpirical")
-Dat         <- local(get(load("Data/thanos_wide_v1_0.gz")))
+#Dat         <- local(get(load("Data/thanos_wide_v1_0.gz")))
 
 # v1_1 is jumbled somehow, use original smaller file for time being:
-#Dat         <- local(get(load("Data/thanos_wide_v1_1.gz")))
+Dat         <- local(get(load("Data/thanos_wide_v1_1.gz")))
 
 # make sex column easier to use:
 Dat$sex     <- ifelse(as.character(Dat$sex) == "1.male","m","f")
