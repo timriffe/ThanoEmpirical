@@ -64,31 +64,36 @@ Colors2 <- sapply(Colors, function(x){
         })
 ylim    <- range(pretty(MeansScaled,n=10))
 ytix    <- unique(round(pretty(MeansScaled,n=10)))
-mai     <- c(.3,.3,.3,1.5)
+ytix <- ytix[ytix >= min(ylim) & ytix <= max(ylim)]
+mai     <- c(.5,.5,.5,1)
 height  <- 4 + sum(mai[c(1,3)])
 width   <- 4 + sum(mai[c(2,4)])
-par(mai = mai)
-
+graphics.off()
+#dev.new(height = height, width = width)
+pdf("Figures/VariablePlots/ProposalFemales.pdf", height = height, width = width)
+par(mai = mai, xpd = TRUE, xaxs = "i", yaxs = "i")
 plot(NULL, type = 'n', axes = FALSE, xlim = c(0,15), ylim = ylim, xlab = "", ylab = "", panel.first =list(
                 rect(0, ylim[1], 15, ylim[2], col = gray(.95), border = NA),
                 segments(seq(0, 14, by = 2), ylim[1], seq(0, 14, by = 2), ylim[2], col = "white"),
                 text(seq(0, 14, by = 2), ylim[1], seq(0, 14, by = 2), pos = 1, xpd = TRUE, cex = .8),
                 segments(0, ytix, 15, ytix, col = "white"),
-                text(0, ytix, ytix, pos = 2, cex = .8)))
+                text(0, ytix, ytix, pos = 2, cex = .8),
+                text(7, ylim[1] - .5, "Years Left"),
+                text(-2, ylim[2] + .4, "Mean value\n(centered & scaled)", pos = 4)))
 matplot(0:15, MeansScaled[1:16, ], type = 'l', lty = 1, lwd = 1.5, col = Colors, add = TRUE)
 legend(15,ylim[2],lty=1,lwd=1.5,col=Colors,legend=colnames(Means),xpd=TRUE,bty="n")
-
-
-par(mai = c(.3,.3,.3,1.5))
-ylim <- range(pretty(MeansScaled,n=10))
-ytix <- unique(round(pretty(MeansScaled,n=10)))
+dev.off()
+#dev.new(height = height, width = width)
+pdf("Figures/VariablePlots/ProposalMales.pdf", height = height, width = width)
+par(mai = mai, xpd = TRUE, xaxs = "i", yaxs = "i")
 plot(NULL, type = 'n', axes = FALSE, xlim = c(0,15), ylim = ylim, xlab = "", ylab = "", panel.first =list(
                 rect(0, ylim[1], 15, ylim[2], col = gray(.95), border = NA),
                 segments(seq(0, 14, by = 2), ylim[1], seq(0, 14, by = 2), ylim[2], col = "white"),
                 text(seq(0, 14, by = 2), ylim[1], seq(0, 14, by = 2), pos = 1, xpd = TRUE, cex = .8),
                 segments(0, ytix, 15, ytix, col = "white"),
-                text(0, ytix, ytix, pos = 2, cex = .8)))
+                text(0, ytix, ytix, pos = 2, cex = .8),
+                text(7, ylim[1] - .5, "Years Left"),
+                text(-2, ylim[2] + .4, "Mean value\n(centered & scaled)", pos = 4)))
 matplot(0:15, MeansScaled[17:32, ], type = 'l', lty = 1, lwd = 1.5, col = Colors, add = TRUE)
-legend(0,-2.5,lty=1,lwd=1.5,col=Colors,legend=colnames(Means),xpd=TRUE,bty="n")
-
-
+legend(15,ylim[2],lty=1,lwd=1.5,col=Colors,legend=colnames(Means),xpd=TRUE,bty="n")
+dev.off()
