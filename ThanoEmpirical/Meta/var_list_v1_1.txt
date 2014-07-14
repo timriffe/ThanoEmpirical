@@ -1,0 +1,48 @@
+######################################################
+# Variable summary for 'thanos' dataset: wide-format #
+# (version: 1.1) - 07/13/2014                        #
+######################################################
+
+SYNTAX:
+Variable Description (variable name)
+
+------------------------------------------------------
+
+IDENTIFIERS
+-Person ID (id)
+-Sample Cohort (cohort)
+-Sampling Weight (wt)
+-Birth Month (b_mo)
+-Birth Year (b_yr)
+-Birth Date (b_dt)
+-Death Month (d_mo)
+-Death Year (d_yr)
+-Death Date (d_dt)
+-Sex (sex)
+-Race (race)
+-Hispanic Ethnicity (hisp)
+-Education in Years (edu_yrs)
+-Mother's Education (m_edu)
+-Father's Education (f_edu)
+-Place of Birth (b_pl)
+-Death Indicator (dead)
+-Days Alive (days_alive)
+
+REPEATED MEASURES: LOGISTICS
+-Interview Response (int1 -- int10)
+-Interview Mid-Point Date (int_dt1 -- int_dt10)
+-Age at Interview Mid-Point (age1 -- age10)
+-Census Region (reg1 -- reg10)
+-Census Division (div1 -- div10)
+-Marital Status (mar1 -- mar10)
+
+REPEATED MEASURES: OUTCOMES
+-ADL: 3-point Summary Score (adl3_2 -- adl3_10)
+-ADL: 5-point Summary Score (adl5_2 -- adl5_10)
+-IADL: 3-point Summary Score (iadl3_2 -- iadl3_10)
+-IADL: 5-point Summary Score (iadl5_2 -- iadl5_10)
+-CESD Depression Score (cesd1 -- cesd10)
+-Self-Reported Health (srh1 -- srh10)
+-Health Limits Work (lim_work1 -- lim_work10)
+-Body Mass Index (bmi1 -- bmi10)
+-Back Problems (back1 -- back10)

@@ -13,27 +13,27 @@ getThanoAge <- function(Date, DeathDate){
     out[Ind] <- lubridate::decimal_date(DeathDate[Ind]) - lubridate::decimal_date(Date[Ind])
     out
 }
-setwd("/home/triffe/workspace/ThanoEmpirical")
-Dat <- local(get(load("Data/thanos_wide_v1_0.gz")))
+setwd("/home/triffe/git/ThanoEmpirical/ThanoEmpirical")
+Dat         <- local(get(load("Data/thanos_wide_v1_1.gz")))
 
-Dat$sex <- ifelse(as.character(Dat$sex) == "1.male","m","f")
-Dat     <- Dat[Dat$dead == 1, ]
-Dat     <- convertDates(Dat)
+Dat$sex     <- ifelse(as.character(Dat$sex) == "1.male","m","f")
+Dat         <- Dat[Dat$dead == 1, ]
+Dat         <- convertDates(Dat)
 
-DInd       <- grep(colnames(Dat),pattern="d_dt")
-DateInd    <- grep(colnames(Dat),pattern="int_dt")
-TaColnames <- paste0("ta_",gsub(pattern = "int_dt",replacement = "",colnames(Dat)[DateInd]))
+DInd        <- grep(colnames(Dat),pattern="d_dt")
+DateInd     <- grep(colnames(Dat),pattern="int_dt")
+TaColnames  <- paste0("ta_",gsub(pattern = "int_dt",replacement = "",colnames(Dat)[DateInd]))
 for (i in 1:length(DateInd)){
     Dat[[TaColnames[i]]] <- getThanoAge(Dat[,DateInd[i]],Dat[,DInd])
 }
-adl5 <- paste0("adl5_", 2:10)
-ta   <- paste0("ta_", 2:10)
-sex  <- "m"
-ADL5 <- as.matrix(Dat[Dat$sex == sex, adl5])
-TA   <- as.matrix(Dat[Dat$sex == sex, ta])
-ADL5 <- cbind(ADL5, NA)
-TA   <- cbind(TA, NA)
-dim(ADL5) <- dim(TA) <- NULL
+adl5        <- paste0("adl5_", 2:10)
+ta          <- paste0("ta_", 2:10)
+sex         <- "m"
+ADL5        <- as.matrix(Dat[Dat$sex == sex, adl5])
+TA          <- as.matrix(Dat[Dat$sex == sex, ta])
+ADL5        <- cbind(ADL5, NA)
+TA          <- cbind(TA, NA)
+dim(ADL5)   <- dim(TA) <- NULL
 
 plot(TA, jitter(ADL5),type='l',col = "#00000010",xlab = "years left",ylab = "adl5" )
 
