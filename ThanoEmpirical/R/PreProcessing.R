@@ -18,7 +18,7 @@ getThanoAge <- function(Date, DeathDate){
 getLong <- function(Dat, 
         vars_ta = c("int_dt","adl3_","adl5_","iadl3_","iadl5_",
                 "cesd","cen","div","mar","lim_work",
-                "srh","bmi","back","ta_"), 
+                "srh","bmi","back","ta_","p_wt"), 
         vars = c("id","sex","wt","d_yr")){
     # cut down in case some columns not available
     vars_ta <- vars_ta[colSums(sapply(vars_ta,grepl,colnames(Dat))) > 0]
@@ -47,7 +47,8 @@ getLong <- function(Dat,
 # setwd("/home/triffe/git/ThanoEmpirical/ThanoEmpirical")
 #Dat         <- local(get(load("Data/thanos_wide_v1_0.gz")))
 
-# v1_1 is jumbled somehow, use original smaller file for time being:
+# v1_1 is the same, but includes more variables, and will soon include
+# person-weights.
 Dat         <- local(get(load("Data/thanos_wide_v1_1.gz")))
 
 # make sex column easier to use:

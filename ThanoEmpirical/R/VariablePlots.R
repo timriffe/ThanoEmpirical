@@ -32,13 +32,24 @@ Dat$tafloor[Dat$tafloor < 0] <- 0
 # greater than 15 we lose precision, cut off:
 Dat <- Dat[Dat$tafloor <= 15, ]
 
-Means       <- Dat[,list(
-                adl3 = wmean(adl3,wt),
-                adl5 = wmean(adl5,wt),
-                iadl3 = wmean(iadl3,wt),
-                iadl5 = wmean(iadl5,wt),
-                cesd = wmean(cesd,wt)),by=list(sex,tafloor)]
-Means <- Means[with(Means,order(sex,tafloor)), ]
+# recode so factors 'back'
+Dat$lim_work <- as.character(Dat$lim_work)
+Dat$back     <- as.character(Dat$back)
+Dat$srh      <- as.character(Dat$srh)
+
+Dat$back <- ifelse(is.na(Dat$back), NA, ifelse(Dat$back == "1. yes",1,0))
+Dat$srh[is.na(Dat$srh)] <- "NA"
+
+recvec        <- c(0:4, NA)
+names(recvec) <- sort(unique(Dat$srh))
+Dat$srh       <- recvec[Dat$srh]
+
+Means         <- Dat[,list(
+                     adl5 = wmean(adl5,wt),
+                     srh = wmean(srh,wt),
+                     back = wmean(back,wt),
+                     cesd = wmean(cesd,wt)),by=list(sex,tafloor)]
+Means         <- Means[with(Means,order(sex,tafloor)), ]
 
 # females then males (16 rows each)
 Means$sex     <- NULL
@@ -46,7 +57,7 @@ Means$tafloor <- NULL
 Means         <- as.matrix(Means)
 
 MeansScaled   <- scale(Means)
-display.brewer.all()
+
 Colors        <- brewer.pal(ncol(Means),"Dark2")
 Colors2 <- sapply(Colors, function(x){
             colorRampPalette(c(x,"white"), space = "Lab")(3)[2]
@@ -65,7 +76,7 @@ plot(NULL, type = 'n', axes = FALSE, xlim = c(0,15), ylim = ylim, xlab = "", yla
                 segments(0, ytix, 15, ytix, col = "white"),
                 text(0, ytix, ytix, pos = 2, cex = .8)))
 matplot(0:15, MeansScaled[1:16, ], type = 'l', lty = 1, lwd = 1.5, col = Colors, add = TRUE)
-legend(0,-2.5,lty=1,lwd=1.5,col=Colors,legend=colnames(Means),xpd=TRUE,bty="n")
+legend(15,ylim[2],lty=1,lwd=1.5,col=Colors,legend=colnames(Means),xpd=TRUE,bty="n")
 
 
 par(mai = c(.3,.3,.3,1.5))
