@@ -1,31 +1,5 @@
 
-convertDates <- function(Dat){
-    # can't be done with apply because we can't have Date class matrices...
-    DateInd       <- grep(pattern="_dt",colnames(Dat))
-    for (i in DateInd){
-        Dat[,i]    <- as.Date(Dat[,i],origin="1960-1-1")
-    }
-    invisible(Dat)
-}
-getThanoAge <- function(Date, DeathDate){
-    out <- rep(NA, length(Date))
-    Ind <- !is.na(Date)
-    out[Ind] <- lubridate::decimal_date(DeathDate[Ind]) - lubridate::decimal_date(Date[Ind])
-    out
-}
-setwd("/home/triffe/git/ThanoEmpirical/ThanoEmpirical")
-Dat         <- local(get(load("Data/thanos_wide_v1_1.gz")))
-
-Dat$sex     <- ifelse(as.character(Dat$sex) == "1.male","m","f")
-Dat         <- Dat[Dat$dead == 1, ]
-Dat         <- convertDates(Dat)
-
-DInd        <- grep(colnames(Dat),pattern="d_dt")
-DateInd     <- grep(colnames(Dat),pattern="int_dt")
-TaColnames  <- paste0("ta_",gsub(pattern = "int_dt",replacement = "",colnames(Dat)[DateInd]))
-for (i in 1:length(DateInd)){
-    Dat[[TaColnames[i]]] <- getThanoAge(Dat[,DateInd[i]],Dat[,DInd])
-}
+# this make be junk code as of current version. Just a scratch pad is all.
 adl5        <- paste0("adl5_", 2:10)
 ta          <- paste0("ta_", 2:10)
 sex         <- "m"
