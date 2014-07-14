@@ -19,7 +19,7 @@ getLong <- function(Dat,
         vars_ta = c("adl3_","adl5_","iadl3_","iadl5_",
                 "cesd","cen","div","mar","lim_work",
                 "srh","bmi","back","ta_"), 
-        vars = c("sex","wt","d_yr")){
+        vars = c("id","sex","wt","d_yr")){
     # cut down in case some columns not available
     vars_ta <- vars_ta[colSums(sapply(vars_ta,grepl,colnames(Dat))) > 0]
     Vars_ta <- outer(vars_ta,1:10,paste0)
@@ -68,6 +68,10 @@ for (i in 1:length(DateInd)){
 # now move to long format
 Dat         <- getLong(Dat)
 
+# if a person was absent at a given wave, their ta is NA
+Dat         <- Dat[!is.na(Dat$ta), ]
+
+# dim(Dat)
 # save out, so this doesn't need to be re-run every time
 save(Dat,file = "Data/Data_long.Rdata")
 
