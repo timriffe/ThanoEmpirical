@@ -16,7 +16,7 @@ getThanoAge <- function(Date, DeathDate){
 }
 # converts to long format, assumes thano age columns already appended:
 getLong <- function(Dat, 
-        vars_ta = c("adl3_","adl5_","iadl3_","iadl5_",
+        vars_ta = c("int_dt","adl3_","adl5_","iadl3_","iadl5_",
                 "cesd","cen","div","mar","lim_work",
                 "srh","bmi","back","ta_"), 
         vars = c("id","sex","wt","d_yr")){
