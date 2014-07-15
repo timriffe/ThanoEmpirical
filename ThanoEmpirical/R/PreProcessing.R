@@ -44,7 +44,7 @@ getLong <- function(Dat,
 # setwd needs to change to wherever your parent folder is, assuming the .gz file
 # is in a 'Data' folder, and actually has the .gz suffix on it :-)
 
-# setwd("/home/triffe/git/ThanoEmpirical/ThanoEmpirical")
+setwd("/home/triffe/git/ThanoEmpirical/ThanoEmpirical")
 #Dat         <- local(get(load("Data/thanos_wide_v1_0.gz")))
 
 # v1_1 is the same, but includes more variables, and will soon include

@@ -413,3 +413,14 @@
   timestamp = {2013.02.22}
 }
 
+@ELECTRONIC{HRS,
+  month = {September},
+  year = {2013},
+  title = {RAND HRS Data, Version M},
+  address = {Santa Monica, CA},
+  note = {Produced by the RAND Center for the Study of Aging, with funding
+	from the National Institute on Aging and the Social Security Administration.},
+  owner = {triffe},
+  timestamp = {2014.07.14}
+}
+

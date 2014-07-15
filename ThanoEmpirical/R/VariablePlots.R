@@ -19,7 +19,7 @@ Dat <- local(get(load("Data/Data_long.Rdata")))
 
 Dat <- data.table(Dat)
 # a hack, to be removed when weights are properly figured out:
-Dat$wt[is.na(Dat$wt)] <- mean(Dat$wt, na.rm = TRUE)
+#Dat$wt[is.na(Dat$wt)] <- mean(Dat$wt, na.rm = TRUE)
 
 # for binning purposes, akin to 'completed age'
 Dat$tafloor <- floor(Dat$ta)
@@ -45,10 +45,10 @@ names(recvec) <- sort(unique(Dat$srh))
 Dat$srh       <- recvec[Dat$srh]
 
 Means         <- Dat[,list(
-                     adl5 = wmean(adl5,wt),
-                     srh = wmean(srh,wt),
-                     back = wmean(back,wt),
-                     cesd = wmean(cesd,wt)),by=list(sex,tafloor)]
+                     adl5 = wmean(adl5,p_wt),
+                     srh = wmean(srh,p_wt),
+                     back = wmean(back,p_wt),
+                     cesd = wmean(cesd,p_wt)),by=list(sex,tafloor)]
 Means         <- Means[with(Means,order(sex,tafloor)), ]
 
 # females then males (16 rows each)
