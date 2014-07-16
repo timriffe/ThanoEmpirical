@@ -47,10 +47,11 @@ getLong <- function(Dat,
 setwd("/home/triffe/git/ThanoEmpirical/ThanoEmpirical")
 #Dat         <- local(get(load("Data/thanos_wide_v1_0.gz")))
 
-# v1_1 is the same, but includes more variables, and will soon include
-# person-weights.
-Dat         <- local(get(load("Data/thanos_wide_v1_1.gz")))
+# v1_1 is the same, but includes more variables, andhas person-weights
+#Dat         <- local(get(load("Data/thanos_wide_v1_1.gz")))
 
+# v2_2 has even more variables:
+Dat         <- local(get(load("Data/thanos_wide_v2_1.gz")))
 # make sex column easier to use:
 Dat$sex     <- ifelse(as.character(Dat$sex) == "1.male","m","f")
 # reduce to deceased-only

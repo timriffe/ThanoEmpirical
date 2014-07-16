@@ -1,0 +1,152 @@
+######################################################
+# Variable summary for 'thanos' dataset: wide-format #
+# (version: 2.0) - 07/XX/2014                        #
+######################################################
+
+SYNTAX:
+Variable Description (variable name)
+
+------------------------------------------------------
+
+IDENTIFIERS
+-Person ID (id)
+-Sample Cohort (cohort)
+-Sampling Weight (s_wt)
+-Birth Month (b_mo)
+-Birth Year (b_yr)
+-Birth Date (b_dt)
+-Death Month (d_mo)
+-Death Year (d_yr)
+-Death Date (d_dt)
+-Sex (sex)
+-Race (race)
+-Hispanic Ethnicity (hisp)
+-Education in Years (edu_yrs)
+-Mother's Education (m_edu)
+-Father's Education (f_edu)
+-Place of Birth (b_pl)
+-Death Indicator (dead)
+-Days Alive (days_alive)
+
+REPEATED MEASURES: LOGISTICS
+-Person-Level Weight (p_wt1 -- p_wt10)
+-Interview Response (intv1 -- intv10)
+-Interview Mid-Point Date (intv_dt1 -- intv_dt10)
+-Age at Interview Mid-Point (age1 -- age10)
+-Census Region (reg1 -- reg10)
+-Census Division (div1 -- div10)
+-Marital Status (mar1 -- mar10)
+
+REPEATED MEASURES: OUTCOMES
+-Self-Reported Health (srh1 -- srh10)
+-Health Limits Work (lim_work1 -- lim_work10)
+-Body Mass Index (bmi1 -- bmi10)
+-Back Problems (back1 -- back10)
+-Ulcers (ulc1 -- ulc2)
+
+-Overnight Hospitalization: Previous 12 Months (hosp1)
+-Overnight Hospitalization: Previous 24 Months (hosp2 -- hosp10)
+-Number of Hospital Stays: Previous 12 Months (hosp_stays1)
+-Number of Hospital Stays: Previous 24 Months (hosp_stays2 -- hosp_stays10)
+-Number of Nights in Hospital: Previous 12 Months (hosp_nights1)
+-Number of Nights in Hospital: Previous 24 Months (hosp_nights2 -- hosp_nights10)
+
+-Overnight Stay in Nursing Home: Previous 12 Months (nh1)
+-Overnight Stay in Nursing Home: Previous 24 Months (nh2 -- nh10)
+-Number of Nursing Home Stays: Previous 12 Months (nh_stays1)
+-Number of Nursing Home Stays: Previous 24 Months (nh_stays2 -- nh_stays10)
+-Number of Nights in Nursing Home: Previous 12 Months (nh_nights1)
+-Number of Nights in Nursing Home: Previous 24 Months (nh_nights2 -- nh_nights10)
+-Living in Nursing Home at Interview (nh_now3 -- nh_now10)
+-Year Moved to Nursing Home (nh_yr3 -- nh_yr10)
+-Month Moved to Nursing Home (nh_mo3 -- nh_mo10)
+-Days in Nursing Home since Move or Previous Interview (nh_days3 -- nh_days10)
+
+-Doctor Visit: Previous 12 Months (doc1)
+-Doctor Visit: Previous 24 Months (doc2 -- doc10)
+-Number of Doctor Visits: Previous 12 Months (doc_visits1)
+-Number of Doctor Visits: Previous 24 Months (doc_visits2 -- doc_visits10)
+
+-Home Health Care: Previous 12 Months (hhc1)
+-Home Health Care: Previous 24 Months (hhc2 -- hhc10)
+
+-Regularly Takes Prescription Drugs: Previous 12 Months (meds2)
+-Regularly Takes Prescription Drugs: Previous 24 Months (meds3 -- meds10)
+
+-Outpatient Surgery: Previous 12 Months (surg2)
+-Outpatient Surgery: Previous 24 Months (surg3 -- surg10)
+
+-Dental Visit: Previous 12 Months (dent2)
+-Dental Visit: Previous 24 Months (dent3 -- dent10)
+
+-Special Health Facility Visit: Previous 12 Months (shf2)
+-Special Health Facility Visit: Previous 24 Months (shf3 -- shf10)
+
+-Imputed Total Medical Expenditure (med_exp3 -- med_exp6)
+
+-ADL: 3-point Summary Score (adl3_2 -- adl3_10)
+-ADL: 5-point Summary Score (adl5_2 -- adl5_10)
+-ADL: Some Difficulty Walking Across Room (adl_walk2 -- adl_walk10)
+-ADL: Some Difficulty Dressing (adl_dress2 -- adl_dress10)
+-ADL: Some Difficulty Bathing/Showering (adl_bath2 -- adl_bath10)
+-ADL: Some Difficulty Eating (adl_eat2 -- adl_eat10)
+-ADL: Some Difficulty Getting In/Out of Bed (adl_bed2 -- adl_bed10)
+-ADL: Some DIfficulty Using Toilet (adl_toilet2 -- adl_toilet10)
+
+-IADL: 3-point Summary Score (iadl3_2 -- iadl3_10)
+-IADL: 5-point Summary Score (iadl5_2 -- iadl5_10)
+-IADL: Some Difficulty Using a Map (iadl_map2 -- iadl_map10)
+-IADL: Some Difficulty Using a Calculator (iadl_calc2)
+-IADL: Some Difficulty Using a Telephone (iadl_tel2 -- iadl_tel10)
+-IADL: Some Difficulty Managing Money (iadl_money2 -- iadl_money10)
+-IADL: Some Difficulty Taking Medications (iadl_meds2 -- iadl_meds10)
+-IADL: Some Difficulty Shopping for Groceries (iadl_shop2 -- iadl_shop10)
+-IADL: Some Difficulty Preparing Hot Meals (iadl_meals2 -- iadl_meals10)
+
+-Mobility Difficulty Index (mob2 -- mob10)
+-Large Muscle Difficulty Index (lg_mus2 -- lg_mus10)
+-Gross Motor Difficulty Index (gross_mot2 -- gross_mot10)
+-Fine Motor Difficulty Index (fine_mot2 -- fine_mot10)
+
+-High Blood Pressure - Ever (bp1 -- bp10)
+-Diabetes - Ever (diab1 -- diab10)
+-Cancer - Ever (cancer1 -- cancer10)
+-Lung Disease (lung1 -- lung10)
+-Heart Problems - Ever (heart1 -- heart10)
+-Stroke - Ever (stroke1 -- stroke10)
+-Psychological Problems - Ever (psych1 -- psych10)
+-Arthritis - Ever (arth1 -- arth10)
+-Number of Chronic Conditions - Ever (cc1 -- cc10)
+
+-Vigorous Physical Activity 3+ Times Per Week (vig1 -- vig6)
+-Frequency of Vigorous Physical Activity - Coarse Scale (vig_freq1)
+-Frequency of Vigorous Physical Activity - Fine Scale (vig_freq7 -- vig_freq10)
+-Light Physical Activity 3+ Times Per Week (lt1 -- lt2)
+-Frequency of Light Physical Activity - Coarse Scale (lt_freq1)
+-Frequency of Light Physical Activity - Fine Scale (lt_freq7 -- lt_freq10)
+-Frequency of Moderate Physical Activity - Fine Scale (mod_freq7 -- mod_freq10)
+
+-Alcohol Consumption - Ever (alc_ev1 -- alc_ev10)
+-Alcohol Consumption - Number of Days per Week (alc_days3 -- alc_days10) 
+-Alcohol Consumption - Number of Drinks per Drinking Day (alc_drinks3 -- alc_drinks10)
+
+-Smoking - Ever (smoke_ev1 -- smoke_ev10)
+-Smoking - Current (smoke_cur1 -- smoke_cur10)
+
+-CESD Depression Score (cesd1 -- cesd10)
+-CESD: Felt Depressed - Fine Scale (cesd_depr1)
+-CESD: Felt Depressed - Coarse Scale (cesd_depr2 -- cesd_depr10)
+-CESD: Everything an Effort - Fine Scale (cesd_eff1)
+-CESD: Everything an Effort - Coarse Scale (cesd_eff2 -- cesd_eff10)
+-CESD: Sleep was Restless - Fine Scale (cesd_sleep1)
+-CESD: Sleep was Restless - Coarse Scale (cesd_sleep2 -- cesd_sleep10)
+-CESD: Was Happy - Fine Scale (cesd_happy1)
+-CESD: Was Happy - Coarse Scale (cesd_happy2 -- cesd_happy10)
+-CESD: Felt Lonely - Fine Scale (cesd_lone1)
+-CESD: Felt Lonely - Coarse Scale (cesd_lone2 -- cesd_lone10) 
+-CESD: Felt Sad - Fine Scale (cesd_sad1)
+-CESD: Felt Sad - Coarse Scale (cesd_sad2 -- cesd_sad10)
+-CESD: Could Not Get Going - Fine Scale (cesd_going1)
+-CESD: Could Not Get Going - Coarse Scale (cesd_going2 -- cesd_going10)
+-CESD: Enjoyed Life - Fine Scale (cesd_enjoy1)
+-CESD: Enjoyed Life - Coarse Scale (cesd_enjoy2 -- cesd_enjoy10)
