@@ -1,0 +1,222 @@
+http://www.demog.berkeley.edu/croatia/datadir/Linkfiles/crodata4.format.htm
+
+Format of Records in croatdata4
+ 
+ 
+Variable
+Meaning
+bid
+Birth ID. Record number in birth.w. If the individual does not have a baptismal record but is only known from some other record, this is an arbitrarily assigned ID. Persons identifiable from a marriage record as the spouse of the parent of a child identifiable from a baptismal record receive a bid in the 200k range. Persons identifiable only from a child�s baptismal record receive a bid in the 400k range.
+bdate
+Birth date (decimal date with origin at 1700). Leap years are taken into account.
+sex
+m, f
+motherid
+ID of mother in croatdata4
+fatherid
+ID of father in croatdata4
+mid1
+Record number in mar.w for first marriage
+mid2
+Record number in mar.w for second marriage
+mid3
+Record number in mar.w for third marriage
+mid4
+Record number in mar.w for fourth marriage
+mid5
+Record number in mar.w for fifth marriage
+sid1
+bid of spouse in first marriage
+sid2
+bid of spouse in second marriage
+sid3
+bid of spouse in third marriage
+sid4
+bid of spouse in fourth marriage
+sid5
+bid of spouse in fifth marriage
+mdate1
+Date of first marriage
+mdate2
+Date of second marriage
+mdate3
+Date of third marriage
+mdate4
+Date of fourth marriage
+mdate5
+Date of fifth marriage
+did
+Death ID. Record number in death.w
+ddate
+Death date
+idk1
+bid of child 1
+idk2
+bid of child 2
+idk3
+bid of child 3
+idk4
+bid of child 4
+idk5
+bid of child 5
+idk6
+bid of child 6
+idk7
+bid of child 7
+idk8
+bid of child 8
+idk9
+bid of child 9
+idk10
+bid of child 10
+idk11
+bid of child 11
+idk12
+bid of child 12
+idk13
+bid of child 13
+idk14
+bid of child 14
+dobk1
+date of birth of child 1
+dobk2
+date of birth of child 2
+dobk3
+date of birth of child 3
+dobk4
+date of birth of child 4
+dobk5
+date of birth of child 5
+dobk6
+date of birth of child 6
+dobk7
+date of birth of child 7
+dobk8
+date of birth of child 8
+dobk9
+date of birth of child 9
+dobk10
+date of birth of child 10
+dobk11
+date of birth of child 11
+dobk12
+date of birth of child 12
+dobk13
+date of birth of child 13
+dobk14
+date of birth of child 14
+sidk1
+spouse i.e. other parent of of child 1
+sidk2
+spouse i.e. other parent of of child 2
+sidk3
+spouse i.e. other parent of of child 3
+sidk4
+spouse i.e. other parent of of child 4
+sidk5
+spouse i.e. other parent of of child 5
+sidk6
+spouse i.e. other parent of of child 6
+sidk7
+spouse i.e. other parent of of child 7
+sidk8
+spouse i.e. other parent of of child 8
+sidk9
+spouse i.e. other parent of of child 9
+sidk10
+spouse i.e. other parent of of child 10
+sidk11
+spouse i.e. other parent of of child 11
+sidk12
+spouse i.e. other parent of of child 12
+sidk13
+spouse i.e. other parent of of child 13
+sidk14
+spouse i.e. other parent of of child 14
+remark1
+was this parent of child 1 then in a remarriage (1=yes)
+remark2
+was this parent of child 21 then in a remarriage (1=yes)
+remark3
+was this parent of child 3 then in a remarriage (1=yes)
+remark4
+was this parent of child 4 then in a remarriage (1=yes)
+remark5
+was this parent of child 5 then in a remarriage (1=yes)
+remark6
+was this parent of child 6 then in a remarriage (1=yes)
+remark7
+was this parent of child 7 then in a remarriage (1=yes)
+remark8
+was this parent of child 8 then in a remarriage (1=yes)
+remark9
+was this parent of child 9 then in a remarriage (1=yes)
+remark10
+was this parent of child 10 then in a remarriage (1=yes)
+remark11
+was this parent of child 11 then in a remarriage (1=yes)
+remark12
+was this parent of child 12 then in a remarriage (1=yes)
+remark13
+was this parent of child 13 then in a remarriage (1=yes)
+remark14
+was this parent of child 14 then in a remarriage (1=yes)
+remarok1
+was other parent of child 1 then in a remarriage (1=yes)
+remarok2
+was other parent of child 21 then in a remarriage (1=yes)
+remarok3
+was other parent of child 3 then in a remarriage (1=yes)
+remarok4
+was other parent of child 4 then in a remarriage (1=yes)
+remarok5
+was other parent of child 5 then in a remarriage (1=yes)
+remarok6
+was other parent of child 6 then in a remarriage (1=yes)
+remarok7
+was other parent of child 7 then in a remarriage (1=yes)
+remarok8
+was other parent of child 8 then in a remarriage (1=yes)
+remarok9
+was other parent of child 9 then in a remarriage (1=yes)
+remarok10
+was other parent of child 10 then in a remarriage (1=yes)
+remarok11
+was other parent of child 11 then in a remarriage (1=yes)
+remarok12
+was other parent of child 12 then in a remarriage (1=yes)
+remarok13
+was other parent of child 13 then in a remarriage (1=yes)
+remarok14
+was other parent of child 14 then in a remarriage (1=yes)
+park1
+parish of birth of child 1
+park2
+parish of birth of child 2
+park3
+parish of birth of child 3
+park4
+parish of birth of child 4
+park5
+parish of birth of child 5
+park6
+parish of birth of child 6
+park7
+parish of birth of child 7
+park8
+parish of birth of child 8
+park9
+parish of birth of child 9
+park10
+parish of birth of child 10
+park11
+parish of birth of child 11
+park12
+parish of birth of child 12
+park13
+parish of birth of child 13
+park14
+parish of birth of child 14
+lastdate
+last observed date for this bid
+ 
