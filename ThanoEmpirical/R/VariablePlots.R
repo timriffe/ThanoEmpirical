@@ -43,12 +43,12 @@ Dat$srh[is.na(Dat$srh)] <- "NA"
 recvec        <- c(0:4, NA)
 names(recvec) <- sort(unique(Dat$srh))
 Dat$srh       <- recvec[Dat$srh]
-
+colnames(Dat) <- gsub("_","",colnames(Dat) )
 Means         <- Dat[,list(
-                     adl5 = wmean(adl5,p_wt),
-                     srh = wmean(srh,p_wt),
-                     back = wmean(back,p_wt),
-                     cesd = wmean(cesd,p_wt)),by=list(sex,tafloor)]
+                     adl5 = wmean(adl5,pwt),
+                     srh = wmean(srh,pwt),
+                     back = wmean(back,pwt),
+                     cesd = wmean(cesd,pwt)),by=list(sex,tafloor)]
 Means         <- Means[with(Means,order(sex,tafloor)), ]
 
 # females then males (16 rows each)
@@ -85,6 +85,36 @@ legend(15,ylim[2],lty=1,lwd=1.5,col=Colors,legend=colnames(Means),xpd=TRUE,bty="
 dev.off()
 #dev.new(height = height, width = width)
 pdf("Figures/VariablePlots/ProposalMales.pdf", height = height, width = width)
+par(mai = mai, xpd = TRUE, xaxs = "i", yaxs = "i")
+plot(NULL, type = 'n', axes = FALSE, xlim = c(0,15), ylim = ylim, xlab = "", ylab = "", panel.first =list(
+                rect(0, ylim[1], 15, ylim[2], col = gray(.95), border = NA),
+                segments(seq(0, 14, by = 2), ylim[1], seq(0, 14, by = 2), ylim[2], col = "white"),
+                text(seq(0, 14, by = 2), ylim[1], seq(0, 14, by = 2), pos = 1, xpd = TRUE, cex = .8),
+                segments(0, ytix, 15, ytix, col = "white"),
+                text(0, ytix, ytix, pos = 2, cex = .8),
+                text(7, ylim[1] - .5, "Years Left"),
+                text(-2, ylim[2] + .4, "Mean value\n(centered & scaled)", pos = 4)))
+matplot(0:15, MeansScaled[17:32, ], type = 'l', lty = 1, lwd = 1.5, col = Colors, add = TRUE)
+legend(15,ylim[2],lty=1,lwd=1.5,col=Colors,legend=colnames(Means),xpd=TRUE,bty="n")
+dev.off()
+
+# png not used in the end. was for possible blog post, but nixed
+#dev.new(height = height, width = width)
+png("Figures/VariablePlots/ProposalFemales.png", height = height*90, width = width*90, res = 90)
+par(mai = mai, xpd = TRUE, xaxs = "i", yaxs = "i")
+plot(NULL, type = 'n', axes = FALSE, xlim = c(0,15), ylim = ylim, xlab = "", ylab = "", panel.first =list(
+                rect(0, ylim[1], 15, ylim[2], col = gray(.95), border = NA),
+                segments(seq(0, 14, by = 2), ylim[1], seq(0, 14, by = 2), ylim[2], col = "white"),
+                text(seq(0, 14, by = 2), ylim[1], seq(0, 14, by = 2), pos = 1, xpd = TRUE, cex = .8),
+                segments(0, ytix, 15, ytix, col = "white"),
+                text(0, ytix, ytix, pos = 2, cex = .8),
+                text(7, ylim[1] - .5, "Years Left"),
+                text(-2, ylim[2] + .4, "Mean value\n(centered & scaled)", pos = 4)))
+matplot(0:15, MeansScaled[1:16, ], type = 'l', lty = 1, lwd = 1.5, col = Colors, add = TRUE)
+legend(15,ylim[2],lty=1,lwd=1.5,col=Colors,legend=colnames(Means),xpd=TRUE,bty="n")
+dev.off()
+#dev.new(height = height, width = width)
+png("Figures/VariablePlots/ProposalMales.png", height = height*90, width = width*90, res = 90)
 par(mai = mai, xpd = TRUE, xaxs = "i", yaxs = "i")
 plot(NULL, type = 'n', axes = FALSE, xlim = c(0,15), ylim = ylim, xlab = "", ylab = "", panel.first =list(
                 rect(0, ylim[1], 15, ylim[2], col = gray(.95), border = NA),

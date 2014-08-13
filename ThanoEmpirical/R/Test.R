@@ -41,3 +41,7 @@ png("Figures/PatternADL5.png")
 matplot(0:15, MADL5, type = 'l', lty = 1, ylab = "adl5", xlab = "Years Left", col = c("red","blue"),main = "ADL5 by remaining years of life and sex, HRS waves 2-10")
 legend("topright",lty=1,col=c("red","blue"),legend=c("female","male"),bty="n")
 dev.off()
+
+# this doesn't render math or pdf figures well, decided not to do it.
+#setwd("/home/triffe/git/ThanoEmpirical/ThanoEmpirical")
+#system("latex2html ThanoEmpirical.tex")
