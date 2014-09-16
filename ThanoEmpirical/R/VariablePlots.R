@@ -1,9 +1,14 @@
+
 # install.packages("data.table")
 # install.packages("RColorBrewer")
 library(data.table)
+library(reshape2)
 library(RColorBrewer)
 # simple weighted mean function
-wmean <- function(x,w){
+wmean <- function(x,w=rep(1,length(x))){
+    if (length(x)==0){
+        return(NA)
+    }
     sum(x * w, na.rm = TRUE) / sum(w, na.rm = TRUE)
 }
 getMeans <- function(.SD){
@@ -13,7 +18,7 @@ getMeans <- function(.SD){
                     iadl5 = wmean(iadl5,wt),
                     cesd = wmean(cesd,wt)))
 }
-setwd("/home/triffe/git/ThanoEmpirical/ThanoEmpirical")
+setwd("/home/tim/git/ThanoEmpirical/ThanoEmpirical")
 
 Dat <- local(get(load("Data/Data_long.Rdata")))
 
@@ -23,7 +28,7 @@ Dat <- data.table(Dat)
 
 # for binning purposes, akin to 'completed age'
 Dat$tafloor <- floor(Dat$ta)
-
+Dat$cafloor <- floor(Dat$ca)
 # I guess actual interview date could be some weeks prior to registered
 # interview date? There are two negative thano ages at wave 4 otherwise, but
 # still rather close. Likely died shortly after interview.
@@ -31,25 +36,140 @@ Dat$tafloor[Dat$tafloor < 0] <- 0
 
 # greater than 15 we lose precision, cut off:
 Dat <- Dat[Dat$tafloor <= 15, ]
+Dat <- Dat[Dat$cafloor >= 60, ]
+
+
+# bin ages
+Dat$cafloor2 <- Dat$cafloor - Dat$cafloor %% 2
+Dat$tafloor2 <- Dat$tafloor - Dat$tafloor %% 2
+
+Dat$cafloor3 <- Dat$cafloor - Dat$cafloor %% 3
+Dat$tafloor3 <- Dat$tafloor - Dat$tafloor %% 3
 
 # recode so factors 'back'
-Dat$lim_work <- as.character(Dat$lim_work)
-Dat$back     <- as.character(Dat$back)
-Dat$srh      <- as.character(Dat$srh)
+#Dat$lim_work <- as.character(Dat$lim_work)
+#Dat$back     <- as.character(Dat$back)
+#Dat$srh      <- as.character(Dat$srh)
+#
+#Dat$back <- ifelse(is.na(Dat$back), NA, ifelse(Dat$back == "1. yes",1,0))
+#Dat$srh[is.na(Dat$srh)] <- "NA"
+#
+#recvec        <- c(0:4, NA)
+#names(recvec) <- sort(unique(Dat$srh))
+#Dat$srh       <- recvec[Dat$srh]
+#colnames(Dat) <- gsub("_","",colnames(Dat) )
+#Dat <- data.table(Dat)
 
-Dat$back <- ifelse(is.na(Dat$back), NA, ifelse(Dat$back == "1. yes",1,0))
-Dat$srh[is.na(Dat$srh)] <- "NA"
+varnames      <- c(
+       "iadl3_", "iadl5_", "cesd", "lim_work", "srh", 
+        "bmi", "back",  "hosp", "hosp_stays", "hosp_nights", "nh", 
+        "nh_stays", "nh_nights", "nh_now", "nh_mo", "nh_yr", "nh_days", 
+        "doc", "doc_visits", "hhc", "meds", "surg", "dent", "shf", "adl_walk", 
+        "adl_dress", "adl_bath", "adl_eat", "adl_bed", "adl_toilet", 
+        "iadl_map", "iadl_tel", "iadl_money", "iadl_meds", "iadl_shop", 
+        "iadl_meals", "mob", "lg_mus", "gross_mot", "fine_mot", "bp", 
+        "diab", "cancer", "lung", "heart", "stroke", "psych", "arth", 
+        "cc", "vig_freq", "lt_freq", "mod_freq", "alc_ev", "alc_days", 
+        "alc_drinks", "smoke_ev", "smoke_cur", "cesd_depr", "cesd_eff", 
+        "cesd_sleep", "cesd_happy", "cesd_lone", "cesd_sad", "cesd_going", 
+        "cesd_enjoy", "med_exp", "iadl_calc", "ulc", "vig", "lt")     
+varnames <- varnames[varnames %in% colnames(Dat)]
 
-recvec        <- c(0:4, NA)
-names(recvec) <- sort(unique(Dat$srh))
-Dat$srh       <- recvec[Dat$srh]
-colnames(Dat) <- gsub("_","",colnames(Dat) )
-Means         <- Dat[,list(
-                     adl5 = wmean(adl5,pwt),
-                     srh = wmean(srh,pwt),
-                     back = wmean(back,pwt),
-                     cesd = wmean(cesd,pwt)),by=list(sex,tafloor)]
-Means         <- Means[with(Means,order(sex,tafloor)), ]
+SurfaceList <- list()
+Dat <- data.frame(Dat)
+#Dat$mod_freq
+for (varname in varnames){
+          
+            Dati <- Dat[, c("sex","tafloor2","cafloor2","p_wt2",varname)]
+            colnames(Dati)[5] <- "V1"
+            Mean <- 
+                    data.table(Dati)[,  list(V1 = wmean(V1,p_wt2)),
+                               by = list(sex,tafloor2,cafloor2)]
+            Mean <- data.frame(Mean)   
+   
+            MeanM <- acast(Mean[Mean$sex == "m", ],tafloor2~cafloor2,value.var="V1" )
+            MeanF <- acast(Mean[Mean$sex == "f", ],tafloor2~cafloor2,value.var="V1" )
+            
+            #setnames(Dat,cols="V1",value=varname)
+            
+            SurfaceList[[varname]] <- list(Male = MeanM,Female = MeanF)
+        }
+        
+
+        
+Meta <- readLines("/home/tim/git/ThanoEmpirical/ThanoEmpirical/Data/thanos_wide_v2_0.txt")        
+
+
+library(LexisUtils)
+
+pdf("Figures/VariablePlots/SurfacesMales.pdf", width = 5, height = 4)
+for (varname in varnames){
+   
+            LexisMap(SurfaceList[[varname]]$Male, log = FALSE, 
+                    xlab = "Years Lived", 
+                    ylab = "Years Left",
+                    main = paste("Males",varname),
+                    contour = TRUE, 
+                    LexRef = FALSE
+            )
+    
+}
+
+dev.off()
+args(LexisMap)
+pdf("Figures/VariablePlots/SurfacesFemales.pdf", width = 5, height = 4)
+for (varname in varnames){
+    
+    LexisMap(SurfaceList[[varname]]$Female, log = FALSE, 
+            xlab = "Years Lived", 
+            ylab = "Years Left",
+            main = paste("Females",varname),
+            contour = TRUE, 
+            LexRef = FALSE
+    )
+    
+}
+dev.off()
+args(LexisMap)
+
+
+
+
+
+
+library(reshape2)
+Dat <- data.frame(Dat)
+#acast(Dat[Dat$sex == "m",],cafloor3~tafloor3, value.var = "srh", 
+#        fun.aggregate = wmean, w = Dat$p_wt2[Dat$sex=="m"])
+#
+#acast(Dat[Dat$sex == "m",],list("cafloor2","tafloor2"), value.var = "srh", 
+#        fun.aggregate = wmean, w = "p_wt2")
+#
+
+makeMatrix <- function(Dat,sex,variable="srh",weight="p_wt2"){
+    # waiting on SO response
+    acast(Dat[Dat$sex == sex, ],cafloor3~tafloor3, value.var = "srh", 
+            fun.aggregate = wmean, w = weight)
+}
+acast(Dat2,cafloor2~tafloor2, value.var = c("srh","p_wt2"),
+        fun.aggregate = wmean)
+
+wmean(Dat2$srh,Dat2$p_wt2)
+
+image(acast(Dat[Dat$sex == "m", ],cafloor2~tafloor2, value.var = "srh", 
+        fun.aggregate = mean, na.rm=TRUE)
+)
+
+
+
+
+
+
+
+
+
+
+
 
 # females then males (16 rows each)
 Means$sex     <- NULL
