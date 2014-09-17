@@ -57,7 +57,7 @@ Dat$tafloor3 <- Dat$tafloor - Dat$tafloor %% 3
 varnames      <- c(
         "iadl3_", "iadl5_", "cesd", "lim_work", "srh", 
         "bmi", "back",  "hosp", "hosp_stays", "hosp_nights", "nh", 
-        "nh_stays", "nh_nights", "nh_now", "nh_mo", "nh_yr", "nh_days", 
+        "nh_stays", "nh_nights", "nh_now", 
         "doc", "doc_visits", "hhc", "meds", "surg", "dent", "shf", "adl_walk", 
         "adl_dress", "adl_bath", "adl_eat", "adl_bed", "adl_toilet", 
         "iadl_map", "iadl_tel", "iadl_money", "iadl_meds", "iadl_shop", 
@@ -72,6 +72,7 @@ varnames <- varnames[varnames %in% colnames(Dat)]
 # --------------------------------------------------
 # This is a sloppy old-school way this
 Dat         <- data.frame(Dat)
+SurfaceList <- list()
 #Dat$mod_freq
 for (varname in varnames){
     
