@@ -39,8 +39,42 @@ for (varname in varnames){
 dev.off()
 
 
+# ------------------------------------------------------        
+LoessList <- local(get(load("Data/LoessList.Rdata")))
+# ------------------------------------------------------        
+varnames <- names(LoessList)
+rapply(LoessList,class)
 
+library(LexisUtils)
+pdf("Figures/VariablePlots/LoessSurfacesMales.pdf", width = 5, height = 4)
+for (varname in varnames){
+    if(class(LoessList[[varname]]$Male)!="try-error"){
+        LexisMap(LoessList[[varname]]$Male$Surf, log = FALSE, 
+                xlab = "Years Lived", 
+                ylab = "Years Left",
+                main = paste("Males",varname),
+                contour = TRUE, 
+                LexRef = FALSE
+        )
+    }   
+}
+dev.off()
 
+pdf("Figures/VariablePlots/LoessSurfacesFemales.pdf", width = 5, height = 4)
+for (varname in varnames){
+    if(class(LoessList[[varname]]$Female) != "try-error"){
+        LexisMap(LoessList[[varname]]$Female$Surf, log = FALSE, 
+                xlab = "Years Lived", 
+                ylab = "Years Left",
+                main = paste("Females",varname),
+                contour = TRUE, 
+                LexRef = FALSE
+        )
+    }
+}
+dev.off()
+names(LoessList[[varname]])
+LoessList[[varname]]$Male
 
 
 

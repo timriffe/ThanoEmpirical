@@ -57,7 +57,7 @@ LoessList  <- mclapply(varnames, function(varname,Dat){
             list(Male = Male,
                  Female = Female)
         }, Dat = Dat)
-
+names(LoessList) <- varnames
 save(LoessList,file="Data/LoessList.Rdata")
 
 
