@@ -1,4 +1,5 @@
-setwd("/home/tim/git/ThanoEmpirical/ThanoEmpirical")
+setwd(paste0("/home/",system("whoami"),"/git/ThanoEmpirical/ThanoEmpirical"))
+#setwd("/home/triffe/git/ThanoEmpirical/ThanoEmpirical")
 
 
 # install.packages("lubridate")

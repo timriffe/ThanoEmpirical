@@ -1,6 +1,6 @@
 
 # data from http://www.demog.berkeley.edu/croatia/datadir/Linkfiles/linkfiles.htm
-setwd("/home/triffe/git/ThanoEmpirical/ThanoEmpirical/")
+setwd(paste0("/home/",system("whoami"),"/git/ThanoEmpirical/ThanoEmpirical"))
 #
 CRO <- read.table("Data/croatdata4.txt.gz",
         stringsAsFactors = FALSE, sep = "\t", col.names = c('bid','bdate','sex','motherid','fatherid','mid1','mid2','mid3','mid4','mid5',

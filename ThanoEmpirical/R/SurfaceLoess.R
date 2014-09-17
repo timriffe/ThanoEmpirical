@@ -1,4 +1,4 @@
-setwd("/home/tim/git/ThanoEmpirical/ThanoEmpirical")
+setwd(paste0("/home/",system("whoami"),"/git/ThanoEmpirical/ThanoEmpirical"))
 library(LexisUtils)
 library(parallel)
 Dat <- local(get(load("Data/Data_long.Rdata")))

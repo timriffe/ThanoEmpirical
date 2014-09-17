@@ -1,5 +1,5 @@
 
-setwd("/home/tim/git/ThanoEmpirical/ThanoEmpirical")
+setwd(paste0("/home/",system("whoami"),"/git/ThanoEmpirical/ThanoEmpirical"))
 # install.packages("data.table")
 # install.packages("RColorBrewer")
 library(data.table)

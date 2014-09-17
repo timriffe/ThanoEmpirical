@@ -11,7 +11,7 @@ convertDates <- function(Dat){
     }
     invisible(Dat)
 }
-setwd("/home/tim/git/ThanoEmpirical/ThanoEmpirical")
+setwd(paste0("/home/",system("whoami"),"/git/ThanoEmpirical/ThanoEmpirical"))
 
 #
 Dat         <- local(get(load("Data/thanos_long_v2_1.gz")))
