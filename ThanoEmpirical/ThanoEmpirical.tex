@@ -109,7 +109,76 @@ activities. \texttt{srh} is self-reported health (higher = worse).
 \end{figure}
 %from here
 
+\section{Data}
+All findings reported in this paper are based on data from the US Health and
+Retirement Study (HRS). We use the Rand edition of the data, which is
+conveniently merged across all ten waves, and we calculate thanatological age
+based on date of death information in the mortality followup module. We
+restrict the dataset to only those individuals that have died. This reduces the
+dataset from 36986 individuals with an average of 5 interviews each to 11947
+deceased individuals with an average of 4.25 interviews each. Further winowing
+from our weighting criterion reduces the dataset to
+11520 individuals with 4.1 interviews each on average. Person-eighting is
+described in the following section. In the present exploration, we do not examine
+within-individual variation, so each instance of an interview is treated as an independent sample.
 
+\subsection{Weighting}
+Person weights
+are needed in order to estimate population-level means.
+One difficulty with the HRS is that the institutionalized population is treated
+as a second target population. In all waves but 5 and 6, there are no person weights
+assigned to institutionalized individuals. This means that there are some
+instances of in-universe interviews where no person-weight is assigned. If the
+individual was assigned a weight in a previous wave, we carry this weight over
+as a constant, unless there was also a non-zero weight in a future interview, in
+which case we assign the weight according to the within-individual linear
+pattern. Some individuals are in the dataset, but are
+out-of-universe (spouses mostly) for not having reached age 61. In these
+cases, we discard interviews with no person weights at young ages. 
+
+\subsection{Age}
+Thanatological age is calculated for each individual as the lag between
+interview and death dates expressed as decimal years. Chronological age is
+calculated as the lag between birth and interview date in decimal years. Birth
+dates and death dates in the original data are typically rounded up to the end
+of the month, but this is more than enough precision for our purposes. Since we
+are interested in comparing characteristics over both chronological age and
+thanatological age simultaneously, we are interested in having a good spread of
+estimates. Figure~\ref{fig:counts} gives shows the case count in two-year age
+groups over the range of ages that are in the data and in universe for this
+study (yellow bin). 
+
+\begin{figure}
+\centering
+\caption{Case counts in two-year age bins. Chronological age (Years lived) on
+the x axis and thanatological age (Years lives) on the y axis.}
+\label{fig:counts}
+\begin{subfigure}{\linewidth}
+	\caption{Males}
+	\vspace{-1em}
+	\label{fig:MalesCases}
+	\includegraphics[scale=.7]{Figures/CaseCountMales.pdf}
+\end{subfigure}
+\\
+\begin{subfigure}{\linewidth}
+    \caption{Females}
+   \vspace{-1em}
+	\label{fig:FemalesCases}
+    \includegraphics[scale=.7]{Figures/CaseCountFemales.pdf}
+\end{subfigure}
+\end{figure}
+
+Note that Figure~\ref{fig:counts} resembles a Lexis surface in some ways, but it
+is not organized by years or birth cohorts. Instead, years and birth cohorts in
+the data are overlapped and treated as a single period and a single birth
+cohort. We limit the study area to chronological ages 70 and higher, and
+thanatological ages 15 and lower, and such that the sum of the two ages does not
+exceed 100. These bounds allow for reasonably stable estimates of surfaces for
+given characteristics. Direct tabulations of the weighted data are possible, and
+usually not too noisy, but surface legibility is enhanced by estimating based on
+a loess-smoothed surface.
+
+\FloatBarrier
 
 \bibliographystyle{plainnat}
   \bibliography{references} 

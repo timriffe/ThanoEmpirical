@@ -66,6 +66,9 @@ imputeWeights <- function(wt,intv_dt){
 #
 Dat         <- local(get(load("Data/thanos_long_v2_1.gz")))
 
+# remove missed interviews
+Dat         <- Dat[!is.na(Dat$intv_dt), ]
+nrow(Dat)/ length(unique(Dat$id))
 # change all factors to character (to be later recoded in some instances)
 Dat[sapply(Dat, is.factor)] <- lapply(Dat[sapply(Dat, is.factor)], as.character)
 
@@ -74,9 +77,7 @@ Dat$sex     <- ifelse(as.character(Dat$sex) == "1.male","m","f")
 
 # reduce to deceased-only
 Dat         <- Dat[Dat$dead == 1, ]
-
-# remove missed interviews
-Dat         <- Dat[!is.na(Dat$intv_dt), ]
+nrow(Dat)/ length(unique(Dat$id))
 
 # convert dates to native R format
 Dat         <- convertDates(Dat)
@@ -94,7 +95,7 @@ Dat <- Dat[,p_wt2 := imputeWeights(p_wt,intv_dt), by = list(id) ]
 # 2341 observations thrown as leading 0s, affecting 934 ids
 # 3227 total observations thrown (including all-0s), 1361 total ids affected
 Dat <- Dat[!is.na(Dat$p_wt2),]
-
+nrow(Dat)/ length(unique(Dat$id))
 # calculate thanatological age
 Dat$ta <- getThanoAge(Dat$intv_dt, Dat$d_dt)
 Dat$ca <- getChronoAge(Dat$intv_dt, Dat$b_dt)
