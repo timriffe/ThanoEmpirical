@@ -1,3 +1,14 @@
+# for Tim, this will choke
+if (system("hostname",intern=TRUE)=="triffe-N80Vm"){
+  # if I'm on the laptop
+  setwd("/home/tim/git/ThanoEmpirical/ThanoEmpirical")
+} else {
+  # in that case I'm on Berkeley system, and other people in the dept can run this too
+  setwd(paste0("/hdir/0/",system("whoami",intern=TRUE),"/git/ThanoEmpirical/ThanoEmpirical"))
+}
+
+
+
 # this script is to check and see how consistent individual weights are over time,
 # This is a test to check the feasability / badness of using w5/6 weights for people
 # in institutions, who otherwise lack weights. If we can't include people in
@@ -11,7 +22,6 @@ convertDates <- function(Dat){
     }
     invisible(Dat)
 }
-setwd(paste0("/home/",system("whoami"),"/git/ThanoEmpirical/ThanoEmpirical"))
 
 #
 Dat         <- local(get(load("Data/thanos_long_v2_1.gz")))

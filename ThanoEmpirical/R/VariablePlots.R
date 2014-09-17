@@ -1,4 +1,13 @@
-setwd(paste0("/home/",system("whoami"),"/git/ThanoEmpirical/ThanoEmpirical"))
+# for Tim, this will choke
+if (system("hostname",intern=TRUE)=="triffe-N80Vm"){
+  # if I'm on the laptop
+  setwd("/home/tim/git/ThanoEmpirical/ThanoEmpirical")
+} else {
+  # in that case I'm on Berkeley system, and other people in the dept can run this too
+  setwd(paste0("/hdir/0/",system("whoami",intern=TRUE),"/git/ThanoEmpirical/ThanoEmpirical"))
+}
+
+library(LexisUtils)
 library(reshape2)
 library(RColorBrewer)
 
@@ -8,7 +17,6 @@ SurfaceList <- local(get(load("Data/SurfaceList.Rdata")))
 varnames <- names(SurfaceList)
 
 
-library(LexisUtils)
 pdf("Figures/VariablePlots/SurfacesMales.pdf", width = 5, height = 4)
 for (varname in varnames){
    
