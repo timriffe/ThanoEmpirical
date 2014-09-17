@@ -5,7 +5,7 @@ Dat <- local(get(load("Data/Data_long.Rdata")))
 SurfaceList <- local(get(load("Data/SurfaceList.Rdata")))
 # ------------------------------------------------------        
 varnames <- names(SurfaceList)
-
+#varname <- "lt";sex<-"m"
 FindMaxGradientMatrix <- function(varname, 
         Dat, 
         sex,
@@ -48,6 +48,7 @@ FindMaxGradientMatrix <- function(varname,
 
 LoessList <- list()
 
+# these appear to break on the origin search thing, make more robust.
 LoessList  <- mclapply(varnames, function(varname,Dat){
             cat(varname,"Male\n")
             Male <- try(FindMaxGradientMatrix(varname, Dat, "m"))

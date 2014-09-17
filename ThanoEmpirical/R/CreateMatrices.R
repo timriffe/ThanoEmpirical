@@ -66,7 +66,7 @@ varnames      <- c(
         "cc", "vig_freq", "lt_freq", "mod_freq", "alc_ev", "alc_days", 
         "alc_drinks", "smoke_ev", "smoke_cur", "cesd_depr", "cesd_eff", 
         "cesd_sleep", "cesd_happy", "cesd_lone", "cesd_sad", "cesd_going", 
-        "cesd_enjoy", "med_exp", "vig", "lt")     
+        "cesd_enjoy", "med_exp", "vig")     
 varnames <- varnames[varnames %in% colnames(Dat)]
 
 # --------------------------------------------------
