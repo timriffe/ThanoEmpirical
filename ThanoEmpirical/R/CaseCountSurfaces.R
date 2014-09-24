@@ -8,44 +8,51 @@ if (system("hostname",intern=TRUE)=="triffe-N80Vm"){
   # in that case I'm on Berkeley system, and other people in the dept can run this too
   setwd(paste0("/hdir/0/",system("whoami",intern=TRUE),"/git/ThanoEmpirical/ThanoEmpirical"))
 }
-Dat <- local(get(load("Data/Data_long.Rdata")))
-Dat$ta[Dat$ta < 0] <- 0
-Dat$tafloor <- floor(Dat$ta)
-Dat$cafloor <- floor(Dat$ca)
+library(reshape2)
+library(RColorBrewer)
+
+Dat                 <- local(get(load("Data/Data_long.Rdata")))
+Dat$ta[Dat$ta < 0]  <- 0
+Dat$tafloor         <- floor(Dat$ta)
+Dat$cafloor         <- floor(Dat$ca)
 # bin ages
-Dat$cafloor2 <- Dat$cafloor - Dat$cafloor %% 2
-Dat$tafloor2 <- Dat$tafloor - Dat$tafloor %% 2
+Dat$cafloor2        <- Dat$cafloor - Dat$cafloor %% 2
+Dat$tafloor2        <- Dat$tafloor - Dat$tafloor %% 2
 
 Dat <- Dat[!is.na(Dat$cafloor) & Dat$cafloor >= 60, ]
 
 
-image(t(acast(Dat[Dat$sex=="m",], tafloor2~cafloor2,fun=length)), breaks = c())
+#image(t(acast(Dat[Dat$sex=="m",], tafloor2~cafloor2,fun=length)), breaks = c())
+#
+#seq(0,450,by=50)
 
-seq(0,450,by=50)
+Females <- acast(Dat[Dat$sex == "f",], tafloor2~cafloor2, fun = length)
+Males   <- acast(Dat[Dat$sex == "m",], tafloor2~cafloor2, fun = length)
 
-Females <- acast(Dat[Dat$sex=="f",], tafloor2~cafloor2,fun=length)
-Males   <- acast(Dat[Dat$sex=="m",], tafloor2~cafloor2,fun=length)
+Females[Females == 0]   <- NA
+Males[Males == 0]       <- NA
+colpal                  <- colorRampPalette(brewer.pal(9, "Blues"), space = "Lab")
 
-Females[Females==0] <- NA
-Males[Males==0] <- NA
-colpal <- colorRampPalette(brewer.pal(9,"Blues"),space="Lab")
+brks            <- seq(0, 450, by = 25)
+labcols         <- colpal(length(brks) + 3)[-c(1:2,length(brks) + 1:2)]
+Fcolors         <- as.character(cut(Females, 
+                                breaks = brks, 
+                                labels = colpal(length(brks) + 1)[-c(1:2)]))
+Mcolors         <- as.character(cut(Males, 
+                                breaks = brks, 
+                                labels = colpal(length(brks) + 1)[-c(1:2)]))
 
-brks    <- seq(0, 450, by = 25)
-labcols <- colpal(length(brks)+3)[-c(1:2,length(brks)+1:2)]
-Fcolors <- as.character(cut(Females, breaks = brks, labels = colpal(length(brks)+1)[-c(1:2)]))
-Mcolors <- as.character(cut(Males, breaks = brks, labels = colpal(length(brks)+1)[-c(1:2)]))
-display.brewer.all()
-Grays <- colpal(length(brks)+1)[-c(1:2)]
-caf <- as.integer(colnames(Females))
-taf <- as.integer(rownames(Females))
-cam <- as.integer(colnames(Males))
-tam <- as.integer(rownames(Males))
-xf <- (col(Females)*2) - 2 + min(caf)
-xm <- (col(Males)*2) - 2 + min(cam)
-yf <- (row(Females)*2) - 2 
-ym <- (row(Males)*2) - 2 
-xticks <- seq(60,110,by=5)
-yticks <- seq(0,20,by=5)
+Grays           <- colpal(length(brks) + 1)[-c(1:2)]
+caf             <- as.integer(colnames(Females))
+taf             <- as.integer(rownames(Females))
+cam             <- as.integer(colnames(Males))
+tam             <- as.integer(rownames(Males))
+xf              <- (col(Females) * 2) - 2 + min(caf)
+xm              <- (col(Males) * 2) - 2 + min(cam)
+yf              <- (row(Females) * 2) - 2 
+ym              <- (row(Males) * 2) - 2 
+xticks          <- seq(60, 110, by = 5)
+yticks          <- seq(0, 20, by = 5)
 #graphics.off()
 #dev.new(width=7,height=4)
 pdf("Figures/CaseCountFemales.pdf",width=7,height=4)

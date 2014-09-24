@@ -1,5 +1,18 @@
-% This file was created with JabRef 2.7b.
+% This file was created with JabRef 2.9.2.
 % Encoding: UTF-8
+
+@ARTICLE{biro2010subjective,
+  author = {B{\'\i}r{\'o}, Anik{\'o}},
+  title = {Subjective mortality hazard shocks and the adjustment of consumption
+	expenditures},
+  journal = {Journal of Population Economics},
+  year = {2010},
+  volume = {26},
+  pages = {1--30},
+  owner = {triffe},
+  publisher = {Springer},
+  timestamp = {2013.11.01}
+}
 
 @BOOK{brouard1989mouvements,
   title = {Mouvements et mod{\`e}les de population},
@@ -22,19 +35,6 @@
   owner = {triffe},
   publisher = {Universit{\'e} des Sciences et Technologies de Lille},
   timestamp = {2014.06.04}
-}
-
-@ARTICLE{biro2010subjective,
-  author = {B{\'\i}r{\'o}, Anik{\'o}},
-  title = {Subjective mortality hazard shocks and the adjustment of consumption
-	expenditures},
-  journal = {Journal of Population Economics},
-  year = {2010},
-  volume = {26},
-  pages = {1--30},
-  owner = {triffe},
-  publisher = {Springer},
-  timestamp = {2013.11.01}
 }
 
 @ARTICLE{carstensen2006influence,
@@ -61,6 +61,17 @@
   owner = {triffe},
   publisher = {American Psychological Association},
   timestamp = {2013.11.01}
+}
+
+@ARTICLE{cleveland1992local,
+  author = {Cleveland, William S and Grosse, Eric and Shyu, William M},
+  title = {Local regression models},
+  journal = {Statistical models in S},
+  year = {1992},
+  pages = {309--376},
+  owner = {triffe},
+  publisher = {Pacific Grove},
+  timestamp = {2014.09.23}
 }
 
 @ARTICLE{cocco2012longevity,
@@ -251,6 +262,17 @@
   owner = {triffe},
   publisher = {Elsevier},
   timestamp = {2013.11.01}
+}
+
+@MANUAL{Rcore2013,
+  title = {R: A Language and Environment for Statistical Computing},
+  author = {{R Core Team}},
+  organization = {R Foundation for Statistical Computing},
+  address = {Vienna, Austria},
+  year = {2013},
+  owner = {triffe},
+  timestamp = {2014.09.23},
+  url = {http://www.R-project.org/}
 }
 
 @MISC{riffe2014paaposter,

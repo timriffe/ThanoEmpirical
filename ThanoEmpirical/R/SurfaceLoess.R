@@ -6,19 +6,30 @@ if (system("hostname",intern=TRUE)=="triffe-N80Vm"){
   # in that case I'm on Berkeley system, and other people in the dept can run this too
   setwd(paste0("/hdir/0/",system("whoami",intern=TRUE),"/git/ThanoEmpirical/ThanoEmpirical"))
 }
+cat("Working directory:\n",getwd())
 
 library(LexisUtils)
 library(parallel)
 Dat <- local(get(load("Data/Data_long.Rdata")))
 SurfaceList <- local(get(load("Data/SurfaceList.Rdata")))
+
+
+# fixed study area:
+# now between chrono ages 70 and 100, below thano age 15, and where chrono + thano <= 100.
+# something like:
+# 15    |----\ 85
+# |     |     \
+# 0  70 |______\ 100
+
 # ------------------------------------------------------        
-varnames <- names(SurfaceList)
-#varname <- "lt";sex<-"m"
+
+#varname <- "srh";sex<-"m"; t.age =  0:15; c.age = 70:100; MaxL = 100; span = .5; radius = 2
 FindMaxGradientMatrix <- function(varname, 
         Dat, 
         sex,
-        t.age = .5:15.5, 
-        c.age = 65.5:90.5, 
+        t.age = 0:15,
+        c.age = 70:100,
+        MaxL = 100,          # max completed lifespan
         span = .5, 
         radius = 2){
     mod            <- loess(paste0(varname,'~ta+ca') ,
@@ -26,22 +37,33 @@ FindMaxGradientMatrix <- function(varname,
                             weights = p_wt2, 
                             span = span
                     )
+             
     newdata        <- expand.grid(ta = t.age, ca = c.age)
+    # easier to keep dimensions straight if we predict over rectangular grid, 
+    # then throw out values outside range
+    newdata        <- newdata + .5
     Surf           <- predict(mod, newdata)
-    dimnames(Surf) <- list(floor(t.age), floor(c.age))
-    
+    Surf           <- matrix(Surf, 
+                             ncol = length(c.age),
+                             dimnames = list(floor(t.age), 
+                                             floor(c.age)
+                                             )
+                            )
+   
+    Surf[! col(Surf) - 1 + min(c.age) + row(Surf) - 1 + min(t.age) <= MaxL] <- NA
     # some origins to search around...
     t.origin <- seq(2.5, 12.5, by = 5)
-    c.origin <- seq(67.5, 87.5, by = 5)
+    c.origin <- seq(72.5, 97.5, by = 5)
     origins  <- expand.grid(ta = t.origin, ca = c.origin)
+    origins  <- origins[rowSums(origins) <= MaxL,]
 
     radii  <- seq(0,2*pi,length=201)[1:200]
     x.circ <- cos(radii) * radius
     y.circ <- sin(radii) * radius
     # i <- 1
     Garrows <- matrix(nrow = nrow(origins), 
-            ncol = 5,
-            dimnames = list(NULL, c("y1","x1","y2","x2","diff")))
+            ncol = 6,
+            dimnames = list(NULL, c("y1","x1","y2","x2","diff","deg")))
     for (i in 1:nrow(origins)){
         newdatai <- data.frame(ta = origins$ta[i]+y.circ,
                                ca = origins$ca[i]+x.circ)
@@ -49,13 +71,14 @@ FindMaxGradientMatrix <- function(varname,
         MaxG     <- which.max(abs(predvec[1:100] - predvec[101:200]))
         Garrows[i, ] <- c(unlist(newdatai[MaxG, ]),
                           unlist(newdatai[MaxG + 100, ]),  
-                          predvec[MaxG + 100] - predvec[MaxG])
+                          predvec[MaxG + 100] - predvec[MaxG],
+                          radii[MaxG]*180/pi)
     }
     list(Garrows = Garrows, Surf = Surf, span = span, sex = sex, varname = varname)
 }
 
-LoessList <- list()
 
+varnames <- names(SurfaceList)
 # these appear to break on the origin search thing, make more robust.
 LoessList  <- mclapply(varnames, function(varname,Dat){
             cat(varname,"Male\n")
@@ -65,7 +88,18 @@ LoessList  <- mclapply(varnames, function(varname,Dat){
             
             list(Male = Male,
                  Female = Female)
-        }, Dat = Dat)
+        }, Dat = Dat, mc.cores = 6) # careful to change this!
+      
+   
+lapply(LoessList,function(X){
+    X[["Male"]][["varname"]]
+  })
+unlist(lapply(LoessList,function(X){
+    X$Male$varname
+  }))
+
+
+
 names(LoessList) <- varnames
 save(LoessList,file="Data/LoessList.Rdata")
 
@@ -73,24 +107,6 @@ save(LoessList,file="Data/LoessList.Rdata")
 
 
 
-
-Garrows <- FindMaxGradientMatrix(mod)
-
-DirGrad <- sign(Garrows[,"diff"])
-Dir     <- mean(Garrows[,"y2"] - Garrows[,"y1"]) / mean(Garrows[,"x2"] - Garrows[,"x1"])
-Rise    <- mean(Garrows[,"diff"]) / 4
-
-
-
-Surf           <- predict(mod, newdata)
-dimnames(Surf) <- list(t.age,c.age)
-summary(mod)
-LexisMap(Surf,log=FALSE,
-        xlab = "Years Lived", 
-        ylab = "Years Left",
-#        main = paste("Males",varname),
-        contour = TRUE, 
-        LexRef = FALSE)
 
 
 

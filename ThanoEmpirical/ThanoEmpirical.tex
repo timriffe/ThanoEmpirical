@@ -43,9 +43,9 @@ individuals.
 Recently, we presented some results of transforming
 data classified by chronological age, like census population counts, into
 thanatological age using some simple lifetable
-assumptions\footnote{\citep{riffe2014paaposter} A paper on this topic is
-currently under review. \citet{brouard1986structure, brouard1989mouvements}
-had already done the same thing some 30 years earlier, and we understand that
+assumptions\footnote{A paper on this topic is
+currently under review \citep{riffe2014paaposter}. \citet{brouard1986structure,
+brouard1989mouvements} had already done the same thing some 30 years earlier, and we understand that
 S. Scherbov also unwittingly produced the same result over a decade ago. It is
 safe to say that most demographers are still unaware of the method, however.}.
 This transformation yields the thanatological age structure of the population
@@ -83,44 +83,45 @@ and a possible spurious decline for males. In the complete paper we will present
 more structured survey and a distilled set of comparisons that we hope will
 enrich discussion at the conference. 
 
-\begin{figure}
-\centering
-\caption{Time to death patterns in four substantive indicators of ageing and
-dependency.}
-\label{fig:proposalfigs}
-\begin{subfigure}[b]{.47\linewidth}
-\centering
-	\caption{Females}
-	\label{fig:females}
-	\includegraphics[scale=.45]{Figures/VariablePlots/ProposalFemales.pdf}	
-\end{subfigure}
-~
-\begin{subfigure}[b]{.47\linewidth}
-\centering
-    \caption{Males}
-	\label{fig:ales}
-    \includegraphics[scale=.45]{Figures/VariablePlots/ProposalMales.pdf}
-\end{subfigure}
-\caption{All waves combined. All trends have been centered around zero and
-rescaled by $\sigma$. \texttt{adl5} is an index of difficulty with common
-activities. \texttt{srh} is self-reported health (higher = worse).
-\texttt{back} is back pain (higher = more). \texttt{cesd} is a depression score
-(higher = worse).}
-\end{figure}
-%from here
+%\begin{figure}
+%\centering
+%\caption{Time to death patterns in four substantive indicators of ageing and
+%dependency.}
+%\label{fig:proposalfigs}
+%\begin{subfigure}[b]{.47\linewidth}
+%\centering
+%	\caption{Females}
+%	\label{fig:females}
+%	\includegraphics[scale=.45]{Figures/VariablePlots/ProposalFemales.pdf}	
+%\end{subfigure}
+%~
+%\begin{subfigure}[b]{.47\linewidth}
+%\centering
+%    \caption{Males}
+%	\label{fig:ales}
+%    \includegraphics[scale=.45]{Figures/VariablePlots/ProposalMales.pdf}
+%\end{subfigure}
+%\caption{All waves combined. All trends have been centered around zero and
+%rescaled by $\sigma$. \texttt{adl5} is an index of difficulty with common
+%activities. \texttt{srh} is self-reported health (higher = worse).
+%\texttt{back} is back pain (higher = more). \texttt{cesd} is a depression score
+%(higher = worse).}
+%\end{figure}
+%%from here
 
 \section{Data}
 All findings reported in this paper are based on data from the US Health and
 Retirement Study (HRS). We use the Rand edition of the data, which is
 conveniently merged across all ten waves, and we calculate thanatological age
 based on date of death information in the mortality followup module. We
-restrict the dataset to only those individuals that have died. This reduces the
+restrict the dataset to only those individuals that have died, which reduces the
 dataset from 36986 individuals with an average of 5 interviews each to 11947
 deceased individuals with an average of 4.25 interviews each. Further winowing
 from our weighting criterion reduces the dataset to
-11520 individuals with 4.1 interviews each on average. Person-eighting is
+11520 individuals with 4.1 interviews each on average. Person-weighting is
 described in the following section. In the present exploration, we do not examine
-within-individual variation, so each instance of an interview is treated as an independent sample.
+within-individual variation, and each instance of an interview is treated as an
+independent observation.
 
 \subsection{Weighting}
 Person weights
@@ -128,9 +129,10 @@ are needed in order to estimate population-level means.
 One difficulty with the HRS is that the institutionalized population is treated
 as a second target population. In all waves but 5 and 6, there are no person weights
 assigned to institutionalized individuals. This means that there are some
-instances of in-universe interviews where no person-weight is assigned. If the
-individual was assigned a weight in a previous wave, we carry this weight over
-as a constant, unless there was also a non-zero weight in a future interview, in
+instances of in-universe (for us) interviews where no person-weight is
+assigned. In some cases we try to fill the gap according to some simple
+assumptions. If the individual was assigned a weight in a previous wave, we
+carry this weight over as a constant, unless there was also a non-zero weight in a future interview, in
 which case we assign the weight according to the within-individual linear
 pattern. Some individuals are in the dataset, but are
 out-of-universe (spouses mostly) for not having reached age 61. In these
@@ -143,9 +145,9 @@ calculated as the lag between birth and interview date in decimal years. Birth
 dates and death dates in the original data are typically rounded up to the end
 of the month, but this is more than enough precision for our purposes. Since we
 are interested in comparing characteristics over both chronological age and
-thanatological age simultaneously, we are interested in having a good spread of
-estimates. Figure~\ref{fig:counts} gives shows the case count in two-year age
-groups over the range of ages that are in the data and in universe for this
+thanatological age simultaneously, we are interested in having estimates over a
+good spread of both age perspectives.
+Figure~\ref{fig:counts} shows the case count in two-year age groups over the range of ages that are in the data and in universe for this
 study (yellow bin). 
 
 \begin{figure}
@@ -174,9 +176,33 @@ the data are overlapped and treated as a single period and a single birth
 cohort. We limit the study area to chronological ages 70 and higher, and
 thanatological ages 15 and lower, and such that the sum of the two ages does not
 exceed 100. These bounds allow for reasonably stable estimates of surfaces for
-given characteristics. Direct tabulations of the weighted data are possible, and
-usually not too noisy, but surface legibility is enhanced by estimating based on
-a loess-smoothed surface.
+the studied characteristics. We cut off below chronological age 70 in order to
+remove some patterns that appear to be due to retirement rather than some
+senescent process, and also to avoid some potential compositional bias, as
+these are the typical ages of recruitment for the HRS. Conceivably, the study
+area could be expanded after the addition of future mortality follow-ups.
+
+\subsection{Loess smoothing}
+Direct tabulations of the weighted data are possible, and usually not too noisy,
+but surface legibility is enhanced by estimating based on a loess-smoothed
+surface. For each variable of interest, we convert values to a numeric scale.
+For variables where a numeric scale is not the natural form of observation, we
+describe the conversion protocol in an appendix\footnote{Variable appendix not
+included in proposal.}. We then fit a two-dimensional loess model\footnote{We
+fit using the \texttt{loess()} function in base \texttt{R}
+\citep{cleveland1992local,Rcore2013} and its related prediction method.} to the
+weighted individual-level data for each sex separately, where the numeric characteristic value is the dependant variable and individual decimal values of thanatological and chronological age are the independent variables.
+Weighting is then explicit by person-weights, and implicit by point density
+within the surface. All individuals are included in the model fit, but point
+predictions are calculated for a grid of single thanatological and chronological
+ages within the study area outlined in Figure~\ref{fig:counts} and described in
+the previous section. 
+
+The model fit for each variable suffices to produce a contour surface, which can
+be interpreted visually. In most situations it is obvious to the eye whether a
+variable operates over thanatological age or over chronological age, but there
+are also some instances where both are at play, or the pattern is evidently
+distorted by underlying cohort heterogeneity.
 
 \FloatBarrier
 
