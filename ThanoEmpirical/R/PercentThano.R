@@ -21,7 +21,7 @@ PercentThano <- do.call(rbind,lapply(LoessList, function(X){
       c(Male = 100*(1 - degm / 90), Female = 100*(1 - degf / 90))
     }))
 
-hist(PercentThano[,2])
+hist(PercentThano[,1])
 # Blues thano. Reds chrono
 FemCol  <- as.character(cut(PercentThano[,2],breaks = seq(0,100,by=20),labels=brewer.pal(5,"RdBu")))
 MaleCol <- as.character(cut(PercentThano[,1],breaks = seq(0,100,by=20),labels=brewer.pal(5,"RdBu")))
@@ -44,9 +44,21 @@ sapply(rownames(PercentThano), function(x,FemCol){
     dev.off()
   },FemCol=FemCol)
 
-Meta <- readLines("Data/thanos_wide_v2_1.txt")
 
-write.table(round(PercentThano,1),file = "Data/PercentThano.csv",sep=",",col.names = c("Male","Female"),row.names = rownames(PercentThano))
+# added long name and group name in spreadsheet, so don't overwrite!
+#write.table(round(PercentThano,1),file = "Data/PercentThano.csv",sep=",",col.names = c("Male","Female"),row.names = rownames(PercentThano))
 
 Meta <- read.csv( "Data/PercentThano.csv",stringsAsFactors=FALSE)
 table(Meta$Group)
+
+
+"Figures/ColorCodes/adl_dress_Males.pdf"
+library(xtable)
+
+
+
+
+
+
+
+
