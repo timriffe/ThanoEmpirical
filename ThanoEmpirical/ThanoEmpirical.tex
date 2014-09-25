@@ -20,7 +20,8 @@
 \newcommand{\tp}{\quad\quad\text{.}}
 
 % working on this need to concatenate file name based on sex and variable name
-%\newcommand{\Col}{\includegraphics[width=.3im,height=.3in]{Figures/ColorCodes/}}
+\newcommand\Cell[1]{{\raisebox{-0.05in}{\includegraphics[height=.2in,width=.2in]{Figures/ColorCodes/\expandafter#1}}}}  
+
 \defcitealias{HMD}{HMD}
 
 \begin{document}
@@ -153,7 +154,7 @@ good spread of both age perspectives.
 Figure~\ref{fig:counts} shows the case count in two-year age groups over the range of ages that are in the data and in universe for this
 study (yellow bin). 
 
-\begin{figure}
+\begin{figure}[!h]
 \centering
 \caption{Case counts in two-year age bins. Chronological age (Years lived) on
 the x axis and thanatological age (Years lives) on the y axis.}
@@ -185,6 +186,11 @@ senescent process, and also to avoid some potential compositional bias, as
 these are the typical ages of recruitment for the HRS. Conceivably, the study
 area could be expanded after the addition of future mortality follow-ups.
 
+\subsection{Variables}
+We aim for a broad overview of the age variation over different aspects of
+old-age disability and well-being. For this reason we select many questions from
+various submodules of the HRS data. The major groups
+
 \subsection{Loess smoothing}
 Direct tabulations of the weighted data are possible, and usually not too noisy,
 but surface legibility is enhanced by estimating based on a loess-smoothed
@@ -202,16 +208,201 @@ predictions are calculated for a grid of single thanatological and chronological
 ages within the study area outlined in Figure~\ref{fig:counts} and described in
 the previous section. 
 
+\subsection{Finding the fall-line}
 The model fit for each variable is used to produce a contour surface, which can
 be interpreted visually. In most situations it is obvious to the eye whether a
 variable operates over thanatological age or over chronological age, but there
 are also some instances where both are at play, the pattern is evidently
 distorted by underlying cohort heterogeneity, or where the relationship is
-unclear.
+unclear. An example surface for self-reported health (SRH) is shown in
+Figure~\ref{fig:srh}.
+
+\begin{figure}[!h]
+    \centering
+    \caption{Mean male SRH by years lived (x axis) and years left (y axis).}
+    \label{fig:srh}
+	\vspace{-2em}
+	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/SurfExampleMalesSRH.pdf}}
+\end{figure}
+
+In the case of Figure~\ref{fig:srh} note that there is regular variation in the
+direction of both axes, but that the variation over thanatological age (y axis)
+is sharper, i.e., it implies a steeper climb than does the apparent descent over
+chronological age. 
+
+In order to characterize this surface, we find the direction
+of steepest ascent for a regular grid of points. These directions are shown with
+arrows in  Figure~\ref{fig:srh}. If the direction is exactly $90^\circ$ or $270^\circ$,
+then we know that the process is essentially a thanatological one, at least in
+the age-range studied. If the direction is $0^\circ$ or $180^\circ$, then the
+characteristic can be said to be chronological. In our experience, most
+variables that we might be interested in are functions of both kinds of age, and
+so to determine the primary source of variation, we take the slope-weighted mean
+of each arrow direction, translate this to the upper quadrant, and then
+translate to a percent scale, where $90^\circ$ is 100\% thanatological and
+$0^\circ$ is 100\% chronological. 
 
 
 
+\section{Results}
 
+\FloatBarrier
+\subsection{ADL}
+% latex table generated in R 3.0.1 by xtable 1.7-3 package
+% Thu Sep 25 15:37:55 2014
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrr}
+  \hline
+Question & Male \% Thano & Female \% Thano \\ 
+  \hline
+Diff. walking across room  & \% 86.0 \Cell{adlwalkMales.pdf} & \% 85.8 \Cell{adlwalkFemales.pdf} \\ 
+  Diff. dressing  & \% 88.5 \Cell{adldressMales.pdf} & \% 88.6 \Cell{adldressFemales.pdf} \\ 
+  Diff. bathing/showering  & \% 82.0 \Cell{adlbathMales.pdf} & \% 86.5 \Cell{adlbathFemales.pdf} \\ 
+  Diff. eating  & \% 91.3 \Cell{adleatMales.pdf} & \% 92.3 \Cell{adleatFemales.pdf} \\ 
+  Diff. getting in/out bed  & \% 93.3 \Cell{adlbedMales.pdf} & \% 91.3 \Cell{adlbedFemales.pdf} \\ 
+  Diff. using toilet & \% 88.0 \Cell{adltoiletMales.pdf} & \% 90.4 \Cell{adltoiletFemales.pdf} \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+\subsection{IADL}
+% latex table generated in R 3.0.1 by xtable 1.7-3 package
+% Thu Sep 25 15:40:26 2014
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrr}
+  \hline
+Question & Male \% Thano & Female \% Thano \\ 
+  \hline
+IADL 3-point & \% 86.8 \Cell{iadl3Males.pdf} & \% 84.6 \Cell{iadl3Females.pdf} \\ 
+  IADL 5-point & \% 85.6 \Cell{iadl5Males.pdf} & \% 85.8 \Cell{iadl5Females.pdf} \\ 
+  Health limits work & \% 92.9 \Cell{limworkMales.pdf} & \% 91.4 \Cell{limworkFemales.pdf} \\ 
+  Diff. using map & \% 83.8 \Cell{iadlmapMales.pdf} & \% 76.2 \Cell{iadlmapFemales.pdf} \\ 
+  Diff. using telephone & \% 78.2 \Cell{iadltelMales.pdf} & \% 83.6 \Cell{iadltelFemales.pdf} \\ 
+  Diff. managing money & \% 87.5 \Cell{iadlmoneyMales.pdf} & \% 82.7 \Cell{iadlmoneyFemales.pdf} \\ 
+  Diff. taking meds & \% 90.6 \Cell{iadlmedsMales.pdf} & \% 85.2 \Cell{iadlmedsFemales.pdf} \\ 
+  Diff. shopping for groceries & \% 79.9 \Cell{iadlshopMales.pdf} & \% 80.7 \Cell{iadlshopFemales.pdf} \\ 
+  Diff. preparing hot meals & \% 86.3 \Cell{iadlmealsMales.pdf} & \% 86.8 \Cell{iadlmealsFemales.pdf} \\ 
+   \hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+\subsection{Chronic conditions}
+% latex table generated in R 3.0.1 by xtable 1.7-3 package
+% Thu Sep 25 15:53:31 2014
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrr}
+  \hline
+Question & Male \% Thano & Female \% Thano \\ 
+  \hline
+High blood pressure, ever & \% 74.2 \Cell{bpMales.pdf} & \% 78.9 \Cell{bpFemales.pdf} \\ 
+  Diabetes, ever  & \% 66.4 \Cell{diabMales.pdf} & \% 66.8 \Cell{diabFemales.pdf} \\ 
+  Cancer, ever & \% 88.8 \Cell{cancerMales.pdf} & \% 86.5 \Cell{cancerFemales.pdf} \\ 
+  Lung disease & \% 80.0 \Cell{lungMales.pdf} & \% 76.0 \Cell{lungFemales.pdf} \\ 
+  Heart problems, ever  & \% 79.5 \Cell{heartMales.pdf} & \% 90.2 \Cell{heartFemales.pdf} \\ 
+  Stroke, ever  & \% 81.9 \Cell{strokeMales.pdf} & \% 89.0 \Cell{strokeFemales.pdf} \\ 
+  Arthritis, ever  & \% 82.2 \Cell{arthMales.pdf} & \% 92.8 \Cell{arthFemales.pdf} \\ 
+  Nr chronic conditions & \% 84.5 \Cell{ccMales.pdf} & \% 90.4 \Cell{ccFemales.pdf} \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+\subsection{Functional limitations}
+% latex table generated in R 3.0.1 by xtable 1.7-3 package
+% Thu Sep 25 15:53:20 2014
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrr}
+  \hline
+Question & Male \% Thano & Female \% Thano \\ 
+  \hline
+BMI & \% 56.6 \Cell{bmiMales.pdf} & \% 46.3 \Cell{bmiFemales.pdf} \\ 
+  Back problems & \% 83.1 \Cell{backMales.pdf} & \% 83.8 \Cell{backFemales.pdf} \\ 
+  Mobility difficulty index & \% 91.0 \Cell{mobMales.pdf} & \% 90.7 \Cell{mobFemales.pdf} \\ 
+  Large muscle difficulty index & \% 91.9 \Cell{lgmusMales.pdf} & \% 94.2 \Cell{lgmusFemales.pdf} \\ 
+  Gross motor difficulty index & \% 89.2 \Cell{grossmotMales.pdf} & \% 88.6 \Cell{grossmotFemales.pdf} \\ 
+  Fine motor difficulty index & \% 88.4 \Cell{finemotMales.pdf} & \% 91.2 \Cell{finemotFemales.pdf} \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+\subsection{Behaviors}
+% latex table generated in R 3.0.1 by xtable 1.7-3 package
+% Thu Sep 25 15:54:02 2014
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrr}
+  \hline
+Question & Male \% Thano & Female \% Thano \\ 
+  \hline
+Alcohol, ever  & \% 87.3 \Cell{alcevMales.pdf} & \% 85.9 \Cell{alcevFemales.pdf} \\ 
+  Alcohol nr of days / week  & \% 75.8 \Cell{alcdaysMales.pdf} & \% 79.8 \Cell{alcdaysFemales.pdf} \\ 
+  Alcohol nr drinks per drinking day  & \% 64.1 \Cell{alcdrinksMales.pdf} & \% 69.5 \Cell{alcdrinksFemales.pdf} \\ 
+  Ever Smoker & \% 49.8 \Cell{smokeevMales.pdf} & \% 41.5 \Cell{smokeevFemales.pdf} \\ 
+  Current Smoker & \% 35.2 \Cell{smokecurMales.pdf} & \% 21.5 \Cell{smokecurFemales.pdf} \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+\subsection{Psychological factors}
+% latex table generated in R 3.0.1 by xtable 1.7-3 package
+% Thu Sep 25 15:54:13 2014
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrr}
+  \hline
+Question & Male \% Thano & Female \% Thano \\ 
+  \hline
+Depression score & \% 90.9 \Cell{cesdMales.pdf} & \% 92.6 \Cell{cesdFemales.pdf} \\ 
+  Self-reported health & \% 85.4 \Cell{srhMales.pdf} & \% 90.9 \Cell{srhFemales.pdf} \\ 
+  Psych problems , ever & \% 90.4 \Cell{psychMales.pdf} & \% 87.4 \Cell{psychFemales.pdf} \\ 
+  Felt Depressed & \% 89.0 \Cell{cesddeprMales.pdf} & \% 90.1 \Cell{cesddeprFemales.pdf} \\ 
+  Everything an effort & \% 93.1 \Cell{cesdeffMales.pdf} & \% 90.9 \Cell{cesdeffFemales.pdf} \\ 
+  Sleep restless & \% 88.4 \Cell{cesdsleepMales.pdf} & \% 80.0 \Cell{cesdsleepFemales.pdf} \\ 
+  Was happy & \% 81.4 \Cell{cesdhappyMales.pdf} & \% 85.0 \Cell{cesdhappyFemales.pdf} \\ 
+  Felt lonely & \% 61.4 \Cell{cesdloneMales.pdf} & \% 87.4 \Cell{cesdloneFemales.pdf} \\ 
+  Felt sad & \% 90.9 \Cell{cesdsadMales.pdf} & \% 87.1 \Cell{cesdsadFemales.pdf} \\ 
+  Couldnot get going & \% 92.3 \Cell{cesdgoingMales.pdf} & \% 94.3 \Cell{cesdgoingFemales.pdf} \\ 
+  Enjoyed life & \% 73.2 \Cell{cesdenjoyMales.pdf} & \% 91.3 \Cell{cesdenjoyFemales.pdf} \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+\subsection{Healthcare utilization}
+% latex table generated in R 3.0.1 by xtable 1.7-3 package
+% Thu Sep 25 15:54:43 2014
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrr}
+  \hline
+Question & Male \% Thano & Female \% Thano \\ 
+  \hline
+Overnight hospital: 24 mo & \% 94.0 \Cell{hospMales.pdf} & \% 94.6 \Cell{hospFemales.pdf} \\ 
+  Nr hospital stays: 24 mo & \% 94.6 \Cell{hospstaysMales.pdf} & \% 93.0 \Cell{hospstaysFemales.pdf} \\ 
+  Number  nights in hospital: 24 mo & \% 95.2 \Cell{hospnightsMales.pdf} & \% 91.0 \Cell{hospnightsFemales.pdf} \\ 
+  Overnight stay nursing home: 24 mo & \% 90.0 \Cell{nhMales.pdf} & \% 89.5 \Cell{nhFemales.pdf} \\ 
+  Nr nursing home stays: 24 mo & \% 89.3 \Cell{nhstaysMales.pdf} & \% 90.6 \Cell{nhstaysFemales.pdf} \\ 
+  Nr nights nursing home: 24 mo & \% 85.1 \Cell{nhnightsMales.pdf} & \% 85.0 \Cell{nhnightsFemales.pdf} \\ 
+  Nursing home at interview  & \% 88.5 \Cell{nhnowMales.pdf} & \% 88.6 \Cell{nhnowFemales.pdf} \\ 
+  Dr visit: 24 mo & \% 68.6 \Cell{docMales.pdf} & \% 70.6 \Cell{docFemales.pdf} \\ 
+  Number Dr visits: 24 mo & \% 94.0 \Cell{docvisitsMales.pdf} & \% 89.5 \Cell{docvisitsFemales.pdf} \\ 
+  Home health care: 24 mo & \% 93.9 \Cell{hhcMales.pdf} & \% 91.2 \Cell{hhcFemales.pdf} \\ 
+  Prescription drugs regularly: 24 mo & \% 78.8 \Cell{medsMales.pdf} & \% 77.3 \Cell{medsFemales.pdf} \\ 
+  Outpatient surgery: 24 mo & \% 46.7 \Cell{surgMales.pdf} & \% 47.5 \Cell{surgFemales.pdf} \\ 
+  Dental visit: 24 mo & \% 67.8 \Cell{dentMales.pdf} & \% 68.0 \Cell{dentFemales.pdf} \\ 
+  Special health fac visit: 24 mo & \% 74.4 \Cell{shfMales.pdf} & \% 85.1 \Cell{shfFemales.pdf} \\ 
+  Imputed total medical expend. & \% 96.5 \Cell{medexpMales.pdf} & \% 95.3 \Cell{medexpFemales.pdf} \\ 
+   \hline
+\end{tabular}
+\end{table}
+\FloatBarrier
 
 \bibliographystyle{plainnat}
   \bibliography{references} 
