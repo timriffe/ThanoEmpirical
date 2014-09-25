@@ -24,15 +24,9 @@ varname <- "srh"
 
 source("R/SurfMap.R")
 Garrows<- LoessList[[varname]]$Male$Garrows
-#pdf("Figures/SurfExampleMalesSRH.pdf", width = 10, height = 6)
-graphics.off()
-dev.new(width = 10, height = 6)
+pdf("Figures/SurfExampleMalesSRH.pdf", width = 10, height = 6)
 
   SurfMap(LoessList[[varname]]$Male$Surf,napprox=9,contour=FALSE)
-
-  #points(rowMeans(Garrows[,c("x1","x2")]),rowMeans(Garrows[,c("y1","y2")]), pch=3,col="black",cex=2)
-  
- # x <- Garrows[1,]
   apply(Garrows,1,function(x){
       if (sign(x["diff"]) == 1){
         arrows(x["x1"],x["y1"],x["x2"],x["y2"],col="black",lwd=2)
@@ -40,6 +34,7 @@ dev.new(width = 10, height = 6)
         arrows(x["x2"],x["y2"],x["x1"],x["y1"],col="black",lwd=2)
       }
     })
+dev.off()
 #  
 #  sapply(1:nrow(Garrows), function(X,Garrows){
 #      x <- mean(Garrows[X,c("x1","x2")])
