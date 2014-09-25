@@ -110,24 +110,87 @@ YNcols <- apply(Dat, 2, function(x){
 Dat <- data.frame(Dat)
 Dat[YNcols] <- lapply(Dat[YNcols], convertYN)
 
+# remove lt, vig, ulc, too inconsistent
+Dat$lt        <- NULL
+Dat$vig       <- NULL
+Dat$ulc       <- NULL
+Dat$lt_freq   <- NULL
+Dat$mod_freq  <- NULL
+Dat$vig_freq  <- NULL
+
+# find suspect columns for false recoding due to factor-> integer direct
+wavei <- Dat$wave == 1
+DT    <- Dat[!wavei, ]
+(Suspects <- colnames(DT)[unlist(lapply(DT,function(x){
+                   class(x) == "integer" & all(unique(x) %in% c(1,2,NA))
+             }))])
+# all Suspects check out:
+
+Dat[Suspects] <- lapply(Dat[Suspects], function(x,wavei){
+    x[!wavei] <- x[!wavei] - 1
+    x
+  },wavei=wavei)
+   
+# now check for possible wave 1 differences
+(Suspects <- colnames(Dat)[unlist(lapply(Dat,function(x,wavei){
+            all(unique(x[wavei]) %in% c(1,2,3,4,5,NA)) & 
+              all(unique(x[!wavei]) %in% c(0,1,NA)) & 
+              !all(unique(x[wavei]) %in% c(0,1,NA))
+          },wavei=wavei))])
+# essentially all cesd measures
+Dat[Suspects] <- lapply(Dat[Suspects], function(x){
+    x[x == 4] <- 0
+    x[x > 1 ]  <- 1
+    x
+  })
+
+# recode medical expenditure to actual values:
+
+#1=0 to $1,000                 500
+#2=~$1000                     1000
+#3=$1,001 to 5,000            2500
+#4=~$5,000                    5000
+#5=$5,001 to $25,000         15000
+#6=~$25,000                  25000
+#7=$25,001 to $100,000       62500
+#8=~$100,000                100000
+#9=$100,001 to $500,000     300000
+#10=~$500,000               500000
+#11=$500,000+              1000000
+
+rec.vec <- c(500,1000,2500,5000,15000,25000,62500,100000,300000,500000,1000000)
+names(rec.vec) <- 1:11
+Dat$med_exp    <- rec.vec[as.character(Dat$med_exp)]
+Dat$med_explog <- log(Dat$med_exp )
 # recode self reported health 1 = excellent - 5 = poor
 srhrec <- 1:5
 names(srhrec) <- sort(unique(Dat$srh))
 Dat$srh <- srhrec[Dat$srh]
 
-# vigorous and light physiscal activity:
-#vig_freq       lt_freq
+# Edit: now removed because of waves gap (large)
+# light, moderate and vigorous physical activity was coded differently in wave 1 vs other waves...
+# now 0 is no activity, and
+#activity <- c("lt_freq","mod_freq","vig_freq")
+#
+#Dat[activity] <- lapply(Dat[activity], function(x,wavei){
+#   
+#    x[wavei & x == 4 & !is.na(x)]                 <- 4.5
+#    x[wavei & x == 3 & !is.na(x)]                 <- 4
+#    x[wavei & x == 2 & !is.na(x)]                 <- 3
+#    x[wavei & x == 1 & !is.na(x)]                 <- 1.5
+#    x[!wavei & x == "1.every day" & !is.na(x)]    <- 1
+#    x[!wavei & x == "2.> 1 per week" & !is.na(x)] <- 2
+#    x[!wavei & x == "3.1 per week" & !is.na(x)]   <- 3
+#    x[!wavei & x == "4.l-3 per mon" & !is.na(x)]  <- 4
+#    x[!wavei & x == "5.never" & !is.na(x)]        <- 5
+#    as.numeric(x)
+#  },wavei=wavei)
 
-# 1: daily
-# 2: > 1 /week
-# 3: 1 /week
-# 4: 1-3 /month
-# 5: never
-freqrec <- 1:5
-names(freqrec) <- sort(unique(Dat$vig_freq  ))
-Dat$vig_freq <- freqrec[Dat$vig_freq]
-Dat$lt_freq <- freqrec[Dat$lt_freq]
-Dat$mod_freq <- freqrec[Dat$mod_freq]
 # save out, so this doesn't need to be re-run every time
 save(Dat,file = "Data/Data_long.Rdata")
+
+#Dat <- local(get(load("Data/Data_long.Rdata")))
+
+
+
 
