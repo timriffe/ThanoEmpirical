@@ -1,61 +1,61 @@
 Short,Long,Male,Female,Group,
 iadl3_,IADL 3-point,86.8,84.6,IADL,iadl3_
 iadl5_,IADL 5-point,85.6,85.8,IADL,iadl5_
-cesd,Depression Score,90.9,92.6,Psychological,cesd
-lim_work,Health Limits Work,92.9,91.4,IADL,lim_work
-srh,Self-Reported Health,85.4,90.9,Psychological,srh
-bmi,Body Mass Index,56.6,46.3,Functional,bmi
-back,Back Problems,83.1,83.8,Functional,back
-hosp,Overnight Hospitalization: Previous 24 Months,94,94.6,Healthcare,hosp
-hosp_stays,Number of Hospital Stays: Previous 24 Months,94.6,93,Healthcare,hosp_stays
-hosp_nights,Number of Nights in Hospital: Previous 24Months,95.2,91,Healthcare,hosp_nights
-nh,Overnight Stay in Nursing Home: Previous 24 Months ,90,89.5,Healthcare,nh
-nh_stays,Number of Nursing Home Stays: Previous 24 Months,89.3,90.6,Healthcare,nh_stays
-nh_nights,Number of Nights in Nursing Home: Previous 24 Months,85.1,85,Healthcare,nh_nights
-nh_now,Living in Nursing Home at Interview ,88.5,88.6,Healthcare,nh_now
-doc,Doctor Visit: Previous 24 Months ,68.6,70.6,Healthcare,doc
-doc_visits,Number of Doctor Visits: Previous 24 Months,94,89.5,Healthcare,doc_visits
-hhc,Home Health Care: Previous 24 Months,93.9,91.2,Healthcare,hhc
-meds,Regularly Takes Prescription Drugs: Previous 24 Months,78.8,77.3,Healthcare,meds
-surg,Outpatient Surgery: Previous 24 Months ,46.7,47.5,Healthcare,surg
-dent,Dental Visit: Previous 24 Months ,67.8,68,Healthcare,dent
-shf,Special Health Facility Visit: Previous 24 Months ,74.4,85.1,Healthcare,shf
-adl_walk,ADL: Some Difficulty Walking Across Room ,86,85.8,ADL,adl_walk
-adl_dress,ADL: Some Difficulty Dressing ,88.5,88.6,ADL,adl_dress
-adl_bath,ADL: Some Difficulty Bathing/Showering ,82,86.5,ADL,adl_bath
-adl_eat,ADL: Some Difficulty Eating ,91.3,92.3,ADL,adl_eat
-adl_bed,ADL: Some Difficulty Getting In/Out of Bed ,93.3,91.3,ADL,adl_bed
-adl_toilet,ADL: Some DIfficulty Using Toilet,88,90.4,ADL,adl_toilet
-iadl_map,IADL: Some Difficulty Using a Map,83.8,76.2,IADL,iadl_map
-iadl_tel,IADL: Some Difficulty Using a Telephone,78.2,83.6,IADL,iadl_tel
-iadl_money,IADL: Some Difficulty Managing Money,87.5,82.7,IADL,iadl_money
-iadl_meds,IADL: Some Difficulty Taking Medications,90.6,85.2,IADL,iadl_meds
-iadl_shop,IADL: Some Difficulty Shopping for Groceries,79.9,80.7,IADL,iadl_shop
-iadl_meals,IADL: Some Difficulty Preparing Hot Meals,86.3,86.8,IADL,iadl_meals
-mob,Mobility Difficulty Index,91,90.7,Functional,mob
-lg_mus,Large Muscle Difficulty Index,91.9,94.2,Functional,lg_mus
-gross_mot,Gross Motor Difficulty Index ,89.2,88.6,Functional,gross_mot
-fine_mot,Fine Motor Difficulty Index,88.4,91.2,Functional,fine_mot
-bp,High Blood Pressure - Ever,74.2,78.9,Chronic,bp
-diab,Diabetes - Ever ,66.4,66.8,Chronic,diab
-cancer,Cancer - Ever,88.8,86.5,Chronic,cancer
-lung,Lung Disease,80,76,Chronic,lung
-heart,Heart Problems - Ever ,79.5,90.2,Chronic,heart
-stroke,Stroke - Ever ,81.9,89,Chronic,stroke
-psych,Psychological Problems - Ever,90.4,87.4,Psychological,psych
-arth,Arthritis - Ever ,82.2,92.8,Chronic,arth
-cc,Number of Chronic Conditions - Ever,84.5,90.4,Chronic,cc
-alc_ev,Alcohol Consumption - Ever ,87.3,85.9,Behaviors,alc_ev
-alc_days,Alcohol Consumption - Number of Days per Week ,75.8,79.8,Behaviors,alc_days
-alc_drinks,Alcohol Consumption - Number of Drinks per Drinking Day ,64.1,69.5,Behaviors,alc_drinks
-smoke_ev,Smoking - Ever,49.8,41.5,Behaviors,smoke_ev
-smoke_cur,Smoking - Current ,35.2,21.5,Behaviors,smoke_cur
-cesd_depr,CESD: Felt Depressed - Coarse Scale,89,90.1,Psychological,cesd_depr
-cesd_eff,CESD: Everything an Effort - Coarse Scale,93.1,90.9,Psychological,cesd_eff
-cesd_sleep,CESD: Sleep was Restless - Coarse Scale ,88.4,80,Psychological,cesd_sleep
-cesd_happy,CESD: Was Happy - Coarse Scale ,81.4,85,Psychological,cesd_happy
-cesd_lone,CESD: Felt Lonely - Coarse Scale,61.4,87.4,Psychological,cesd_lone
-cesd_sad,CESD: Felt Sad - Coarse Scale ,90.9,87.1,Psychological,cesd_sad
-cesd_going,CESD: Could Not Get Going - Coarse Scale ,92.3,94.3,Psychological,cesd_going
-cesd_enjoy,CESD: Enjoyed Life - Coarse Scale,73.2,91.3,Psychological,cesd_enjoy
-med_exp,Imputed Total Medical Expenditure,96.5,95.3,Healthcare,med_exp
+cesd,Depression score,90.9,92.6,Psychological,cesd
+lim_work,Health limits work,92.9,91.4,IADL,lim_work
+srh,Self-reported health,85.4,90.9,Psychological,srh
+bmi,BMI,56.6,46.3,Functional,bmi
+back,Back problems,83.1,83.8,Functional,back
+hosp,Overnight hospital: 24 mo,94,94.6,Healthcare,hosp
+hosp_stays,Nr hospital stays: 24 mo,94.6,93,Healthcare,hosp_stays
+hosp_nights,Number  nights in hospital: 24 mo,95.2,91,Healthcare,hosp_nights
+nh,Overnight stay nursing home: 24 mo,90,89.5,Healthcare,nh
+nh_stays,Nr nursing home stays: 24 mo,89.3,90.6,Healthcare,nh_stays
+nh_nights,Nr nights nursing home: 24 mo,85.1,85,Healthcare,nh_nights
+nh_now,Nursing home at interview ,88.5,88.6,Healthcare,nh_now
+doc,Dr visit: 24 mo,68.6,70.6,Healthcare,doc
+doc_visits,Number Dr visits: 24 mo,94,89.5,Healthcare,doc_visits
+hhc,Home health care: 24 mo,93.9,91.2,Healthcare,hhc
+meds,Prescription drugs regularly: 24 mo,78.8,77.3,Healthcare,meds
+surg,Outpatient surgery: 24 mo,46.7,47.5,Healthcare,surg
+dent,Dental visit: 24 mo,67.8,68,Healthcare,dent
+shf,Special health fac visit: 24 mo,74.4,85.1,Healthcare,shf
+adl_walk,Diff. walking across room ,86,85.8,ADL,adl_walk
+adl_dress,Diff. dressing ,88.5,88.6,ADL,adl_dress
+adl_bath,Diff. bathing/showering ,82,86.5,ADL,adl_bath
+adl_eat,Diff. eating ,91.3,92.3,ADL,adl_eat
+adl_bed,Diff. getting in/out bed ,93.3,91.3,ADL,adl_bed
+adl_toilet,Diff. using toilet,88,90.4,ADL,adl_toilet
+iadl_map,Diff. using map,83.8,76.2,IADL,iadl_map
+iadl_tel,Diff. using telephone,78.2,83.6,IADL,iadl_tel
+iadl_money,Diff. managing money,87.5,82.7,IADL,iadl_money
+iadl_meds,Diff. taking meds,90.6,85.2,IADL,iadl_meds
+iadl_shop,Diff. shopping for groceries,79.9,80.7,IADL,iadl_shop
+iadl_meals,Diff. preparing hot meals,86.3,86.8,IADL,iadl_meals
+mob,Mobility difficulty index,91,90.7,Functional,mob
+lg_mus,Large muscle difficulty index,91.9,94.2,Functional,lg_mus
+gross_mot,Gross motor difficulty index,89.2,88.6,Functional,gross_mot
+fine_mot,Fine motor difficulty index,88.4,91.2,Functional,fine_mot
+bp,"High blood pressure, ever",74.2,78.9,Chronic,bp
+diab,"Diabetes, ever ",66.4,66.8,Chronic,diab
+cancer,"Cancer, ever",88.8,86.5,Chronic,cancer
+lung,Lung disease,80,76,Chronic,lung
+heart,"Heart problems, ever ",79.5,90.2,Chronic,heart
+stroke,"Stroke, ever ",81.9,89,Chronic,stroke
+psych,"Psych problems , ever",90.4,87.4,Psychological,psych
+arth,"Arthritis, ever ",82.2,92.8,Chronic,arth
+cc,Nr chronic conditions,84.5,90.4,Chronic,cc
+alc_ev,"Alcohol, ever ",87.3,85.9,Behaviors,alc_ev
+alc_days,Alcohol nr of days / week ,75.8,79.8,Behaviors,alc_days
+alc_drinks,Alcohol nr drinks per drinking day ,64.1,69.5,Behaviors,alc_drinks
+smoke_ev,Ever Smoker,49.8,41.5,Behaviors,smoke_ev
+smoke_cur,Current Smoker,35.2,21.5,Behaviors,smoke_cur
+cesd_depr,Felt Depressed,89,90.1,Psychological,cesd_depr
+cesd_eff,Everything an effort,93.1,90.9,Psychological,cesd_eff
+cesd_sleep,Sleep restless,88.4,80,Psychological,cesd_sleep
+cesd_happy,Was happy,81.4,85,Psychological,cesd_happy
+cesd_lone,Felt lonely,61.4,87.4,Psychological,cesd_lone
+cesd_sad,Felt sad,90.9,87.1,Psychological,cesd_sad
+cesd_going,Couldnot get going,92.3,94.3,Psychological,cesd_going
+cesd_enjoy,Enjoyed life,73.2,91.3,Psychological,cesd_enjoy
+med_exp,Imputed total medical expend.,96.5,95.3,Healthcare,med_exp
