@@ -23,7 +23,7 @@ SurfaceList <- local(get(load("Data/SurfaceList.Rdata")))
 
 # ------------------------------------------------------        
 
-#varname <- "srh";sex<-"m"; t.age =  0:15; c.age = 70:100; MaxL = 100; span = .5; radius = 2
+#varname <- "lt_freq";sex<-"m"; t.age =  0:15; c.age = 70:100; MaxL = 100; span = .5; radius = 2
 FindMaxGradientMatrix <- function(varname, 
         Dat, 
         sex,
@@ -88,19 +88,14 @@ LoessList  <- mclapply(varnames, function(varname,Dat){
             
             list(Male = Male,
                  Female = Female)
-        }, Dat = Dat, mc.cores = 6) # careful to change this!
+        }, Dat = Dat, mc.cores = 8) # careful to change this!
       
-   
-lapply(LoessList,function(X){
-    X[["Male"]][["varname"]]
-  })
-unlist(lapply(LoessList,function(X){
-    X$Male$varname
-  }))
 
+Error <- varnames[unlist(lapply(lapply(LoessList,"[[",1),class))=="try-error"]
 
 
 names(LoessList) <- varnames
+LoessList[[Error]] <- NULL
 save(LoessList,file="Data/LoessList.Rdata")
 
 
