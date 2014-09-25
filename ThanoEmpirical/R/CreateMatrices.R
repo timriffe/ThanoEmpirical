@@ -70,10 +70,10 @@ varnames      <- c(
         "iadl_map", "iadl_tel", "iadl_money", "iadl_meds", "iadl_shop", 
         "iadl_meals", "mob", "lg_mus", "gross_mot", "fine_mot", "bp", 
         "diab", "cancer", "lung", "heart", "stroke", "psych", "arth", 
-        "cc", "vig_freq", "lt_freq", "mod_freq", "alc_ev", "alc_days", 
+        "cc", "alc_ev", "alc_days", 
         "alc_drinks", "smoke_ev", "smoke_cur", "cesd_depr", "cesd_eff", 
         "cesd_sleep", "cesd_happy", "cesd_lone", "cesd_sad", "cesd_going", 
-        "cesd_enjoy", "med_exp", "vig")     
+        "cesd_enjoy", "med_exp")     
 varnames <- varnames[varnames %in% colnames(Dat)]
 
 # --------------------------------------------------
