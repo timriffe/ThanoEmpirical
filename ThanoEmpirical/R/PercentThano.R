@@ -21,15 +21,17 @@ PercentThano <- do.call(rbind,lapply(LoessList, function(X){
       c(Male = 100*(1 - degm / 90), Female = 100*(1 - degf / 90))
     }))
 
-hist(PercentThano[,1])
+
 # Blues thano. Reds chrono
-FemCol  <- as.character(cut(PercentThano[,2],breaks = seq(0,100,by=20),labels=brewer.pal(5,"RdBu")))
-MaleCol <- as.character(cut(PercentThano[,1],breaks = seq(0,100,by=20),labels=brewer.pal(5,"RdBu")))
+FemCol  <- as.character(cut(PercentThano[,2],breaks = seq(0,100,by=10),labels=rev(brewer.pal(10,"RdBu"))))
+MaleCol <- as.character(cut(PercentThano[,1],breaks = seq(0,100,by=10),labels=rev(brewer.pal(10,"RdBu"))))
 
 names(MaleCol) <- names(FemCol) <- rownames(PercentThano)
 # create mini pdf files
 sapply(rownames(PercentThano), function(x,MaleCol){
-    pdf(paste0("Figures/ColorCodes/",x,"_Males.pdf"),height=1,width=1)
+    this.name <- paste0("Figures/ColorCodes/",x,"_Males.pdf")
+    this.name <- gsub(pattern = "_", replacement = "",this.name)
+    pdf(this.name,height=1,width=1)
     par(mai=c(.05,.05,.05,.05),xaxs = "i", yaxs = "i")
     plot(NULL, type = "n", axes=FALSE,xlim=c(0,1),ylim=c(0,1),xlab="",ylab="")
     rect(0,0,1,1,col=MaleCol[x])
@@ -37,7 +39,9 @@ sapply(rownames(PercentThano), function(x,MaleCol){
   },MaleCol=MaleCol)
 
 sapply(rownames(PercentThano), function(x,FemCol){
-    pdf(paste0("Figures/ColorCodes/",x,"_Females.pdf"),height=1,width=1)
+    this.name <- paste0("Figures/ColorCodes/",x,"_Females.pdf")
+    this.name <- gsub(pattern = "_", replacement = "",this.name)
+    pdf(this.name,height=1,width=1)
     par(mai=c(.05,.05,.05,.05),xaxs = "i", yaxs = "i")
     plot(NULL, type = "n", axes=FALSE,xlim=c(0,1),ylim=c(0,1),xlab="",ylab="")
     rect(0,0,1,1,col=FemCol[x])
@@ -49,16 +53,47 @@ sapply(rownames(PercentThano), function(x,FemCol){
 #write.table(round(PercentThano,1),file = "Data/PercentThano.csv",sep=",",col.names = c("Male","Female"),row.names = rownames(PercentThano))
 
 Meta <- read.csv( "Data/PercentThano.csv",stringsAsFactors=FALSE)
-table(Meta$Group)
+
+ADL <- Meta[Meta$Group == "ADL", ]
 
 
-"Figures/ColorCodes/adl_dress_Males.pdf"
+
 library(xtable)
+ColorCells <- function(x,sex){
+   this.name <- paste0("\\Cell{",x,"_",sex,".pdf}")
+   this.name <- gsub(pattern = "_", replacement = "",this.name)
+   this.name
+  }
+Meta$ThermoM <- ColorCells(Meta$Short,"Males")
+Meta$ThermoF <- ColorCells(Meta$Short,"Females")
 
 
+library(xtable)
+MakeTable <- function(Group, Meta, tablevars=c("Long","Male","ThermoM","Female","ThermoF")){
+  X <- Meta[Meta$Group == Group, tablevars]
+  X[,2] <- paste0("\\% ",  sprintf("%.1f",X[,2]))
+  X[,4] <- paste0("\\% ",  sprintf("%.1f",X[,4]))
+  
+  Y <- cbind(Question = X[,1], 
+             Male = paste(X[,2],X[,3]),
+             Female = paste(X[,4],X[,5]))
+  
+  colnames(Y) <- c("Question","Male \\% Thano","Female \\% Thano")
+  
+  print(xtable(Y, align = "clrr"),
+    sanitize.colnames.function = function(x){x}, 
+    sanitize.text.function = function(x){x},
+    include.rownames=FALSE)
+}
+groups
+MakeTable("ADL",Meta)
+MakeTable("IADL",Meta)
+MakeTable("Chronic",Meta)
+MakeTable("Functional",Meta)
+MakeTable("Behaviors",Meta)
+MakeTable("Psychological",Meta)
+MakeTable("Healthcare",Meta)
 
+groups <- unique(Meta$Group)
 
-
-
-
-
+sapply(groups,MakeTable,Meta=Meta)
