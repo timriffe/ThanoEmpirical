@@ -10,79 +10,48 @@ if (system("hostname",intern=TRUE)=="triffe-N80Vm"){
 library(LexisUtils)
 library(reshape2)
 library(RColorBrewer)
-
+source("R/SurfMap.R")
 # ------------------------------------------------------        
 SurfaceList <- local(get(load("Data/SurfaceList.Rdata")))
 # ------------------------------------------------------        
 varnames <- names(SurfaceList)
 
-
-pdf("Figures/VariablePlots/SurfacesMales.pdf", width = 5, height = 4)
+pdf("Figures/VariablePlots/SurfacesMales.pdf", width = 10, height = 6)
 for (varname in varnames){
-   
-            LexisMap(SurfaceList[[varname]]$Male, log = FALSE, 
-                    xlab = "Years Lived", 
-                    ylab = "Years Left",
-                    main = paste("Males",varname),
-                    contour = TRUE, 
-                    LexRef = FALSE
-            )
-    
-}
-
-dev.off()
-
-pdf("Figures/VariablePlots/SurfacesFemales.pdf", width = 5, height = 4)
-for (varname in varnames){
-    
-    LexisMap(SurfaceList[[varname]]$Female, log = FALSE, 
-            xlab = "Years Lived", 
-            ylab = "Years Left",
-            main = paste("Females",varname),
-            contour = TRUE, 
-            LexRef = FALSE
-    )
-    
+  SurfMap(SurfaceList[[varname]]$Male,napprox=9)
+  text(85,18,paste("Males",varname))
 }
 dev.off()
 
+pdf("Figures/VariablePlots/SurfacesFemales.pdf", width = 10, height = 6)
+for (varname in varnames){
+  SurfMap(SurfaceList[[varname]]$Female,napprox=9)
+  text(85,18,paste("Females",varname))
+}
+dev.off()
 
 # ------------------------------------------------------        
 LoessList <- local(get(load("Data/LoessList.Rdata")))
 # ------------------------------------------------------        
 varnames <- names(LoessList)
-rapply(LoessList,class)
 
-library(LexisUtils)
-pdf("Figures/VariablePlots/LoessSurfacesMales.pdf", width = 5, height = 4)
+pdf("Figures/VariablePlots/LoessSurfacesMales.pdf", width = 10, height = 6)
 for (varname in varnames){
-    if(class(LoessList[[varname]]$Male)!="try-error"){
-        LexisMap(LoessList[[varname]]$Male$Surf, log = FALSE, 
-                xlab = "Years Lived", 
-                ylab = "Years Left",
-                main = paste("Males",varname),
-                contour = TRUE, 
-                LexRef = FALSE
-        )
-    }   
+      SurfMap(LoessList[[varname]]$Male$Surf,napprox=9)
+      text(85,18,paste("Males",varname))
 }
 dev.off()
 
 pdf("Figures/VariablePlots/LoessSurfacesFemales.pdf", width = 5, height = 4)
 for (varname in varnames){
-    if(class(LoessList[[varname]]$Female) != "try-error"){
-        LexisMap(LoessList[[varname]]$Female$Surf, log = FALSE, 
-                xlab = "Years Lived", 
-                ylab = "Years Left",
-                main = paste("Females",varname),
-                contour = TRUE, 
-                LexRef = FALSE
-        )
-    }
+  SurfMap(LoessList[[varname]]$Female$Surf,napprox=9)
+  text(85,18,paste("Females",varname))
 }
 dev.off()
-names(LoessList[[varname]])
-LoessList[[varname]]$Male
+
+
+
+
 
 
 
