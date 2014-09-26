@@ -42,14 +42,13 @@
 \begin{abstract}
 We aim to determine the extent to which variables commonly
 used to describe health, well-being, and disability in old-age vary primarily
-as a function of years lived (age), years left, or as a function of both
-lifespan dimensions. We analyze data from the US Health and Retirement Study to estimate
+as a function of years lived (age), years left, or as a function of both. We analyze data from the US Health and Retirement Study to estimate
 chronological age and time-to-death patterns in 60 such variables. We describe
 results for individuals with 15 or fewer remaining years of life, after age 70
 and whose completed lifespans do not exceed 100. Our results show that most
-markers used to study old-age well-being vary in both time dimensions, but that
-variation over remaining years of life is typically much stronger, at least for
-the age-ranges studied, and for the variables examined.
+markers used to study well-being in old-age vary along both time dimensions, but
+that variation over remaining years of life is typically much stronger for
+the age-ranges and variables examined.
 \end{abstract}
 
 \section{Background}
@@ -67,12 +66,11 @@ brouard1989mouvements} had already done the same thing some 30 years earlier, an
 S. Scherbov also unwittingly produced the same result over a decade ago. It is
 safe to say that most demographers are still unaware of the method, however.}.
 This transformation yields the thanatological age structure of the population
-under a particular set of mortality assumptions, which is interesting enough to
-justify itself.
-However, such lifetable-based transformations are idealized and hypothetical, and in many informal
+under a particular set of mortality assumptions.
+However, such lifetable-based transformations are idealized, and in many informal
 conversations the question has been raised as to which life transitions
-may actually be better modelled or understood as a function of thanatological
-age than in the conventional way.
+may actually be better understood as a function of thanatological
+age rather than chronological age.
 
 Work has been done on this topic in other domains, and
 topics examined can be roughly categorized into two types: 1) things that are a
@@ -80,20 +78,22 @@ function of apparent or perceived time to death
 \citep{carstensen2006influence,gan2004subjective,salm2010subjective,van2010living}, and 2) things that are a function of actual time to death
 \citep{miller2001increasing,seshamani2004longitudinal}. The former are mostly
 studies on cognitive transitions and economic behaviors, while the latter are
-mostly studies on health expenditure (of which there are many). In this paper we
+mostly studies on health expenditure. In this paper we
 will expand the latter group, focusing on a broad range of questions from the US
-Health and Retirement Survey \citep{HRS}, which at present provides a fairly
-good sample to provide aggregate results for the final 15 years of life.
+Health and Retirement Study \citep{HRS}, which at present provides a fairly
+good sample from which to aggregate results for the final 15 years of life.
 
 The present study is exploratory. We have the impression
 that such patterns are mostly novel to demographers and as-yet unincorporated in
 population-level indicators of ageing or disability. We aim to identify a
-range of domains in which it makes sense to think of processes from a
+range of domains in which it makes sense to think from a
 thanatological perspective. In the following sections we describe our
-approach to this exercise. In short, for a given characteristic, we produce a
-demographic surface, where one coordinate is chronological age and the other
-coordinate is thanatological age. We then characterize this surface in a simple
-way by determining the average direction of steepest ascent on the surface,
+approach to this exercise. 
+
+In short, for a given characteristic, we produce a
+demographic surface, where chronological age and thanatological age are the
+primary x and y axes, respectively.
+We then characterize this surface in a simple way by determining the average direction of steepest ascent on the surface,
 which tells us the primary direction of variation. If something varies more
 along the thanatological axis, then we call it a thanatological characteristic,
 and so forth. In practice, we derive the degree to which a characteristic is
@@ -107,7 +107,7 @@ All findings reported in this paper are based on data from the US Health and
 Retirement Study (HRS). We use the Rand edition of the data, which is
 conveniently merged across all ten waves, and we calculate thanatological age
 based on date of death information in the mortality followup module. We
-restrict the dataset to only those individuals that have died, which reduces the
+restrict the sample to only those individuals that have died, which reduces the
 dataset from 36986 individuals with an average of 5 interviews each to 11947
 deceased individuals with an average of 4.25 interviews each. Further winowing
 from our weighting criterion reduces the dataset to
@@ -121,14 +121,12 @@ Person weights
 are needed in order to estimate population-level means.
 One difficulty with the HRS is that the institutionalized population is treated
 as a second target population. In all waves but 5 and 6, there are no person weights
-assigned to institutionalized individuals. This means that there are some
-instances of in-universe (for us) interviews where no person-weight is
-assigned. In some cases we try to fill the gap according to some simple
+assigned to institutionalized individuals. In some cases we try to fill the gap according to some simple
 assumptions. If the individual was assigned a weight in a previous wave, we
 carry this weight over as a constant, unless there was also a non-zero weight in a future interview, in
 which case we assign the weight according to the within-individual linear
 pattern. Some individuals are in the dataset, but are
-out-of-universe (spouses mostly) for not having reached age 61. In these
+excluded (spouses mostly) for not having reached age 61. In these
 cases, we discard interviews with no person weights at young ages. 
 
 \subsection{Age}
@@ -140,13 +138,17 @@ of the month, but this is more than enough precision for our purposes. Since we
 are interested in comparing characteristics over both chronological age and
 thanatological age simultaneously, we are interested in having estimates over a
 good spread of both age perspectives.
-Figure~\ref{fig:counts} shows the case count in two-year age groups over the range of ages that are in the data and in universe for this
-study (yellow bin). 
+Figure~\ref{fig:counts} shows the case count in two-year age groups over the
+range of ages that are in the data and included for this study (yellow bin).
+Darker blues indicate higher case counts, and the contours approximate counts at
+this level of aggregation. In practice, these counts are a maximum, since
+particular variables studided may be missing.
 
 \begin{figure}[!h]
 \centering
 \caption{Case counts in two-year age bins. Chronological age (Years lived) on
-the x axis and thanatological age (Years lives) on the y axis.}
+the x axis and thanatological age (Years lives) on the y axis. Darker blues
+indicate higher case counts.}
 \label{fig:counts}
 \begin{subfigure}{\linewidth}
 	\caption{Males}
@@ -167,22 +169,22 @@ Note that Figure~\ref{fig:counts} resembles a Lexis surface in some ways, but it
 is not organized by years or birth cohorts. Instead, years and birth cohorts in
 the data are overlapped and treated as a single period and a single birth
 cohort. We limit the study area to chronological ages 70 and higher, and
-thanatological ages 15 and lower, and such that the sum of the two ages does not
+thanatological ages 15 and lower, such that the sum of the two ages does not
 exceed 100. These bounds allow for reasonably stable estimates of surfaces for
 the studied characteristics. We cut off below chronological age 70 in order to
-remove some patterns that appear to be due to retirement rather than some
-senescent process, and also to avoid some potential compositional bias, as
-these are the typical ages of recruitment for the HRS. Conceivably, the study
-area could be expanded after the addition of future mortality follow-ups.
+remove some patterns that appear to be due to retirement rather than
+senescence processes, and also to avoid some potential compositional bias, as
+these are the typical ages of recruitment for the HRS.\footnote{Conceivably, the study
+area could be expanded after the addition of future mortality follow-ups.} 
 
 \subsection{Variables}
 We aim for a broad overview of the age variation across different dimensions of
-old-age disability and well-being. For this reason we select many questions from
-various submodules of the HRS data to describe here. These include activities of
-daily living (ADL), instrumental activities of daily living, measures of
-healthcare utilization, functional and chronic conditions, psychological
+old-age disability and well-being. For this reason we select a wide variety of
+questions from the HRS data to describe here. These include questions
+grouped roughly into the following categories: Activities of daily living (ADL),
+instrumental activities of daily living (IADL), measures of healthcare utilization, functional and chronic conditions, psychological
 measures, and health behaviors. In all, we report summary results from 60
-individual question items.
+individual items.
 
 We judge the degree of chronological versus thanatological age variation by
 creating surfaces over both age dimensions, and for this each survey question
@@ -228,8 +230,8 @@ Figure~\ref{fig:srh}.
 
 In the case of Figure~\ref{fig:srh} note that there is regular variation in the
 direction of both axes, but that the variation over thanatological age (y axis)
-is sharper, i.e., it implies a steeper climb than does the apparent descent over
-chronological age. 
+is sharper, i.e., it implies a steeper climb than does the apparent decrease
+over chronological age. 
 
 In order to characterize this surface, we find the direction
 of steepest ascent for a regular grid of points. These directions are shown with
@@ -239,11 +241,11 @@ the age-range studied. If the direction is $0^\circ$ or $180^\circ$, then the
 characteristic can be said to be chronological. In our experience, most
 variables that we might be interested in are functions of both kinds of age, and
 so to determine the primary source of variation, we take the slope-weighted mean
-of each arrow direction, translate this to the upper quadrant, and then
-translate to a percent scale, where $90^\circ$ is 100\% thanatological and
-$0^\circ$ is 100\% chronological. For example, we judge SRH for males to be
-\%85.4 a thanatological story. However, around age 70-75, it is nearly \%100 
-thanatological.
+of each arrow direction, translate this to the upper-right unit quadrant, and
+then translate to a percent scale, where $90^\circ$ is 100\% thanatological and
+$0^\circ$ is 100\% chronological. For example, we judge SRH for males
+(Figure~\ref{fig:srh}) to be \%85.4 thanatological. However, around age 70-75,
+it is nearly \%100 thanatological.
 
 Some variables display complex surfaces, and may operate in different ways
 depending on particular age coordinates. In these cases, the result of the above
@@ -266,29 +268,31 @@ relationship.\footnote{Variables operate on different scales, and we are still
 thinking of how best to report slopes for the purpose of making comparisons. }
 A future revision will include detailed discussion of the results. For now, we
 report that most variables studied vary much more over thanatological age
-than over chronological age, at least for the age coordinates studied. The
+than over chronological age, at least for the age-ranges studied. The
 consistency of this finding is much greater than we expected, but it is not
 universal. 
 
 Results for males and females are color-coded with a thermometer scale in order
-to facilitate skimming the tables: dark red indicates thanatological variation and dark blue
-indicates chronological variation. 
+to facilitate skimming the tables: dark red indicates
+predominantly thanatological variation and dark blue indicates
+predominantly chronological variation.
 
-The most chronological variation in the data we examined was current and ever
+The most chronological variation in the data we examined are current and ever
 smoking, body mass index (BMI) and having had outpatient surgery in the past 24
 months. Most other variables are very strongly thanatological. We do not at the
 time of this writing have an explanation for why smoking is not more
 thanatolgical in nature, but one possibility is uncontrolled compositional
-distortion in the underlying data. This could be so if younger ages are on
-average from later waves and older ages are on average from earlier waves, in
-which case strong real cohort effects could carry through into this otherwise
-\textit{timeless} age-surface. We will test for this possibility in a future
+distortion in the underlying data. This could be so if younger respondents are,
+on average, from later waves and older respondents are, on average, from earlier
+waves, in which case strong birth cohort effects could carry through into this
+otherwise \textit{timeless} age-surface. We will test for this possibility in a future
 revision, and in this case we will make the same control for all variables. The
 strength and consistency of the thanatological patterns obtained at this time is
 nonetheless striking and appears worthy of more careful
 investigation.
 
 \FloatBarrier
+\pagebreak
 \subsection{ADL}
 % latex table generated in R 3.0.1 by xtable 1.7-3 package
 % Thu Sep 25 15:37:55 2014
@@ -331,6 +335,7 @@ IADL 3-point & \% 86.8 \Cell{iadl3Males.pdf} & \% 84.6 \Cell{iadl3Females.pdf} \
 \end{tabular}
 \end{table}
 \FloatBarrier
+
 \subsection{Chronic conditions}
 % latex table generated in R 3.0.1 by xtable 1.7-3 package
 % Thu Sep 25 15:53:31 2014
@@ -352,6 +357,7 @@ High blood pressure, ever & \% 74.2 \Cell{bpMales.pdf} & \% 78.9 \Cell{bpFemales
 \end{tabular}
 \end{table}
 
+\pagebreak
 \FloatBarrier
 \subsection{Functional limitations}
 % latex table generated in R 3.0.1 by xtable 1.7-3 package
@@ -417,6 +423,7 @@ Depression score & \% 90.9 \Cell{cesdMales.pdf} & \% 92.6 \Cell{cesdFemales.pdf}
 \end{table}
 
 \FloatBarrier
+\pagebreak
 \subsection{Healthcare utilization}
 % latex table generated in R 3.0.1 by xtable 1.7-3 package
 % Thu Sep 25 15:54:43 2014
