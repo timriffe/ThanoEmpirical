@@ -39,6 +39,20 @@
 
 \maketitle
 
+\begin{abstract}
+We analyze data from the US Health and Retirement Study to estimate
+chronological age and time-to-death patterns in variables commonly
+used to describe health, well-being, and disability in old-age. The purpose of this exercise is to
+determine the extent to which we should think of individual variables as
+operating in a years-left or years-lived dimension, or perhaps as a function of
+both lifespan dimensions. Our results show that most markers used to study
+old-age wellbeing vary in both dimensions, but that variation over remaining
+years of life is typically stronger, at least for the final 15 years of life
+and for the 56 of 60 variables examined.
+\end{abstract}
+
+
+\section{Background}
 Some individual life transitions are probably best described as a function of
 time since birth (chronological age), while others are probably best described as a
 function of time until death (thanatological age). These two ways of
@@ -75,43 +89,18 @@ The present study is exploratory. We have the impression
 that such patterns are mostly novel to demographers and as-yet unincorporated in
 population-level indicators of ageing or disability. We aim to identify a
 range of domains in which it makes sense to think of processes from a
-thanatological perspective. Some preliminary results are shown in
-Figure~\ref{fig:proposalfigs} for three summary indicators and one direct survey
-question. ADL measures\footnote{We tested various indices
-(\texttt{adl3},\texttt{adl5},\texttt{iadl3},\texttt{iadl5}), and all showed the
-same pattern.} and self-reported health show clear patterns of
-accelerated increase with the approach to death. Depression increases for both
-males and females with the approach to death, but there appear to be sex
-differences in functional forms. Back pain shows no clear pattern for females,
-and a possible spurious decline for males. In the complete paper we will present a
-more structured survey and a distilled set of comparisons that we hope will
-enrich discussion at the conference. 
-
-%\begin{figure}
-%\centering
-%\caption{Time to death patterns in four substantive indicators of ageing and
-%dependency.}
-%\label{fig:proposalfigs}
-%\begin{subfigure}[b]{.47\linewidth}
-%\centering
-%	\caption{Females}
-%	\label{fig:females}
-%	\includegraphics[scale=.45]{Figures/VariablePlots/ProposalFemales.pdf}	
-%\end{subfigure}
-%~
-%\begin{subfigure}[b]{.47\linewidth}
-%\centering
-%    \caption{Males}
-%	\label{fig:ales}
-%    \includegraphics[scale=.45]{Figures/VariablePlots/ProposalMales.pdf}
-%\end{subfigure}
-%\caption{All waves combined. All trends have been centered around zero and
-%rescaled by $\sigma$. \texttt{adl5} is an index of difficulty with common
-%activities. \texttt{srh} is self-reported health (higher = worse).
-%\texttt{back} is back pain (higher = more). \texttt{cesd} is a depression score
-%(higher = worse).}
-%\end{figure}
-%%from here
+thanatological perspective. In the following sections we describe our
+approach to this exercise. In short, for a given characteristic, we produce a
+demographic surface, where one coordinate is chronological age and the other
+coordinate is thanatological age. We then characterize this surface in a simple
+way by determining the average direction of steepest ascent on the surface,
+which tells us the primary direction of variation. If something varies more
+along the thanatological axis, then we call it a thanatological characteristic,
+and so forth. In practice, we derive the degree to which a characteristic is
+thanatological as a percentage. Some preliminary results are reported in tables
+below, and surface plots are made available.
+In the complete paper we will present a more structured survey and a distilled
+set of comparisons that we hope will stir thought on this topic.
 
 \section{Data \& Method}
 All findings reported in this paper are based on data from the US Health and
@@ -187,9 +176,21 @@ these are the typical ages of recruitment for the HRS. Conceivably, the study
 area could be expanded after the addition of future mortality follow-ups.
 
 \subsection{Variables}
-We aim for a broad overview of the age variation over different aspects of
+We aim for a broad overview of the age variation across different dimensions of
 old-age disability and well-being. For this reason we select many questions from
-various submodules of the HRS data. The major groups
+various submodules of the HRS data to describe here. These include activities of
+daily living (ADL), instrumental activities of daily living, measures of
+healthcare utilization, functional and chronic conditions, psychological
+measures, and health behaviors. In all, we report summary results from 60
+individual question items.
+
+We judge the degree of chronological versus thanatological age variation by
+creating surfaces over both age dimensions, and for this each survey question
+was required in a format suitable for numeric operations. This requires some
+compromises in data quality, since some coded responses are less directly
+quantifiable, and our conversions were at times ad-hoc. The treatment of
+individual variables will be described in an appendix in a future
+revision of this paper.
 
 \subsection{Loess smoothing}
 Direct tabulations of the weighted data are possible, and usually not too noisy,
@@ -232,7 +233,7 @@ chronological age.
 
 In order to characterize this surface, we find the direction
 of steepest ascent for a regular grid of points. These directions are shown with
-arrows in  Figure~\ref{fig:srh}. If the direction is exactly $90^\circ$ or $270^\circ$,
+arrows in Figure~\ref{fig:srh}. If the direction is exactly $90^\circ$ or $270^\circ$,
 then we know that the process is essentially a thanatological one, at least in
 the age-range studied. If the direction is $0^\circ$ or $180^\circ$, then the
 characteristic can be said to be chronological. In our experience, most
@@ -240,11 +241,52 @@ variables that we might be interested in are functions of both kinds of age, and
 so to determine the primary source of variation, we take the slope-weighted mean
 of each arrow direction, translate this to the upper quadrant, and then
 translate to a percent scale, where $90^\circ$ is 100\% thanatological and
-$0^\circ$ is 100\% chronological. 
+$0^\circ$ is 100\% chronological. For example, we judge SRH for males to be
+\%85.4 a thanatological story. However, around age 70-75, it is nearly \%100 
+thanatological.
+
+Some variables display complex surfaces, and may operate in different ways
+depending on particular age coordinates. In these cases, the result of the above
+procedure is too simple, and for this reason we provide the surface plots in supplementary online
+material.\footnote{Plots are for each sex separately, and have been compiled
+into two multipage pdf documents, each containing all variables for one sex.
+Links have been shortened.
+Males:
+\url{http://goo.gl/pzEHHk}, Females:
+\url{http://goo.gl/xyBMxO}.}
 
 
 
 \section{Results}
+This section contains the distilled results for each sex-variable surface. In
+each case we only report the average direction of steepest ascent, which tells
+us the degree to which variation is primarily over thanatological age or over
+chronological age. We do not display the strength of the
+relationship.\footnote{Variables operate on different scales, and we are still
+thinking of how best to report slopes for the purpose of making comparisons. }
+A future revision will include detailed discussion of the results. For now, we
+report that most variables studied vary much more over thanatological age
+than over chronological age, at least for the age coordinates studied. The
+consistency of this finding is much greater than we expected, but it is not
+universal. 
+
+Results for males and females are color-coded with a thermometer scale in order
+to facilitate skimming the tables: dark red indicates thanatological variation and dark blue
+indicates chronological variation. 
+
+The most chronological variation in the data we examined was current and ever
+smoking, body mass index (BMI) and having had outpatient surgery in the past 24
+months. Most other variables are very strongly thanatological. We do not at the
+time of this writing have an explanation for why smoking is not more
+thanatolgical in nature, but one possibility is uncontrolled compositional
+distortion in the underlying data. This could be so if younger ages are on
+average from later waves and older ages are on average from earlier waves, in
+which case strong real cohort effects could carry through into this otherwise
+\textit{timeless} age-surface. We will test for this possibility in a future
+revision, and in this case we will make the same control for all variables. The
+strength and consistency of the thanatological patterns obtained at this time is
+nonetheless striking and appears worthy of more careful
+investigation.
 
 \FloatBarrier
 \subsection{ADL}

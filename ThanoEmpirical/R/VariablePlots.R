@@ -34,18 +34,21 @@ dev.off()
 LoessList <- local(get(load("Data/LoessList.Rdata")))
 # ------------------------------------------------------        
 varnames <- names(LoessList)
+Meta <- read.csv( "Data/PercentThano.csv",stringsAsFactors=FALSE)
 
 pdf("Figures/VariablePlots/LoessSurfacesMales.pdf", width = 10, height = 6)
 for (varname in varnames){
+      i <- Meta$Short == varname
       SurfMap(LoessList[[varname]]$Male$Surf,napprox=9)
-      text(85,18,paste("Males",varname))
+      text(85,18,paste0(Meta$Group[i],", Males, ",Meta$Long[i],": %",Meta$Male[i]," Thanatological"))
 }
 dev.off()
 
 pdf("Figures/VariablePlots/LoessSurfacesFemales.pdf", width = 5, height = 4)
 for (varname in varnames){
+  i <- Meta$Short == varname
   SurfMap(LoessList[[varname]]$Female$Surf,napprox=9)
-  text(85,18,paste("Females",varname))
+  text(85,18,paste0(Meta$Group[i],", Females, ",Meta$Long[i],": %",Meta$Female[i]," Thanatological"))
 }
 dev.off()
 

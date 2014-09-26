@@ -93,7 +93,7 @@ MakeTable("Functional",Meta)
 MakeTable("Behaviors",Meta)
 MakeTable("Psychological",Meta)
 MakeTable("Healthcare",Meta)
-
+nrow(Meta)
 groups <- unique(Meta$Group)
 
 sapply(groups,MakeTable,Meta=Meta)
