@@ -7,7 +7,7 @@ if (system("hostname",intern=TRUE)=="triffe-N80Vm"){
   # in that case I'm on Berkeley system, and other people in the dept can run this too
   setwd(paste0("/data/commons/",system("whoami",intern=TRUE),"/git/ThanoEmpirical/ThanoEmpirical"))
 }
-
+getwd()
 # install.packages("lubridate")
 library(lubridate)
 library(data.table)
@@ -64,8 +64,8 @@ imputeWeights <- function(wt,intv_dt){
 
 # converts to long format, assumes thano age columns already appended:
 #
-Dat         <- local(get(load("Data/thanos_long_v2_1.gz")))
-
+Dat         <- local(get(load("Data/thanos_long_v2_2.gz")))
+dim(Dat)
 # remove missed interviews
 Dat         <- Dat[!is.na(Dat$intv_dt), ]
 nrow(Dat)/ length(unique(Dat$id))
@@ -124,6 +124,8 @@ DT    <- Dat[!wavei, ]
 (Suspects <- colnames(DT)[unlist(lapply(DT,function(x){
                    class(x) == "integer" & all(unique(x) %in% c(1,2,NA))
              }))])
+#[1] "cesd_depr"  "cesd_eff"   "cesd_sleep" "cesd_happy" "cesd_lone" 
+#[6] "cesd_sad"   "cesd_going" "cesd_enjoy" "iadl_calc" "mprobev"  
 # all Suspects check out:
 
 Dat[Suspects] <- lapply(Dat[Suspects], function(x,wavei){
@@ -163,9 +165,9 @@ names(rec.vec) <- 1:11
 Dat$med_exp    <- rec.vec[as.character(Dat$med_exp)]
 Dat$med_explog <- log(Dat$med_exp )
 # recode self reported health 1 = excellent - 5 = poor
-srhrec <- 1:5
+srhrec <- 0:4
 names(srhrec) <- sort(unique(Dat$srh))
-Dat$srh <- srhrec[Dat$srh]
+Dat$srh <- srhrec[Dat$srh] / 4 # now all between 0 and 1. 1 worst.
 
 # Edit: now removed because of waves gap (large)
 # light, moderate and vigorous physical activity was coded differently in wave 1 vs other waves...
@@ -190,7 +192,6 @@ Dat$srh <- srhrec[Dat$srh]
 save(Dat,file = "Data/Data_long.Rdata")
 
 #Dat <- local(get(load("Data/Data_long.Rdata")))
-
 
 
 
