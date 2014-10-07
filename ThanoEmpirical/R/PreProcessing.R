@@ -19,6 +19,25 @@ convertYN <- function(x){
     xx[grepl("no", x)]  <- 0
     invisible(xx)
 }
+convertCI <-  function(x){
+  xx                  <- rep(NA, length(x))
+  
+  xx[x == "1.correct"] <- 0
+  xx[x == "2.correct, 1st try"] <- 0
+  xx[x == "1.correct, 2nd try"] <- .5
+  xx[x == "0.incorrect"]  <- 1
+  invisible(as.numeric(xx))
+}
+convertCESD <- function(x){
+  xx <- rep(NA,length(x))
+  xx[x == "0.no"]                    <- 0
+  xx[x == "4. none or almost none"]  <- 0
+  xx[x == "3. some of the time"]     <- .5
+  xx[x == "2. most of the time" ]    <- .75
+  xx[x ==  "1.yes"]                  <- 1
+  xx[x ==  "1. all or almost all"]   <- 1
+  xx
+}
 convertDates <- function(Dat){
     # can't be done with apply because we can't have Date class matrices...
     DateInd       <- grep(pattern="_dt",colnames(Dat))
@@ -65,18 +84,23 @@ imputeWeights <- function(wt,intv_dt){
 # converts to long format, assumes thano age columns already appended:
 #
 Dat         <- local(get(load("Data/thanos_long_v2_2.gz")))
-dim(Dat)
+nrow(Dat)
+
 # remove missed interviews
 Dat         <- Dat[!is.na(Dat$intv_dt), ]
-nrow(Dat)/ length(unique(Dat$id))
+nrow(Dat)
+nrow(Dat)/ length(unique(Dat$id)) # avg interviews / id
 # change all factors to character (to be later recoded in some instances)
-Dat[sapply(Dat, is.factor)] <- lapply(Dat[sapply(Dat, is.factor)], as.character)
+#str(Dat)
+
+#Dat[sapply(Dat, is.factor)] <- lapply(Dat[sapply(Dat, is.factor)], as.character)
 
 # make sex column easier to use:
-Dat$sex     <- ifelse(as.character(Dat$sex) == "1.male","m","f")
+Dat$sex     <- ifelse(Dat$sex == "1.male","m","f")
 
 # reduce to deceased-only
 Dat         <- Dat[Dat$dead == 1, ]
+nrow(Dat)
 nrow(Dat)/ length(unique(Dat$id))
 
 # convert dates to native R format
@@ -90,11 +114,12 @@ Dat <- data.table(Dat)
 # take care of the rest: 
 
 Dat <- Dat[,p_wt2 := imputeWeights(p_wt,intv_dt), by = list(id) ]
-
+#Dat$p_wt2[Dat$p_wt==0]
 # all zeros removed
 # 2341 observations thrown as leading 0s, affecting 934 ids
 # 3227 total observations thrown (including all-0s), 1361 total ids affected
 Dat <- Dat[!is.na(Dat$p_wt2),]
+nrow(Dat)
 nrow(Dat)/ length(unique(Dat$id))
 # calculate thanatological age
 Dat$ta <- getThanoAge(Dat$intv_dt, Dat$d_dt)
@@ -105,10 +130,21 @@ Dat$ca <- getChronoAge(Dat$intv_dt, Dat$b_dt)
 # convert yes/no responses to 1,0
 YNcols <- apply(Dat, 2, function(x){
         xx <- unique(x)
-        length(xx) <= 3 & any(grepl("yes",xx))
+        length(xx) <= 4 & any(grepl("yes",xx))
         })
+CIcols <- apply(Dat, 2, function(x){
+          xx <- unique(x)
+          length(xx) <= 5 & any(grepl("correct",xx))
+        }) 
+
+colnames(Dat)[YNcols]
+
+colnames(Dat)[CIcols] 
+
 Dat <- data.frame(Dat)
 Dat[YNcols] <- lapply(Dat[YNcols], convertYN)
+Dat[CIcols] <- lapply(Dat[CIcols], convertCI)
+head(Dat)
 
 # remove lt, vig, ulc, too inconsistent
 Dat$lt        <- NULL
@@ -117,34 +153,6 @@ Dat$ulc       <- NULL
 Dat$lt_freq   <- NULL
 Dat$mod_freq  <- NULL
 Dat$vig_freq  <- NULL
-
-# find suspect columns for false recoding due to factor-> integer direct
-wavei <- Dat$wave == 1
-DT    <- Dat[!wavei, ]
-(Suspects <- colnames(DT)[unlist(lapply(DT,function(x){
-                   class(x) == "integer" & all(unique(x) %in% c(1,2,NA))
-             }))])
-#[1] "cesd_depr"  "cesd_eff"   "cesd_sleep" "cesd_happy" "cesd_lone" 
-#[6] "cesd_sad"   "cesd_going" "cesd_enjoy" "iadl_calc" "mprobev"  
-# all Suspects check out:
-
-Dat[Suspects] <- lapply(Dat[Suspects], function(x,wavei){
-    x[!wavei] <- x[!wavei] - 1
-    x
-  },wavei=wavei)
-   
-# now check for possible wave 1 differences
-(Suspects <- colnames(Dat)[unlist(lapply(Dat,function(x,wavei){
-            all(unique(x[wavei]) %in% c(1,2,3,4,5,NA)) & 
-              all(unique(x[!wavei]) %in% c(0,1,NA)) & 
-              !all(unique(x[wavei]) %in% c(0,1,NA))
-          },wavei=wavei))])
-# essentially all cesd measures
-Dat[Suspects] <- lapply(Dat[Suspects], function(x){
-    x[x == 4] <- 0
-    x[x > 1 ]  <- 1
-    x
-  })
 
 # recode medical expenditure to actual values:
 
@@ -165,9 +173,21 @@ names(rec.vec) <- 1:11
 Dat$med_exp    <- rec.vec[as.character(Dat$med_exp)]
 Dat$med_explog <- log(Dat$med_exp )
 # recode self reported health 1 = excellent - 5 = poor
-srhrec <- 0:4
+srhrec <- c(0:4,NA)
 names(srhrec) <- sort(unique(Dat$srh))
 Dat$srh <- srhrec[Dat$srh] / 4 # now all between 0 and 1. 1 worst.
+names(srhrec) <- sort(unique(Dat$srm))
+Dat$srm <- srhrec[Dat$srm] / 4 
+
+# same, worse, better recode:  (1 bad, 0 good)
+pastmem <- c(0:2,NA)
+names(pastmem) <- sort(unique(Dat$pastmem))
+Dat$pastmem <- pastmem[Dat$pastmem] / 2
+
+# do cesd questions (1 bad, 0 good)
+Dat[cesdquestions] <- colnames(Dat)[grepl("cesd", colnames(Dat))]
+cesdquestions      <- cesdquestions[cesdquestions != "cesd"]
+Dat[cesdquestions] <- lapply(Dat[cesdquestions],convertCESD)
 
 # Edit: now removed because of waves gap (large)
 # light, moderate and vigorous physical activity was coded differently in wave 1 vs other waves...
