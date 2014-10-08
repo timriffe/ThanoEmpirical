@@ -234,7 +234,13 @@ sum(BothInd) == 0 # (otherwise we'd need to divide these by two after adding)
 Dat$iwr                     <- Dat$ir20w + Dat$ir10w
 Dat$iwr[NAind]              <- NA
 
-
+# memory problem:
+#[1] ""                                "0. no"                          
+#[3] "1. yes"                          "NA"                             
+#[5] "4. disp prev record and no cond"
+mprob <- c(NA,0,1,0,NA)
+names(mprob) <- sort(unique(Dat$mprob))
+Dat$mprob <- mprob[Dat$mprob]
 # vocab
 # save out, so this doesn't need to be re-run every time
 save(Dat,file = "Data/Data_long.Rdata")

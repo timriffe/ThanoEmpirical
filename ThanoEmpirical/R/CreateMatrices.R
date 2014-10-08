@@ -61,19 +61,38 @@ Dat$tafloor3 <- Dat$tafloor - Dat$tafloor %% 3
 #colnames(Dat) <- gsub("_","",colnames(Dat) )
 #Dat <- data.table(Dat)
 
-varnames      <- c(
-        "iadl3_", "iadl5_", "cesd", "lim_work", "srh", 
-        "bmi", "back",  "hosp", "hosp_stays", "hosp_nights", "nh", 
-        "nh_stays", "nh_nights", "nh_now", 
-        "doc", "doc_visits", "hhc", "meds", "surg", "dent", "shf", "adl_walk", 
-        "adl_dress", "adl_bath", "adl_eat", "adl_bed", "adl_toilet", 
-        "iadl_map", "iadl_tel", "iadl_money", "iadl_meds", "iadl_shop", 
-        "iadl_meals", "mob", "lg_mus", "gross_mot", "fine_mot", "bp", 
-        "diab", "cancer", "lung", "heart", "stroke", "psych", "arth", 
-        "cc", "alc_ev", "alc_days", 
-        "alc_drinks", "smoke_ev", "smoke_cur", "cesd_depr", "cesd_eff", 
-        "cesd_sleep", "cesd_happy", "cesd_lone", "cesd_sad", "cesd_going", 
-        "cesd_enjoy", "med_exp")     
+#varnames      <- c(
+#        "iadl3_", "iadl5_", "cesd", "lim_work", "srh", 
+#        "bmi", "back",  "hosp", "hosp_stays", "hosp_nights", "nh", 
+#        "nh_stays", "nh_nights", "nh_now", 
+#        "doc", "doc_visits", "hhc", "meds", "surg", "dent", "shf", "adl_walk", 
+#        "adl_dress", "adl_bath", "adl_eat", "adl_bed", "adl_toilet", 
+#        "iadl_map", "iadl_tel", "iadl_money", "iadl_meds", "iadl_shop", 
+#        "iadl_meals", "mob", "lg_mus", "gross_mot", "fine_mot", "bp", 
+#        "diab", "cancer", "lung", "heart", "stroke", "psych", "arth", 
+#        "cc", "alc_ev", "alc_days", 
+#        "alc_drinks", "smoke_ev", "smoke_cur", "cesd_depr", "cesd_eff", 
+#        "cesd_sleep", "cesd_happy", "cesd_lone", "cesd_sad", "cesd_going", 
+#        "cesd_enjoy", "med_exp")     
+
+
+varnames <- c("adl3_", 
+  "adl5_", "iadl3_", "iadl5_", "cesd",  "lim_work", "srh", 
+  "bmi", "back", "hosp", "hosp_stays", "hosp_nights", "nh", 
+  "nh_stays", "nh_nights", "nh_now", "nh_mo", "nh_yr", "nh_days", 
+  "doc", "doc_visits", "hhc", "meds", "surg", "dent", "shf", "adl_walk", 
+  "adl_dress", "adl_bath", "adl_eat", "adl_bed", "adl_toilet", 
+  "iadl_map", "iadl_tel", "iadl_money", "iadl_meds", "iadl_shop", 
+  "iadl_meals", "mob", "lg_mus", "gross_mot", "fine_mot", "bp", 
+  "diab", "cancer", "lung", "heart", "stroke", "psych", "arth", 
+  "cc", "alc_ev", "alc_days", "alc_drinks", "smoke_ev", "smoke_cur", 
+  "cesd_depr", "cesd_eff", "cesd_sleep", "cesd_happy", "cesd_lone", 
+  "cesd_sad", "cesd_going", "cesd_enjoy", "prob75yo", "alz", "dem", 
+  "srm", "pastmem", "ss", "c20b", "name_mo", 
+  "name_dmo", "name_yr", "name_dwk", "name_sci", "name_cac", "name_pres", 
+  "name_vp", "vocab", "tm", "med_exp", "dwr","twr","iwr",
+  "iadl_calc", "nh_wt", "mprob", "mprobev", "med_explog")
+
 varnames <- varnames[varnames %in% colnames(Dat)]
 
 # --------------------------------------------------
