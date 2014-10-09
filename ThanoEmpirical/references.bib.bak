@@ -184,6 +184,16 @@
   timestamp = {2013.11.01}
 }
 
+@ARTICLE{kutlu2013individuals,
+  author = {Kutlu-Koc, VESILE and Kalwij, ADRIAAN},
+  title = {Individuals’ Survival Expectations and Actual Mortality},
+  journal = {Netspar Discussion Papers},
+  year = {2013},
+  pages = {2013--013},
+  owner = {triffe},
+  timestamp = {2014.10.07}
+}
+
 @ARTICLE{lee2002approach,
   author = {Lee, Ronald and Miller, Timothy},
   title = {An approach to forecasting health expenditures, with application
@@ -474,6 +484,20 @@
   owner = {triffe},
   publisher = {Wiley Online Library},
   timestamp = {2014.10.07}
+}
+
+@ARTICLE{woolf2003burden,
+  author = {Woolf, Anthony D and Pfleger, Bruce},
+  title = {Burden of major musculoskeletal conditions},
+  journal = {Bulletin of the World Health Organization},
+  year = {2003},
+  volume = {81},
+  pages = {646--656},
+  number = {9},
+  owner = {triffe},
+  publisher = {SciELO Public Health},
+  timestamp = {2014.10.08},
+  url = {http://www.scielosp.org/scielo.php?script=sci_arttext&pid=S0042-96862003000900007}
 }
 
 @ELECTRONIC{HRS,
