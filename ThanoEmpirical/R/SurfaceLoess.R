@@ -95,9 +95,9 @@ LoessList  <- mclapply(varnames, function(varname,Dat){
             
             list(Male = Male,
                  Female = Female)
-        }, Dat = Dat, mc.cores = 8) # careful to change this!
-      
-      LoessList[[1]]
+        }, Dat = Dat, mc.cores = detectCores()) # careful to change this!
+ 
+   
 #Error <- varnames[unlist(lapply(lapply(LoessList,"[[",1),class))=="try-error"]
 #
 #varname <- "nh_mo" 

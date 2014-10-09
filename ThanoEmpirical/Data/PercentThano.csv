@@ -1,61 +1,83 @@
-Short,Long,Male,Female,Group,
-iadl3_,IADL 3-point,86.8,84.6,IADL,iadl3_
-iadl5_,IADL 5-point,85.6,85.8,IADL,iadl5_
-cesd,Depression score,90.9,92.6,Psychological,cesd
-lim_work,Health limits work,92.9,91.4,IADL,lim_work
-srh,Self-reported health,85.4,90.9,Psychological,srh
-bmi,BMI,56.6,46.3,Functional,bmi
-back,Back problems,83.1,83.8,Functional,back
-hosp,Overnight hospital: 24 mo,94,94.6,Healthcare,hosp
-hosp_stays,Nr hospital stays: 24 mo,94.6,93,Healthcare,hosp_stays
-hosp_nights,Number  nights in hospital: 24 mo,95.2,91,Healthcare,hosp_nights
-nh,Overnight stay nursing home: 24 mo,90,89.5,Healthcare,nh
-nh_stays,Nr nursing home stays: 24 mo,89.3,90.6,Healthcare,nh_stays
-nh_nights,Nr nights nursing home: 24 mo,85.1,85,Healthcare,nh_nights
-nh_now,Nursing home at interview ,88.5,88.6,Healthcare,nh_now
-doc,Dr visit: 24 mo,68.6,70.6,Healthcare,doc
-doc_visits,Number Dr visits: 24 mo,94,89.5,Healthcare,doc_visits
-hhc,Home health care: 24 mo,93.9,91.2,Healthcare,hhc
-meds,Prescription drugs regularly: 24 mo,78.8,77.3,Healthcare,meds
-surg,Outpatient surgery: 24 mo,46.7,47.5,Healthcare,surg
-dent,Dental visit: 24 mo,67.8,68,Healthcare,dent
-shf,Special health fac visit: 24 mo,74.4,85.1,Healthcare,shf
-adl_walk,Diff. walking across room ,86,85.8,ADL,adl_walk
-adl_dress,Diff. dressing ,88.5,88.6,ADL,adl_dress
-adl_bath,Diff. bathing/showering ,82,86.5,ADL,adl_bath
-adl_eat,Diff. eating ,91.3,92.3,ADL,adl_eat
-adl_bed,Diff. getting in/out bed ,93.3,91.3,ADL,adl_bed
-adl_toilet,Diff. using toilet,88,90.4,ADL,adl_toilet
-iadl_map,Diff. using map,83.8,76.2,IADL,iadl_map
-iadl_tel,Diff. using telephone,78.2,83.6,IADL,iadl_tel
-iadl_money,Diff. managing money,87.5,82.7,IADL,iadl_money
-iadl_meds,Diff. taking meds,90.6,85.2,IADL,iadl_meds
-iadl_shop,Diff. shopping for groceries,79.9,80.7,IADL,iadl_shop
-iadl_meals,Diff. preparing hot meals,86.3,86.8,IADL,iadl_meals
-mob,Mobility difficulty index,91,90.7,Functional,mob
-lg_mus,Large muscle difficulty index,91.9,94.2,Functional,lg_mus
-gross_mot,Gross motor difficulty index,89.2,88.6,Functional,gross_mot
-fine_mot,Fine motor difficulty index,88.4,91.2,Functional,fine_mot
-bp,"High blood pressure, ever",74.2,78.9,Chronic,bp
-diab,"Diabetes, ever ",66.4,66.8,Chronic,diab
-cancer,"Cancer, ever",88.8,86.5,Chronic,cancer
-lung,Lung disease,80,76,Chronic,lung
-heart,"Heart problems, ever ",79.5,90.2,Chronic,heart
-stroke,"Stroke, ever ",81.9,89,Chronic,stroke
-psych,"Psych problems , ever",90.4,87.4,Psychological,psych
-arth,"Arthritis, ever ",82.2,92.8,Chronic,arth
-cc,Nr chronic conditions,84.5,90.4,Chronic,cc
-alc_ev,"Alcohol, ever ",87.3,85.9,Behaviors,alc_ev
-alc_days,Alcohol nr of days / week ,75.8,79.8,Behaviors,alc_days
-alc_drinks,Alcohol nr drinks per drinking day ,64.1,69.5,Behaviors,alc_drinks
-smoke_ev,Ever Smoker,49.8,41.5,Behaviors,smoke_ev
-smoke_cur,Current Smoker,35.2,21.5,Behaviors,smoke_cur
-cesd_depr,Felt Depressed,89,90.1,Psychological,cesd_depr
-cesd_eff,Everything an effort,93.1,90.9,Psychological,cesd_eff
-cesd_sleep,Sleep restless,88.4,80,Psychological,cesd_sleep
-cesd_happy,Was happy,81.4,85,Psychological,cesd_happy
-cesd_lone,Felt lonely,61.4,87.4,Psychological,cesd_lone
-cesd_sad,Felt sad,90.9,87.1,Psychological,cesd_sad
-cesd_going,Couldnot get going,92.3,94.3,Psychological,cesd_going
-cesd_enjoy,Enjoyed life,73.2,91.3,Psychological,cesd_enjoy
-med_exp,Imputed total medical expend.,96.5,95.3,Healthcare,med_exp
+Short,Long,Male,Female,Group,ThermoM,ThermoF
+adl3_,ADL 3-point,86.8,89,ADL,\Cell{adl3Males.pdf},\Cell{adl3Females.pdf}
+adl5_,ADL 5-point,87.5,89.1,ADL,\Cell{adl5Males.pdf},\Cell{adl5Females.pdf}
+iadl3_,IADL 3-point,86.8,84.6,IADL,\Cell{iadl3Males.pdf},\Cell{iadl3Females.pdf}
+iadl5_,IADL 5-point,85.6,85.8,IADL,\Cell{iadl5Males.pdf},\Cell{iadl5Females.pdf}
+cesd,Depression score,90.9,92.6,Psychological,\Cell{cesdMales.pdf},\Cell{cesdFemales.pdf}
+lim_work,Health limits work,92.9,91.4,IADL,\Cell{limworkMales.pdf},\Cell{limworkFemales.pdf}
+srh,Self-reported health,85.4,90.9,Psychological,\Cell{srhMales.pdf},\Cell{srhFemales.pdf}
+bmi,BMI,56.6,46.3,Functional,\Cell{bmiMales.pdf},\Cell{bmiFemales.pdf}
+back,Back problems,83.1,83.8,Functional,\Cell{backMales.pdf},\Cell{backFemales.pdf}
+hosp,Overnight hospital: 24 mo,94,94.6,Healthcare,\Cell{hospMales.pdf},\Cell{hospFemales.pdf}
+hosp_stays,Nr hospital stays: 24 mo,94.6,93,Healthcare,\Cell{hospstaysMales.pdf},\Cell{hospstaysFemales.pdf}
+hosp_nights,Number  nights in hospital: 24 mo,95.2,91,Healthcare,\Cell{hospnightsMales.pdf},\Cell{hospnightsFemales.pdf}
+nh,Overnight stay nursing home: 24 mo,90,89.5,Healthcare,\Cell{nhMales.pdf},\Cell{nhFemales.pdf}
+nh_stays,Nr nursing home stays: 24 mo,89.3,90.6,Healthcare,\Cell{nhstaysMales.pdf},\Cell{nhstaysFemales.pdf}
+nh_nights,Nr nights nursing home: 24 mo,85.1,85,Healthcare,\Cell{nhnightsMales.pdf},\Cell{nhnightsFemales.pdf}
+nh_now,Nursing home at interview ,88.5,88.6,Healthcare,\Cell{nhnowMales.pdf},\Cell{nhnowFemales.pdf}
+doc,Dr visit: 24 mo,68.6,70.6,Healthcare,\Cell{docMales.pdf},\Cell{docFemales.pdf}
+doc_visits,Number Dr visits: 24 mo,94,89.5,Healthcare,\Cell{docvisitsMales.pdf},\Cell{docvisitsFemales.pdf}
+hhc,Home health care: 24 mo,93.9,91.2,Healthcare,\Cell{hhcMales.pdf},\Cell{hhcFemales.pdf}
+meds,Prescription drugs regularly: 24 mo,78.8,77.3,Healthcare,\Cell{medsMales.pdf},\Cell{medsFemales.pdf}
+surg,Outpatient surgery: 24 mo,46.7,47.5,Healthcare,\Cell{surgMales.pdf},\Cell{surgFemales.pdf}
+dent,Dental visit: 24 mo,67.8,68,Healthcare,\Cell{dentMales.pdf},\Cell{dentFemales.pdf}
+shf,Special health fac visit: 24 mo,74.4,85.1,Healthcare,\Cell{shfMales.pdf},\Cell{shfFemales.pdf}
+adl_walk,Diff. walking across room ,86,85.8,ADL,\Cell{adlwalkMales.pdf},\Cell{adlwalkFemales.pdf}
+adl_dress,Diff. dressing ,88.5,88.6,ADL,\Cell{adldressMales.pdf},\Cell{adldressFemales.pdf}
+adl_bath,Diff. bathing/showering ,82,86.5,ADL,\Cell{adlbathMales.pdf},\Cell{adlbathFemales.pdf}
+adl_eat,Diff. eating ,91.3,92.3,ADL,\Cell{adleatMales.pdf},\Cell{adleatFemales.pdf}
+adl_bed,Diff. getting in/out bed ,93.3,91.3,ADL,\Cell{adlbedMales.pdf},\Cell{adlbedFemales.pdf}
+adl_toilet,Diff. using toilet,88,90.4,ADL,\Cell{adltoiletMales.pdf},\Cell{adltoiletFemales.pdf}
+iadl_map,Diff. using map,83.8,76.2,IADL,\Cell{iadlmapMales.pdf},\Cell{iadlmapFemales.pdf}
+iadl_tel,Diff. using telephone,78.2,83.6,IADL,\Cell{iadltelMales.pdf},\Cell{iadltelFemales.pdf}
+iadl_money,Diff. managing money,87.5,82.7,IADL,\Cell{iadlmoneyMales.pdf},\Cell{iadlmoneyFemales.pdf}
+iadl_meds,Diff. taking meds,90.6,85.2,IADL,\Cell{iadlmedsMales.pdf},\Cell{iadlmedsFemales.pdf}
+iadl_shop,Diff. shopping for groceries,79.9,80.7,IADL,\Cell{iadlshopMales.pdf},\Cell{iadlshopFemales.pdf}
+iadl_meals,Diff. preparing hot meals,86.3,86.8,IADL,\Cell{iadlmealsMales.pdf},\Cell{iadlmealsFemales.pdf}
+mob,Mobility difficulty index,91,90.7,Functional,\Cell{mobMales.pdf},\Cell{mobFemales.pdf}
+lg_mus,Large muscle difficulty index,91.9,94.2,Functional,\Cell{lgmusMales.pdf},\Cell{lgmusFemales.pdf}
+gross_mot,Gross motor difficulty index,89.2,88.6,Functional,\Cell{grossmotMales.pdf},\Cell{grossmotFemales.pdf}
+fine_mot,Fine motor difficulty index,88.4,91.2,Functional,\Cell{finemotMales.pdf},\Cell{finemotFemales.pdf}
+bp,"High blood pressure, ever",74.2,78.9,Chronic,\Cell{bpMales.pdf},\Cell{bpFemales.pdf}
+diab,"Diabetes, ever ",66.4,66.8,Chronic,\Cell{diabMales.pdf},\Cell{diabFemales.pdf}
+cancer,"Cancer, ever",88.8,86.5,Chronic,\Cell{cancerMales.pdf},\Cell{cancerFemales.pdf}
+lung,Lung disease,80,76,Chronic,\Cell{lungMales.pdf},\Cell{lungFemales.pdf}
+heart,"Heart problems, ever ",79.5,90.2,Chronic,\Cell{heartMales.pdf},\Cell{heartFemales.pdf}
+stroke,"Stroke, ever ",81.9,89,Chronic,\Cell{strokeMales.pdf},\Cell{strokeFemales.pdf}
+psych,"Psych problems , ever",90.4,87.4,Chronic,\Cell{psychMales.pdf},\Cell{psychFemales.pdf}
+arth,"Arthritis, ever ",82.2,92.8,Chronic,\Cell{arthMales.pdf},\Cell{arthFemales.pdf}
+cc,Nr chronic conditions,84.5,90.4,Chronic,\Cell{ccMales.pdf},\Cell{ccFemales.pdf}
+alc_ev,"Alcohol, ever ",87.3,85.9,Behaviors,\Cell{alcevMales.pdf},\Cell{alcevFemales.pdf}
+alc_days,Alcohol nr of days / week ,75.8,79.8,Behaviors,\Cell{alcdaysMales.pdf},\Cell{alcdaysFemales.pdf}
+alc_drinks,Alcohol nr drinks per drinking day ,64.1,69.5,Behaviors,\Cell{alcdrinksMales.pdf},\Cell{alcdrinksFemales.pdf}
+smoke_ev,Ever Smoker,49.8,41.5,Behaviors,\Cell{smokeevMales.pdf},\Cell{smokeevFemales.pdf}
+smoke_cur,Current Smoker,35.2,21.5,Behaviors,\Cell{smokecurMales.pdf},\Cell{smokecurFemales.pdf}
+cesd_depr,Felt Depressed,89.3,90.2,Psychological,\Cell{cesddeprMales.pdf},\Cell{cesddeprFemales.pdf}
+cesd_eff,Everything an effort,93.2,90.6,Psychological,\Cell{cesdeffMales.pdf},\Cell{cesdeffFemales.pdf}
+cesd_sleep,Sleep restless,88.2,81.1,Psychological,\Cell{cesdsleepMales.pdf},\Cell{cesdsleepFemales.pdf}
+cesd_happy,Was happy,79.7,84.1,Psychological,\Cell{cesdhappyMales.pdf},\Cell{cesdhappyFemales.pdf}
+cesd_lone,Felt lonely,61.4,86.9,Psychological,\Cell{cesdloneMales.pdf},\Cell{cesdloneFemales.pdf}
+cesd_sad,Felt sad,91,87.4,Psychological,\Cell{cesdsadMales.pdf},\Cell{cesdsadFemales.pdf}
+cesd_going,Could not get going,92.4,94.6,Psychological,\Cell{cesdgoingMales.pdf},\Cell{cesdgoingFemales.pdf}
+cesd_enjoy,Enjoyed life,72.5,91.8,Psychological,\Cell{cesdenjoyMales.pdf},\Cell{cesdenjoyFemales.pdf}
+srm,Self-rated memory,59.9,83.9,Cognitive,\Cell{srmMales.pdf},\Cell{srmFemales.pdf}
+pastmem,Memory compared to past,72.8,84.6,Cognitive,\Cell{pastmemMales.pdf},\Cell{pastmemFemales.pdf}
+ss,Serial 7s,78.3,51.2,Cognitive,\Cell{ssMales.pdf},\Cell{ssFemales.pdf}
+c20b,Backwards counting,79.5,54.3,Cognitive,\Cell{c20bMales.pdf},\Cell{c20bFemales.pdf}
+name_mo,Naming month,80.6,63,Cognitive,\Cell{namemoMales.pdf},\Cell{namemoFemales.pdf}
+name_dmo,Naming day of month,80.6,67.8,Cognitive,\Cell{namedmoMales.pdf},\Cell{namedmoFemales.pdf}
+name_yr,Naming year,76.8,54.7,Cognitive,\Cell{nameyrMales.pdf},\Cell{nameyrFemales.pdf}
+name_dwk,Naming day of week,85.9,70,Cognitive,\Cell{namedwkMales.pdf},\Cell{namedwkFemales.pdf}
+name_sci,Naming scissors,77.1,67.5,Cognitive,\Cell{namesciMales.pdf},\Cell{namesciFemales.pdf}
+name_cac,Naming cactus,50.4,52,Cognitive,\Cell{namecacMales.pdf},\Cell{namecacFemales.pdf}
+name_pres,Naming president,80.9,33.9,Cognitive,\Cell{namepresMales.pdf},\Cell{namepresFemales.pdf}
+name_vp,Naming VP,73.6,52,Cognitive,\Cell{namevpMales.pdf},\Cell{namevpFemales.pdf}
+vocab,Vocabulary score,79.4,52.8,Cognitive,\Cell{vocabMales.pdf},\Cell{vocabFemales.pdf}
+tm,Mental status summary,81.6,52,Cognitive,\Cell{tmMales.pdf},\Cell{tmFemales.pdf}
+med_exp,Imputed total medical expend.,96.5,95.3,Healthcare,\Cell{medexpMales.pdf},\Cell{medexpFemales.pdf}
+dwr,Delayed word recall,55.2,28.8,Cognitive,\Cell{dwrMales.pdf},\Cell{dwrFemales.pdf}
+twr,Total word recall,56,34.2,Cognitive,\Cell{twrMales.pdf},\Cell{twrFemales.pdf}
+iwr,Immediate word recall,56.7,41.3,Cognitive,\Cell{iwrMales.pdf},\Cell{iwrFemales.pdf}
+mprob,Memory prob. at interview,89.7,86.8,Cognitive,\Cell{mprobMales.pdf},\Cell{mprobFemales.pdf}
+mprobev,Memory prob. Ever,90.3,79.6,Cognitive,\Cell{mprobevMales.pdf},\Cell{mprobevFemales.pdf}
+med_explog,log medical expenditure,94.1,96.6,Healthcare,\Cell{medexplogMales.pdf},\Cell{medexplogFemales.pdf}

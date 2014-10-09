@@ -20,8 +20,11 @@ PercentThano <- do.call(rbind,lapply(LoessList, function(X){
       degf     <-  sum( abs(X$Female$Garrows[,"deg"] - 90) * abs(X$Female$Garrows[,"diff"])) / sum(abs(X$Female$Garrows[,"diff"]))
       c(Male = 100*(1 - degm / 90), Female = 100*(1 - degf / 90))
     }))
-LoessList[["alz"]]$Male$Garrows[,"deg"]
-SurfaceList[["dem"]]
+#pdf("Figures/SexDifferences.pdf")
+#plot(PercentThano[,1],PercentThano[,2],col=NA,xlab="Male",ylab="Female",asp=1)
+#text(PercentThano[,1],PercentThano[,2],rownames(PercentThano),cex=.8)
+#abline(a=0,b=1)
+#dev.off()
 # Blues thano. Reds chrono
 FemCol  <- as.character(cut(PercentThano[,2],breaks = seq(0,100,by=10),labels=rev(brewer.pal(10,"RdBu"))))
 MaleCol <- as.character(cut(PercentThano[,1],breaks = seq(0,100,by=10),labels=rev(brewer.pal(10,"RdBu"))))
@@ -50,24 +53,29 @@ sapply(rownames(PercentThano), function(x,FemCol){
 
 
 # added long name and group name in spreadsheet, so don't overwrite!
+#
 #write.table(round(PercentThano,1),file = "Data/PercentThano.csv",sep=",",col.names = c("Male","Female"),row.names = rownames(PercentThano))
+#write.table(Meta,file = "Data/PercentThano.csv",sep=",",
+#        col.names = c("Short",   "Long",    "Male",  
+#                "Female",  "Group",   "ThermoM", "ThermoF"),row.names = rownames(Meta))
+#colnames(Meta)
+#Meta <- read.csv( "Data/PercentThano.csv",stringsAsFactors=FALSE)
+#
+#ADL <- Meta[Meta$Group == "ADL", ]
+#
+#
+#install.packages("xtable")
+#library(xtable)
+#ColorCells <- function(x,sex){
+#   this.name <- paste0("\\Cell{",x,"_",sex,".pdf}")
+#   this.name <- gsub(pattern = "_", replacement = "",this.name)
+#   this.name
+#  }
+#Meta$ThermoM <- ColorCells(Meta$Short,"Males")
+#Meta$ThermoF <- ColorCells(Meta$Short,"Females")
 
+head(Meta)
 Meta <- read.csv( "Data/PercentThano.csv",stringsAsFactors=FALSE)
-
-ADL <- Meta[Meta$Group == "ADL", ]
-
-
-
-library(xtable)
-ColorCells <- function(x,sex){
-   this.name <- paste0("\\Cell{",x,"_",sex,".pdf}")
-   this.name <- gsub(pattern = "_", replacement = "",this.name)
-   this.name
-  }
-Meta$ThermoM <- ColorCells(Meta$Short,"Males")
-Meta$ThermoF <- ColorCells(Meta$Short,"Females")
-
-
 library(xtable)
 MakeTable <- function(Group, Meta, tablevars=c("Long","Male","ThermoM","Female","ThermoF")){
   X <- Meta[Meta$Group == Group, tablevars]
@@ -85,7 +93,7 @@ MakeTable <- function(Group, Meta, tablevars=c("Long","Male","ThermoM","Female",
     sanitize.text.function = function(x){x},
     include.rownames=FALSE)
 }
-groups
+
 MakeTable("ADL",Meta)
 MakeTable("IADL",Meta)
 MakeTable("Chronic",Meta)
@@ -93,6 +101,7 @@ MakeTable("Functional",Meta)
 MakeTable("Behaviors",Meta)
 MakeTable("Psychological",Meta)
 MakeTable("Healthcare",Meta)
+MakeTable("Cognitive",Meta)
 nrow(Meta)
 groups <- unique(Meta$Group)
 
