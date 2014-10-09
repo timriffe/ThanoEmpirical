@@ -154,6 +154,14 @@ Dat$lt_freq   <- NULL
 Dat$mod_freq  <- NULL
 Dat$vig_freq  <- NULL
 Dat$c86b      <- NULL # only in a couple waves
+Dat$dem       <- NULL
+Dat$alz       <- NULL
+Dat$iadl_calc <- NULL
+Dat$prob75yo  <- NULL
+Dat$nh_mo     <- NULL
+Dat$nh_yr     <- NULL
+Dat$nh_days   <- NULL
+
 # recode medical expenditure to actual values:
 
 #1=0 to $1,000                 500
@@ -168,8 +176,20 @@ Dat$c86b      <- NULL # only in a couple waves
 #10=~$500,000               500000
 #11=$500,000+              1000000
 
-rec.vec <- c(500,1000,2500,5000,15000,25000,62500,100000,300000,500000,1000000)
-names(rec.vec)      <- 1:11
+rec.vec <- c(500,1000,2500,5000,15000,25000,62500,100000,300000,500000,1000000, NA,NA)
+names(rec.vec)      <- c("1 : 0 to 1000-",
+  "2 : about 1000",
+  "3 : 1001 to 5000-",
+  "4 : about 5000",
+  "5 : 5001 to 25000-",
+  "6 : about 25000",
+  "7 : 25001 to 100000-",
+  "8 : about 100000",
+  "9 : 100001 to 500000-",
+  "10: about 500000",
+  "11: 500000 above" ,
+  "NA" , "")
+
 Dat$med_exp         <- rec.vec[as.character(Dat$med_exp)]
 Dat$med_explog      <- log(Dat$med_exp )
 # recode self reported health 1 = excellent - 5 = poor

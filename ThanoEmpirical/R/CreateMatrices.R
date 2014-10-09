@@ -120,3 +120,6 @@ for (varname in varnames){
 # ------------------------------------------------------        
 save(SurfaceList, file = "Data/SurfaceList.Rdata")
 # ------------------------------------------------------   
+
+#names(SurfaceList)
+#SurfaceList[["adl3_"]]

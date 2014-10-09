@@ -14,6 +14,7 @@ Dat <- local(get(load("Data/Data_long.Rdata")))
 SurfaceList <- local(get(load("Data/SurfaceList.Rdata")))
 
 
+
 # fixed study area:
 # now between chrono ages 70 and 100, below thano age 15, and where chrono + thano <= 100.
 # something like:
@@ -49,7 +50,7 @@ FindMaxGradientMatrix <- function(varname,
                                              floor(c.age)
                                              )
                             )
-   
+
     Surf[! col(Surf) - 1 + min(c.age) + row(Surf) - 1 + min(t.age) <= MaxL] <- NA
     # some origins to search around...
     t.origin <- seq(2.5, 12.5, by = 5)
@@ -68,17 +69,23 @@ FindMaxGradientMatrix <- function(varname,
         newdatai <- data.frame(ta = origins$ta[i]+y.circ,
                                ca = origins$ca[i]+x.circ)
         predvec  <- predict(mod, newdatai)
-        MaxG     <- which.max(abs(predvec[1:100] - predvec[101:200]))
-        Garrows[i, ] <- c(unlist(newdatai[MaxG, ]),
-                          unlist(newdatai[MaxG + 100, ]),  
-                          predvec[MaxG + 100] - predvec[MaxG],
-                          radii[MaxG]*180/pi)
+        Diffs    <- abs(predvec[1:100] - predvec[101:200])
+        if (any(is.na(Diffs))){
+          Garrows[i, ] <- rep(NA,6)
+        } else {
+          MaxG     <- which.max(Diffs)
+          Garrows[i, ] <- c(unlist(newdatai[MaxG, ]),
+            unlist(newdatai[MaxG + 100, ]),  
+            predvec[MaxG + 100] - predvec[MaxG],
+            radii[MaxG]*180/pi)
+        }
+       
     }
     list(Garrows = Garrows, Surf = Surf, span = span, sex = sex, varname = varname)
 }
 
 
-varnames <- names(SurfaceList)
+varnames <- names(SurfaceList) # sex <- "m"
 # these appear to break on the origin search thing, make more robust.
 LoessList  <- mclapply(varnames, function(varname,Dat){
             cat(varname,"Male\n")
@@ -90,12 +97,12 @@ LoessList  <- mclapply(varnames, function(varname,Dat){
                  Female = Female)
         }, Dat = Dat, mc.cores = 8) # careful to change this!
       
-
-Error <- varnames[unlist(lapply(lapply(LoessList,"[[",1),class))=="try-error"]
-
-
+      LoessList[[1]]
+#Error <- varnames[unlist(lapply(lapply(LoessList,"[[",1),class))=="try-error"]
+#
+#varname <- "nh_mo" 
 names(LoessList) <- varnames
-LoessList[[Error]] <- NULL
+#LoessList[[Error]] <- NULL
 save(LoessList,file="Data/LoessList.Rdata")
 
 

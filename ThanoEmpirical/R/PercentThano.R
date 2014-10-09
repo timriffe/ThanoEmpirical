@@ -20,8 +20,8 @@ PercentThano <- do.call(rbind,lapply(LoessList, function(X){
       degf     <-  sum( abs(X$Female$Garrows[,"deg"] - 90) * abs(X$Female$Garrows[,"diff"])) / sum(abs(X$Female$Garrows[,"diff"]))
       c(Male = 100*(1 - degm / 90), Female = 100*(1 - degf / 90))
     }))
-
-
+LoessList[["alz"]]$Male$Garrows[,"deg"]
+SurfaceList[["dem"]]
 # Blues thano. Reds chrono
 FemCol  <- as.character(cut(PercentThano[,2],breaks = seq(0,100,by=10),labels=rev(brewer.pal(10,"RdBu"))))
 MaleCol <- as.character(cut(PercentThano[,1],breaks = seq(0,100,by=10),labels=rev(brewer.pal(10,"RdBu"))))
