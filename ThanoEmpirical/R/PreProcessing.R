@@ -144,7 +144,7 @@ colnames(Dat)[CIcols]
 Dat <- data.frame(Dat)
 Dat[YNcols] <- lapply(Dat[YNcols], convertYN)
 Dat[CIcols] <- lapply(Dat[CIcols], convertCI)
-head(Dat)
+#head(Dat)
 
 # remove lt, vig, ulc, too inconsistent
 Dat$lt        <- NULL
