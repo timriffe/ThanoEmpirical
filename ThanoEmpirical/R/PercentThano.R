@@ -94,6 +94,8 @@ MakeTable <- function(Group, Meta, tablevars=c("Long","Male","ThermoM","Female",
     include.rownames=FALSE)
 }
 
+
+
 MakeTable("ADL",Meta)
 MakeTable("IADL",Meta)
 MakeTable("Chronic",Meta)
