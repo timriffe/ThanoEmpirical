@@ -10,7 +10,6 @@ if (system("hostname",intern=TRUE)=="triffe-N80Vm"){
 }
 library(reshape2)
 library(RColorBrewer)
-
 Dat                 <- local(get(load("Data/Data_long.Rdata")))
 Dat$ta[Dat$ta < 0]  <- 0
 Dat$tafloor         <- floor(Dat$ta)
@@ -181,7 +180,7 @@ segments(70,15,70,0,col="yellow",lwd=3)
 segments(85,15,100,0,col="yellow",lwd=3)
 segments(70,15,85,15,col="yellow",lwd=3)
 text(91,11,"Study Area",srt=-45,cex=1.2)
-dev.off()
+dev.off() 
 
 
 pdf("Figures/CaseCountFemalesPost1915.pdf",width=7,height=4)
