@@ -107,49 +107,49 @@ save(LoessList,file="Data/LoessList.Rdata")
 
 
 # -----------------------------------------
-colnames(Dat)
-
-Dat$Coh1915 <- ifelse(Dat$b_yr < 1915, 0,1)
-Dat$Coh1920 <- ifelse(Dat$b_yr < 1920, 0,1)
-Dat$Coh1925 <- ifelse(Dat$b_yr < 1925, 0,1)
-varname <- "srh"
-sex<-"m";span<-.5
-mod            <- loess(paste0(varname,'~ta+ca+Coh1920') ,
-        data = Dat[Dat$sex == sex, ], 
-        weights = p_wt2, 
-        span = 1
-)
-
-newdata        <- expand.grid(ta = t.age, ca = c.age,Coh1920 = c(0,1))
-# easier to keep dimensions straight if we predict over rectangular grid, 
-# then throw out values outside range
-newdata[,1:2]        <- newdata[,1:2] + .5
-Surf           <- predict(mod, newdata)
-
-Surf1           <- matrix(Surf[,,1], 
-        ncol = length(c.age),
-        dimnames = list(floor(t.age), 
-                floor(c.age)
-        )
-)
-Surf2           <- matrix(Surf[,,2], 
-        ncol = length(c.age),
-        dimnames = list(floor(t.age), 
-                floor(c.age)
-        )
-)
-
-
-NAcells <- function(Surf, MaxL, c.age, t.age){
-    Surf[! col(Surf) - 1 + min(c.age) + row(Surf) - 1 + min(t.age) <= MaxL] <- NA
-    Surf
-}
-Surf1 <- NAcells(Surf1, MaxL, c.age, t.age)
-Surf2 <- NAcells(Surf2, MaxL, c.age, t.age)
-
-SurfMap(Surf1)
-dev.new()
-SurfMap(Surf2)
-
-source("R/SurfMap.R")
+#colnames(Dat)
+#
+#Dat$Coh1915 <- ifelse(Dat$b_yr < 1915, 0,1)
+#Dat$Coh1920 <- ifelse(Dat$b_yr < 1920, 0,1)
+#Dat$Coh1925 <- ifelse(Dat$b_yr < 1925, 0,1)
+#varname <- "srh"
+#sex<-"m";span<-.5
+#mod            <- loess(paste0(varname,'~ta+ca+Coh1920') ,
+#        data = Dat[Dat$sex == sex, ], 
+#        weights = p_wt2, 
+#        span = 1
+#)
+#
+#newdata        <- expand.grid(ta = t.age, ca = c.age,Coh1920 = c(0,1))
+## easier to keep dimensions straight if we predict over rectangular grid, 
+## then throw out values outside range
+#newdata[,1:2]        <- newdata[,1:2] + .5
+#Surf           <- predict(mod, newdata)
+#
+#Surf1           <- matrix(Surf[,,1], 
+#        ncol = length(c.age),
+#        dimnames = list(floor(t.age), 
+#                floor(c.age)
+#        )
+#)
+#Surf2           <- matrix(Surf[,,2], 
+#        ncol = length(c.age),
+#        dimnames = list(floor(t.age), 
+#                floor(c.age)
+#        )
+#)
+#
+#
+#NAcells <- function(Surf, MaxL, c.age, t.age, MaxL=100){
+#    Surf[! col(Surf) - 1 + min(c.age) + row(Surf) - 1 + min(t.age) <= MaxL] <- NA
+#    Surf
+#}
+#Surf1 <- NAcells(Surf1, MaxL, c.age, t.age)
+#Surf2 <- NAcells(Surf2, MaxL, c.age, t.age)
+#
+#SurfMap(Surf1)
+#dev.new()
+#SurfMap(Surf2)
+#
+#source("R/SurfMap.R")
 
