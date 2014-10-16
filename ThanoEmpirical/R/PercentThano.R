@@ -74,11 +74,21 @@ sapply(rownames(PercentThano), function(x,FemCol){
 #Meta$ThermoM <- ColorCells(Meta$Short,"Males")
 #Meta$ThermoF <- ColorCells(Meta$Short,"Females")
 
-head(Meta)
+
 Meta <- read.csv( "Data/PercentThano.csv",stringsAsFactors=FALSE)
+Meta$Female <- PercentThano[,"Female"]
+Meta$Male   <- PercentThano[,"Male"]
+
 library(xtable)
+# Group <- "ADL"
 MakeTable <- function(Group, Meta, tablevars=c("Long","Male","ThermoM","Female","ThermoF")){
-  X <- Meta[Meta$Group == Group, tablevars]
+  X        <- Meta[Meta$Group == Group, tablevars]
+  
+  # order table rows on value
+  avgThano <- rowMeans(X[,c(2,4)])
+  X        <- X[order(avgThano,decreasing=TRUE),]
+  
+  # round nicely
   X[,2] <- paste0("\\% ",  sprintf("%.1f",X[,2]))
   X[,4] <- paste0("\\% ",  sprintf("%.1f",X[,4]))
   
@@ -88,10 +98,12 @@ MakeTable <- function(Group, Meta, tablevars=c("Long","Male","ThermoM","Female",
   
   colnames(Y) <- c("Question","Male \\% Thano","Female \\% Thano")
   
-  print(xtable(Y, align = "clrr"),
+  # format and save out to latex table
+  print(xtable(Y, align = "cp{6cm}rr"),
     sanitize.colnames.function = function(x){x}, 
     sanitize.text.function = function(x){x},
-    include.rownames=FALSE)
+    include.rownames=FALSE,
+    file = file.path("Tables",paste0(Group,".tex")))
 }
 
 
