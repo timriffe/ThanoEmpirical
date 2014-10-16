@@ -110,17 +110,7 @@ MakeTable <- function(Group, Meta, tablevars=c("Long","Male","ThermoM","Female",
     file = file.path("Tables",paste0(Group,".tex")))
 }
 
-
-
-MakeTable("ADL",Meta)
-MakeTable("IADL",Meta)
-MakeTable("Chronic",Meta)
-MakeTable("Functional",Meta)
-MakeTable("Behaviors",Meta)
-MakeTable("Psychological",Meta)
-MakeTable("Healthcare",Meta)
-MakeTable("Cognitive",Meta)
-nrow(Meta)
+#
 groups <- unique(Meta$Group)
 
 sapply(groups,MakeTable,Meta=Meta)

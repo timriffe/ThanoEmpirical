@@ -35,6 +35,44 @@ ListOrig <- lapply(apply(DatOrig[,varnames],2,unique),function(x){
   })
 ListDat <- apply(Dat[,varnames],2,unique)
 
+lengths <- apply(Dat[,varnames],2,function(x){
+    x <- unique(x)
+    x <- x[!is.na(x)]
+    length(x)
+  })
+ranges <- apply(Dat[,varnames],2,function(x){
+    x <- unique(x)
+    x <- x[!is.na(x)]
+    range(x)
+  })
+varChar <- data.frame(lengths,t(ranges))
+colnames(varChar) <- c("Nvals","lower","upper")
+varChar$binary <- varChar$Nvals == 2
+sum(varChar$binary)
+sum(varChar$upper == 1)
+sum(varChar$upper != 1)
 
+length(ranges)
+Meta <- read.csv( "Data/PercentThano.csv",stringsAsFactors=FALSE)
+Meta$ThermoM <- Meta$ThermoF <- NULL
 
-
+MakeTable <- function(Group, Meta, tablevars=c("Long","Male","Female")){
+  X <- Meta[Meta$Group == Group, tablevars]
+  # order table rows on value
+  avgThano <- rowMeans(X[,c(2,4)])
+  X        <- X[order(avgThano,decreasing=TRUE),]
+  
+  X[,2] <- paste0("\\% ",  sprintf("%.1f",X[,2]))
+  X[,4] <- paste0("\\% ",  sprintf("%.1f",X[,4]))
+  
+  Y <- cbind(Question = X[,1], 
+    Male = paste(X[,2],X[,3]),
+    Female = paste(X[,4],X[,5]))
+  
+  colnames(Y) <- c("Question",)
+  
+  print(xtable(Y, align = "clrr"),
+    sanitize.colnames.function = function(x){x}, 
+    sanitize.text.function = function(x){x},
+    include.rownames=FALSE)
+}
