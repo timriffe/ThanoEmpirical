@@ -262,6 +262,38 @@ mprob <- c(NA,0,1,0,NA)
 names(mprob) <- sort(unique(Dat$mprob))
 Dat$mprob <- mprob[Dat$mprob]
 # vocab
+
+# scale to fit btwn 0 and 1
+rescale <- function(var,Dat,compelment = FALSE){
+  Dat[[var]] <- Dat[[var]] / max(Dat[[var]], na.rm = TRUE)
+  if (compelment){
+    Dat[[var]] <- 1 - Dat[[var]]
+  }
+  Dat
+}
+
+Dat     <- rescale("mob", Dat, FALSE)
+Dat     <- rescale("lg_mus", Dat, FALSE) 
+Dat     <- rescale("gross_mot", Dat, FALSE)
+Dat     <- rescale("fine_mot", Dat, FALSE)
+
+Dat     <- rescale("ss", Dat, TRUE) # complement because more was better in original
+Dat     <- rescale("cc", Dat, FALSE)
+Dat     <- rescale("alc_days", Dat, FALSE)
+
+Dat     <- rescale("adl3_", Dat, FALSE)
+Dat     <- rescale("adl5_", Dat, FALSE)
+Dat     <- rescale("iadl3_", Dat, FALSE)
+Dat     <- rescale("iadl5_", Dat, FALSE)
+Dat     <- rescale("cesd", Dat, FALSE)
+#checkwaves <- function(var,Dat){
+#  table(Dat[[var]],Dat[["wave"]])
+#}
+#checkwaves("adl3_",Dat)
+#checkwaves("adl5_",Dat)
+#checkwaves("iadl3_",Dat)
+#checkwaves("iadl5_",Dat)
+#checkwaves("cesd",Dat)
 # save out, so this doesn't need to be re-run every time
 save(Dat,file = "Data/Data_long.Rdata")
 
