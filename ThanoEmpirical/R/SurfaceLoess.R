@@ -32,7 +32,8 @@ FindMaxGradientMatrix <- function(varname,
         c.age = 70:100,
         MaxL = 100,          # max completed lifespan
         span = .5, 
-        radius = 2){
+        radius = 2,
+        N = 200){
     mod            <- loess(paste0(varname,'~ta+ca') ,
                             data = Dat[Dat$sex == sex, ], 
                             weights = p_wt2, 
@@ -58,7 +59,7 @@ FindMaxGradientMatrix <- function(varname,
     origins  <- expand.grid(ta = t.origin, ca = c.origin)
     origins  <- origins[rowSums(origins) <= MaxL,]
 
-    radii  <- seq(0,2*pi,length=201)[1:200]
+    radii  <- seq(0,2*pi,length=(N+1))[1:N]
     x.circ <- cos(radii) * radius
     y.circ <- sin(radii) * radius
     # i <- 1
@@ -69,14 +70,14 @@ FindMaxGradientMatrix <- function(varname,
         newdatai <- data.frame(ta = origins$ta[i]+y.circ,
                                ca = origins$ca[i]+x.circ)
         predvec  <- predict(mod, newdatai)
-        Diffs    <- abs(predvec[1:100] - predvec[101:200])
+        Diffs    <- abs(predvec[1:(N/2)] - predvec[((N/2)+1):N])
         if (any(is.na(Diffs))){
           Garrows[i, ] <- rep(NA,6)
         } else {
           MaxG     <- which.max(Diffs)
           Garrows[i, ] <- c(unlist(newdatai[MaxG, ]),
-            unlist(newdatai[MaxG + 100, ]),  
-            predvec[MaxG + 100] - predvec[MaxG],
+            unlist(newdatai[MaxG + (N/2), ]),  
+            predvec[MaxG + (N/2)] - predvec[MaxG],
             radii[MaxG]*180/pi)
         }
        
@@ -89,9 +90,9 @@ varnames <- names(SurfaceList) # sex <- "m"
 # these appear to break on the origin search thing, make more robust.
 LoessList  <- mclapply(varnames, function(varname,Dat){
             cat(varname,"Male\n")
-            Male <- try(FindMaxGradientMatrix(varname, Dat, "m"))
+            Male <- try(FindMaxGradientMatrix(varname, Dat, "m", N = 1000))
             cat(varname,"Female\n")
-            Female <- try(FindMaxGradientMatrix(varname, Dat, "f"))
+            Female <- try(FindMaxGradientMatrix(varname, Dat, "f", N = 1000))
             
             list(Male = Male,
                  Female = Female)
@@ -100,8 +101,9 @@ LoessList  <- mclapply(varnames, function(varname,Dat){
    
 #Error <- varnames[unlist(lapply(lapply(LoessList,"[[",1),class))=="try-error"]
 #
-#varname <- "nh_mo" 
-names(LoessList) <- varnames
+#varname <- "srh" 
+
+names(LoessList) <- unlist(lapply(LoessList, function(x){x$Male$varname}))
 #LoessList[[Error]] <- NULL
 save(LoessList,file="Data/LoessList.Rdata")
 
