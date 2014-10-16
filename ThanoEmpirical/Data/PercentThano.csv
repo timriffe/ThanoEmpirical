@@ -1,83 +1,83 @@
-Short,Long,Male,Female,Group,ThermoM,ThermoF
-adl3_,ADL 3-point,86.8,89,ADL,\Cell{adl3Males.pdf},\Cell{adl3Females.pdf}
-adl5_,ADL 5-point,87.5,89.1,ADL,\Cell{adl5Males.pdf},\Cell{adl5Females.pdf}
-iadl3_,IADL 3-point,86.8,84.6,IADL,\Cell{iadl3Males.pdf},\Cell{iadl3Females.pdf}
-iadl5_,IADL 5-point,85.6,85.8,IADL,\Cell{iadl5Males.pdf},\Cell{iadl5Females.pdf}
-cesd,Depression score,90.9,92.6,Psychological,\Cell{cesdMales.pdf},\Cell{cesdFemales.pdf}
-lim_work,Health limits work,92.9,91.4,IADL,\Cell{limworkMales.pdf},\Cell{limworkFemales.pdf}
-srh,Self-reported health,85.4,90.9,Psychological,\Cell{srhMales.pdf},\Cell{srhFemales.pdf}
-bmi,BMI,56.6,46.3,Functional,\Cell{bmiMales.pdf},\Cell{bmiFemales.pdf}
-back,Back problems,83.1,83.8,Functional,\Cell{backMales.pdf},\Cell{backFemales.pdf}
-hosp,Overnight hospital: 24 mo,94,94.6,Healthcare,\Cell{hospMales.pdf},\Cell{hospFemales.pdf}
-hosp_stays,Nr hospital stays: 24 mo,94.6,93,Healthcare,\Cell{hospstaysMales.pdf},\Cell{hospstaysFemales.pdf}
-hosp_nights,Number  nights in hospital: 24 mo,95.2,91,Healthcare,\Cell{hospnightsMales.pdf},\Cell{hospnightsFemales.pdf}
-nh,Overnight stay nursing home: 24 mo,90,89.5,Healthcare,\Cell{nhMales.pdf},\Cell{nhFemales.pdf}
-nh_stays,Nr nursing home stays: 24 mo,89.3,90.6,Healthcare,\Cell{nhstaysMales.pdf},\Cell{nhstaysFemales.pdf}
-nh_nights,Nr nights nursing home: 24 mo,85.1,85,Healthcare,\Cell{nhnightsMales.pdf},\Cell{nhnightsFemales.pdf}
-nh_now,Nursing home at interview ,88.5,88.6,Healthcare,\Cell{nhnowMales.pdf},\Cell{nhnowFemales.pdf}
-doc,Dr visit: 24 mo,68.6,70.6,Healthcare,\Cell{docMales.pdf},\Cell{docFemales.pdf}
-doc_visits,Number Dr visits: 24 mo,94,89.5,Healthcare,\Cell{docvisitsMales.pdf},\Cell{docvisitsFemales.pdf}
-hhc,Home health care: 24 mo,93.9,91.2,Healthcare,\Cell{hhcMales.pdf},\Cell{hhcFemales.pdf}
-meds,Prescription drugs regularly: 24 mo,78.8,77.3,Healthcare,\Cell{medsMales.pdf},\Cell{medsFemales.pdf}
-surg,Outpatient surgery: 24 mo,46.7,47.5,Healthcare,\Cell{surgMales.pdf},\Cell{surgFemales.pdf}
-dent,Dental visit: 24 mo,67.8,68,Healthcare,\Cell{dentMales.pdf},\Cell{dentFemales.pdf}
-shf,Special health fac visit: 24 mo,74.4,85.1,Healthcare,\Cell{shfMales.pdf},\Cell{shfFemales.pdf}
-adl_walk,Diff. walking across room ,86,85.8,ADL,\Cell{adlwalkMales.pdf},\Cell{adlwalkFemales.pdf}
-adl_dress,Diff. dressing ,88.5,88.6,ADL,\Cell{adldressMales.pdf},\Cell{adldressFemales.pdf}
-adl_bath,Diff. bathing/showering ,82,86.5,ADL,\Cell{adlbathMales.pdf},\Cell{adlbathFemales.pdf}
-adl_eat,Diff. eating ,91.3,92.3,ADL,\Cell{adleatMales.pdf},\Cell{adleatFemales.pdf}
-adl_bed,Diff. getting in/out bed ,93.3,91.3,ADL,\Cell{adlbedMales.pdf},\Cell{adlbedFemales.pdf}
-adl_toilet,Diff. using toilet,88,90.4,ADL,\Cell{adltoiletMales.pdf},\Cell{adltoiletFemales.pdf}
-iadl_map,Diff. using map,83.8,76.2,IADL,\Cell{iadlmapMales.pdf},\Cell{iadlmapFemales.pdf}
-iadl_tel,Diff. using telephone,78.2,83.6,IADL,\Cell{iadltelMales.pdf},\Cell{iadltelFemales.pdf}
-iadl_money,Diff. managing money,87.5,82.7,IADL,\Cell{iadlmoneyMales.pdf},\Cell{iadlmoneyFemales.pdf}
-iadl_meds,Diff. taking meds,90.6,85.2,IADL,\Cell{iadlmedsMales.pdf},\Cell{iadlmedsFemales.pdf}
-iadl_shop,Diff. shopping for groceries,79.9,80.7,IADL,\Cell{iadlshopMales.pdf},\Cell{iadlshopFemales.pdf}
-iadl_meals,Diff. preparing hot meals,86.3,86.8,IADL,\Cell{iadlmealsMales.pdf},\Cell{iadlmealsFemales.pdf}
-mob,Mobility difficulty index,91,90.7,Functional,\Cell{mobMales.pdf},\Cell{mobFemales.pdf}
-lg_mus,Large muscle difficulty index,91.9,94.2,Functional,\Cell{lgmusMales.pdf},\Cell{lgmusFemales.pdf}
-gross_mot,Gross motor difficulty index,89.2,88.6,Functional,\Cell{grossmotMales.pdf},\Cell{grossmotFemales.pdf}
-fine_mot,Fine motor difficulty index,88.4,91.2,Functional,\Cell{finemotMales.pdf},\Cell{finemotFemales.pdf}
-bp,"High blood pressure, ever",74.2,78.9,Chronic,\Cell{bpMales.pdf},\Cell{bpFemales.pdf}
-diab,"Diabetes, ever ",66.4,66.8,Chronic,\Cell{diabMales.pdf},\Cell{diabFemales.pdf}
-cancer,"Cancer, ever",88.8,86.5,Chronic,\Cell{cancerMales.pdf},\Cell{cancerFemales.pdf}
-lung,Lung disease,80,76,Chronic,\Cell{lungMales.pdf},\Cell{lungFemales.pdf}
-heart,"Heart problems, ever ",79.5,90.2,Chronic,\Cell{heartMales.pdf},\Cell{heartFemales.pdf}
-stroke,"Stroke, ever ",81.9,89,Chronic,\Cell{strokeMales.pdf},\Cell{strokeFemales.pdf}
-psych,"Psych problems , ever",90.4,87.4,Chronic,\Cell{psychMales.pdf},\Cell{psychFemales.pdf}
-arth,"Arthritis, ever ",82.2,92.8,Chronic,\Cell{arthMales.pdf},\Cell{arthFemales.pdf}
-cc,Nr chronic conditions,84.5,90.4,Chronic,\Cell{ccMales.pdf},\Cell{ccFemales.pdf}
-alc_ev,"Alcohol, ever ",87.3,85.9,Behaviors,\Cell{alcevMales.pdf},\Cell{alcevFemales.pdf}
-alc_days,Alcohol nr of days / week ,75.8,79.8,Behaviors,\Cell{alcdaysMales.pdf},\Cell{alcdaysFemales.pdf}
-alc_drinks,Alcohol nr drinks per drinking day ,64.1,69.5,Behaviors,\Cell{alcdrinksMales.pdf},\Cell{alcdrinksFemales.pdf}
-smoke_ev,Ever Smoker,49.8,41.5,Behaviors,\Cell{smokeevMales.pdf},\Cell{smokeevFemales.pdf}
-smoke_cur,Current Smoker,35.2,21.5,Behaviors,\Cell{smokecurMales.pdf},\Cell{smokecurFemales.pdf}
-cesd_depr,Felt Depressed,89.3,90.2,Psychological,\Cell{cesddeprMales.pdf},\Cell{cesddeprFemales.pdf}
-cesd_eff,Everything an effort,93.2,90.6,Psychological,\Cell{cesdeffMales.pdf},\Cell{cesdeffFemales.pdf}
-cesd_sleep,Sleep restless,88.2,81.1,Psychological,\Cell{cesdsleepMales.pdf},\Cell{cesdsleepFemales.pdf}
-cesd_happy,Was happy,79.7,84.1,Psychological,\Cell{cesdhappyMales.pdf},\Cell{cesdhappyFemales.pdf}
-cesd_lone,Felt lonely,61.4,86.9,Psychological,\Cell{cesdloneMales.pdf},\Cell{cesdloneFemales.pdf}
-cesd_sad,Felt sad,91,87.4,Psychological,\Cell{cesdsadMales.pdf},\Cell{cesdsadFemales.pdf}
-cesd_going,Could not get going,92.4,94.6,Psychological,\Cell{cesdgoingMales.pdf},\Cell{cesdgoingFemales.pdf}
-cesd_enjoy,Enjoyed life,72.5,91.8,Psychological,\Cell{cesdenjoyMales.pdf},\Cell{cesdenjoyFemales.pdf}
-srm,Self-rated memory,59.9,83.9,Cognitive,\Cell{srmMales.pdf},\Cell{srmFemales.pdf}
-pastmem,Memory compared to past,72.8,84.6,Cognitive,\Cell{pastmemMales.pdf},\Cell{pastmemFemales.pdf}
-ss,Serial 7s,78.3,51.2,Cognitive,\Cell{ssMales.pdf},\Cell{ssFemales.pdf}
-c20b,Backwards counting,79.5,54.3,Cognitive,\Cell{c20bMales.pdf},\Cell{c20bFemales.pdf}
-name_mo,Naming month,80.6,63,Cognitive,\Cell{namemoMales.pdf},\Cell{namemoFemales.pdf}
-name_dmo,Naming day of month,80.6,67.8,Cognitive,\Cell{namedmoMales.pdf},\Cell{namedmoFemales.pdf}
-name_yr,Naming year,76.8,54.7,Cognitive,\Cell{nameyrMales.pdf},\Cell{nameyrFemales.pdf}
-name_dwk,Naming day of week,85.9,70,Cognitive,\Cell{namedwkMales.pdf},\Cell{namedwkFemales.pdf}
-name_sci,Naming scissors,77.1,67.5,Cognitive,\Cell{namesciMales.pdf},\Cell{namesciFemales.pdf}
-name_cac,Naming cactus,50.4,52,Cognitive,\Cell{namecacMales.pdf},\Cell{namecacFemales.pdf}
-name_pres,Naming president,80.9,33.9,Cognitive,\Cell{namepresMales.pdf},\Cell{namepresFemales.pdf}
-name_vp,Naming VP,73.6,52,Cognitive,\Cell{namevpMales.pdf},\Cell{namevpFemales.pdf}
-vocab,Vocabulary score,79.4,52.8,Cognitive,\Cell{vocabMales.pdf},\Cell{vocabFemales.pdf}
-tm,Mental status summary,81.6,52,Cognitive,\Cell{tmMales.pdf},\Cell{tmFemales.pdf}
-med_exp,Imputed total medical expend.,96.5,95.3,Healthcare,\Cell{medexpMales.pdf},\Cell{medexpFemales.pdf}
-dwr,Delayed word recall,55.2,28.8,Cognitive,\Cell{dwrMales.pdf},\Cell{dwrFemales.pdf}
-twr,Total word recall,56,34.2,Cognitive,\Cell{twrMales.pdf},\Cell{twrFemales.pdf}
-iwr,Immediate word recall,56.7,41.3,Cognitive,\Cell{iwrMales.pdf},\Cell{iwrFemales.pdf}
-mprob,Memory prob. at interview,89.7,86.8,Cognitive,\Cell{mprobMales.pdf},\Cell{mprobFemales.pdf}
-mprobev,Memory prob. Ever,90.3,79.6,Cognitive,\Cell{mprobevMales.pdf},\Cell{mprobevFemales.pdf}
-med_explog,log medical expenditure,94.1,96.6,Healthcare,\Cell{medexplogMales.pdf},\Cell{medexplogFemales.pdf}
+"Short","Long","Male","Female","Group","ThermoM","ThermoF"
+"adl3_","ADL 3-point",86.9460644601039,89.0382776242867,"ADL","\Cell{adl3Males.pdf}","\Cell{adl3Females.pdf}"
+"adl5_","ADL 5-point",87.6450992601691,88.9308875086288,"ADL","\Cell{adl5Males.pdf}","\Cell{adl5Females.pdf}"
+"iadl3_","IADL 3-point",86.5007607471709,84.633585673878,"IADL","\Cell{iadl3Males.pdf}","\Cell{iadl3Females.pdf}"
+"iadl5_","IADL 5-point",85.6140135234447,85.8497967997012,"IADL","\Cell{iadl5Males.pdf}","\Cell{iadl5Females.pdf}"
+"cesd","Depression score",90.8626100584976,92.3913590319457,"Psychological","\Cell{cesdMales.pdf}","\Cell{cesdFemales.pdf}"
+"lim_work","Health limits work",92.872703351524,91.5121131211512,"IADL","\Cell{limworkMales.pdf}","\Cell{limworkFemales.pdf}"
+"srh","Self-reported health",85.5734662761079,91.064171524013,"Psychological","\Cell{srhMales.pdf}","\Cell{srhFemales.pdf}"
+"bmi","BMI",56.7215035253254,46.3830405758148,"Functional","\Cell{bmiMales.pdf}","\Cell{bmiFemales.pdf}"
+"back","Back problems",83.1696350822061,83.7737378703211,"Functional","\Cell{backMales.pdf}","\Cell{backFemales.pdf}"
+"hosp","Overnight hospital: 24 mo",93.9181791605079,94.5744769110948,"Healthcare","\Cell{hospMales.pdf}","\Cell{hospFemales.pdf}"
+"hosp_stays","Nr hospital stays: 24 mo",94.5664088675541,92.888336600699,"Healthcare","\Cell{hospstaysMales.pdf}","\Cell{hospstaysFemales.pdf}"
+"hosp_nights","Number  nights in hospital: 24 mo",94.8505198753156,90.8973875031728,"Healthcare","\Cell{hospnightsMales.pdf}","\Cell{hospnightsFemales.pdf}"
+"nh","Overnight stay nursing home: 24 mo",89.6443431751469,89.4539127785217,"Healthcare","\Cell{nhMales.pdf}","\Cell{nhFemales.pdf}"
+"nh_stays","Nr nursing home stays: 24 mo",89.5718970256698,90.4565726661112,"Healthcare","\Cell{nhstaysMales.pdf}","\Cell{nhstaysFemales.pdf}"
+"nh_nights","Nr nights nursing home: 24 mo",85.1822140536337,85.1508043223994,"Healthcare","\Cell{nhnightsMales.pdf}","\Cell{nhnightsFemales.pdf}"
+"nh_now","Nursing home at interview ",88.8639821375682,88.5734723840305,"Healthcare","\Cell{nhnowMales.pdf}","\Cell{nhnowFemales.pdf}"
+"doc","Dr visit: 24 mo",68.6168666654958,70.5361243970881,"Healthcare","\Cell{docMales.pdf}","\Cell{docFemales.pdf}"
+"doc_visits","Number Dr visits: 24 mo",93.850622865217,89.5115018174735,"Healthcare","\Cell{docvisitsMales.pdf}","\Cell{docvisitsFemales.pdf}"
+"hhc","Home health care: 24 mo",94.2636720637592,91.1226502203874,"Healthcare","\Cell{hhcMales.pdf}","\Cell{hhcFemales.pdf}"
+"meds","Prescription drugs regularly: 24 mo",78.6455243120575,77.3475767122798,"Healthcare","\Cell{medsMales.pdf}","\Cell{medsFemales.pdf}"
+"surg","Outpatient surgery: 24 mo",46.6641556780341,47.5007352074162,"Healthcare","\Cell{surgMales.pdf}","\Cell{surgFemales.pdf}"
+"dent","Dental visit: 24 mo",67.7415437078909,68.0166554168847,"Healthcare","\Cell{dentMales.pdf}","\Cell{dentFemales.pdf}"
+"shf","Special health fac visit: 24 mo",74.2703527208569,85.2780976239933,"Healthcare","\Cell{shfMales.pdf}","\Cell{shfFemales.pdf}"
+"adl_walk","Diff. walking across room ",86.137307083862,85.8305496927172,"ADL","\Cell{adlwalkMales.pdf}","\Cell{adlwalkFemales.pdf}"
+"adl_dress","Diff. dressing ",88.6983382737628,88.679045537909,"ADL","\Cell{adldressMales.pdf}","\Cell{adldressFemales.pdf}"
+"adl_bath","Diff. bathing/showering ",82.1410824206025,86.5104032301657,"ADL","\Cell{adlbathMales.pdf}","\Cell{adlbathFemales.pdf}"
+"adl_eat","Diff. eating ",91.1792431921341,92.1568338364221,"ADL","\Cell{adleatMales.pdf}","\Cell{adleatFemales.pdf}"
+"adl_bed","Diff. getting in/out bed ",93.5692885515325,91.5229425844625,"ADL","\Cell{adlbedMales.pdf}","\Cell{adlbedFemales.pdf}"
+"adl_toilet","Diff. using toilet",88.0093408023929,90.3122781680202,"ADL","\Cell{adltoiletMales.pdf}","\Cell{adltoiletFemales.pdf}"
+"iadl_map","Diff. using map",83.9850358998656,76.1154269841859,"IADL","\Cell{iadlmapMales.pdf}","\Cell{iadlmapFemales.pdf}"
+"iadl_tel","Diff. using telephone",78.2896746611306,83.192945502322,"IADL","\Cell{iadltelMales.pdf}","\Cell{iadltelFemales.pdf}"
+"iadl_money","Diff. managing money",87.5687014520816,82.6248846025186,"IADL","\Cell{iadlmoneyMales.pdf}","\Cell{iadlmoneyFemales.pdf}"
+"iadl_meds","Diff. taking meds",90.9580401285983,85.3084196339653,"IADL","\Cell{iadlmedsMales.pdf}","\Cell{iadlmedsFemales.pdf}"
+"iadl_shop","Diff. shopping for groceries",79.5726797905244,80.6139418269897,"IADL","\Cell{iadlshopMales.pdf}","\Cell{iadlshopFemales.pdf}"
+"iadl_meals","Diff. preparing hot meals",86.2756510872872,86.7701569933645,"IADL","\Cell{iadlmealsMales.pdf}","\Cell{iadlmealsFemales.pdf}"
+"mob","Mobility difficulty index",90.916728047906,90.6219228865819,"Functional","\Cell{mobMales.pdf}","\Cell{mobFemales.pdf}"
+"lg_mus","Large muscle difficulty index",91.9917563237756,94.2360709574918,"Functional","\Cell{lgmusMales.pdf}","\Cell{lgmusFemales.pdf}"
+"gross_mot","Gross motor difficulty index",89.001320488135,88.833995491282,"Functional","\Cell{grossmotMales.pdf}","\Cell{grossmotFemales.pdf}"
+"fine_mot","Fine motor difficulty index",88.4577872011195,91.0088909006343,"Functional","\Cell{finemotMales.pdf}","\Cell{finemotFemales.pdf}"
+"bp","High blood pressure, ever",74.257516702105,78.8892904672346,"Chronic","\Cell{bpMales.pdf}","\Cell{bpFemales.pdf}"
+"diab","Diabetes, ever ",66.2746146723061,66.6376095947573,"Chronic","\Cell{diabMales.pdf}","\Cell{diabFemales.pdf}"
+"cancer","Cancer, ever",88.8717337043588,86.5993264665754,"Chronic","\Cell{cancerMales.pdf}","\Cell{cancerFemales.pdf}"
+"lung","Lung disease",80.1153983917679,76.0698023360071,"Chronic","\Cell{lungMales.pdf}","\Cell{lungFemales.pdf}"
+"heart","Heart problems, ever ",79.4402513868622,90.4211972451108,"Chronic","\Cell{heartMales.pdf}","\Cell{heartFemales.pdf}"
+"stroke","Stroke, ever ",81.8367045797487,89.1139454694057,"Chronic","\Cell{strokeMales.pdf}","\Cell{strokeFemales.pdf}"
+"psych","Psych problems , ever",90.3377702828631,87.4247956573714,"Chronic","\Cell{psychMales.pdf}","\Cell{psychFemales.pdf}"
+"arth","Arthritis, ever ",82.1869273476689,92.920906851023,"Chronic","\Cell{arthMales.pdf}","\Cell{arthFemales.pdf}"
+"cc","Nr chronic conditions",84.6225270906809,90.1684697737153,"Chronic","\Cell{ccMales.pdf}","\Cell{ccFemales.pdf}"
+"alc_ev","Alcohol, ever ",87.3941613215607,86.1364368062617,"Behaviors","\Cell{alcevMales.pdf}","\Cell{alcevFemales.pdf}"
+"alc_days","Alcohol nr of days / week ",75.777582829601,79.8103292624455,"Behaviors","\Cell{alcdaysMales.pdf}","\Cell{alcdaysFemales.pdf}"
+"alc_drinks","Alcohol nr drinks per drinking day ",63.9974005043286,69.714964523138,"Behaviors","\Cell{alcdrinksMales.pdf}","\Cell{alcdrinksFemales.pdf}"
+"smoke_ev","Ever Smoker",49.9025998983276,41.3190754175676,"Behaviors","\Cell{smokeevMales.pdf}","\Cell{smokeevFemales.pdf}"
+"smoke_cur","Current Smoker",35.0805802189792,21.8644987095102,"Behaviors","\Cell{smokecurMales.pdf}","\Cell{smokecurFemales.pdf}"
+"cesd_depr","Felt Depressed",89.597765764988,90.2093882114437,"Psychological","\Cell{cesddeprMales.pdf}","\Cell{cesddeprFemales.pdf}"
+"cesd_eff","Everything an effort",93.1469118099872,90.4473683878093,"Psychological","\Cell{cesdeffMales.pdf}","\Cell{cesdeffFemales.pdf}"
+"cesd_sleep","Sleep restless",87.952662607303,80.8475989676813,"Psychological","\Cell{cesdsleepMales.pdf}","\Cell{cesdsleepFemales.pdf}"
+"cesd_happy","Was happy",79.8154212812996,84.1192930007392,"Psychological","\Cell{cesdhappyMales.pdf}","\Cell{cesdhappyFemales.pdf}"
+"cesd_lone","Felt lonely",61.4594968861234,86.7356483240122,"Psychological","\Cell{cesdloneMales.pdf}","\Cell{cesdloneFemales.pdf}"
+"cesd_sad","Felt sad",90.9192000537459,87.3324352481051,"Psychological","\Cell{cesdsadMales.pdf}","\Cell{cesdsadFemales.pdf}"
+"cesd_going","Could not get going",92.3915775342641,94.7777794833891,"Psychological","\Cell{cesdgoingMales.pdf}","\Cell{cesdgoingFemales.pdf}"
+"cesd_enjoy","Enjoyed life",72.3623555040158,91.5107990526439,"Psychological","\Cell{cesdenjoyMales.pdf}","\Cell{cesdenjoyFemales.pdf}"
+"srm","Self-rated memory",60.1267923756075,84.0251111152949,"Cognitive","\Cell{srmMales.pdf}","\Cell{srmFemales.pdf}"
+"pastmem","Memory compared to past",72.8658253960464,84.5105712423737,"Cognitive","\Cell{pastmemMales.pdf}","\Cell{pastmemFemales.pdf}"
+"ss","Serial 7s",78.2624547630328,50.9985714288937,"Cognitive","\Cell{ssMales.pdf}","\Cell{ssFemales.pdf}"
+"c20b","Backwards counting",79.6563202191361,54.2369957523461,"Cognitive","\Cell{c20bMales.pdf}","\Cell{c20bFemales.pdf}"
+"name_mo","Naming month",80.553738718605,63.2786991018282,"Cognitive","\Cell{namemoMales.pdf}","\Cell{namemoFemales.pdf}"
+"name_dmo","Naming day of month",80.4824502177129,67.8852252419027,"Cognitive","\Cell{namedmoMales.pdf}","\Cell{namedmoFemales.pdf}"
+"name_yr","Naming year",76.8891359134468,54.8844120061755,"Cognitive","\Cell{nameyrMales.pdf}","\Cell{nameyrFemales.pdf}"
+"name_dwk","Naming day of week",85.8056369261474,69.934468139215,"Cognitive","\Cell{namedwkMales.pdf}","\Cell{namedwkFemales.pdf}"
+"name_sci","Naming scissors",77.2033222460514,67.4705994592182,"Cognitive","\Cell{namesciMales.pdf}","\Cell{namesciFemales.pdf}"
+"name_cac","Naming cactus",50.1992513106985,52.1758334941282,"Cognitive","\Cell{namecacMales.pdf}","\Cell{namecacFemales.pdf}"
+"name_pres","Naming president",80.9333292720447,33.8649812580129,"Cognitive","\Cell{namepresMales.pdf}","\Cell{namepresFemales.pdf}"
+"name_vp","Naming VP",73.5971227558595,51.9280090494013,"Cognitive","\Cell{namevpMales.pdf}","\Cell{namevpFemales.pdf}"
+"vocab","Vocabulary score",79.3343674099626,52.6177250344776,"Cognitive","\Cell{vocabMales.pdf}","\Cell{vocabFemales.pdf}"
+"tm","Mental status summary",81.2458308481348,51.9965794083875,"Cognitive","\Cell{tmMales.pdf}","\Cell{tmFemales.pdf}"
+"med_exp","Imputed total medical expend.",96.4916369488437,95.2559494236318,"Healthcare","\Cell{medexpMales.pdf}","\Cell{medexpFemales.pdf}"
+"dwr","Delayed word recall",55.2336623164625,28.6343992866913,"Cognitive","\Cell{dwrMales.pdf}","\Cell{dwrFemales.pdf}"
+"twr","Total word recall",55.8496467728602,34.3272133489331,"Cognitive","\Cell{twrMales.pdf}","\Cell{twrFemales.pdf}"
+"iwr","Immediate word recall",56.7118403364806,41.0970247048511,"Cognitive","\Cell{iwrMales.pdf}","\Cell{iwrFemales.pdf}"
+"mprob","Memory prob. at interview",89.6705231040965,86.6522603613442,"Cognitive","\Cell{mprobMales.pdf}","\Cell{mprobFemales.pdf}"
+"mprobev","Memory prob. Ever",89.9723768172473,79.7096488696982,"Cognitive","\Cell{mprobevMales.pdf}","\Cell{mprobevFemales.pdf}"
+"med_explog","log medical expenditure",94.0352242764901,96.5642130163428,"Healthcare","\Cell{medexplogMales.pdf}","\Cell{medexplogFemales.pdf}"
