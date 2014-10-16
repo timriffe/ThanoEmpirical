@@ -54,7 +54,8 @@ sapply(rownames(PercentThano), function(x,FemCol){
 
 # added long name and group name in spreadsheet, so don't overwrite!
 #
-#write.table(round(PercentThano,1),file = "Data/PercentThano.csv",sep=",",col.names = c("Male","Female"),row.names = rownames(PercentThano))
+#write.table(round(PercentThano,1),file = "Data/PercentThano.csv",sep=",",col.names = c("Male","Female"),
+#row.names = rownames(PercentThano))
 #write.table(Meta,file = "Data/PercentThano.csv",sep=",",
 #        col.names = c("Short",   "Long",    "Male",  
 #                "Female",  "Group",   "ThermoM", "ThermoF"),row.names = rownames(Meta))
@@ -78,6 +79,9 @@ sapply(rownames(PercentThano), function(x,FemCol){
 Meta <- read.csv( "Data/PercentThano.csv",stringsAsFactors=FALSE)
 Meta$Female <- PercentThano[,"Female"]
 Meta$Male   <- PercentThano[,"Male"]
+
+write.table(Meta,file = "Data/PercentThano.csv",sep=",",col.names = colnames(Meta),
+  row.names = FALSE)
 
 library(xtable)
 # Group <- "ADL"
