@@ -7,13 +7,19 @@ This repo includes R code and tex files for a study in progress, provisionally t
 
 Data
 ========
-Data are too big to include here, plus it would violate a licensing agreement.
-So far all data come from the US HRS, which is available freely to download. I suggest doing a bulk download
-using AJ Damico's script, also on [github](https://github.com/ajdamico/usgsd/tree/master/Health%20and%20Retirement%20Study)
+Instructions to get the data needed to reproduce this study:
 
-Instructions and code to extract and convert data used in this study will be included in this repo when it reaches its final form
+In order to obtain the RAND HRS data file, you must register for an HRS account at:
 
-Given data in the appropriate input format, the results in this project, numerical and graphical, will be fully reproducible.
+https://ssl.isr.umich.edu/hrs/reg_pub2.php 
+
+Once in possession of an HRS username and password, the RAND HRS data file may be downloaded at:
+
+https://ssl.isr.umich.edu/hrs/start.php
+
+Under the 'RAND Contributed Files' section, click the link for 'RAND HRS Data File (v.M)'; this will take you to the download section. Here, click the link for 'randmstata.zip' - this file contains all the data and documentation that is needed. Unzip the downloaded file into your research directory.
+
+All coded needed to extract and process these data are contained in this repository. Step-by-step instructions will be posted when finalized.
 
 
 
