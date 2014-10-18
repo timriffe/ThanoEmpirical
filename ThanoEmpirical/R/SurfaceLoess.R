@@ -2,9 +2,11 @@
 if (system("hostname",intern=TRUE)=="triffe-N80Vm"){
   # if I'm on the laptop
   setwd("/home/tim/git/ThanoEmpirical/ThanoEmpirical")
+  Cores <- 1 # laptop overheats...
 } else {
   # in that case I'm on Berkeley system, and other people in the dept can run this too
   setwd(paste0("/data/commons/",system("whoami",intern=TRUE),"/git/ThanoEmpirical/ThanoEmpirical"))
+  Cores <- detectCores()
 }
 cat("Working directory:\n",getwd())
 
@@ -88,6 +90,7 @@ FindMaxGradientMatrix <- function(varname,
 
 varnames <- names(SurfaceList) # sex <- "m"
 # these appear to break on the origin search thing, make more robust.
+
 LoessList  <- mclapply(varnames, function(varname,Dat){
             cat(varname,"Male\n")
             Male <- try(FindMaxGradientMatrix(varname, Dat, "m", N = 1000))
@@ -96,7 +99,7 @@ LoessList  <- mclapply(varnames, function(varname,Dat){
             
             list(Male = Male,
                  Female = Female)
-        }, Dat = Dat, mc.cores = detectCores()) # careful to change this!
+        }, Dat = Dat, mc.cores = Cores) # careful to change this!
  
    
 #Error <- varnames[unlist(lapply(lapply(LoessList,"[[",1),class))=="try-error"]
