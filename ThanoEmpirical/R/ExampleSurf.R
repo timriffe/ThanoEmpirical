@@ -1,5 +1,4 @@
 
-
 # This is for an example surface to show how slopes are calculated.
 
 

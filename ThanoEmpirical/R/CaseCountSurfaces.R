@@ -8,6 +8,7 @@ if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm", "tim-ThinkPad-L440")){
   # in that case I'm on Berkeley system, and other people in the dept can run this too
   setwd(paste0("/data/commons/",system("whoami",intern=TRUE),"/git/ThanoEmpirical/ThanoEmpirical"))
 }
+getwd()
 library(reshape2)
 library(RColorBrewer)
 Dat                 <- local(get(load("Data/Data_long.Rdata")))
