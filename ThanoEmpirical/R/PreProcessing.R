@@ -209,7 +209,10 @@ cesdquestions       <- colnames(Dat)[grepl("cesd", colnames(Dat))]
 cesdquestions       <- cesdquestions[cesdquestions != "cesd"]
 Dat[cesdquestions]  <- lapply(Dat[cesdquestions],convertCESD)
 
-
+# cesd_enjoy is flipped yet again, because 1 is 'yes I enjoyed life',
+# and we want high = bad.
+Dat$cesd_enjoy      <- 1 - Dat$cesd_enjoy
+Dat$cesd_happy      <- 1 - Dat$cesd_happy
 # create a single Total Word Recall variables, twr
 #"tr20w"(waves(2-10),"tr40w" (waves1-2)
 # i.e. 1 is the worst recall, and 0 is the best recall
@@ -286,6 +289,11 @@ Dat     <- rescale("adl5_", Dat, FALSE)
 Dat     <- rescale("iadl3_", Dat, FALSE)
 Dat     <- rescale("iadl5_", Dat, FALSE)
 Dat     <- rescale("cesd", Dat, FALSE)
+
+# TODO: does high = bad for these variables?
+# "bmi"        "back"       "dent"       "alc_ev"   
+# "pastmem"    "dwr"        "twr"        "iwr" 
+
 #checkwaves <- function(var,Dat){
 #  table(Dat[[var]],Dat[["wave"]])
 #}
@@ -294,6 +302,21 @@ Dat     <- rescale("cesd", Dat, FALSE)
 #checkwaves("iadl3_",Dat)
 #checkwaves("iadl5_",Dat)
 #checkwaves("cesd",Dat)
+
+# -------------------------------------------------------
+# for binning purposes, akin to 'completed age'
+Dat$tafloor <- floor(Dat$ta)
+Dat$cafloor <- floor(Dat$ca)
+# I guess actual interview date could be some weeks prior to registered
+# interview date? There are two negative thano ages at wave 4 otherwise, but
+# still rather close. Likely died shortly after interview.
+Dat$tafloor[Dat$tafloor < 0] <- 0
+
+Dat$cafloor2 <- Dat$cafloor - Dat$cafloor %% 2
+Dat$tafloor2 <- Dat$tafloor - Dat$tafloor %% 2
+
+Dat$cafloor3 <- Dat$cafloor - Dat$cafloor %% 3
+Dat$tafloor3 <- Dat$tafloor - Dat$tafloor %% 3
 # save out, so this doesn't need to be re-run every time
 save(Dat,file = "Data/Data_long.Rdata")
 

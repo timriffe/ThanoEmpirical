@@ -28,24 +28,26 @@ Dat <- data.table(Dat)
 # a hack, to be removed when weights are properly figured out:
 #Dat$wt[is.na(Dat$wt)] <- mean(Dat$wt, na.rm = TRUE)
 
-# for binning purposes, akin to 'completed age'
-Dat$tafloor <- floor(Dat$ta)
-Dat$cafloor <- floor(Dat$ca)
-# I guess actual interview date could be some weeks prior to registered
-# interview date? There are two negative thano ages at wave 4 otherwise, but
-# still rather close. Likely died shortly after interview.
-Dat$tafloor[Dat$tafloor < 0] <- 0
+## for binning purposes, akin to 'completed age'
+#Dat$tafloor <- floor(Dat$ta)
+#Dat$cafloor <- floor(Dat$ca)
+## I guess actual interview date could be some weeks prior to registered
+## interview date? There are two negative thano ages at wave 4 otherwise, but
+## still rather close. Likely died shortly after interview.
+#Dat$tafloor[Dat$tafloor < 0] <- 0
 
 # greater than 15 we lose precision, cut off:
 Dat <- Dat[Dat$tafloor <= 15, ]
 Dat <- Dat[Dat$cafloor >= 60, ]
 
-# bin ages
-Dat$cafloor2 <- Dat$cafloor - Dat$cafloor %% 2
-Dat$tafloor2 <- Dat$tafloor - Dat$tafloor %% 2
 
-Dat$cafloor3 <- Dat$cafloor - Dat$cafloor %% 3
-Dat$tafloor3 <- Dat$tafloor - Dat$tafloor %% 3
+#now moved to data prep
+# bin ages
+#Dat$cafloor2 <- Dat$cafloor - Dat$cafloor %% 2
+#Dat$tafloor2 <- Dat$tafloor - Dat$tafloor %% 2
+#
+#Dat$cafloor3 <- Dat$cafloor - Dat$cafloor %% 3
+#Dat$tafloor3 <- Dat$tafloor - Dat$tafloor %% 3
 
 # recode so factors 'back'
 #Dat$lim_work <- as.character(Dat$lim_work)
