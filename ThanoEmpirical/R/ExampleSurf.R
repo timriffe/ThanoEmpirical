@@ -15,7 +15,10 @@ library(LexisUtils)
 library(reshape2)
 library(RColorBrewer)
 
-
+# ------------------------------------------------------        
+SurfaceList <- local(get(load("Data/SurfaceList.Rdata")))
+# ------------------------------------------------------        
+varnames  <- names(SurfaceList)
 LoessList <- local(get(load("Data/LoessList.Rdata")))
 # ------------------------------------------------------        
 
@@ -47,8 +50,29 @@ dev.off()
 #    },Garrows=Garrows)
 #dev.off()
 
+varname <- "adl3_"
 
+pdf("Figures/SurfExampleFemalesADL3_1.pdf", width = 10, height = 6)
+i   <- Meta$Short == varname
+Mat <- SurfaceList[[varname]]$Female[Coords[[1]],Coords[[2]]]
+Mat[row(Mat) + col(Mat)+70-2 > 100] <- NA
+SurfMap(Mat,napprox=9,contour=FALSE)
+dev.off()
 
+pdf("Figures/SurfExampleFemalesADL3_2.pdf", width = 10, height = 6)
+SurfMap(LoessList[[varname]]$Female$Surf,napprox=9,contour=TRUE)
+dev.off()
+
+pdf("Figures/SurfExampleFemalesADL3_3.pdf", width = 10, height = 6)
+SurfMap(LoessList[[varname]]$Female$Surf,napprox=9,contour=FALSE)
+apply(Garrows,1,function(x){
+			if (sign(x["diff"]) == 1){
+				arrows(x["x1"],x["y1"],x["x2"],x["y2"],col="black",lwd=2)
+			} else {
+				arrows(x["x2"],x["y2"],x["x1"],x["y1"],col="black",lwd=2)
+			}
+		})
+dev.off()
 
 
 

@@ -13,13 +13,15 @@ SurfMap <- function (Surf,
     ticks <- pretty(Surf,n=napprox)
     zlim  <- range(ticks)
     n     <- length(ticks)-1
-    col  <- rev(colramp(n))
+    col   <- rev(colramp(n))
 
     SurfCol <- as.character(cut(Surf,breaks=ticks,labels=col))
     dim(SurfCol) <- dim(Surf)
     
     x <- col(Surf) - 1 + min(chrono)
-    y <- row(Surf) - 1 + min(thano)
+    y <- row(Surf) - 1 + min(thano)n
+	x <- chrono
+	y <- thano
     par(xaxs="i",yaxs="i",xpd=TRUE,mai=c(.5,.5,.5,1.5))
     plot(NULL, type = "n", xlim = c(70,101),ylim=c(0,16),xlab="",ylab="",axes=FALSE,asp=1)
     

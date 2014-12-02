@@ -43,7 +43,7 @@ for (varname in varnames){
      i <- Meta$Short == varname
       SurfMap(LoessList[[varname]]$Male$Surf,napprox=9)
       #text(85,18,paste0("Males, ",varname))
-     text(85,18,paste0(Meta$Group[i],", Males, ",Meta$Long[i],": %",Meta$Male[i]," Thanatological"))
+     text(85,18,paste0(Meta$Group[i],", Males, ",Meta$Long[i],": %",round(Meta$Male[i],1)," Thanatological"))
 }
 dev.off()
 
@@ -52,13 +52,32 @@ for (varname in varnames){
   i <- Meta$Short == varname
   SurfMap(LoessList[[varname]]$Female$Surf,napprox=9)
   #text(85,18,paste0("Females, ",varname))
-  text(85,18,paste0(Meta$Group[i],", Females, ",Meta$Long[i],": %",Meta$Female[i]," Thanatological"))
+  text(85,18,paste0(Meta$Group[i],", Females, ",Meta$Long[i],": %",round(Meta$Female[i],1)," Thanatological"))
 }
 dev.off()
 
 
+Coords <- dimnames(LoessList[[varname]]$Female$Surf)
 
+pdf("Figures/VariablePlots/BinSurfacesFemales.pdf", width = 10, height = 6)
+for (varname in varnames){
+	i <- Meta$Short == varname
+	Mat <- SurfaceList[[varname]]$Female[Coords[[1]],Coords[[2]]]
+	Mat[row(Mat) + col(Mat)+70-2 > 100] <- NA
+	SurfMap(Mat,napprox=9,contour=FALSE)
+	text(85,18,paste0(Meta$Group[i],", Females, ",Meta$Long[i]))
+}
+dev.off()
 
+pdf("Figures/VariablePlots/BinSurfacesMales.pdf", width = 10, height = 6)
+for (varname in varnames){
+	i <- Meta$Short == varname
+	Mat <- SurfaceList[[varname]]$Male[Coords[[1]],Coords[[2]]]
+	Mat[row(Mat) + col(Mat)+70-2 > 100] <- NA
+	SurfMap(Mat,napprox=9,contour=FALSE)
+	text(85,18,paste0(Meta$Group[i],", Males, ",Meta$Long[i]))
+}
+dev.off()
 
 
 
