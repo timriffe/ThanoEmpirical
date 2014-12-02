@@ -80,7 +80,7 @@ dev.off()
 #dev.new(width=7,height=4)
 pdf("Figures/CaseCountMales.pdf",width=7,height=4)
 par(mai=c(.25,.6,.25,.25), xaxs = "i", yaxs = "i", xpd = TRUE)
-plot(NULL, type = "n", xlim = range(caf), ylim = range(taf),
+plot(NULL, type = "n", xlim = range(caf)+c(0,2), ylim = range(taf)+c(0,2),
     axes = FALSE, xlab = "", ylab = "", asp = 1,
     panel.first=list(segments(xticks,0,xticks,-.5),
       segments(60,yticks,60-.5,yticks),
