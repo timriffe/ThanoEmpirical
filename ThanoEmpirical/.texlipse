@@ -1,5 +1,5 @@
 #TeXlipse project settings
-#Sun Nov 23 13:33:19 PST 2014
+#Thu Feb 12 13:47:34 PST 2015
 markTmpDer=true
 builderNum=2
 outputDir=
@@ -7,8 +7,8 @@ makeIndSty=
 bibrefDir=
 outputFormat=pdf
 tempDir=tmp
-mainTexFile=VIDpres.tex
-outputFile=VIDpres.pdf
+mainTexFile=ThanoEmpirical.tex
+outputFile=ThanoEmpirical.pdf
 langSpell=en
 markDer=true
 srcDir=
