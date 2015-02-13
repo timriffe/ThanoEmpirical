@@ -16,8 +16,8 @@ Dat <- local(get(load("Data/Data_long.Rdata")))
 SurfaceList <- local(get(load("Data/SurfaceList.Rdata")))
 
 
-nrow(Dat[Dat$sex=="f",])/nrow(Dat)
-length(unique(Dat$id[Dat$sex=="f"]))/length(unique(Dat$id))
+#nrow(Dat[Dat$sex=="f",])/nrow(Dat)
+#length(unique(Dat$id[Dat$sex=="f"]))/length(unique(Dat$id))
 
 
 # fixed study area:

@@ -191,28 +191,7 @@ image(acast(Dat[Dat$sex == "m", ],cafloor2~tafloor2, value.var = "srh",
 #matplot(0:15, MeansScaled[17:32, ], type = 'l', lty = 1, lwd = 1.5, col = Colors, add = TRUE)
 #legend(15,ylim[2],lty=1,lwd=1.5,col=Colors,legend=colnames(Means),xpd=TRUE,bty="n")
 #dev.off()
-Meta <- read.csv( "Data/PercentThano.csv",stringsAsFactors=FALSE)
-Meta$Mean <- rowMeans(Meta[,c("Male","Female")])
-a <- boxplot(Mean~Group,data=Meta)
-Meta$Group <- factor(Meta$Group, levels = a$names[order(a$stats[3,])],ordered = TRUE)
-boxplot(Mean~Group,data=Meta)
-
-Meta$ThermoM <- NULL
-Meta$ThermoF <- NULL
-Male <- Female <- Meta
-Male$Female <- NULL
-Female$Male <- NULL
-colnames(Male)[colnames(Male) == "Male"] <- "percent"
-colnames(Female)[colnames(Female) == "Female"] <- "percent"
-Male$Sex <- "male"
-Female$Sex <- "female"
-Meta2 <- rbind(Male,Female)
-
-library(ggplot2)
-
-a <- ggplot(Meta2, aes(x=Group, y=percent, fill=Sex)) + geom_boxplot() + theme(axis.text.x = element_text(size = 12),
-		legend.text=element_text(size=12))
-ggsave("Figures/ResultsBoxplot.pdf",a)
 
 
+?theme
 
