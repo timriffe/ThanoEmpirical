@@ -19,9 +19,9 @@ SurfMap <- function (Surf,
     dim(SurfCol) <- dim(Surf)
     
     x <- col(Surf) - 1 + min(chrono)
-    y <- row(Surf) - 1 + min(thano)n
-	x <- chrono
-	y <- thano
+    y <- row(Surf) - 1 + min(thano)
+#	x <- chrono
+#	y <- thano
     par(xaxs="i",yaxs="i",xpd=TRUE,mai=c(.5,.5,.5,1.5))
     plot(NULL, type = "n", xlim = c(70,101),ylim=c(0,16),xlab="",ylab="",axes=FALSE,asp=1)
     

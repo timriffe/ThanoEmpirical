@@ -51,9 +51,10 @@ dev.off()
 #dev.off()
 
 varname <- "adl3_"
-
+#Coords <- dimnames(SurfaceList[[varname]]$Female)
+Coords <- list(as.character(seq(0,14,by=2)),as.character(seq(70,100,by=2)))
 pdf("Figures/SurfExampleFemalesADL3_1.pdf", width = 10, height = 6)
-i   <- Meta$Short == varname
+#i   <- Meta$Short == varname
 Mat <- SurfaceList[[varname]]$Female[Coords[[1]],Coords[[2]]]
 Mat[row(Mat) + col(Mat)+70-2 > 100] <- NA
 SurfMap(Mat,napprox=9,contour=FALSE)
