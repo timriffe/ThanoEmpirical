@@ -6,6 +6,37 @@ if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm","tim-ThinkPad-L440")){
 	# in that case I'm on Berkeley system, and other people in the dept can run this too
 	setwd(paste0("/data/commons/",system("whoami",intern=TRUE),"/git/ThanoEmpirical/ThanoEmpirical"))
 }
+
+CurlyBraces <- function(x, y, w, depth = 1, pos = 1, direction = 1,plot,... ) {
+  
+  a=c(1,2,3,48,50)    # set flexion point for spline
+  b=c(0,.2,.28,.7,.8) # set depth for spline flexion point
+  
+  curve = spline(a, b, n = 50, method = "natural")$y / 2 
+  
+  curve = c(curve,rev(curve))
+  curve = (curve / max(curve)) * depth
+ 
+  a_sequence = rep(x,100)
+  b_sequence = seq(y-w/2,y+w/2,length=100)  
+  
+  # direction
+  if(direction==1)
+    a_sequence = a_sequence+curve
+  if(direction==2)
+    a_sequence = a_sequence-curve
+  
+  # pos
+  if (plot){
+    if(pos==1)
+      lines(a_sequence,b_sequence,... ) # vertical
+    if(pos==2)
+      lines(b_sequence,a_sequence,... ) # horizontal
+  }
+  invisible(list(x=a_sequence,y=b_sequence))
+}
+
+
 # study region as section of lifelines
 pdf("Figures/Triangle1.pdf",width=4.5,height=4.5)
 par(mai=c(.5,.5,.5,.5),xpd=TRUE)
@@ -59,7 +90,60 @@ text(0,110,bquote(omega),pos=2,cex=1.3)
 polygon(c(70,100,85,70),c(0,0,15,15),border="blue",lwd=2)
 dev.off()
 
+####################################################################
 
+# morbidity within a lifeline (similar to Fries)
+dev.new(height=1.5,width=4.5)
+
+par(mai=c(.2,.2,.2,.2),xpd=TRUE)
+plot(NULL, type="n",xlim=c(0,75),ylim=c(0,1), axes=FALSE,xlab="",ylab="")
+
+polygon(c(50,65,65),c(.2,.2,.8),col = gray(.7), border = NA)
+xy <- CurlyBraces(x =.9, y=57.5, w=15, depth = .1, pos = 1, direction = 1,plot = FALSE )
+lines(xy$y,xy$x)
+xy <- CurlyBraces(x =67, y=.5, w=.6, depth = 2, pos = 2, direction = 1,plot = FALSE )
+lines(xy$x,xy$y)
+segments(0,.2,65,.2)
+points(0,.2,pch=19)
+points(65,.2,pch=15)
+text(65,.1,"x",xpd=TRUE)
+
+par(mai=c(.2,.2,.2,.2),xpd=TRUE)
+plot(NULL, type="n",xlim=c(0,75),ylim=c(0,1), axes=FALSE,xlab="",ylab="")
+polygon(c(60,75,75),c(.2,.2,.8),col = gray(.7), border = NA)
+segments(0,.2,75,.2)
+points(0,.2,pch=19)
+points(75,.2,pch=15)
+text(75,.1,"x+n",xpd=TRUE)
+
+graphics.off()
+plot(0,0,ylim=c(-10,10),xlim=c(-10,10))
+CurlyBraces(2, 0, 10, pos = 1, direction = 1 )
+CurlyBraces(2, 0, 5,  pos = 1, direction = 2 )
+CurlyBraces(1, 0, 10, pos = 2, direction = 1 )
+CurlyBraces(1, 0, 5,  pos = 2, direction = 2 )
+
+CurlyBraces(2, 0, 10, pos = 1, direction = 1 )
+
+# study region as section of lifelines
+pdf("Figures/TriangleLifeLines.pdf",width=4.5,height=4.5)
+par(mai=c(.5,.5,.5,.5),xpd=TRUE)
+plot(NULL, type="n",xlim=c(0,110),ylim=c(0,110), axes=FALSE,xlab="",ylab="", asp=1)
+lines(c(111,rep(110:1,each=2),0),rep(1:111,each=2))
+segments(111,0,111,1)
+segments(0,0,111,0)
+segments(0,0,0,111)
+text(55,-10,"Years lived")
+text(-10,55,"Years left",srt=90)
+text(0,0,0,pos=1)
+text(0,0,0,pos=2)
+text(110,0,bquote(omega == 110),cex=1.3,pos=1)
+text(5,114,bquote(omega == 110),pos=2,cex=1.3)
+arrows(0,99,99-5,0+5,col="blue",lwd=2)
+#arrows(0,55,55-15,0+15,col="blue",lwd=2)
+segments(0,70,70,0,col="red",lwd=2)
+points(70,0,pch=19,col="red")
+dev.off()
 
 
 
