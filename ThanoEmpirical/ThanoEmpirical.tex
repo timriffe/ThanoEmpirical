@@ -44,7 +44,7 @@
 We aim to determine the extent to which variables commonly
 used to describe health, well-being, and disability in old-age vary primarily
 as a function of years lived (age), years left, or as a function of both. We analyze data from the US Health and Retirement Study to estimate
-chronological age and time-to-death patterns in 60 such variables. We describe
+chronological age and time-to-death patterns in 82 such variables. We describe
 results from the birth cohort born 1915-1919 in the final 12 years of life of
 individuals that died between 1992 and 2011 (ages 72 to 96). Our results show
 that most markers used to study well-being in old-age vary along both the age
@@ -120,8 +120,6 @@ Another branch of research relates perceived and actual remaining lifetime
 In this paper we will expand the second group, focusing on a broad range of
 questions from ten waves of the US Health and Retirement Study \citep{HRS}.
 
-% Paul: tinker with the above.
-
 %Data classified by chronological age, like census population counts, can be
 %reclassified into thanatological age using some simple lifetable projection
 %assumptions.\footnote{A paper on this topic is currently under review
@@ -144,8 +142,9 @@ perspective, especially around various dimensions of morbidity associated with
 the ageing process. Our analytical approach is retrospective rather than
 prospective, meaning that no lifetable assumptions are made in the measurement
 of thanatological age, and no censoring adjustments are necessary. Although more
-data are available for adjacent cohorts, we report results only for the cohort born from 1915 to 1919, because this is the cohort for which we have the longest and
-most complete set of observations. 
+data are available for adjacent cohorts, we report results only for the cohort
+born from 1915 to 1919, because this rep the cohort, which represents the
+longest and most complete set of observations in the dataset used.
 
 \section*{Data \& Method}
 
@@ -159,11 +158,6 @@ of 9238 individuals. 8137 of these observations are from the 1919 individuals
 that died from the 1915-1919 cohort. Adjacent cohorts are kept for the sake of a
 smoother loess fit to the data, which we describe in the methods section.
 
-Underpinning this investigation are a series of heat maps indicating the
-average intensity of a given marker along the chronological and thanatological
-time dimensions within a series of quinquennial birth cohorts. This visual tool
-is similar to but orthogonal to the familiar Lexis surface.
-
 \begin{figure}[!h]
 \centering
 \caption{Years lived and years left over the lifespan of a birth cohort}
@@ -171,49 +165,39 @@ is similar to but orthogonal to the familiar Lexis surface.
 	\includegraphics{Figures/LexisOrtho.pdf}
 \end{figure}
 
-Figure~\ref{fig:LexisOrtho} orients the reader within the temporal coordinates
-we use. This diagram represents the various poissible lifespans within a given
-birth cohort, with an arbitrary open age, $\omega$, of 110.
-Members of the birth cohort are born on the left side of the diagram, at chronological age zero (zero years lived), albeit with an unknown $y$
-coordinate at the time of birth.
+Underpinning this investigation are a series of heat maps indicating the
+average intensity of a given marker along the chronological and thanatological
+time dimensions within a series of quinquennial birth cohorts. This visual tool
+is similar to but orthogonal to the familiar Lexis surface.
+Figure~\ref{fig:LexisOrtho} orients the reader within the temporal coordinates we use. This diagram represents the various poissible lifespans within a given
+birth cohort, with an arbitrary final age, $\omega$, of 110.
+Members of the birth cohort are born on the left side of the diagram, at
+chronological age zero and with an unknown $y$ coordinate (remaining lifetime)
+at the time of birth.
 Lifelines advance downward and to the right, where the downward direction indicates the approach to death, and the
 rightward direction represents both the progression of calendar years and
 chronological age. The blue arrow (B) indicates a hypothetical lifeline that
 will eventually expire at age 99, although this property is unknown until death. The
 present study contains only complete lifelines, such as that depicted in the
-color red (A) in Figure~\ref{fig:LexisOrtho}.
+color red (A) in Figure~\ref{fig:LexisOrtho}. In this diagram, diagonal lines
+represent death cohorts, rather than birth cohorts found in the standard Lexis
+diagram.
 
 We limit the current study to the 1915-1919 cohort due
-to the bounds of the temporal universe of observation. Using the HRS, enough
-observations are available so that we can measure fairly well the patterns
-within the area marked in green (C) in Figure~\ref{fig:LexisOrtho}. While there
-are some observations at thanatological ages greater than 12, there are too few
-too produce reliable estimates, and we choose this threshold as an arbitrary
-bound in this study. Since the HRS spans 20 calendar years (1992-2011), the
-theoretical upper bound of observation for thanatological age is 20.
-
-
+to the characteristics of the data source. Using the HRS, enough
+observations are available so that we can measure the patterns
+within the area outlined in green (C) in Figure~\ref{fig:LexisOrtho}. While
+there are some observations at thanatological ages greater than 12, there are too few
+to produce reliable estimates, and this choice of upper bound is somewhat
+arbitrary. Since the HRS spans 20 calendar years (1992-2011), the theoretical
+upper bound of observation for thanatological age is 20. Future waves will
+expand the area applicable to any given birth cohort.
 
 In the following sections we describe our approach to this exercise.
-In short, for a given characteristic, we produce a demographic surface, where chronological age and thanatological age are the
-primary x and y axes, respectively.
+In short, for a given characteristic, we produce a demographic surface, where
+chronological age and thanatological age are the primary x and y axes, respectively.
 We then characterize this surface in a simple way by determining the average direction of steepest ascent on the surface,
 which tells us the primary direction of variation. If something varies more along the thanatological axis, then we call it a thanatological characteristic, if it varies more along the chronological axis, we call it a chronological characteristic. We then derive the degree to which a characteristic is thanatological as a percentage.
-
-
-
-\subsection{Weighting}
-Person weights
-are needed in order to estimate population-level means.
-One difficulty with the HRS is that the institutionalized population is treated
-as a second target population. In all waves but 5 and 6, there are no person weights
-assigned to institutionalized individuals. In some cases we try to fill the gap according to some simple
-assumptions. If the individual was assigned a weight in a previous wave, we
-carry this weight over as a constant, unless there was also a non-zero weight in a future interview, in
-which case we assign the weight according to the within-individual linear
-pattern. Some individuals are in the dataset, but are
-excluded (spouses mostly) for not having reached age 61. In these
-cases, we discard interviews with no person weights at young ages. 
 
 \subsection{Age}
 Thanatological age is calculated for each individual as the lag between
@@ -224,63 +208,79 @@ of the month, but this is more than enough precision for our purposes. Since we
 are interested in comparing characteristics over both chronological age and
 thanatological age simultaneously, we are interested in having estimates over a
 good spread of both age perspectives.
-Figure~\ref{fig:counts} shows the case count in two-year age groups over the
-range of ages that are in the data and included for this study (yellow bin).
-Darker blues indicate higher case counts, and the contours approximate counts at
-this level of aggregation. In practice, these counts are a maximum, since
-particular variables studided may be missing.
 
-\begin{figure}[!h]
-\centering
-\caption{Case counts in two-year age bins. Chronological age (Years lived) on
-the x axis and thanatological age (Years lives) on the y axis. Darker blues
-indicate higher case counts.}
-\label{fig:counts}
-\begin{subfigure}{\linewidth}
-	\caption{Males}
-	\vspace{-1em}
-	\label{fig:MalesCases}
-	\includegraphics[scale=.7]{Figures/CaseCountMales.pdf}
-\end{subfigure}
-\\
-\begin{subfigure}{\linewidth}
-    \caption{Females}
-   \vspace{-1em}
-	\label{fig:FemalesCases}
-    \includegraphics[scale=.7]{Figures/CaseCountFemales.pdf}
-\end{subfigure}
-\end{figure}
 
-Note that Figure~\ref{fig:counts} resembles a Lexis surface in some ways, but it
-is not organized by years or birth cohorts. Instead, years and birth cohorts in
-the data are overlapped and treated as a single period and a single birth
-cohort. We limit the study area to chronological ages 70 and higher, and
-thanatological ages 15 and lower, such that the sum of the two ages does not
-exceed 100. These bounds allow for reasonably stable estimates of surfaces for
-the studied characteristics. We cut off below chronological age 70 in order to
-remove some patterns that appear to be due to retirement rather than
-senescence processes, and also to avoid some potential compositional bias, as
-these are the typical ages of recruitment for the HRS.\footnote{Conceivably, the study
-area could be expanded after the addition of future mortality follow-ups.} 
+%Figure~\ref{fig:counts} shows the case count in two-year age groups over the
+%range of ages that are in the data and included for this study (yellow bin).
+%Darker blues indicate higher case counts, and the contours approximate counts
+% at this level of aggregation. In practice, these counts are a maximum, since
+%particular variables studided may be missing.
 
-\subsection{Variables}
+%\begin{figure}[!h]
+%\centering
+%\caption{Case counts in two-year age bins. Chronological age (Years lived) on
+%the x axis and thanatological age (Years lives) on the y axis. Darker blues
+%indicate higher case counts.}
+%\label{fig:counts}
+%\begin{subfigure}{\linewidth}
+%	\caption{Males}
+%	\vspace{-1em}
+%	\label{fig:MalesCases}
+%	\includegraphics[scale=.7]{Figures/CaseCountMales.pdf}
+%\end{subfigure}
+%\\
+%\begin{subfigure}{\linewidth}
+%    \caption{Females}
+%   \vspace{-1em}
+%	\label{fig:FemalesCases}
+%    \includegraphics[scale=.7]{Figures/CaseCountFemales.pdf}
+%\end{subfigure}
+%\end{figure}
+
+%Note that Figure~\ref{fig:counts} resembles a Lexis surface in some ways, but
+% it is not organized by years or birth cohorts. Instead, years and birth cohorts in
+%the data are overlapped and treated as a single period and a single birth
+%cohort. We limit the study area to chronological ages 70 and higher, and
+%thanatological ages 15 and lower, such that the sum of the two ages does not
+%exceed 100. These bounds allow for reasonably stable estimates of surfaces for
+%the studied characteristics. We cut off below chronological age 70 in order to
+%remove some patterns that appear to be due to retirement rather than
+%senescence processes, and also to avoid some potential compositional bias, as
+%these are the typical ages of recruitment for the HRS.\footnote{Conceivably,
+% the study area could be expanded after the addition of future mortality follow-ups.} 
+
+\subsection*{Variables}
 We aim for a broad overview of the age variation across different dimensions of
 old-age disability and well-being. For this reason we select a wide variety of
 questions from the HRS data to describe here. These include questions
 grouped roughly into the following categories: Activities of daily living (ADL),
 instrumental activities of daily living (IADL), measures of healthcare utilization, functional and chronic conditions, psychological
-measures, and health behaviors. In all, we report summary results from 60
+measures, and health behaviors. In all, we report summary results from 82
 individual items.
 
 We judge the degree of chronological versus thanatological age variation by
-creating surfaces over both age dimensions, and for this each survey question
+creating surfaces over both age dimensions and producing . Each survey question
 was required in a format suitable for numeric operations. This requires some
 compromises in data quality, since some coded responses are less directly
 quantifiable, and our conversions were at times ad-hoc. The treatment of
 individual variables will be described in an appendix in a future
 revision of this paper.
 
-\subsection{Loess smoothing}
+\subsection*{Weighting}
+The population universe of the HRS and this study is the resident
+population of the United States. Therefore person weights are needed in
+order to estimate population-level means. 
+One difficulty with the HRS is that the institutionalized population is treated
+as a second target population. In all waves but 5 and 6, there are no person weights
+assigned to institutionalized individuals. In some cases we try to fill the gap according to some simple
+assumptions. If the individual was assigned a weight in a previous wave, we
+carry this weight over as a constant, unless there was also a non-zero weight in a future interview, in
+which case we assign the weight according to the within-individual linear
+pattern. We perform no other within-individual interpolation of observations.
+
+\subsection*{Loess smoothing}
+
+
 Direct tabulations of the weighted data are possible, and usually not too noisy,
 but surface legibility is enhanced by estimating based on a loess-smoothed
 surface. For each variable of interest, we convert values to a numeric scale.

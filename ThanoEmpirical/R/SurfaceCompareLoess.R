@@ -42,8 +42,23 @@ length(unique(Dat$id[Dat$Coh5 == 1915]))
 varnames <- names(SurfaceList) 
 
 Along <- reshape2::melt(A)
+Along2 <- reshape2::melt(t(A))
+coefs <- lm(value~Var1+Var2, data = Along)$coef
 
-lm(value~Var1*Var2, data = Along)
+summary(lm(value~Var1, data = Along))
+summary(lm(value~Var2, data = Along))
+
+log(coefs[2] / coefs[3])
+
+pca <- princomp(~Var1+Var2, data = Along, center = TRUE, scale = FALSE)
+pca2 <- prcomp(~Var1+Var2, data = Along, center = TRUE, scale = FALSE)
+pca3 <- prcomp(~Var1+Var2, data = Along2, center = TRUE, scale = FALSE)
+cor(duration, waiting) 
+
+
+
+
+
 
 # first take, block off
 runthis <- FALSE
@@ -275,11 +290,11 @@ plotn <- function(xlim = c(0,1),ylim = c(0,1), mai = c(0,0,0,0)){
   plot(NULL, type = "n", xlim = xlim, ylim = ylim,  axes = FALSE, xlab = "", ylab = "")
 }
 
-.varname <- "srh"
-.sex <- "Male"
-.span <- .5
-.coh <- 1915
-.Results <- Results
+#.varname <- "srh"
+#.sex <- "Male"
+#.span <- .5
+#.coh <- 1915
+#.Results <- Results
 
 SurfA <- function(.varname,.sex,.span,.coh,.Results,.ticks){
   grabber <- paste0(.varname,"_",.span)
@@ -386,8 +401,68 @@ lapply(varnames, function(x){
   })
 dev.off()
 
-dim(Dat)
-length(unique(Dat$id))
+get_r <- function(A){
+  Along <- reshape2::melt(A)
+  c(Thano = abs(cor(Along$value,Along$Var1,use="complete.obs")), 
+  Chrono = abs(cor(Along$value,Along$Var2,use="complete.obs")))
+}
+
+Maler <- do.call(rbind,lapply(varnames, function(x, Results){
+    grabber <- paste0(x,"_",.7)
+    A <- Results[[grabber]][["Male"]]$Surf[,,"1915"]
+    get_r(A)
+  }, Results = Results))
+rownames(Maler) <- varnames
+
+Femaler <- do.call(rbind,lapply(varnames, function(x, Results){
+      grabber <- paste0(x,"_",.7)
+      A <- Results[[grabber]][["Female"]]$Surf[,,"1915"]
+      get_r(A)
+    }, Results = Results))
+rownames(Femaler) <- varnames
+
+
+par(mai = c(1,1,1,1))
+plot(Maler[,1], Maler[,2], 
+  type = "n",
+  xlim=c(0,1), ylim = c(0,1), 
+  xlab = "Thano r", ylab = "Chrono r",asp=1, xaxs="i", yaxs="i",
+  main = "comparison of correlation coefficients, Males")
+abline(a=0,b=1)
+text(jitter(Maler[,1]), jitter(Maler[,2]), varnames, cex = .7)
+
+par(mai = c(1,1,1,1))
+plot(Femaler[,1], Femaler[,2], 
+  type = "n",
+  xlim=c(0,1), ylim = c(0,1), 
+  xlab = "Thano r", ylab = "Chrono r",asp=1, xaxs="i", yaxs="i",
+  main = "comparison of correlation coefficients, Females")
+abline(a=0,b=1)
+text(jitter(Maler[,1]), jitter(Maler[,2]), varnames, cex = .7)
+
+
+par(mai = c(1,1,1,1))
+plot(Femaler[,1], Maler[,1], 
+  type = "n",
+  xlim=c(0,1), ylim = c(0,1), 
+  xlab = "Female r", ylab = "Male r",asp=1, xaxs="i", yaxs="i",
+  main = "comparison of Thano correlation coefficients")
+abline(a=0,b=1)
+text(jitter(Femaler[,1]), jitter(Maler[,1]), varnames, cex = .7)
+
+
+par(mai = c(1,1,1,1))
+plot(Femaler[,2], Maler[,2], 
+  type = "n",
+  xlim=c(0,1), ylim = c(0,1), 
+  xlab = "Female r", ylab = "Male r",asp=1, xaxs="i", yaxs="i",
+  main = "comparison of Chrono correlation coefficients")
+abline(a=0,b=1)
+text(jitter(Femaler[,2]), jitter(Maler[,2]), varnames, cex = .7)
+
+
+
+
 
 
 
