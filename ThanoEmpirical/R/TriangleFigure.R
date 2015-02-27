@@ -146,4 +146,40 @@ points(70,0,pch=19,col="red")
 dev.off()
 
 
+gridcol <- gray(.6)
+# Lexis orthogonal:
 
+pdf("Figures/LexisOrtho.pdf",width=4.5,height=4.5)
+par(mai=c(.5,.5,.5,.5),xpd=TRUE)
+plot(NULL, type="n",xlim=c(0,110),ylim=c(0,110), axes=FALSE,xlab="",ylab="", asp=1)
+segments(rep(0,11),seq(10,111,by=10),seq(10,111,by=10),rep(0,11), col = gridcol)
+#segments(111,0,111,1)
+segments(0,0,110,0, col = gridcol)
+segments(0,0,0,110, col = gridcol)
+# horizontal:
+segments(rep(0,10),seq(10,100,by=10),seq(100,10,by= -10),seq(10,100,by= 10), col = gridcol)
+# vertical
+segments(seq(10,100,by=10),rep(0,10),seq(10,100,by=10),seq(100,10,by= -10), col = gridcol)
+
+text(55,-10,"Years lived", cex = .8)
+text(-10,55,"Years left",srt=90, cex = .8)
+
+text(0,0,0,pos=1, cex = .8)
+text(0,0,0,pos=2, cex = .8)
+text(110,0,bquote(omega == 110),cex=.8,pos=1)
+text(8,114,bquote(omega == 110),pos=2,cex=.8)
+arrows(0,99,99-5,0+5,col="blue",lwd=3)
+#arrows(0,55,55-15,0+15,col="blue",lwd=2)
+segments(0,71,71,0,col="red",lwd=3)
+points(71,0,pch=19,col="red")
+
+text(90,70,"(B) incomplete lifeline", cex = .8)
+segments(87,67,70,29,col="blue",lty=2)
+
+text(70,80,"(A) complete lifeline", cex = .8)
+segments(67,77,43,29,col="red",lty=2)
+
+polygon(c(72,96,96-13,72),c(0,0,13,13),border = "forestgreen", lwd = 2, lty = 2)
+text(90,60,"(C) area studied for\n1915-1919 birth cohort", cex = .8, pos = 4)
+segments(97,57,96-13,13,col="forestgreen",lty=2)
+dev.off()

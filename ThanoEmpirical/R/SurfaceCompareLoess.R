@@ -2,7 +2,7 @@
 # Try splitting the data into two birth cohorts and again into two periods 
 # and see if there are any essential differences that would hint at/against
 # compression
-library(parallel)
+
 # for Tim, this will choke
 if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm", "tim-ThinkPad-L440")){
 	# if I'm on the laptop
@@ -18,7 +18,11 @@ if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm", "tim-ThinkPad-L440")){
 }
 cat("Working directory:\n",getwd())
 #devtools::install_github("timriffe/LexisUtils", subdir = "LexisUtils")
+
 library(LexisUtils)
+source("R/SurfMap.R")
+library(parallel)
+
 
 Dat <- local(get(load("Data/Data_long.Rdata")))
 SurfaceList <- local(get(load("Data/SurfaceList.Rdata")))
@@ -31,9 +35,15 @@ Coh5keep <- c(1900, 1905, 1910, 1915, 1920, 1925, 1930)
 Coh5     <- c(1905, 1910, 1915, 1920, 1925) # i.e. we use the preceding and subsequent cohorts for help fitting
 Dat      <- Dat[Dat$Coh5 %in% Coh5keep, ]
 
+nrow(Dat)
+length(unique(Dat$id))
+nrow(Dat[Dat$Coh5 == 1915,])
+length(unique(Dat$id[Dat$Coh5 == 1915]))
 varnames <- names(SurfaceList) 
 
+Along <- reshape2::melt(A)
 
+lm(value~Var1*Var2, data = Along)
 
 # first take, block off
 runthis <- FALSE
@@ -158,9 +168,7 @@ if (runthis){
 #  as.character(cut(x,breaks=breaks,labels =colramp(n) ))
 #}
 
-colnames(Dat)
-# try spans in c(.5,.7,.9) # sex <- "f"
-varname <- "med_explog"
+
 FitLoess <- function(varname, 
   Dat, 
   sex,
@@ -191,7 +199,7 @@ FitLoess <- function(varname,
 
     # this reduces extrapolation outside of data points 
     for (i in 1:dim(Surf)[3]){
-      maxL  <- 2011 - Coh5[i] + 5
+      maxL  <- 2011 - Coh5[i] - 1
       #maxt  <- tamax[as.character(Coh5[i])]
       #keept <- as.integer(rownames(Surf)) <= maxt
       A     <- Surf[,,i]
@@ -219,6 +227,8 @@ allcomboswide <- as.data.frame(t(allcombos),stringsAsFactors = FALSE)
 #					Female = Female)
 #		}, Dat = Dat, mc.cores = Cores)
 
+do.this <- FALSE
+if(do.this){
 Results <- mclapply(allcomboswide, function(x,Dat,Coh5){
     cat(x[1],"Female\n")
     Female <- try(FitLoess(varname = x[1], 
@@ -240,9 +250,144 @@ Results <- mclapply(allcomboswide, function(x,Dat,Coh5){
   }, Dat = Dat, Coh5 = Coh5, mc.cores = Cores)
 
 save(Results,file="Data/LoessQuinquenal.Rdata")
+}
+
+Results <- local(get(load("Data/LoessQuinquenal.Rdata")))
 
 # TODO: first thing: produce surfaces: many of them!
 # probably the 1910,15,20 surfaces stacked in rows,
 # with span in columns. Best way to summarize.
 # this way we choose a span, a cohort, and which two variables.
+
+names(Results) <- unlist(lapply(Results, function(X){
+    paste0(X$Male$varname,"_", X$Male$span)
+  }))
+
+#which(unlist(lapply(Results,function(X){
+#    class(X$Female) == "try-error"
+#  })))
+
+
+
+cellwidths <- c(1,3,3,3,1)
+cellheights <- c(1,2,2,2,2,2)
+plotn <- function(xlim = c(0,1),ylim = c(0,1), mai = c(0,0,0,0)){
+  plot(NULL, type = "n", xlim = xlim, ylim = ylim,  axes = FALSE, xlab = "", ylab = "")
+}
+
+.varname <- "srh"
+.sex <- "Male"
+.span <- .5
+.coh <- 1915
+.Results <- Results
+
+SurfA <- function(.varname,.sex,.span,.coh,.Results,.ticks){
+  grabber <- paste0(.varname,"_",.span)
+  A <- .Results[[grabber]][[.sex]]$Surf[,,as.character(.coh)]
+  
+  MaxL <- 2011 - .coh - 1
+  A[! col(A) - 1 + 70 + row(A) - 1 < MaxL] <- NA
+  # possibly need to trim lower left corner too: dimnames(A)
+  MinL <- 1992 - (.coh + 5)
+  A[col(A) + 70 - 1 <= MinL] <- NA
+  SurfMap(A, 
+    thano = as.integer(rownames(A)), 
+    chrono = as.integer(colnames(A)), 
+    colramp = colorRampPalette(rev(RColorBrewer::brewer.pal(9, "OrRd")), space = "Lab"), 
+    napprox = 10, 
+    xlab = "", 
+    ylab = "",
+    contour = FALSE,
+    ticks = .ticks,
+    legnd = FALSE,
+    outline = FALSE,
+    mai = c(.1,.1,.1,.1))
+}
+
+ticks <- pretty(Results[[paste0("back","_",.5)]][["Female"]]$Surf,n=10)
+SurfA("back","Female",.5,Coh5[1],Results,ticks)
+1992-1919-1
+
+makePanel <- function(varname,sex,Coh5=c(1905,1910,1915,1920,1925)){
+  cellwidths <- c(1,3,3,3,1)
+  cellheights <- c(1,2,2,2,2,2)
+  par(mai = c(0,0,0,0), xaxs="i",yaxs = "i")
+  layout(matrix(c(1,2,3,4,5,6,
+        1,7,8,9,10,11,
+        12,13,14,15,16,17,
+        18,19,20,21,22,23,
+        18,24,24,24,24,24),
+      ncol=5,nrow=6,byrow=FALSE), width = cellwidths,height=cellheights)
+#layout.show()
+#
+#plot(runif(10),runif(10))
+#plot(runif(10),runif(10))
+#plot(runif(10),runif(10))
+  
+  
+  plotn()
+  text(.5,.7,paste(varname,sex), cex = 2)
+  text(.7,.2,"span=.5", cex = 2)
+  plotn()
+  text(.2,.6,"1905-\n1909")
+  plotn()
+  text(.2,.6,"1910-\n1914")
+  plotn()
+  text(.2,.6,"1915-\n1919")
+  plotn()
+  text(.2,.6,"1920-\n1924")
+  plotn()
+  text(.2,.6,"1925-\n1929")
+  
+  ticks <- pretty(Results[[paste0(varname,"_",.5)]][[sex]]$Surf,n=15)
+  
+  SurfA(varname,sex,.5,Coh5[1],Results,ticks)
+  SurfA(varname,sex,.5,Coh5[2],Results,ticks)
+  SurfA(varname,sex,.5,Coh5[3],Results,ticks)
+  SurfA(varname,sex,.5,Coh5[4],Results,ticks)
+  SurfA(varname,sex,.5,Coh5[5],Results,ticks)
+  
+  plotn()
+  text(.5,.2,"span=.7", cex = 2)
+  SurfA(varname,sex,.7,Coh5[1],Results,ticks)
+  SurfA(varname,sex,.7,Coh5[2],Results,ticks)
+  SurfA(varname,sex,.7,Coh5[3],Results,ticks)
+  SurfA(varname,sex,.7,Coh5[4],Results,ticks)
+  SurfA(varname,sex,.7,Coh5[5],Results,ticks)
+  
+  plotn()
+  text(.5,.2,"span=.9", cex = 2)
+  SurfA(varname,sex,.9,Coh5[1],Results,ticks)
+  SurfA(varname,sex,.9,Coh5[2],Results,ticks)
+  SurfA(varname,sex,.9,Coh5[3],Results,ticks)
+  SurfA(varname,sex,.9,Coh5[4],Results,ticks)
+  SurfA(varname,sex,.9,Coh5[5],Results,ticks)
+  
+  plotn()
+  text(.5,.5,"legend\ngoes\nhere")
+  
+}
+
+graphics.off()
+dev.new(width = sum(cellwidths), height = sum(cellheights))
+
+
+pdf("Figures/PanelCoh5/Females.pdf",width = sum(cellwidths), height = sum(cellheights))
+lapply(varnames, function(x){
+    makePanel(x,"Female")
+  })
+dev.off()
+
+
+
+pdf("Figures/PanelCoh5/Males.pdf",width = sum(cellwidths), height = sum(cellheights))
+lapply(varnames, function(x){
+    makePanel(x,"Male")
+  })
+dev.off()
+
+dim(Dat)
+length(unique(Dat$id))
+
+
 

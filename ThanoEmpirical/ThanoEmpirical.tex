@@ -45,19 +45,20 @@ We aim to determine the extent to which variables commonly
 used to describe health, well-being, and disability in old-age vary primarily
 as a function of years lived (age), years left, or as a function of both. We analyze data from the US Health and Retirement Study to estimate
 chronological age and time-to-death patterns in 60 such variables. We describe
-results for individuals with 15 or fewer remaining years of life, after age 70
-and whose completed lifespans do not exceed 100. Our results show that most
-markers used to study well-being in old-age vary along both time dimensions, but
-that variation over remaining years of life is typically much stronger for
-the age-ranges and variables examined.
+results from the birth cohort born 1915-1919 in the final 12 years of life of
+individuals that died between 1992 and 2011 (ages 72 to 96). Our results show
+that most markers used to study well-being in old-age vary along both the age
+and time-to-death dimensions, but some markers are exclusively a function of
+either time to death or chronological age, and others display different patterns
+between the sexes.
 \end{abstract}
 
 \section*{Background}
 
 For an
 individual, age across the lifecourse is comprised two components: time since
-birth and time to death, the chronological and thanatalogical dimensions of
-age, respectively. In the aggregate, thanatological age is determined
+birth and time to death, the \textit{chronological} and \textit{thanatalogical}
+dimensions of age, respectively. In the aggregate, thanatological age is determined
 by the mortality rate schedule to which a birth cohort is subject until its
 extinction. Individuals do not know their thanatological age with certainty. To
 guess this quantity one projects an expectation of lifespan based on scenarios
@@ -75,32 +76,34 @@ mortality, which is proportional to the stable age structure determined by
 the Lotka-Euler renewal model when the intrinsic growth rate is equal to zero.}
 the chronological and thanatological age profiles are identical
 \citep{brouard1989mouvements,vaupel2009life,rao2014generalization}. Yet, even in
-the symmetrical case of stationary populations, the age profiles of other
-demographic characteristics in the population are decidedly not symmetrical when
-viewed chronologically or thanatologically. Distinct patterns emerge in the
+the case of stationary populations, the age profiles of other demographic characteristics
+in the population are decidedly asymmetrical when viewed chronologically or thanatologically. Distinct patterns emerge in the
 aggregate due to an interaction between lifespan variation and the age profile(s) of
-demographic characteristics.\footnote{To state that a characteristic is a function of either
-age perspective does not imply that age causes the given characteristic to vary,
-but rather that a characteristic varies in some smooth, regular, or parsimonious
+demographic characteristics.\footnote{When we state that a characteristic is a
+function of either age perspective we do not imply that age causes the given
+characteristic to vary, but rather that a characteristic varies in some smooth, regular, or parsimonious
 way over age.}
 
 Some life
 transitions, states, and changes in state intensities are almost exclusively a
-function of time to death. In cases where a characteristic strongly varies as a function of
-time to death (e.g., increases exponentially with the approach to death),
+function of time to death. There are also markers where chronological age
+captures almost all pertinent variation. In cases where a characteristic strongly varies as a
+function of time to death (e.g., increases exponentially with the approach to death),
 the common practice of aggregation over chronological age may misrepresent time
 trends and misguide analyses about change over time and expectations for the
-future. Retrospective measurment of thanatological age is useful in such
-cases, as a way of separating trends in characteristics with time-to-death
-patterns from trends in mortality. This analytical step lends clarity to the
-understanding of how characteristics vary over the lifespan and over time.
+future.  Measurment of the
+end-of-life trajectories of characteristics is useful in such cases as a way of separating
+trends in characteristics with time-to-death patterns from trends in mortality.
+Such measurements are retrospective in that they must occur after the date
+of death is known. This analytical step lends clarity to the understanding of
+how characteristics vary over the lifespan and over time.
 
 Incorporating a time-to-death perspective in demographic studies is especially
 important when assessing the impact of ``population ageing''.
 To the extent that the health, welfare, and social care demands of a
 population are functions of thanatological rather than chronological age
 structure, forecasts of the social and economic ``costs'' of ageing that are
-based only on chronological age profiles are vulnerable to being misleading.
+based only on chronological age profiles are prone to misinterpretation.
 In our concluding discussion we return to this point.
 
 Research exploring time-to-death patterns has been done in other
@@ -135,36 +138,69 @@ questions from ten waves of the US Health and Retirement Study \citep{HRS}.
 %that such patterns are mostly novel to demographers and as-yet unincorporated
 % in population-level indicators of ageing or disability. 
 
-We aim to identify a range of domains in which it makes
-sense to think from a thanatological perspective, especially around various dimensions of morbidity
-associated with the ageing process. Our analytical approach is retrospective
-rather than prospective, meaning that no lifetable assumptions are made in the
-measurement of thanatological age.
+We aim to categorize domains in which it makes
+sense to think from a thanatological perspective or the chronological
+perspective, especially around various dimensions of morbidity associated with
+the ageing process. Our analytical approach is retrospective rather than
+prospective, meaning that no lifetable assumptions are made in the measurement
+of thanatological age, and no censoring adjustments are necessary. Although more
+data are available for adjacent cohorts, we report results only for the cohort born from 1915 to 1919, because this is the cohort for which we have the longest and
+most complete set of observations. 
+
+\section*{Data \& Method}
+
+All findings reported in this paper are based on data from the US Health and
+Retirement Study (HRS). We use the Rand edition of the data, which is
+conveniently merged across all ten waves, and we calculate thanatological age
+based on date of death information in the mortality followup module. We
+restrict the sample to only those individuals born between 1900 and 1930 that
+died between 1992 and 2011, which narrows the dataset down to 37051 observations
+of 9238 individuals. 8137 of these observations are from the 1919 individuals
+that died from the 1915-1919 cohort. Adjacent cohorts are kept for the sake of a
+smoother loess fit to the data, which we describe in the methods section.
+
+Underpinning this investigation are a series of heat maps indicating the
+average intensity of a given marker along the chronological and thanatological
+time dimensions within a series of quinquennial birth cohorts. This visual tool
+is similar to but orthogonal to the familiar Lexis surface.
+
+\begin{figure}[!h]
+\centering
+\caption{Years lived and years left over the lifespan of a birth cohort}
+\label{fig:LexisOrtho}
+	\includegraphics{Figures/LexisOrtho.pdf}
+\end{figure}
+
+Figure~\ref{fig:LexisOrtho} orients the reader within the temporal coordinates
+we use. This diagram represents the various poissible lifespans within a given
+birth cohort, with an arbitrary open age, $\omega$, of 110.
+Members of the birth cohort are born on the left side of the diagram, at chronological age zero (zero years lived), albeit with an unknown $y$
+coordinate at the time of birth.
+Lifelines advance downward and to the right, where the downward direction indicates the approach to death, and the
+rightward direction represents both the progression of calendar years and
+chronological age. The blue arrow (B) indicates a hypothetical lifeline that
+will eventually expire at age 99, although this property is unknown until death. The
+present study contains only complete lifelines, such as that depicted in the
+color red (A) in Figure~\ref{fig:LexisOrtho}.
+
+We limit the current study to the 1915-1919 cohort due
+to the bounds of the temporal universe of observation. Using the HRS, enough
+observations are available so that we can measure fairly well the patterns
+within the area marked in green (C) in Figure~\ref{fig:LexisOrtho}. While there
+are some observations at thanatological ages greater than 12, there are too few
+too produce reliable estimates, and we choose this threshold as an arbitrary
+bound in this study. Since the HRS spans 20 calendar years (1992-2011), the
+theoretical upper bound of observation for thanatological age is 20.
 
 
 
-
-
-In the following sections we describe our approach to
-this exercise.
+In the following sections we describe our approach to this exercise.
 In short, for a given characteristic, we produce a demographic surface, where chronological age and thanatological age are the
 primary x and y axes, respectively.
 We then characterize this surface in a simple way by determining the average direction of steepest ascent on the surface,
 which tells us the primary direction of variation. If something varies more along the thanatological axis, then we call it a thanatological characteristic, if it varies more along the chronological axis, we call it a chronological characteristic. We then derive the degree to which a characteristic is thanatological as a percentage.
 
-\section*{Data \& Method}
-All findings reported in this paper are based on data from the US Health and
-Retirement Study (HRS). We use the Rand edition of the data, which is
-conveniently merged across all ten waves, and we calculate thanatological age
-based on date of death information in the mortality followup module. We
-restrict the sample to only those individuals that have died, which reduces the
-dataset from 36986 individuals with an average of 5 interviews each to 11947
-deceased individuals with an average of 4.25 interviews each. Further winowing
-from our weighting criterion reduces the dataset to
-11520 individuals with 4.1 interviews each on average. Person-weighting is
-described in the following section. In the present exploration, we do not examine
-within-individual variation, and each instance of an interview is treated as an
-independent observation.
+
 
 \subsection{Weighting}
 Person weights
