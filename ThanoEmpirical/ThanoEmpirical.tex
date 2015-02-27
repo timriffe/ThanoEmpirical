@@ -150,12 +150,12 @@ longest and most complete set of observations in the dataset used.
 
 All findings reported in this paper are based on data from the US Health and
 Retirement Study (HRS). We use the Rand edition of the data, which is
-conveniently merged across all ten waves, and we calculate thanatological age
-based on date of death information in the mortality followup module. We
-restrict the sample to only those individuals born between 1900 and 1930 that
-died between 1992 and 2011, which narrows the dataset down to 37051 observations
-of 9238 individuals. 8137 of these observations are from the 1919 individuals
-that died from the 1915-1919 cohort. Adjacent cohorts are kept for the sake of a
+conveniently merged across all ten waves. This data is free to download, and all
+details of data processing and methods are made freely available in an open
+repository.\footnote{This
+repository includes R code used to process data, as well as generate results and
+figures: \url{https://github.com/timriffe/ThanoEmpirical}} We
+calculate thanatological age based on date of death information in the mortality followup module. We restrict the sample to only those individuals born between 1900 and 1930 that died between 1992 and 2011, which narrows the dataset down to 37051 observations of 9238 individuals. 8137 of these observations are from the 1919 individuals that died from the 1915-1919 cohort. Adjacent cohorts are kept for the sake of a
 smoother loess fit to the data, which we describe in the methods section.
 
 \begin{figure}[!h]
@@ -202,12 +202,16 @@ which tells us the primary direction of variation. If something varies more alon
 \subsection{Age}
 Thanatological age is calculated for each individual as the lag between
 interview and death dates expressed as decimal years. Chronological age is
-calculated as the lag between birth and interview date in decimal years. Birth
-dates and death dates in the original data are typically rounded up to the end
-of the month, but this is more than enough precision for our purposes. Since we
-are interested in comparing characteristics over both chronological age and
-thanatological age simultaneously, we are interested in having estimates over a
-good spread of both age perspectives.
+calculated as the lag between birth and interview date in decimal years. Each
+individual is therefore assigned a chronological and thanatological at each
+interview, along with our accompanying variables of interest.
+Birth dates and death dates in the original data are typically rounded up to the end
+of the month, but this is more than enough precision for our purposes. 
+
+Since we
+are interested in viewing characteristics over both chronological age and
+thanatological age simultaneously, we require a spread of data over
+the whole study area. 
 
 
 %Figure~\ref{fig:counts} shows the case count in two-year age groups over the
@@ -256,15 +260,25 @@ questions from the HRS data to describe here. These include questions
 grouped roughly into the following categories: Activities of daily living (ADL),
 instrumental activities of daily living (IADL), measures of healthcare utilization, functional and chronic conditions, psychological
 measures, and health behaviors. In all, we report summary results from 82
-individual items.
+individual and composite items.
 
-We judge the degree of chronological versus thanatological age variation by
-creating surfaces over both age dimensions and producing . Each survey question
-was required in a format suitable for numeric operations. This requires some
-compromises in data quality, since some coded responses are less directly
-quantifiable, and our conversions were at times ad-hoc. The treatment of
-individual variables will be described in an appendix in a future
-revision of this paper.
+Each survey question must be in a format suitable for numeric operations.
+This requires some compromises in data quality, since some coded responses are less directly
+quantifiable, and our translation of qualitative or ordinal responses to numeric
+values was at times ad-hoc. In most cases, responses are easy to imagine as
+``good'' and ``bad'', in which case we assigned higher values to ``bad'' and
+lower values to ``good'' outcomes. For example, respondents were asked if they
+felt depressed. We assigned 0 to answers of ``no'' and 1 to answers of ``yes''.
+Rather than divide all questions into binary responses, we assigned intermediate
+values on a case by case basis.\footnote{The pre-processing of variables is
+full of details that would clutter this paper. We make the full code base used
+in the generation of results available in a github repository.}
+
+ This choice is simply to
+aid in the visual interpretation of otherwise widely varying surfaces.
+
+The treatment of individual variables will be
+described in an appendix in a future revision of this paper.
 
 \subsection*{Weighting}
 The population universe of the HRS and this study is the resident
@@ -297,7 +311,7 @@ predictions are calculated for a grid of single thanatological and chronological
 ages within the study area outlined in Figure~\ref{fig:counts} and described in
 the previous section. 
 
-\subsection{Finding the fall-line}
+%\subsection{Finding the fall-line}
 The model fit for each variable is used to produce a contour surface, which can
 be interpreted visually. In most situations it is obvious to the eye whether a
 variable operates over thanatological age or over chronological age, but there
@@ -319,29 +333,29 @@ direction of both axes, but that the variation over thanatological age (y axis)
 is sharper, i.e., it implies a steeper climb than does the apparent decrease
 over chronological age. 
 
-In order to characterize this surface, we find the direction
-of steepest ascent for a regular grid of points. These directions are shown with
-arrows in Figure~\ref{fig:srh}. If the direction is exactly $90^\circ$ or $270^\circ$,
-then we know that the process is essentially a thanatological one, at least in
-the age-range studied. If the direction is $0^\circ$ or $180^\circ$, then the
-characteristic can be said to be chronological. In our experience, most
-variables that we might be interested in are functions of both kinds of age, and
-so to determine the primary source of variation, we take the slope-weighted mean
-of each arrow direction, translate this to the upper-right unit quadrant, and
-then translate to a percent scale, where $90^\circ$ is 100\% thanatological and
-$0^\circ$ is 100\% chronological. For example, we judge SRH for males
-(Figure~\ref{fig:srh}) to be \%85.4 thanatological. However, around age 70-75,
-it is nearly \%100 thanatological.
+%In order to characterize this surface, we find the direction
+%of steepest ascent for a regular grid of points. These directions are shown
+% with arrows in Figure~\ref{fig:srh}. If the direction is exactly $90^\circ$ or $270^\circ$,
+%then we know that the process is essentially a thanatological one, at least in
+%the age-range studied. If the direction is $0^\circ$ or $180^\circ$, then the
+%characteristic can be said to be chronological. In our experience, most
+%variables that we might be interested in are functions of both kinds of age,
+% and so to determine the primary source of variation, we take the slope-weighted mean
+%of each arrow direction, translate this to the upper-right unit quadrant, and
+%then translate to a percent scale, where $90^\circ$ is 100\% thanatological and
+%$0^\circ$ is 100\% chronological. For example, we judge SRH for males
+%(Figure~\ref{fig:srh}) to be \%85.4 thanatological. However, around age 70-75,
+%it is nearly \%100 thanatological.
 
-Some variables display complex surfaces, and may operate in different ways
-depending on particular age coordinates. In these cases, the result of the above
-procedure is too simple, and for this reason we provide the surface plots in supplementary online
-material.\footnote{Plots are for each sex separately, and have been compiled
-into two multipage pdf documents, each containing all variables for one sex.
-Links have been shortened.
-Males:
-\url{http://goo.gl/pzEHHk}, Females:
-\url{http://goo.gl/xyBMxO}.}
+%Some variables display complex surfaces, and may operate in different ways
+%depending on particular age coordinates. In these cases, the result of the
+% above procedure is too simple, and for this reason we provide the surface plots in supplementary online
+%material.\footnote{Plots are for each sex separately, and have been compiled
+%into two multipage pdf documents, each containing all variables for one sex.
+%Links have been shortened.
+%Males:
+%\url{http://goo.gl/pzEHHk}, Females:
+%\url{http://goo.gl/xyBMxO}.}
 
 
 

@@ -422,6 +422,7 @@ Femaler <- do.call(rbind,lapply(varnames, function(x, Results){
 rownames(Femaler) <- varnames
 
 
+pdf("Figures/rComparisons/ThanovsChronoMale.pdf")
 par(mai = c(1,1,1,1))
 plot(Maler[,1], Maler[,2], 
   type = "n",
@@ -430,7 +431,9 @@ plot(Maler[,1], Maler[,2],
   main = "comparison of correlation coefficients, Males")
 abline(a=0,b=1)
 text(jitter(Maler[,1]), jitter(Maler[,2]), varnames, cex = .7)
+dev.off()
 
+pdf("Figures/rComparisons/ThanovsChronoFemale.pdf")
 par(mai = c(1,1,1,1))
 plot(Femaler[,1], Femaler[,2], 
   type = "n",
@@ -439,27 +442,29 @@ plot(Femaler[,1], Femaler[,2],
   main = "comparison of correlation coefficients, Females")
 abline(a=0,b=1)
 text(jitter(Maler[,1]), jitter(Maler[,2]), varnames, cex = .7)
+dev.off()
 
-
+pdf("Figures/rComparisons/sexCompareThano.pdf")
 par(mai = c(1,1,1,1))
 plot(Femaler[,1], Maler[,1], 
   type = "n",
   xlim=c(0,1), ylim = c(0,1), 
   xlab = "Female r", ylab = "Male r",asp=1, xaxs="i", yaxs="i",
-  main = "comparison of Thano correlation coefficients")
+  main = "sex comparison of Thano correlation coefficients")
 abline(a=0,b=1)
 text(jitter(Femaler[,1]), jitter(Maler[,1]), varnames, cex = .7)
+dev.off()
 
-
+pdf("Figures/rComparisons/sexCompareChrono.pdf")
 par(mai = c(1,1,1,1))
 plot(Femaler[,2], Maler[,2], 
   type = "n",
   xlim=c(0,1), ylim = c(0,1), 
   xlab = "Female r", ylab = "Male r",asp=1, xaxs="i", yaxs="i",
-  main = "comparison of Chrono correlation coefficients")
+  main = "sex comparison of Chrono correlation coefficients")
 abline(a=0,b=1)
 text(jitter(Femaler[,2]), jitter(Maler[,2]), varnames, cex = .7)
-
+dev.off()
 
 
 
