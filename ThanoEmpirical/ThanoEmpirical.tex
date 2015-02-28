@@ -269,17 +269,15 @@ old-age disability and well-being. For this reason we select a wide variety of
 questions from the HRS data. These include questions
 grouped roughly into the following categories: Activities of daily living (ADL),
 instrumental activities of daily living (IADL), measures of healthcare utilization, functional and chronic conditions, psychological
-measures, and health behaviors. We do not include charachteristics that were
-not measured continously over all survey waves, or measurements that were
-introduced to the survey after wave three. In all, we summarize results from 78
-individual and composite items. We discarded variables that were not asked
+measures, and health behaviors. In all, we summarize results from 78
+individual and composite items. We excluded variables that were not asked
 continuously from at least wave 3 through 9. Variables not available in the
-first or second wave have lower age bounds at higher ages than 72, whereas items
-not asked in wave ten have upper lifespan bounds that are lower than 95.
+first or second wave have left age bounds at higher ages than 72, whereas items
+not asked in wave ten have upper lifespan bounds that are below 95.
 
 Each survey question must be in a format suitable for numeric operations.
 This requires some compromises in data quality, since some coded responses are less directly
-quantifiable, and our translation of qualitative or ordinal responses to numeric
+quantifiable, and our translation of categorical or ordinal responses to numeric
 values was at times ad-hoc. In most cases, responses are easy to imagine as
 ``good'' and ``bad'', in which case we assigned higher values to ``bad'' and
 lower values to ``good'' outcomes. For example, respondents were asked if they
@@ -293,15 +291,23 @@ sets for particular questionnaire items changed between
 waves.
 In these cases, we attempted to assign numerical codes that were consistent
 over the transition. These choices are far from clean, but they are good enough
-to meet the goals of this study.\footnote{The pre-processing of variables is
-full of details that would clutter this paper. Rather than a lengthy and detailed appendix describing the case by case treatment of variables, we make the full code base used in the generation of results available in a github repository.}
+to meet the goals of this study. In other words, the surfaces we
+present are not precise measurements, but are meant to guide the
+viewers impressions about how characteristics change over age.\footnote{The
+pre-processing of variables is full of details that would clutter this paper. Rather than a lengthy and detailed appendix describing the case by case treatment of variables, we make the full code base used in the generation of results available in a github repository.}
 
 Variables with compact or bounded numeric responses were rescaled to range from
 0 to 1. Variables with no clear bounds or very large upper
 bounds, such as medical expenditure, body mass index, or number of hospital
 visits were not rescaled. These rescalings are intended to simplify
 the visual interpretation of surfaces, and they do not alter the
-quantitative summary measures we use later.
+quantitative summary measures we use later. 
+
+Some questionnaire items in the HRS are only asked every second interview. In
+these cases, we impute within-individual trajectories according to a linear
+trend. For example such item asks respondents whether they experience back
+pain. If in wave 3 an individual responded ``no''
+% TODO continue here
 
 \paragraph*{Weighting}
 The population universe of the HRS and this study is the resident

@@ -298,7 +298,7 @@ names(Results) <- unlist(lapply(Results, function(X){
 save(Results,file="Data/LoessQuinquenal_imp.Rdata")
 }
 
-Results <- local(get(load("Data/LoessQuinquenal.Rdata")))
+Results <- local(get(load("Data/LoessQuinquenal_imp.Rdata")))
 
 NULLS <- unlist(lapply(Results, function(X){
       is.null(X$Male) | is.null(X$Female)
@@ -329,7 +329,9 @@ names(Results)
 SurfA <- function(.varname,.sex,.span,.coh,.Results,.ticks){
   grabber <- paste0(.varname,"_",.span)
   A <- .Results[[grabber]][[.sex]]$Surf[,,as.character(.coh)]
+  A[A < 0] <- 0 # due to overzealous fit
   
+  # cuttting now taken care of in loess fitting
 #  MaxL <- 2011 - .coh - 1
 #  A[! col(A) - 1 + 70 + row(A) - 1 < MaxL] <- NA
 #  # possibly need to trim lower left corner too: dimnames(A)
