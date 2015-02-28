@@ -35,26 +35,26 @@ Coh5keep <- c(1900, 1905, 1910, 1915, 1920, 1925, 1930)
 Coh5     <- c(1905, 1910, 1915, 1920, 1925) # i.e. we use the preceding and subsequent cohorts for help fitting
 Dat      <- Dat[Dat$Coh5 %in% Coh5keep, ]
 
-nrow(Dat)
-length(unique(Dat$id))
-nrow(Dat[Dat$Coh5 == 1915,])
-length(unique(Dat$id[Dat$Coh5 == 1915]))
+#nrow(Dat)
+#length(unique(Dat$id))
+#nrow(Dat[Dat$Coh5 == 1915,])
+#length(unique(Dat$id[Dat$Coh5 == 1915]))
 varnames <- names(SurfaceList) 
 
-Along <- reshape2::melt(A)
-Along2 <- reshape2::melt(t(A))
-coefs <- lm(value~Var1+Var2, data = Along)$coef
-
-summary(lm(value~Var1, data = Along))
-summary(lm(value~Var2, data = Along))
-
-log(coefs[2] / coefs[3])
-
-pca <- princomp(~Var1+Var2, data = Along, center = TRUE, scale = FALSE)
-pca2 <- prcomp(~Var1+Var2, data = Along, center = TRUE, scale = FALSE)
-pca3 <- prcomp(~Var1+Var2, data = Along2, center = TRUE, scale = FALSE)
-cor(duration, waiting) 
-
+#Along <- reshape2::melt(A)
+#Along2 <- reshape2::melt(t(A))
+#coefs <- lm(value~Var1+Var2, data = Along)$coef
+#
+#summary(lm(value~Var1, data = Along))
+#summary(lm(value~Var2, data = Along))
+#
+#log(coefs[2] / coefs[3])
+#
+#pca <- princomp(~Var1+Var2, data = Along, center = TRUE, scale = FALSE)
+#pca2 <- prcomp(~Var1+Var2, data = Along, center = TRUE, scale = FALSE)
+#pca3 <- prcomp(~Var1+Var2, data = Along2, center = TRUE, scale = FALSE)
+#cor(duration, waiting) 
+#
 
 
 
@@ -214,16 +214,18 @@ FitLoess <- function(varname,
 
     # this reduces extrapolation outside of data points 
     for (i in 1:dim(Surf)[3]){
-      maxL  <- 2011 - Coh5[i] - 1
+      #maxL  <- 2011 - Coh5[i] - 1
       #maxt  <- tamax[as.character(Coh5[i])]
       #keept <- as.integer(rownames(Surf)) <= maxt
       A     <- Surf[,,i]
-      A[! col(A) - 1 + min(c.age) + row(A) - 1 + min(t.age) <= maxL] <- NA
-      A[! col(A) - 1 + min(c.age) + row(A) - 1 + min(t.age) >= minL] <- NA
+      MaxL <- 2011 - Coh5[i] 
+      A[ col(A) - 1 + 70 + row(A) - 1 > MaxL] <- NA
+# possibly need to trim lower left corner too: dimnames(A)
+      MinL <- 1992 - (Coh5[i] + 5)
+      A[col(A) + 70 - 1 < MinL] <- NA
       #A[!keept, ] <- NA
       Surf[,,i] <- A
     }
-  
   list(Surf = Surf, span = span, sex = sex, varname = varname, Cohorts = Coh5)
 }
 
@@ -262,7 +264,7 @@ Results <- mclapply(allcomboswide, function(x,Dat,Coh5){
       span =  as.numeric(x[2]), # will vary
       Coh5 = Coh5))
     list(Male = Male, Female = Female)
-  }, Dat = Dat, Coh5 = Coh5, mc.cores = Cores)
+  }, Dat = Dat, Coh5 = Coh5, mc.cores = detectCores())
 
 save(Results,file="Data/LoessQuinquenal.Rdata")
 }
@@ -406,6 +408,8 @@ get_r <- function(A){
   c(Thano = abs(cor(Along$value,Along$Var1,use="complete.obs")), 
   Chrono = abs(cor(Along$value,Along$Var2,use="complete.obs")))
 }
+library(LexisUtils)
+
 
 Maler <- do.call(rbind,lapply(varnames, function(x, Results){
     grabber <- paste0(x,"_",.7)
@@ -466,7 +470,27 @@ abline(a=0,b=1)
 text(jitter(Femaler[,2]), jitter(Maler[,2]), varnames, cex = .7)
 dev.off()
 
+Meta <- read.csv( "Data/PercentThano.csv",stringsAsFactors=FALSE)
+head(Meta)
+Meta <- Meta[, c("Short","Long","Group")]
 
+Meta <- Maler[Meta$Short, ]
+
+BB <- cbind(Meta, round(Maler[Meta$Short, ],3), round(Femaler[Meta$Short, ],3))
+colnames
+BB[order(BB$Group ), ]
+
+#pdf("Figures/SurfExampleFemalesADL3_2.pdf", width = 10, height = 6)
+grabber <- paste0("mob","_",.7)
+A <- Results[[grabber]][["Male"]]$Surf[,,as.character(1915)]
+MaxL <- 2011 - 1915 
+A[ col(A) - 1 + 70 + row(A) - 1 > MaxL] <- NA
+# possibly need to trim lower left corner too: dimnames(A)
+MinL <- 1992 - (1915 + 5)
+A[col(A) + 70 - 1 < MinL] <- NA
+dev.new(width = 10, height = 6)
+SurfMap(A,napprox=9,contour=TRUE,outline=FALSE)
+dev.off()
 
 
 

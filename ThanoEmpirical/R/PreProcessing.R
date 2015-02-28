@@ -322,5 +322,89 @@ save(Dat,file = "Data/Data_long.Rdata")
 
 #Dat <- local(get(load("Data/Data_long.Rdata")))
 
+#apply(Dat[,colnames(Dat)%in%varnames],2,range,na.rm=TRUE)
+############################################################################################
+# BELOW is just to generate metadata for an appendix:
+# these are the ones we keep:
+varnames <- c("adl3_", "adl5_", "iadl3_", "iadl5_", "cesd", "lim_work", "srh", 
+  "bmi", "back", "hosp", "hosp_stays", "hosp_nights", "nh", "nh_stays", 
+  "nh_nights", "nh_now", "doc", "doc_visits", "hhc", "meds", "surg", 
+  "dent", "shf", "adl_walk", "adl_dress", "adl_bath", "adl_eat", 
+  "adl_bed", "adl_toilet", "iadl_map", "iadl_tel", "iadl_money", 
+  "iadl_meds", "iadl_shop", "iadl_meals", "mob", "lg_mus", "gross_mot", 
+  "fine_mot", "bp", "diab", "cancer", "lung", "heart", "stroke", 
+  "psych", "arth", "cc", "alc_ev", "alc_days", "alc_drinks", "smoke_ev", 
+  "smoke_cur", "cesd_depr", "cesd_eff", "cesd_sleep", "cesd_happy", 
+  "cesd_lone", "cesd_sad", "cesd_going", "cesd_enjoy", "srm", "pastmem", 
+  "ss", "c20b", "name_mo", "name_dmo", "name_yr", "name_dwk", "name_sci", 
+  "name_cac", "name_pres", "name_vp", "vocab", "tm", "med_exp", 
+  "dwr", "twr", "iwr", "mprob", "mprobev", "med_explog")
+
+# now we compare before and after values for these variables.
+# this is just for the sake of a variable appendix.
 
 
+#DatIn         <- local(get(load("Data/thanos_long_v2_2.gz")))
+## remove missed interviews
+#DatIn         <- DatIn[!is.na(DatIn$intv_dt), ]
+## reduce to deceased-only
+#DatIn         <- DatIn[DatIn$dead == 1, ] # cut down size to reduce character searching in a moment
+#DatIn         <- convertDates(DatIn)
+#DatFinal <- local(get(load("Data/Data_long.Rdata")))
+#SurfaceList <- local(get(load("Data/SurfaceList.Rdata")))
+#DatIn$dwr                    <- DatIn$dr20w + DatIn$dr10w
+#DatIn$iwr                     <- DatIn$ir20w + DatIn$ir10w
+#
+#DatFinal      <- DatFinal[DatFinal$age >= 65, ]
+#DatFinal      <- DatFinal[!is.na(Dat$b_yr), ]
+#DatFinal$Coh5 <- DatFinal$b_yr -  DatFinal$b_yr %% 5 
+#Coh5keep <- c(1900, 1905, 1910, 1915, 1920, 1925, 1930)
+#DatFinal      <- DatFinal[DatFinal$Coh5 %in% Coh5keep, ]
+#
+#KeepVec <- paste(DatFinal$id,DatFinal$intv_dt)
+#rownames(DatIn) <- paste(DatIn$id,DatIn$intv_dt)
+##all(KeepVec %in% rownames(DatIn)) TRUE
+#DatIn <- DatIn[KeepVec, ]
+#DatIn$Coh5 <- DatIn$b_yr -  DatIn$b_yr %% 5 
+#nrow(DatIn);nrow(DatFinal) # Needed to do this for accurate tabulations...
+# ------------------------paste(Dat$id,Dat$intv_dt)
+
+# now, for each variable we find the first unique individual for 'each' unique reponse within each variable.
+# then we find the resulting response in the DatOut df, producing a list of before-after responses. eek
+# just use for short-long names...
+#Meta <- read.csv( "Data/PercentThano.csv",stringsAsFactors=FALSE)
+#Meta <- Meta[,c("Short","Long")]
+#varnames<- varnames[varnames != "med_explog"]
+#Variables <- list()
+#for (vn in varnames){
+#  
+#  if (length(unique(DatFinal[[vn]])) < 13){
+#    uniqueTab   <- suppressWarnings(table(DatIn[[vn]],exclude=c("NA",NA),useNA="no"))
+#    unique1915  <- suppressWarnings(table(DatIn[[vn]][DatIn$Coh5==1915],exclude=c("NA",NA),useNA="no"))
+#    responsesIn <- names(uniqueTab)
+#    
+#    firstIDs    <- sapply(responsesIn, function(res, DatIn){
+#        DatIn$id[DatIn[[vn]] == res][1]
+#      },DatIn=DatIn)
+#    
+#    # now iterate over IDs to get corresponding numeric equivalent:
+#    responsesOut <- sapply(firstIDs, function(id, .vn, DatFinal){
+#        DatOut[[vn]][DatOut$id == id][1]
+#      }, .vn = vn, DatFinal=DatFinal)
+#    dfout <- data.frame(Original = responsesIn, 
+#      Recode = responsesOut, 
+#      Count = as.integer(uniqueTab), 
+#      Count1915 = as.integer(unique1915),
+#      stringsAsFactors = FALSE)
+#    dfout <- dfout[order(dfout$Recode), ]
+#    Variables[[vn]] <- dfout
+#  }
+#}
+#
+#xtable
+#
+#varnames[!varnames %in% names(Variables)]
+#library(Hmisc)
+#DatIn[,varnames[varnames %in% colnames(DatIn)]]
+#
+#latex(describe(DatIn[,varnames[varnames %in% colnames(DatIn)]]),file="")

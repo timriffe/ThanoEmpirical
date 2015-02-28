@@ -193,5 +193,3 @@ image(acast(Dat[Dat$sex == "m", ],cafloor2~tafloor2, value.var = "srh",
 #dev.off()
 
 
-?theme
-

@@ -183,3 +183,50 @@ polygon(c(72,96,96-13,72),c(0,0,13,13),border = "forestgreen", lwd = 2, lty = 2)
 text(90,60,"(C) area studied for\n1915-1919 birth cohort", cex = .8, pos = 4)
 segments(97,57,96-13,13,col="forestgreen",lty=2)
 dev.off()
+
+#########################################
+# a diagram to compare coverage for the different birth cohorts.
+plotn <- function(xlim = c(0,1),ylim = c(0,1), mai = c(0,0,0,0),...){
+  plot(NULL, type = "n", xlim = xlim, ylim = ylim,  axes = FALSE, xlab = "", ylab = "",...)
+}
+
+minmaxcoh <- function(coh1){
+  MaxL <- 2011 - coh1 - 1
+  MinL <- 1992 - (coh1 + 5)
+  c(MinL,MaxL)
+}
+
+minmaxcoh(1905)
+minmaxcoh(1915)
+minmaxcoh(1925)
+
+minmax2polgon <- function(minmax, thano = 12){
+  list(x = c(minmax[1],minmax[2]+1,minmax[2]-thano,minmax[1]),
+    y = c(0,0,thano+1,thano+1))
+}
+graphics.off()
+dev.new(width=4.5,height=3)
+plotn(c(60,110),c(0,15), mai=c(.25,.25,.25,.25), asp = 1)
+polygon(minmax2polgon(minmaxcoh(1905)), lwd = 1, border = "blue", lty = 2)
+polygon(minmax2polgon(minmaxcoh(1915)), lwd = 2, border = "green")
+polygon(minmax2polgon(minmaxcoh(1925)), lwd = 1, border = "red", lty = 3)
+
+minmaxcoh <- function(coh1){
+  MaxL <- 2011 - coh1 - 1
+  MinL <- 1992 - (coh1 + 5)
+  c(MinL,MaxL)
+}
+
+minmaxcoh(1905)
+minmaxcoh(1915)
+minmaxcoh(1925)
+
+minmax2polgon <- function(minmax, thano = 12){
+  list(x = c(minmax[1],minmax[2]+1,minmax[2]-thano,minmax[1]),
+    y = c(0,0,thano+1,thano+1))
+}
+
+
+
+
+
