@@ -65,29 +65,25 @@ dev.off()
 source("R/SurfMap.R")
 
 # chrono: surgery
-grabber <- paste0("mob","_",.7)
+grabber <- paste0("psych","_",.7)
 Surf <- Results[[grabber]][["Male"]]$Surf[,,as.character(1915)]
 # thano:
-pdf("Figures/Surf_Male_mob.pdf", width = 10, height = 6)
+pdf("Figures/Surf_Male_psych.pdf", width = 10, height = 6)
 #dev.new(width = 10, height = 6)
 SurfMap(Surf,napprox=9,contour=TRUE,outline=FALSE,bg=TRUE)
 dev.off()
 
 
-# thano:
-pdf("Figures/Surf_Male_mob.pdf", width = 10, height = 6)
-#dev.new(width = 10, height = 6)
-SurfMap(Surf,napprox=9,contour=TRUE,outline=FALSE,bg=TRUE)
-dev.off()
-
+# chrono:
 grabber <- paste0("back","_",.7)
-Surf <- Results[[grabber]][["Female"]]$Surf[,,as.character(1915)]
+Surf <- Results[[grabber]][["Male"]]$Surf[,,as.character(1915)]
 
-pdf("Figures/Surf_Female_back.pdf", width = 10, height = 6)
+pdf("Figures/Surf_Male_back.pdf", width = 10, height = 6)
 #dev.new(width = 10, height = 6)
 SurfMap(Surf,napprox=9,contour=TRUE,outline=FALSE,bg=TRUE)
 dev.off()
 
+varnames[order(Maler[,1])]
 
 
 

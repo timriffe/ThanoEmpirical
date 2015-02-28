@@ -346,6 +346,178 @@ varnames <- c("adl3_", "adl5_", "iadl3_", "iadl5_", "cesd", "lim_work", "srh",
   "name_cac", "name_pres", "name_vp", "vocab", "tm", "med_exp", 
   "dwr", "twr", "iwr", "mprob", "mprobev", "med_explog")
 
+
+varnames <- varnames[varnames %in% colnames(Dat)]
+
+
+# 1) how many NAs are there for each of these questions? Important to know,
+# because we're about to do some major imputing!!
+
+NApre <- sapply(varnames, function(vn, Dat){
+    sum(is.na(Dat[[vn]]))
+  }, Dat = Dat) # save this object to compare!
+
+# for each of these varnames, lets interpolate to fill missings for waves in
+# which the person was interviewed but not asked.
+imputeSkippedQuestions <- function(vn,intv_dt){
+  nas <- is.na(vn)
+  if (all(nas)){
+    return(vn)
+  }
+  if (sum(!nas)==1){
+    vn <- approx(x = intv_dt,
+      y = vn,
+      xout = intv_dt,
+      rule = 1:2,
+      method = "constant")$y
+    return(vn)
+  }
+ 
+  if (sum(!nas > 1)){
+    
+    vn <- approx(x = intv_dt,
+      y = vn,
+      xout = intv_dt,
+      rule = 1:2,
+      method = "linear")$y
+    return(vn)
+  }
+
+}
+
+# which varnames will need to be NA'd for entire waves afterwards?:
+NAout <- sapply(varnames, function(vn, Dat){
+    tapply(Dat[[vn]],Dat$wave,function(x){
+        all(is.na(x))
+      })
+  }, Dat = Dat)
+# this object will help re-impute NAs where necessary
+
+Dat  <- data.table(Dat)
+{
+############## yikes, it was faster to write all this than to figure out how to 
+# do it elegantly in data.table....... sorry dear reader! it's more complicated
+# than a simple column apply because intv_dt is needed as well
+Dat[,adl3_:=imputeSkippedQuestions(adl3_,intv_dt), by = list(id) ]
+Dat[,adl5_:=imputeSkippedQuestions(adl5_,intv_dt), by = list(id) ]
+Dat[,iadl3_:=imputeSkippedQuestions(iadl3_,intv_dt), by = list(id) ]
+Dat[,iadl5_:=imputeSkippedQuestions(iadl5_,intv_dt), by = list(id) ]
+Dat[,cesd:=imputeSkippedQuestions(cesd,intv_dt), by = list(id) ]
+Dat[,lim_work:=imputeSkippedQuestions(lim_work,intv_dt), by = list(id) ]
+Dat[,srh:=imputeSkippedQuestions(srh,intv_dt), by = list(id) ]
+Dat[,bmi:=imputeSkippedQuestions(bmi,intv_dt), by = list(id) ]
+Dat[,back:=imputeSkippedQuestions(back,intv_dt), by = list(id) ]
+Dat[,hosp:=imputeSkippedQuestions(hosp,intv_dt), by = list(id) ]
+
+Dat$hosp_stays <- as.numeric(Dat$hosp_stays) 
+Dat[,hosp_stays:=imputeSkippedQuestions(hosp_stays,intv_dt), by = list(id) ] # Error, investigate
+
+Dat[,hosp_nights:=imputeSkippedQuestions(hosp_nights,intv_dt), by = list(id) ]
+Dat[,nh:=imputeSkippedQuestions(nh,intv_dt), by = list(id) ]
+
+Dat$nh_stays <- as.numeric(Dat$nh_stays) 
+Dat[,nh_stays:=imputeSkippedQuestions(nh_stays,intv_dt), by = list(id) ] # Error, investigate
+Dat$nh_nights <- as.numeric(Dat$nh_nights) 
+Dat[,nh_nights:=imputeSkippedQuestions(nh_nights,intv_dt), by = list(id) ] # Error, investigate
+
+Dat[,nh_now:=imputeSkippedQuestions(nh_now,intv_dt), by = list(id) ]
+Dat[,doc:=imputeSkippedQuestions(doc,intv_dt), by = list(id) ]
+Dat[,hhc:=imputeSkippedQuestions(hhc,intv_dt), by = list(id) ]
+Dat[,meds:=imputeSkippedQuestions(meds,intv_dt), by = list(id) ]
+Dat[,surg:=imputeSkippedQuestions(surg,intv_dt), by = list(id) ]
+Dat[,dent:=imputeSkippedQuestions(dent,intv_dt), by = list(id) ]
+Dat[,shf:=imputeSkippedQuestions(shf,intv_dt), by = list(id) ]
+Dat[,adl_walk:=imputeSkippedQuestions(adl_walk,intv_dt), by = list(id) ]
+Dat[,adl_dress:=imputeSkippedQuestions(adl_dress,intv_dt), by = list(id) ]
+Dat[,adl_bath:=imputeSkippedQuestions(adl_bath,intv_dt), by = list(id) ]
+Dat[,adl_eat:=imputeSkippedQuestions(adl_eat,intv_dt), by = list(id) ]
+Dat[,adl_bed:=imputeSkippedQuestions(adl_bed,intv_dt), by = list(id) ]
+Dat[,adl_toilet:=imputeSkippedQuestions(adl_toilet,intv_dt), by = list(id) ]
+Dat[,iadl_map:=imputeSkippedQuestions(iadl_map,intv_dt), by = list(id) ]
+Dat[,iadl_tel:=imputeSkippedQuestions(iadl_tel,intv_dt), by = list(id) ]
+Dat[,iadl_money:=imputeSkippedQuestions(iadl_money,intv_dt), by = list(id) ]
+Dat[,iadl_meds:=imputeSkippedQuestions(iadl_meds,intv_dt), by = list(id) ]
+Dat[,iadl_shop:=imputeSkippedQuestions(iadl_shop,intv_dt), by = list(id) ]
+Dat[,iadl_meals:=imputeSkippedQuestions(iadl_meals,intv_dt), by = list(id) ]
+Dat[,mob:=imputeSkippedQuestions(mob,intv_dt), by = list(id) ]
+Dat[,lg_mus:=imputeSkippedQuestions(lg_mus,intv_dt), by = list(id) ]
+Dat[,gross_mot:=imputeSkippedQuestions(gross_mot,intv_dt), by = list(id) ]
+Dat[,fine_mot:=imputeSkippedQuestions(fine_mot,intv_dt), by = list(id) ]
+Dat[,bp:=imputeSkippedQuestions(bp,intv_dt), by = list(id) ]
+Dat[,diab:=imputeSkippedQuestions(diab,intv_dt), by = list(id) ]
+Dat[,cancer:=imputeSkippedQuestions(cancer,intv_dt), by = list(id) ]
+Dat[,lung:=imputeSkippedQuestions(lung,intv_dt), by = list(id) ]
+Dat[,heart:=imputeSkippedQuestions(heart,intv_dt), by = list(id) ]
+Dat[,stroke:=imputeSkippedQuestions(stroke,intv_dt), by = list(id) ]
+Dat[,psych:=imputeSkippedQuestions(psych,intv_dt), by = list(id) ]
+Dat[,arth:=imputeSkippedQuestions(arth,intv_dt), by = list(id) ]
+Dat[,cc:=imputeSkippedQuestions(cc,intv_dt), by = list(id) ]
+Dat[,alc_ev:=imputeSkippedQuestions(alc_ev,intv_dt), by = list(id) ]
+Dat[,alc_days:=imputeSkippedQuestions(alc_days,intv_dt), by = list(id) ]
+
+Dat$alc_drinks <- as.numeric(Dat$alc_drinks) # data.table needs consistent classes...
+Dat[,alc_drinks:=imputeSkippedQuestions(alc_drinks,intv_dt), by = list(id) ] # Error, investigate (see line above)
+
+Dat[,smoke_ev:=imputeSkippedQuestions(smoke_ev,intv_dt), by = list(id) ]
+Dat[,smoke_cur:=imputeSkippedQuestions(smoke_cur,intv_dt), by = list(id) ]
+Dat[,cesd_depr:=imputeSkippedQuestions(cesd_depr,intv_dt), by = list(id) ]
+Dat[,cesd_eff:=imputeSkippedQuestions(cesd_eff,intv_dt), by = list(id) ]
+Dat[,cesd_sleep:=imputeSkippedQuestions(cesd_sleep,intv_dt), by = list(id) ]
+Dat[,cesd_happy:=imputeSkippedQuestions(cesd_happy,intv_dt), by = list(id) ]
+Dat[,cesd_lone:=imputeSkippedQuestions(cesd_lone,intv_dt), by = list(id) ]
+Dat[,cesd_sad:=imputeSkippedQuestions(cesd_sad,intv_dt), by = list(id) ]
+Dat[,cesd_going:=imputeSkippedQuestions(cesd_going,intv_dt), by = list(id) ]
+Dat[,cesd_enjoy:=imputeSkippedQuestions(cesd_enjoy,intv_dt), by = list(id) ]
+Dat[,srm:=imputeSkippedQuestions(srm,intv_dt), by = list(id) ]
+Dat[,pastmem:=imputeSkippedQuestions(pastmem,intv_dt), by = list(id) ]
+Dat[,ss:=imputeSkippedQuestions(ss,intv_dt), by = list(id) ]
+Dat[,c20b:=imputeSkippedQuestions(c20b,intv_dt), by = list(id) ]
+Dat[,name_mo:=imputeSkippedQuestions(name_mo,intv_dt), by = list(id) ]
+Dat[,name_dmo:=imputeSkippedQuestions(name_dmo,intv_dt), by = list(id) ]
+Dat[,name_yr:=imputeSkippedQuestions(name_yr,intv_dt), by = list(id) ]
+Dat[,name_dwk:=imputeSkippedQuestions(name_dwk,intv_dt), by = list(id) ]
+Dat[,name_sci:=imputeSkippedQuestions(name_sci,intv_dt), by = list(id) ] 
+Dat[,name_cac:=imputeSkippedQuestions(name_cac,intv_dt), by = list(id) ]
+Dat[,name_pres:=imputeSkippedQuestions(name_pres,intv_dt), by = list(id) ]
+Dat[,name_pres:=imputeSkippedQuestions(name_pres,intv_dt), by = list(id) ]
+Dat[,vocab:=imputeSkippedQuestions(vocab,intv_dt), by = list(id) ]
+Dat[,tm:=imputeSkippedQuestions(tm,intv_dt), by = list(id) ]
+Dat[,dwr:=imputeSkippedQuestions(dwr,intv_dt), by = list(id) ]
+Dat[,twr:=imputeSkippedQuestions(twr,intv_dt), by = list(id) ]
+Dat[,iwr:=imputeSkippedQuestions(iwr,intv_dt), by = list(id) ]
+### again, sorry this was insanely bad coding.
+}
+# now re-insert NAs for waves that simply didn't include question X:
+
+
+# this picks up almost everything...
+#ImputeThese <- sapply(varnames, function(vn, Dat){
+#    checkImpute <- any(tapply(Dat[[vn]],Dat$wave,function(x){
+#    any(is.na(x)) & any(!is.na(x))
+#  }))
+#  },Dat=Dat)
+
+imputeNAsInTheseVars <- colnames(NAout)[colSums(NAout) > 0]
+NAout <- NAout[,imputeNAsInTheseVars]
+waves <- 1:10
+vn <-"name_cac"
+for (vn in imputeNAsInTheseVars){
+  wavesi <- waves[NAout[,vn]]
+  Dat[[vn]][Dat$wave %in% wavesi] <- NA
+}
+
+# compare with NApre
+NApost <- sapply(varnames, function(vn, Dat){
+    sum(is.na(Dat[[vn]]))
+  }, Dat = Dat) 
+
+plot(NApost,NApre,asp=1)
+abline(a=0,b=1)
+hist(NApost / NApre) # OK so this wasn't pointless.
+
+save(Dat,file = "Data/Data_long_imputed.Rdata")
+
+
 # now we compare before and after values for these variables.
 # this is just for the sake of a variable appendix.
 

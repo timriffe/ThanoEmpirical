@@ -1,5 +1,5 @@
 
-
+# Surf <- A
 SurfMap <- function (Surf, 
   thano = as.integer(rownames(Surf)), 
   chrono = as.integer(colnames(Surf)), 

@@ -23,7 +23,7 @@ wmean <- function(x,w=rep(1,length(x))){
 }
 
 Dat <- local(get(load("Data/Data_long.Rdata")))
-
+Dat <- local(get(load("Data/Data_long_imputed.Rdata")))
 Dat <- data.table(Dat)
 
 ## for binning purposes, akin to 'completed age'
@@ -123,3 +123,42 @@ save(SurfaceList, file = "Data/SurfaceList.Rdata")
 
 #names(SurfaceList)
 #SurfaceList[["adl3_"]]
+Dat      <- Dat[Dat$age >= 65, ]
+Dat      <- Dat[!is.na(Dat$b_yr), ]
+Dat$Coh5 <- Dat$b_yr -  Dat$b_yr %% 5 
+Coh5keep <- c(1900, 1905, 1910, 1915, 1920, 1925, 1930)
+Coh5     <- c(1905, 1910, 1915, 1920, 1925) # i.e. we use the preceding and subsequent cohorts for help fitting
+Dat      <- Dat[Dat$Coh5 %in% Coh5keep, ]
+# This is a sloppy old-school way this
+Dat         <- data.frame(Dat)
+SurfaceList <- list()
+#Dat$mod_freq
+varname <- "diab"
+head(Dati)
+library(data.table)
+Dat <- as.data.frame(Dat)
+
+for (varname in varnames){
+
+  Dati <- Dat[, c("sex","tafloor","cafloor","Coh5","p_wt2",varname)]
+  colnames(Dati)[ncol(Dati)] <- "V1"
+
+  Mean <- 
+    data.table(Dati)[,  list(V1 = wmean(V1,p_wt2)),
+      by = list(sex,tafloor,cafloor,Coh5)]
+  Mean <- data.frame(Mean)   
+  
+  MeanM <- acast(Mean[Mean$sex == "m", ],tafloor~cafloor~Coh5,value.var="V1" )
+  MeanF <- acast(Mean[Mean$sex == "f", ],tafloor~cafloor~Coh5,value.var="V1" )
+  
+  #setnames(Dat,cols="V1",value=varname)
+  
+  SurfaceList[[varname]] <- list(Male = MeanM,Female = MeanF)
+}
+source("R/SurfMap.R")
+SurfMap(MeanM[,,"1930"], contour=FALSE,outline=FALSE,bg=TRUE)
+
+
+
+# ------------------------------------------------------        
+save(SurfaceList, file = "Data/SurfaceList.Rdata")

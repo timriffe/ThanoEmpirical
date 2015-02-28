@@ -44,7 +44,7 @@
 We aim to determine the extent to which variables commonly
 used to describe health, well-being, and disability in old-age vary primarily
 as a function of years lived (age), years left, or as a function of both. We analyze data from the US Health and Retirement Study to estimate
-chronological age and time-to-death patterns in 82 such variables. We describe
+chronological age and time-to-death patterns in 78 such variables. We describe
 results from the birth cohort born 1915-1919 in the final 12 years of life of
 individuals that died between 1992 and 2011 (ages 72 to 95). Our results show
 that most markers used to study well-being in old-age vary along both the age
@@ -205,12 +205,11 @@ of the month, but this is more than enough precision for our purposes. Since we
 are interested in viewing characteristics over both chronological age and
 thanatological age simultaneously, we require a spread of data over
 the whole study area. 
-
 The current HRS dataset runs from 1992 to 2011, which
 means that each birth cohort is observed over a different range of ages. For
 example, the 1925-1929 cohort enters observation in 1992 at age 62 (at the
 youngest) and acheives a maximum completed age of 85 by the end of 2011. On the
-other end, the 1905-1909 enters the HRS in 1992 at age 82 at the youngest and
+other end, the 1905-1909 enters the HRS in 1992 at age 78 at the youngest and
 has a maximum completed lifespan of 105 by the last wave in 2011, albeit with
 few observations at the upper extreme. Results from these and other birth cohorts are also
 valid, but portions of these surfaces are based on fewer data points (lifespans $>$ 100) or ages in which labor market
@@ -218,8 +217,11 @@ exits appear to drive patterns at least as much as senescence (ages $<$ 67,
 approximately). We selected the 1915-1919 cohort because
 its observation window is centered on the chronological ages in which most
 deaths occur,\footnote{The modal ages at death for the 1915-1919 cohort are
-80-81 for males and around 87 for females.} and because the HRS provides a good
-density and spread of data points over this window. This is why the study area has a lower chronological age bound of 72 and an upper completed lifespan of 95.
+80-81 for males and around 87 for females (calculations based
+on partially observed cohort $M(x)$ \citep{HMD}).} and because the HRS
+provides a good density and spread of data points over this window. The lower
+and upper age bounds may vary if questions were not available in the first,
+second or final waves.
 
 
 %Figure~\ref{fig:counts} shows the case count in two-year age groups over the
@@ -269,8 +271,11 @@ grouped roughly into the following categories: Activities of daily living (ADL),
 instrumental activities of daily living (IADL), measures of healthcare utilization, functional and chronic conditions, psychological
 measures, and health behaviors. We do not include charachteristics that were
 not measured continously over all survey waves, or measurements that were
-introduced to the survey after wave three. In all, we summarize results from 82
-individual and composite items. 
+introduced to the survey after wave three. In all, we summarize results from 78
+individual and composite items. We discarded variables that were not asked
+continuously from at least wave 3 through 9. Variables not available in the
+first or second wave have lower age bounds at higher ages than 72, whereas items
+not asked in wave ten have upper lifespan bounds that are lower than 95.
 
 Each survey question must be in a format suitable for numeric operations.
 This requires some compromises in data quality, since some coded responses are less directly
@@ -360,10 +365,10 @@ dimensions.
 
 \section*{Results}
 
-We present surfacs representing back problems for males and
-an index of gross motor difficultyfor females. These two surfaces were
-selected from the full set of 82 characteristics because they cleanly fit the
-description of chronological and thanatological characteristics, respectively.
+As examples, we present surfacs representing psychological problems for males
+(Figure~\ref{fig:psych}) and back pain for males (Figure~\ref{fig:back}).
+These two surfaces were selected from the full set of 78 characteristics because they cleanly fit the
+description of thanatological and chronological characteristics, respectively. 
 
 The model fit for each variable is used to produce a contour surface, which can
 be interpreted visually. In most situations it is obvious to the eye whether a
@@ -371,16 +376,51 @@ variable operates over thanatological age or over chronological age, but there
 are many instances where both are at play, or where the relationship is
 complex. An example surface for self-reported health (SRH) is shown in
 Figure~\ref{fig:srh}.
-
+%\begin{figure}[!h]
+%\centering
+%\caption{Case counts in two-year age bins. Chronological age (Years lived) on
+%the x axis and thanatological age (Years lives) on the y axis. Darker blues
+%indicate higher case counts.}
+%\label{fig:counts}
+%\begin{subfigure}{\linewidth}
+%	\caption{Males}
+%	\vspace{-1em}
+%	\label{fig:MalesCases}
+%	\includegraphics[scale=.7]{Figures/CaseCountMales.pdf}
+%\end{subfigure}
+%\\
+%\begin{subfigure}{\linewidth}
+%    \caption{Females}
+%   \vspace{-1em}
+%	\label{fig:FemalesCases}
+%    \includegraphics[scale=.7]{Figures/CaseCountFemales.pdf}
+%\end{subfigure}
+%\end{figure}
 \begin{figure}[!h]
     % This figure was produced in
     % \makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/SurfExampleMalesSRH.pdf}}
     \centering
-    \caption{Mean male SRH by years lived (x axis) and years left (y axis).}
-    \label{fig:srh}
+    \caption{Examples of characteristics that vary along the thanatological and
+    chronological age axes.}
+    \begin{subfigure}{\linewidth}
+    \caption{Psychological problems (ever) by
+    years lived (x axis) and years left (y axis). Males, 1915-1919 birth cohort.
+    }
+    \label{fig:psych}
 	\vspace{-2em}
-	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/SurfExampleMalesSRH.pdf}}
+	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Surf_Male_psych.pdf}}
+	\end{subfigure}
+	
+	\begin{subfigure}{\linewidth}
+    \caption{Back Problems by
+    years lived (x axis) and years left (y axis). Males, 1915-1919 birth
+    cohort.}
+    \label{fig:back}
+	\vspace{-2em}
+	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Surf_Male_back.pdf}}
+	\end{subfigure}
 \end{figure}
+\FloatBarrier
 
 In the case of Figure~\ref{fig:srh} note that there is regular variation in the
 direction of both axes, but that the variation over thanatological age (y axis)
@@ -460,8 +500,8 @@ investigation.
 %\input{Tables/Cognitive}
 %
 %\FloatBarrier
-%\bibliographystyle{plainnat}
-%  \bibliography{references} 
+\bibliographystyle{plainnat}
+  \bibliography{references} 
 %  
 %\pagebreak
 %

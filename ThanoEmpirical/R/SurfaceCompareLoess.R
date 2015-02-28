@@ -24,7 +24,7 @@ cat("Working directory:\n",getwd())
 
 
 
-Dat <- local(get(load("Data/Data_long.Rdata")))
+Dat <- local(get(load("Data/Data_long_imputed.Rdata")))
 SurfaceList <- local(get(load("Data/SurfaceList.Rdata")))
 varnames <- names(SurfaceList)
 
@@ -295,7 +295,7 @@ Results <- mclapply(allcomboswide, function(x,Dat,.Coh5.){
 names(Results) <- unlist(lapply(Results, function(X){
 					paste0(X$Male$varname,"_", X$Male$span)
 				}))
-save(Results,file="Data/LoessQuinquenal.Rdata")
+save(Results,file="Data/LoessQuinquenal_imp.Rdata")
 }
 
 Results <- local(get(load("Data/LoessQuinquenal.Rdata")))
@@ -346,6 +346,7 @@ SurfA <- function(.varname,.sex,.span,.coh,.Results,.ticks){
     ticks = .ticks,
     legnd = FALSE,
     outline = FALSE,
+    bg=TRUE,
     mai = c(.1,.1,.1,.1))
 }
 
@@ -514,7 +515,7 @@ A[ col(A) - 1 + 70 + row(A) - 1 > MaxL] <- NA
 MinL <- 1992 - (1915 + 5)
 A[col(A) + 70 - 1 < MinL] <- NA
 dev.new(width = 10, height = 6)
-SurfMap(A,napprox=9,contour=TRUE,outline=FALSE)
+SurfMap(A,napprox=9,contour=TRUE,outline=T)
 dev.off()
 
 
