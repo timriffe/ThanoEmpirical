@@ -161,7 +161,12 @@ Dat$prob75yo  <- NULL
 Dat$nh_mo     <- NULL
 Dat$nh_yr     <- NULL
 Dat$nh_days   <- NULL
-
+### med expenditure needs to be removed, even though it has a very clear thano pattern
+## mprobev / mprob need to go : too inconsistent
+Dat$mprob 		<- NULL
+Dat$mprobev 	<- NULL
+Dat$med_explog 	<- NULL
+Dat$med_exp 	<- NULL
 # recode medical expenditure to actual values:
 
 #1=0 to $1,000                 500
@@ -406,5 +411,40 @@ varnames <- c("adl3_", "adl5_", "iadl3_", "iadl5_", "cesd", "lim_work", "srh",
 #varnames[!varnames %in% names(Variables)]
 #library(Hmisc)
 #DatIn[,varnames[varnames %in% colnames(DatIn)]]
-#
+# install.packages("Hmisc")
 #latex(describe(DatIn[,varnames[varnames %in% colnames(DatIn)]]),file="")
+
+# check for each variable if it's asked in every wave...
+#
+#Problems <- sapply(varnames,function(vn,Dat){
+#			any(unlist(tapply(Dat[[vn]],Dat[["wave"]],function(x){
+#						all(is.na(x))
+#					})))
+#		}, Dat = Dat)
+#sum(Problems)
+#Problems[Problems]
+#vn <- "srh"
+#Problems2 <- sapply(varnames,function(vn,Dat){
+#			any(unlist(tapply(Dat[[vn]],Dat[["wave"]],function(x){
+#										all(is.na(x))
+#									}))[-1])
+#		}, Dat = Dat)
+#
+#sum(Problems2)
+#Problems2[Problems2]
+#
+#Problems3 <- sapply(varnames,function(vn,Dat){
+#			sum(unlist(tapply(Dat[[vn]],Dat[["wave"]],function(x){
+#										all(is.na(x))
+#									})))
+#		}, Dat = Dat)
+#sort(Problems3)
+#
+#### med expenditure needs to be removed, even though it has a very clear thano pattern
+### mprobev / mprob need to go : too inconsistent
+#med_explog
+#med_exp
+
+# the others are either missing just the first or the first two interviews. 
+# That's OK, will only affect left side.
+# can use this info to trim, since it's effectively extrapolation.

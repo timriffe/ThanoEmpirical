@@ -26,7 +26,7 @@ library(parallel)
 
 Dat <- local(get(load("Data/Data_long.Rdata")))
 SurfaceList <- local(get(load("Data/SurfaceList.Rdata")))
-
+varnames <- names(SurfaceList)
 
 Dat      <- Dat[Dat$age >= 65, ]
 Dat      <- Dat[!is.na(Dat$b_yr), ]
@@ -39,7 +39,7 @@ Dat      <- Dat[Dat$Coh5 %in% Coh5keep, ]
 #length(unique(Dat$id))
 #nrow(Dat[Dat$Coh5 == 1915,])
 #length(unique(Dat$id[Dat$Coh5 == 1915]))
-varnames <- names(SurfaceList) 
+
 
 #Along <- reshape2::melt(A)
 #Along2 <- reshape2::melt(t(A))
@@ -266,6 +266,9 @@ Results <- mclapply(allcomboswide, function(x,Dat,Coh5){
     list(Male = Male, Female = Female)
   }, Dat = Dat, Coh5 = Coh5, mc.cores = detectCores())
 
+names(Results) <- unlist(lapply(Results, function(X){
+					paste0(X$Male$varname,"_", X$Male$span)
+				}))
 save(Results,file="Data/LoessQuinquenal.Rdata")
 }
 
@@ -275,10 +278,6 @@ Results <- local(get(load("Data/LoessQuinquenal.Rdata")))
 # probably the 1910,15,20 surfaces stacked in rows,
 # with span in columns. Best way to summarize.
 # this way we choose a span, a cohort, and which two variables.
-
-names(Results) <- unlist(lapply(Results, function(X){
-    paste0(X$Male$varname,"_", X$Male$span)
-  }))
 
 #which(unlist(lapply(Results,function(X){
 #    class(X$Female) == "try-error"
@@ -321,9 +320,6 @@ SurfA <- function(.varname,.sex,.span,.coh,.Results,.ticks){
     mai = c(.1,.1,.1,.1))
 }
 
-ticks <- pretty(Results[[paste0("back","_",.5)]][["Female"]]$Surf,n=10)
-SurfA("back","Female",.5,Coh5[1],Results,ticks)
-1992-1919-1
 
 makePanel <- function(varname,sex,Coh5=c(1905,1910,1915,1920,1925)){
   cellwidths <- c(1,3,3,3,1)
@@ -385,8 +381,8 @@ makePanel <- function(varname,sex,Coh5=c(1905,1910,1915,1920,1925)){
   
 }
 
-graphics.off()
-dev.new(width = sum(cellwidths), height = sum(cellheights))
+#graphics.off()
+#dev.new(width = sum(cellwidths), height = sum(cellheights))
 
 
 pdf("Figures/PanelCoh5/Females.pdf",width = sum(cellwidths), height = sum(cellheights))
