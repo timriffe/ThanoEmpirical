@@ -91,7 +91,7 @@ varnames <- c("adl3_",
   "srm", "pastmem", "ss", "c20b", "name_mo", 
   "name_dmo", "name_yr", "name_dwk", "name_sci", "name_cac", "name_pres", 
   "name_vp", "vocab", "tm", "med_exp", "dwr","twr","iwr",
-  "iadl_calc", "mprob", "mprobev", "med_explog")
+  "iadl_calc", "mprob", "mprobev", "med_explog") # this is bigger than the final list...
 
 varnames <- varnames[varnames %in% colnames(Dat)]
 
