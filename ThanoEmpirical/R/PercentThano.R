@@ -1,3 +1,10 @@
+# script now deprecated. 
+
+#This was the first stab at describing surfaces in a parsimonious way.
+# there are a zillion other ways to do it. We're choosing simple correlation coefficients at this
+# time, which is an oversimplification of course, but it still captures most of the goodies.
+
+
 # for Tim, this will choke
 if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm", "tim-ThinkPad-L440")){
   # if I'm on the laptop

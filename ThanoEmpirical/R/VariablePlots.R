@@ -1,3 +1,8 @@
+# this script now deprecated.
+
+# Plots are now done for cohorts separately from a joint loess smooth.
+# See SurfaceCompareLoess for the goodies (both loess and plotting)
+
 # for Tim, this will choke
 if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm", "tim-ThinkPad-L440")){
   # if I'm on the laptop

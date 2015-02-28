@@ -2,7 +2,9 @@
 # Try splitting the data into two birth cohorts and again into two periods 
 # and see if there are any essential differences that would hint at/against
 # compression
-
+library(LexisUtils)
+source("R/SurfMap.R")
+library(parallel)
 # for Tim, this will choke
 if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm", "tim-ThinkPad-L440")){
 	# if I'm on the laptop
@@ -19,9 +21,7 @@ if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm", "tim-ThinkPad-L440")){
 cat("Working directory:\n",getwd())
 #devtools::install_github("timriffe/LexisUtils", subdir = "LexisUtils")
 
-library(LexisUtils)
-source("R/SurfMap.R")
-library(parallel)
+
 
 
 Dat <- local(get(load("Data/Data_long.Rdata")))
@@ -34,6 +34,8 @@ Dat$Coh5 <- Dat$b_yr -  Dat$b_yr %% 5
 Coh5keep <- c(1900, 1905, 1910, 1915, 1920, 1925, 1930)
 Coh5     <- c(1905, 1910, 1915, 1920, 1925) # i.e. we use the preceding and subsequent cohorts for help fitting
 Dat      <- Dat[Dat$Coh5 %in% Coh5keep, ]
+
+
 
 #nrow(Dat)
 #length(unique(Dat$id))
@@ -61,8 +63,8 @@ Dat      <- Dat[Dat$Coh5 %in% Coh5keep, ]
 
 
 # first take, block off
-runthis <- FALSE
-if (runthis){
+#runthis <- FALSE
+#if (runthis){
 # imagine some large birth cohorts:
 
 # what ages can they have obtained in border years:
@@ -160,7 +162,7 @@ if (runthis){
 #save(LoessList,file="Data/LoessListCohrts5.Rdata")
 #
 #library(rgl)
-}
+#}
 #library(scatterplot3d)
 
 #
@@ -190,7 +192,7 @@ FitLoess <- function(varname,
   t.age = 0:12,    # some 5-year cohorts simply don't have 15 years, cut it lower
   c.age = 70:100,  # standard matrix size, though we may NA certain unobserved cells
   span = .5, # will vary
-  Coh5){
+  .Coh5){
     # conservative here to cut tails
     maxL  <- 100
     minL  <- 70
@@ -204,26 +206,43 @@ FitLoess <- function(varname,
                     normalize = FALSE 
     )
     
-    newdata        <- expand.grid(ta = t.age+.5, ca = c.age+.5, Coh5 = Coh5)
+    newdata        <- expand.grid(ta = t.age+.5, ca = c.age+.5, Coh5 = .Coh5)
     # easier to keep dimensions straight if we predict over rectangular grid, 
     # then throw out values outside range
     #newdata        <- newdata + .5
     Surf           <- predict(mod, newdata)
  
-    dimnames(Surf) <- list(floor(t.age),floor(c.age), Coh5)
+    dimnames(Surf) <- list(floor(t.age),floor(c.age), .Coh5)
 
+    # need to trim on the left side where applicable, since some questions didn't enter until
+    # wave 2 or 3. There are many such cases, so check and make sure we dont' extrapolate.
+  # sex <- "m"
+  # varname <- "cesd"
+    MissingWaves <- tapply(Dat[Dat$sex==sex,varname],Dat[Dat$sex==sex,"wave"], function(x){
+        all(is.na(x))
+      })
+    LeftYear <- 1992
+    if (any(MissingWaves)){
+      Waves <- which(MissingWaves)
+      # if it's 1 or two, trim, if it's more, then return NULL for now. Be conservative.
+      if (any(Waves > 2)){
+        return(NULL) # takes care of gaps. Also takes care of late missing waves.
+      }
+      WaveGetYr <- max(Waves) + 1
+      LeftYear <- round(mean(as.numeric(format(Dat$intv_dt[Dat$wave == WaveGetYr], "%Y"))))
+    }
     # this reduces extrapolation outside of data points 
     for (i in 1:dim(Surf)[3]){
       #maxL  <- 2011 - Coh5[i] - 1
       #maxt  <- tamax[as.character(Coh5[i])]
       #keept <- as.integer(rownames(Surf)) <= maxt
       A     <- Surf[,,i]
-      MaxL <- 2011 - Coh5[i] 
+      MaxL <- 2011 - .Coh5[i] - 1
       A[ col(A) - 1 + 70 + row(A) - 1 > MaxL] <- NA
 # possibly need to trim lower left corner too: dimnames(A)
-      MinL <- 1992 - (Coh5[i] + 5)
+      MinL <- LeftYear - (.Coh5[i] + 5)
       A[col(A) + 70 - 1 < MinL] <- NA
-      #A[!keept, ] <- NA
+      #A[!keept, ] <- NA 
       Surf[,,i] <- A
     }
   list(Surf = Surf, span = span, sex = sex, varname = varname, Cohorts = Coh5)
@@ -246,7 +265,7 @@ allcomboswide <- as.data.frame(t(allcombos),stringsAsFactors = FALSE)
 
 do.this <- FALSE
 if(do.this){
-Results <- mclapply(allcomboswide, function(x,Dat,Coh5){
+Results <- mclapply(allcomboswide, function(x,Dat,.Coh5.){
     cat(x[1],"Female\n")
     Female <- try(FitLoess(varname = x[1], 
       Dat = Dat, 
@@ -254,7 +273,7 @@ Results <- mclapply(allcomboswide, function(x,Dat,Coh5){
       t.age = 0:12,    # some 5-year cohorts simply don't have 15 years, cut it lower
       c.age = 70:100,  # standard matrix size, though we may NA certain unobserved cells
       span =  as.numeric(x[2]), # will vary
-      Coh5 = Coh5))
+      .Coh5 = Coh5))
     cat(x[1],"Male\n")
     Male <- try(FitLoess(varname = x[1], 
       Dat = Dat, 
@@ -262,9 +281,9 @@ Results <- mclapply(allcomboswide, function(x,Dat,Coh5){
       t.age = 0:12,    # some 5-year cohorts simply don't have 15 years, cut it lower
       c.age = 70:100,  # standard matrix size, though we may NA certain unobserved cells
       span =  as.numeric(x[2]), # will vary
-      Coh5 = Coh5))
+      .Coh5 = .Coh5.))
     list(Male = Male, Female = Female)
-  }, Dat = Dat, Coh5 = Coh5, mc.cores = detectCores())
+  }, Dat = Dat, .Coh5. = Coh5, mc.cores = detectCores())
 
 names(Results) <- unlist(lapply(Results, function(X){
 					paste0(X$Male$varname,"_", X$Male$span)
