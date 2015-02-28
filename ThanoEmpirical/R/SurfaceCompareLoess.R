@@ -185,7 +185,7 @@ Dat      <- Dat[Dat$Coh5 %in% Coh5keep, ]
 #  as.character(cut(x,breaks=breaks,labels =colramp(n) ))
 #}
 
-
+# varname <- "back"; sex <- "f";span = 0.5;.Coh5 <- Coh5
 FitLoess <- function(varname, 
   Dat, 
   sex,
@@ -222,14 +222,21 @@ FitLoess <- function(varname,
         all(is.na(x))
       })
     LeftYear <- 1992
+    RightYear <- 2011
     if (any(MissingWaves)){
       Waves <- which(MissingWaves)
       # if it's 1 or two, trim, if it's more, then return NULL for now. Be conservative.
-      if (any(Waves > 2)){
+      if (any(Waves %in% 3:9)){
         return(NULL) # takes care of gaps. Also takes care of late missing waves.
       }
-      WaveGetYr <- max(Waves) + 1
-      LeftYear <- round(mean(as.numeric(format(Dat$intv_dt[Dat$wave == WaveGetYr], "%Y"))))
+      if (any(Waves %in% c(1,2))){
+        WaveGetYr <- max(Waves[Waves < 3]) + 1
+        LeftYear  <- round(mean(as.numeric(format(Dat$intv_dt[Dat$wave == WaveGetYr], "%Y"))))
+      }
+      if (any(Waves == 10)){
+        RightYear  <- round(mean(as.numeric(format(Dat$intv_dt[Dat$wave == 9], "%Y"))))
+      }
+
     }
     # this reduces extrapolation outside of data points 
     for (i in 1:dim(Surf)[3]){
@@ -237,7 +244,7 @@ FitLoess <- function(varname,
       #maxt  <- tamax[as.character(Coh5[i])]
       #keept <- as.integer(rownames(Surf)) <= maxt
       A     <- Surf[,,i]
-      MaxL <- 2011 - .Coh5[i] - 1
+      MaxL <- RightYear - .Coh5[i] - 1
       A[ col(A) - 1 + 70 + row(A) - 1 > MaxL] <- NA
 # possibly need to trim lower left corner too: dimnames(A)
       MinL <- LeftYear - (.Coh5[i] + 5)
@@ -293,15 +300,15 @@ save(Results,file="Data/LoessQuinquenal.Rdata")
 
 Results <- local(get(load("Data/LoessQuinquenal.Rdata")))
 
-# TODO: first thing: produce surfaces: many of them!
-# probably the 1910,15,20 surfaces stacked in rows,
-# with span in columns. Best way to summarize.
-# this way we choose a span, a cohort, and which two variables.
+NULLS <- unlist(lapply(Results, is.null))
 
 #which(unlist(lapply(Results,function(X){
 #    class(X$Female) == "try-error"
 #  })))
 
+# now check for NULL values, which will have been produced if we have questions
+# introduced later than wave 3, or with missing waves thereafter. We can just throw these out
+# for the time being
 
 
 cellwidths <- c(1,3,3,3,1)
@@ -310,21 +317,21 @@ plotn <- function(xlim = c(0,1),ylim = c(0,1), mai = c(0,0,0,0)){
   plot(NULL, type = "n", xlim = xlim, ylim = ylim,  axes = FALSE, xlab = "", ylab = "")
 }
 
-#.varname <- "srh"
-#.sex <- "Male"
+#.varname <- "back"
+#.sex <- "Female"
 #.span <- .5
-#.coh <- 1915
+#.coh <- 1905
 #.Results <- Results
-
+names(Results)
 SurfA <- function(.varname,.sex,.span,.coh,.Results,.ticks){
   grabber <- paste0(.varname,"_",.span)
   A <- .Results[[grabber]][[.sex]]$Surf[,,as.character(.coh)]
   
-  MaxL <- 2011 - .coh - 1
-  A[! col(A) - 1 + 70 + row(A) - 1 < MaxL] <- NA
-  # possibly need to trim lower left corner too: dimnames(A)
-  MinL <- 1992 - (.coh + 5)
-  A[col(A) + 70 - 1 <= MinL] <- NA
+#  MaxL <- 2011 - .coh - 1
+#  A[! col(A) - 1 + 70 + row(A) - 1 < MaxL] <- NA
+#  # possibly need to trim lower left corner too: dimnames(A)
+#  MinL <- 1992 - (.coh + 5)
+#  A[col(A) + 70 - 1 <= MinL] <- NA
   SurfMap(A, 
     thano = as.integer(rownames(A)), 
     chrono = as.integer(colnames(A)), 
@@ -405,9 +412,9 @@ makePanel <- function(varname,sex,Coh5=c(1905,1910,1915,1920,1925)){
 
 
 pdf("Figures/PanelCoh5/Females.pdf",width = sum(cellwidths), height = sum(cellheights))
-lapply(varnames, function(x){
+for (x in varnames){
     makePanel(x,"Female")
-  })
+  }
 dev.off()
 
 

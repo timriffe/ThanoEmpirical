@@ -46,7 +46,7 @@ used to describe health, well-being, and disability in old-age vary primarily
 as a function of years lived (age), years left, or as a function of both. We analyze data from the US Health and Retirement Study to estimate
 chronological age and time-to-death patterns in 82 such variables. We describe
 results from the birth cohort born 1915-1919 in the final 12 years of life of
-individuals that died between 1992 and 2011 (ages 72 to 96). Our results show
+individuals that died between 1992 and 2011 (ages 72 to 95). Our results show
 that most markers used to study well-being in old-age vary along both the age
 and time-to-death dimensions, but some markers are exclusively a function of
 either time to death or chronological age, and others display different patterns
@@ -188,7 +188,7 @@ to the characteristics of the data source. Using the HRS, enough
 observations are available so that we can measure the patterns
 within the area outlined in green (C) in Figure~\ref{fig:LexisOrtho}. The
 left bound of this area is chronological age 72, which the diagonal right
-bound belongs to the completed lifespan of 96. While there are some observations
+bound belongs to the completed lifespan of 95. While there are some observations
 at thanatological ages greater than 12, there are too few to produce reliable estimates, and this choice of upper bound is somewhat arbitrary. Since the HRS spans 20 calendar years (1992-2011), the theoretical
 upper bound of observation for thanatological age is 20. Future waves will
 expand the area applicable to all but the oldest birth cohorts that are already
@@ -217,9 +217,9 @@ valid, but portions of these surfaces are based on fewer data points (lifespans 
 exits appear to drive patterns at least as much as senescence (ages $<$ 67,
 approximately). We selected the 1915-1919 cohort because
 its observation window is centered on the chronological ages in which most
-deaths occur, and because the HRS provides the best density and spread of data
-points over this window. This is why the study area has a lower
-chronological age bound of 72 and an upper completed lifespan of 96.
+deaths occur,\footnote{The modal ages at death for the 1915-1919 cohort are
+80-81 for males and around 87 for females.} and because the HRS provides a good
+density and spread of data points over this window. This is why the study area has a lower chronological age bound of 72 and an upper completed lifespan of 95.
 
 
 %Figure~\ref{fig:counts} shows the case count in two-year age groups over the
@@ -267,8 +267,10 @@ old-age disability and well-being. For this reason we select a wide variety of
 questions from the HRS data. These include questions
 grouped roughly into the following categories: Activities of daily living (ADL),
 instrumental activities of daily living (IADL), measures of healthcare utilization, functional and chronic conditions, psychological
-measures, and health behaviors. In all, we summarize results from 82
-individual and composite items.
+measures, and health behaviors. We do not include charachteristics that were
+not measured continously over all survey waves, or measurements that were
+introduced to the survey after wave three. In all, we summarize results from 82
+individual and composite items. 
 
 Each survey question must be in a format suitable for numeric operations.
 This requires some compromises in data quality, since some coded responses are less directly
@@ -281,18 +283,20 @@ Rather than divide all questions into binary responses, we assigned intermediate
 values on a case by case basis. For example, self-reported health
 had possible responses of ``excellent'', ``very good'', ``good'',
 ``fair'', and ``poor'', which we assigned values in equal intervals
-from 0 to 1, respectively. This choice is far from clean, but it
-is good enough to meet the goals of this study. Other variables
-were coded in a similarly ``good-enough'' fashion. \footnote{The pre-processing
-of variables is full of details that would clutter this paper. Rather than a
-lengthy and detailed appendix describing the case by case treatment of
-variables, we make the full code base used in the generation of results available in a github repository.}
+from 0 to 1, respectively. Some response
+sets for particular questionnaire items changed between
+waves.
+In these cases, we attempted to assign numerical codes that were consistent
+over the transition. These choices are far from clean, but they are good enough
+to meet the goals of this study.\footnote{The pre-processing of variables is
+full of details that would clutter this paper. Rather than a lengthy and detailed appendix describing the case by case treatment of variables, we make the full code base used in the generation of results available in a github repository.}
 
 Variables with compact or bounded numeric responses were rescaled to range from
 0 to 1. Variables with no clear bounds or very large upper
 bounds, such as medical expenditure, body mass index, or number of hospital
-visits were not rescaled. These choices are simply to simplify the
-visual interpretation of surfaces, and they do not drive the quantitative summary measures we use later.
+visits were not rescaled. These rescalings are intended to simplify
+the visual interpretation of surfaces, and they do not alter the
+quantitative summary measures we use later.
 
 \paragraph*{Weighting}
 The population universe of the HRS and this study is the resident
@@ -311,11 +315,11 @@ within-individual interpolation of observations.
 \paragraph*{Loess smoothing}
 Direct tabulations of the weighted data are legibile if all birth
 cohorts are combined, but doing this distorts results due to cohort
-composition bias. To overcome birth cohort heterogeneity within the surface,
+composition bias. To overcome birth cohort heterogeneity within surfaces,
 we use birth cohorts as a third time dimension. Tabulations within this three dimensional space are noisy, and so we
 enhance surface legibility by using a non-parametric local smoother.
-We specify a loess model of the given characteristic over chronological age, thanatological age, and quinquennial birth cohorts, using all observations of since-deceased individuals from the 1900 through the 1929 birth cohorts. We fit the model using the \texttt{loess()} function in base \texttt{R} \citep{cleveland1992local,Rcore2013}\footnote{Using the fitted model, surfaces are produced using the related loess prediction function, \texttt{predict.loess()}. The smoothing
-parameter, \texttt{spar}, is set to 0.7 for the results we present in the paper.
+We specify a loess model of the given characteristic over chronological age,
+thanatological age, and quinquennial birth cohorts, using all observations of since-deceased individuals from the 1900 through the 1934 birth cohorts. We fit the model using the \texttt{loess()} function in base \texttt{R} \citep{cleveland1992local,Rcore2013}\footnote{Using the fitted model, surfaces are produced using the related loess prediction function, \texttt{predict.loess()}. The smoothing parameter, \texttt{spar}, is set to 0.7 for the results we present in the paper.
 All results were also produced using smoothing parameters of .5, and .9, and
 we concluded that the specific choice of smoothness does not drive results.
 The three predictor dimensions are not normalized, in order to preserve year
@@ -355,6 +359,12 @@ dimensions.
 
 
 \section*{Results}
+
+We present surfacs representing back problems for males and
+an index of gross motor difficultyfor females. These two surfaces were
+selected from the full set of 82 characteristics because they cleanly fit the
+description of chronological and thanatological characteristics, respectively.
+
 The model fit for each variable is used to produce a contour surface, which can
 be interpreted visually. In most situations it is obvious to the eye whether a
 variable operates over thanatological age or over chronological age, but there
@@ -381,8 +391,7 @@ This section contains the distilled results for each sex-variable surface. In
 each case we only report the average direction of steepest ascent, which tells
 us the degree to which variation is primarily over thanatological age or over
 chronological age. We do not display the strength of the
-relationship.\footnote{Variables operate on different scales, and we are still
-thinking of how best to report slopes for the purpose of making comparisons. }
+relationship.
 A future revision will include detailed discussion of the results. For now, we
 report that most variables studied vary much more over thanatological age
 than over chronological age, at least for the age-ranges studied. The

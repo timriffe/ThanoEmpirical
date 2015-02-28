@@ -181,22 +181,23 @@ Dat$med_exp 	<- NULL
 #10=~$500,000               500000
 #11=$500,000+              1000000
 
-rec.vec <- c(500,1000,2500,5000,15000,25000,62500,100000,300000,500000,1000000, NA,NA)
-names(rec.vec)      <- c("1 : 0 to 1000-",
-  "2 : about 1000",
-  "3 : 1001 to 5000-",
-  "4 : about 5000",
-  "5 : 5001 to 25000-",
-  "6 : about 25000",
-  "7 : 25001 to 100000-",
-  "8 : about 100000",
-  "9 : 100001 to 500000-",
-  "10: about 500000",
-  "11: 500000 above" ,
-  "NA" , "")
-
-Dat$med_exp         <- rec.vec[as.character(Dat$med_exp)]
-Dat$med_explog      <- log(Dat$med_exp )
+# med exp thrown out, although it is a very clear pattern.
+#rec.vec <- c(500,1000,2500,5000,15000,25000,62500,100000,300000,500000,1000000, NA,NA)
+#names(rec.vec)      <- c("1 : 0 to 1000-",
+#  "2 : about 1000",
+#  "3 : 1001 to 5000-",
+#  "4 : about 5000",
+#  "5 : 5001 to 25000-",
+#  "6 : about 25000",
+#  "7 : 25001 to 100000-",
+#  "8 : about 100000",
+#  "9 : 100001 to 500000-",
+#  "10: about 500000",
+#  "11: 500000 above" ,
+#  "NA" , "")
+#
+#Dat$med_exp         <- rec.vec[as.character(Dat$med_exp)]
+#Dat$med_explog      <- log(Dat$med_exp )
 # recode self reported health 1 = excellent - 5 = poor
 srhrec              <- c(0:4,NA)
 names(srhrec)       <- sort(unique(Dat$srh))

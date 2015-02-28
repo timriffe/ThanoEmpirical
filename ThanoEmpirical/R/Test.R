@@ -45,3 +45,45 @@ dev.off()
 # this doesn't render math or pdf figures well, decided not to do it.
 #setwd("/home/triffe/git/ThanoEmpirical/ThanoEmpirical")
 #system("latex2html ThanoEmpirical.tex")
+
+
+# need modal age at death from the 1915-1919 cohort...
+
+library(DemogBerkeley)
+cMx <- readHMDweb("USA","cMx_1x1",username=us,password=pw)
+
+m1915 <- cMx$Male[cMx$Year == 1915]
+m1919 <- cMx$Male[cMx$Year == 1919]
+
+f1915 <- cMx$Female[cMx$Year == 1915]
+f1919 <- cMx$Female[cMx$Year == 1919]
+
+ages <- 0:110
+keep1915 <- !is.na(m1915)
+a1915 <- ages[keep1915]
+m1915 <- m1915[keep1915]
+f1915 <- f1915[keep1915]
+
+keep1919 <- !is.na(m1919)
+a1919 <- ages[keep1919]
+m1919 <- m1919[keep1919]
+f1919 <- f1919[keep1919]
+
+dxm1915 <- -diff(c(1,exp(-cumsum(m1915))))
+dxf1915 <- -diff(c(1,exp(-cumsum(f1915))))
+dxm1919 <- -diff(c(1,exp(-cumsum(m1919))))
+dxf1919 <- -diff(c(1,exp(-cumsum(f1919))))
+
+a1915[which.max(dxm1915)]
+a1919[which.max(dxm1919)]
+
+a1915[which.max(dxf1915)]
+a1919[which.max(dxf1919)]
+plot(a1915,-diff(c(1,exp(-cumsum(m1915)))), type = 'l', col = "blue", ylim=c(0,.035))
+lines(a1915,-diff(c(1,exp(-cumsum(f1915)))),  col = "magenta")
+lines(a1919,-diff(c(1,exp(-cumsum(m1919)))),  col = "blue", lty = 2)
+lines(a1919,-diff(c(1,exp(-cumsum(f1919)))),  col = "magenta", lty = 2)
+
+
+
+
