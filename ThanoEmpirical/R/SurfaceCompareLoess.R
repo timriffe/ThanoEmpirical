@@ -319,11 +319,12 @@ plotn <- function(xlim = c(0,1),ylim = c(0,1), mai = c(0,0,0,0)){
   plot(NULL, type = "n", xlim = xlim, ylim = ylim,  axes = FALSE, xlab = "", ylab = "")
 }
 
-#.varname <- "back"
+#.varname <- "adl3_"
 #.sex <- "Female"
 #.span <- .5
 #.coh <- 1905
 #.Results <- Results
+#.ticks <- ticks
 names(Results)
 SurfA <- function(.varname,.sex,.span,.coh,.Results,.ticks){
   grabber <- paste0(.varname,"_",.span)
@@ -348,7 +349,7 @@ SurfA <- function(.varname,.sex,.span,.coh,.Results,.ticks){
     mai = c(.1,.1,.1,.1))
 }
 
-
+# sex <- "Female"
 makePanel <- function(varname,sex,Coh5=c(1905,1910,1915,1920,1925)){
   cellwidths <- c(1,3,3,3,1)
   cellheights <- c(1,2,2,2,2,2)
@@ -411,7 +412,7 @@ makePanel <- function(varname,sex,Coh5=c(1905,1910,1915,1920,1925)){
 
 #graphics.off()
 #dev.new(width = sum(cellwidths), height = sum(cellheights))
-
+# varname<- "adl3_"
 
 pdf("Figures/PanelCoh5/Females.pdf",width = sum(cellwidths), height = sum(cellheights))
 for (x in varnames){

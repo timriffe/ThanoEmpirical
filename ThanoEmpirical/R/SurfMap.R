@@ -40,23 +40,23 @@ SurfMap <- function (Surf,
 				c(5,10,15,20,25,30,31,31,31)+70,c(0,0,0,0,0,0,4,9,14),col="white")
 	}
 	
-    # draw cells
-    rect(x,y,x+1,y+1,border=NA,col = SurfCol)
-    
-    
-    # outline area
-    if (outline){
-	  ages <- as.integer(colnames(Surf))
-	  thana <- as.integer(rownames(Surf))
-	  MinL <- ages[colSums(Surf,na.rm=TRUE) > 0][1]
-	  MaxL <- rev(ages[colSums(Surf,na.rm=TRUE) > 0])[1]
-	  Th <- rev(thana[rowSums(Surf,na.rm=TRUE) > 0])[1]
-      segments(MinL,0,MinL,Th+1)
-      segments(MinL,0,MaxL+1,0)
-      segments(MinL,Th+1,MaxL - Th + 1,Th+1)
-      segments((MaxL - Th + 1):MaxL,Th:1,(MaxL - Th + 2):(MaxL+1),Th:1)
-      segments((MaxL - Th + 1):(MaxL+1),(Th + 1):1,(MaxL-Th+1):(MaxL+1),Th:0)
-    }
+  # draw cells
+  rect(x,y,x+1,y+1,border=NA,col = SurfCol)
+  
+  
+  # outline area
+  if (outline){
+    ages <- as.integer(colnames(Surf))
+    thana <- as.integer(rownames(Surf))
+    MinL <- ages[colSums(Surf,na.rm=TRUE) > 0][1]
+    MaxL <- rev(ages[colSums(Surf,na.rm=TRUE) > 0])[1]
+    Th <- rev(thana[rowSums(Surf,na.rm=TRUE) > 0])[1]
+    segments(MinL,0,MinL,Th+1)
+    segments(MinL,0,MaxL+1,0)
+    segments(MinL,Th+1,MaxL - Th + 1,Th+1)
+    segments((MaxL - Th + 1):MaxL,Th:1,(MaxL - Th + 2):(MaxL+1),Th:1)
+    segments((MaxL - Th + 1):(MaxL+1),(Th + 1):1,(MaxL-Th+1):(MaxL+1),Th:0)
+  }
     
     # axes
     segments(70,seq(0,15,by=5),69.6,seq(0,15,by=5))
