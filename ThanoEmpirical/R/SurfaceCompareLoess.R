@@ -300,7 +300,9 @@ save(Results,file="Data/LoessQuinquenal.Rdata")
 
 Results <- local(get(load("Data/LoessQuinquenal.Rdata")))
 
-NULLS <- unlist(lapply(Results, is.null))
+NULLS <- unlist(lapply(Results, function(X){
+      is.null(X$Male) | is.null(X$Female)
+    }))
 
 #which(unlist(lapply(Results,function(X){
 #    class(X$Female) == "try-error"
