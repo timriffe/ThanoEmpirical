@@ -1,6 +1,6 @@
 %%This is a very basic article template.
 %%There is just one section and two subsections.
-\documentclass{article}
+\documentclass[table]{article}
 \usepackage{appendix}
 \usepackage{amsmath}
 \usepackage{caption}
@@ -9,16 +9,19 @@
 \usepackage{subcaption}
 \usepackage{longtable}
 \usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{xcolor,colortbl}
+\usepackage{chngpage}
 %\usepackage[active,tightpage]{preview}
 \usepackage{natbib}
 \bibpunct{(}{)}{,}{a}{}{;} 
 \usepackage{url}
 \usepackage{nth}
 \usepackage{authblk}
-% for the d in integrals
-\newcommand{\dd}{\; \mathrm{d}}
-\newcommand{\tc}{\quad\quad\text{,}}
-\newcommand{\tp}{\quad\quad\text{.}}
+
+
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 % working on this need to concatenate file name based on sex and variable name
 \newcommand\Cell[1]{{\raisebox{-0.05in}{\includegraphics[height=.2in,width=.2in]{Figures/ColorCodes/\expandafter#1}}}}  
@@ -340,6 +343,16 @@ in green (C) in Figure~\ref{fig:LexisOrtho}. Weighting is therefore explicit by
 person-weights, and implicit by point density within the three temporal
 dimensions.
 
+Note that smoothing over these three particular time dimensions is not an
+overidentification. Within a cohort, to smooth over thanatological age,
+chronological age and completed lifespan would be an overidentification, similar
+to the familiar APC problem. The full set of lifespan indices the
+demographer has to choose from are: birth cohort, death cohort,
+chronological age, thanatological age, complete lifespan, and period. Within
+this set of six lifespan dimensions, some combinations invoke overidentification
+and others do not. For instance, it would be possible to smooth over years
+lived, years left, and period in this case, but birth cohorts are the more
+meaningful category for this study.
 %\subsection{Finding the fall-line}
 
 
@@ -371,43 +384,55 @@ dimensions.
 
 \section*{Results}
 
-As examples, we present surfacs representing psychological problems for males
-(Figure~\ref{fig:psych}) and back pain for males (Figure~\ref{fig:back}).
-These two surfaces were selected from the full set of 78 characteristics because they cleanly fit the
-description of thanatological and chronological characteristics, respectively. 
+We first present examples of four surfaces that exemplify the major ways in
+which characteristics tend to vary temporally over the lifespan within a birth
+cohort. These four major axes of variation provide a way to categorize and
+understand markers of ageing. We summarize the results of our set of 78
+characteristics by calculating Pearson correlation coefficients along each of
+these four axes and display results graphically, as well as in an appendix
+table.
 
-The model fit for each variable is used to produce a contour surface, which can
-be interpreted visually. In most situations it is obvious to the eye whether a
+\paragraph{Four major surface axes}
+In most situations it is obvious to the eye whether a
 variable operates over thanatological age or over chronological age, but there
 are many instances where both are at play, or where the relationship is
-complex. An example surface for self-reported health (SRH) is shown in
-Figure~\ref{fig:srh}.
-%\begin{figure}[!h]
-%\centering
-%\caption{Case counts in two-year age bins. Chronological age (Years lived) on
-%the x axis and thanatological age (Years lives) on the y axis. Darker blues
-%indicate higher case counts.}
-%\label{fig:counts}
-%\begin{subfigure}{\linewidth}
-%	\caption{Males}
-%	\vspace{-1em}
-%	\label{fig:MalesCases}
-%	\includegraphics[scale=.7]{Figures/CaseCountMales.pdf}
-%\end{subfigure}
-%\\
-%\begin{subfigure}{\linewidth}
-%    \caption{Females}
-%   \vspace{-1em}
-%	\label{fig:FemalesCases}
-%    \includegraphics[scale=.7]{Figures/CaseCountFemales.pdf}
-%\end{subfigure}
-%\end{figure}
+complex. We first present surfacs representing psychological problems for males
+(Figure~\ref{fig:psych}) and back pain for females (Figure~\ref{fig:back}).
+These two surfaces are examples of thanatological and
+chronological characteristics, respectively.
+
+From the direction of the contours on the surface in Figure~\ref{fig:psych}, we
+conclude that the chances of ever having been diagnosed with psychological
+problems increases with the approach to death and not with the advancing of
+chronological age, at least in the window of observation studied here.
+However, since the risk of death itself also increases according to an
+exponential pattern in these same ages, aggregating individual results by
+chronological age produces an increasing pattern over age for this same
+characteristic (see Figure~\ref{fig:chronofalse}).
+In this case, the apparent chronological age pattern is due
+to an interaction between the thanatological pattern seen in
+Figure~\ref{fig:psych} and the age pattern of mortality itself. We argue that it
+is imprecise to consider chronological age a risk factor for characteristics that display such strong thanatological patterns, as an
+apparent chronological age pattern along said margin is by coincidence only. Instead, such characteristics appear to more closely operate as effects of
+the body shutting down or possibly as a signal on average that death is not far off, a demographic corroboration of substantive findings in the psychology literature \citep{carstensen2006influence}. Many characteristics studied here displayed patterns that are strongly thanatological.
+
+Figure~\ref{fig:back} tells just the opposite story about back pain for females.
+Back pain, as a matter of demographic timekeeping, is a function of
+chronological age, at least at the population level until around chronological
+age 90. This is the dominant way of thinking about most aspects of the ageing
+process. For many characteristics it is wrong, but for back problems it is
+correct. In these ages, back problems provide no information about remaining
+years of life. Of the characteristics included in this
+study, only \textit{current} smoking, arthritis, and self reports of current versus former memory exhibit such clear chronological patterns (both for males and
+females).
+
 \begin{figure}[!h]
     % This figure was produced in
     % \makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/SurfExampleMalesSRH.pdf}}
     \centering
     \caption{Examples of characteristics that vary along the thanatological and
     chronological age axes.}
+    \label{fig:thanochrono}
     \begin{subfigure}{\linewidth}
     \caption{Psychological problems (ever) by
     years lived (x axis) and years left (y axis). Males, 1915-1919 birth cohort.
@@ -419,91 +444,199 @@ Figure~\ref{fig:srh}.
 	
 	\begin{subfigure}{\linewidth}
     \caption{Back Problems by
-    years lived (x axis) and years left (y axis). Males, 1915-1919 birth
+    years lived (x axis) and years left (y axis). Females, 1915-1919 birth
     cohort.}
     \label{fig:back}
 	\vspace{-2em}
-	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Surf_Male_back.pdf}}
+	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Surf_Female_back.pdf}}
+	\end{subfigure}
+\end{figure}
+
+\begin{figure}[!h]
+ \centering
+   \caption{Psychological problems (ever) by chronological age only. Males, 1915-1919 birth
+    cohort.}
+    \label{fig:chronofalse}
+   \includegraphics[scale=.7]{Figures/MalePsychChrono.pdf}
+\end{figure}
+
+Other informative patterns also exist among the set of characteristics studied.
+These include characteristcs that vary by lifespan. Characteristics that vary by
+lifespan appear constant within lifespans. These are often characteristics that
+\textit{determine} lifespan. Ever smoking displays such a pattern, as seen in
+Figure~\ref{fig:evsmkng} for females of the 1915-1919 cohort. This pattern is
+also a corroboration of science and common sense: smoking kills (at least in
+this range of lifespans). Other variables that display similar patterns in this
+window of the lifespan include lung disease among males (this is largley
+rendundant with the former), dental visits in the previous year (both sexes),
+and diabetes among females. Sometimes such patterns combine to form complex
+patterns in need of further study.
+
+The fourth major axis of contour variation runs perpendicular to lifelines. One
+characteristic that clearly displays this pattern is ever having been
+diagnosed with high blood pressure among males. This characteristic varies by
+lifespan, and thanatological age within lifespan within the window of study.
+In other words, longer lifespans display later onset but greater eventual odds of
+having been diagnosed with high blood pressure. Arithmetically, $years~lived -
+years~left$ is the operative predictor of blood pressure, but blood pressure is
+not useful alone in predicting eventual lifespan.\footnote{We do not have
+expertise to comment further on blood pressure, but instead only provide an
+interpretation of the surface presented.}
+
+\begin{figure}[!h]
+    % This figure was produced in
+    % \makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/SurfExampleMalesSRH.pdf}}
+    \centering
+    \caption{Examples of characteristics that vary by lifespan only or by
+    thanatological age within lifespan.}
+    \label{fig:lifespan}
+    \begin{subfigure}{\linewidth}
+    \caption{Smoking (ever) by
+    years lived (x axis) and years left (y axis). Females, 1915-1919 birth
+    cohort.
+    }
+    \label{fig:evsmkng}
+	\vspace{-2em}
+	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Surf_Female_smoke_ev.pdf}}
+	\end{subfigure}
+	
+	\begin{subfigure}{\linewidth}
+    \caption{Blood Pressure by
+    years lived (x axis) and years left (y axis). Males, 1915-1919 birth
+    cohort.}
+    \label{fig:bp}
+	\vspace{-2em}
+	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Surf_Male_bp.pdf}}
 	\end{subfigure}
 \end{figure}
 \FloatBarrier
 
-In the case of Figure~\ref{fig:srh} note that there is regular variation in the
-direction of both axes, but that the variation over thanatological age (y axis)
-is sharper, i.e., it implies a steeper climb than does the apparent decrease
-over chronological age. 
+\paragraph{Summary of results for all characteristics}
+Surfaces such as those in Figures~\ref{fig:thanochrono} and~\ref{fig:lifespan}
+were produced for all 78 variables and each sex. We distill these surfaces by
+calculating four Pearson correlation coefficients, each designed to capture the
+variation along one of the axes explained above. We call the four axes
+thanatological, chronological, lifespan ($chrono+thano$), and mixed
+($chrono-thano$). Most characteristics are summarized nicely be either one or
+two of these axes. We display these correlation coefficients by juxtaposing
+perpendicular axes in scatterplots. 
 
-This section contains the distilled results for each sex-variable surface. In
-each case we only report the average direction of steepest ascent, which tells
-us the degree to which variation is primarily over thanatological age or over
-chronological age. We do not display the strength of the
-relationship.
-A future revision will include detailed discussion of the results. For now, we
-report that most variables studied vary much more over thanatological age
-than over chronological age, at least for the age-ranges studied. The
-consistency of this finding is much greater than we expected, but it is not
-universal. 
+\begin{figure}[!h]
+    % This figure was produced in
+    % \makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/SurfExampleMalesSRH.pdf}}
+    \centering
+    \caption{Thanatological versus chronological correlation, with selected
+    characteristics labeled.}
+    \label{fig:thanochronocorr}
+    \makebox[\linewidth][c]{
+    \begin{subfigure}{0.7\textwidth}
+    \caption{Males, 1915-1919 birth cohort}
+    \label{fig:malcorr1}
+	\vspace{-2em}
+	\includegraphics[width=.95\textwidth]{Figures/MaleCorr1.pdf}
+	\end{subfigure}
+	\hspace{-1em}
+	\begin{subfigure}{.7\textwidth}
+    \caption{Females, 1915-1919 birth cohort}
+    \label{fig:femcorr1}
+	\vspace{-2em}
+	\includegraphics[width=.95\textwidth]{Figures/FemaleCorr1.pdf}
+	\end{subfigure}
+	}
+\end{figure}
+	
+Figure~\ref{fig:thanochronocorr} displays the simple correlation coefficients
+that belong to the chronological and thanatological axes. For males, 45
+variables display thanatological correlations of greater than 0.8, versus nine chronological
+correlations above the same threshold. For females, the figures are 32 and 29,
+respectively, a different picture overall. Both point clouds are high, but
+females lean further towards chronological variation within this cohort.
+	
+\begin{figure}[!h]
+    % This figure was produced in
+    % \makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/SurfExampleMalesSRH.pdf}}
+    \centering
+    \caption{Lifespan versus mixed correlation, with selected
+    characteristics labeled.}
+    \label{fig:lifespanmixed}
+	    \makebox[\linewidth][c]{
+    \begin{subfigure}{0.7\textwidth}
+    \caption{Males, 1915-1919 birth cohort}
+    \label{fig:malcorr2}
+	\vspace{-2em}
+	\includegraphics[width=.95\textwidth]{Figures/MaleCorr2.pdf}
+	\end{subfigure}
+	\hspace{-1em}
+	\begin{subfigure}{.7\textwidth}
+    \caption{Females, 1915-1919 birth cohort}
+    \label{fig:femcorr2}
+	\vspace{-2em}
+	\includegraphics[width=.95\textwidth]{Figures/FemaleCorr2.pdf}
+	\end{subfigure}
+	}
+	
+\end{figure}
 
-Results for males and females are color-coded with a thermometer scale in order
-to facilitate skimming the tables: dark red indicates
-predominantly thanatological variation and dark blue indicates
-predominantly chronological variation.
+Figure~\ref{fig:lifespanmixed} displays correlation coefficients
+that belong to the lifespan and ``mixed'' axes. Among males, four variables
+display lifespan correlations of greater than 0.8, versus 49 mixed correlations above
+the same threshold. For females, the respective figures are three and 55. The
+mixed axis ($chrono age - thano age$) is the winner among the set of
+characteristcs tested. The appendix provides detailed results. 
 
-The most chronological variation in the data we examined are current and ever
-smoking, body mass index (BMI) and having had outpatient surgery in the past 24
-months. Most other variables are very strongly thanatological. We do not at the
-time of this writing have an explanation for why smoking is not more
-thanatolgical in nature, but one possibility is uncontrolled compositional
-distortion in the underlying data. This could be so if younger respondents are,
-on average, from later waves and older respondents are, on average, from earlier
-waves, in which case strong birth cohort effects could carry through into this
-otherwise \textit{timeless} age-surface. We will test for this possibility in a future
-revision, and in this case we will make the same control for all variables. The
-strength and consistency of the thanatological patterns obtained at this time is
-nonetheless striking and appears worthy of more careful
+\section*{Discussion}
+The distribution of tested characteristics with respect to the
+four axis orientations described here is striking. However, these findings
+must be tempered by noting that 1) the summary measure (correlation coefficient) used here blends out some information, 2) this balance does not necessarily extrapolate to the set of all testable
+questions in the HRS, and 3) this relationship does not necessarily hold in
+other windows of the lifespan or other birth cohorts. Research to better
+document the multidimensional age variation of particular caracteristics would
+benefit from more careful measurement than that used here. Despite such
+shortcomings, the principle aim of this study has been satisfied in that this
+survey highlights the complex variety of age and lifespan dimensions over which
+some key aspects of the aging process unfold. All of the indicators we tested
+are commonly used to describe population ageing, and very few of them are
+exclusively a function of chronological age. If this finding is sustained in
+other cohorts and populations, and if other indicators here untested also
+display similar temporal complexity, we submit that the common discourse and
+debate on the nature and impacts of ageing ought to be better informed by this
+information.
+
+We hope that the mental model of the
+lifespan presented here, which complements the Lexis diagram, will be of use to
+demographers. A series of direct applications and implications derive from the
+results presented int this paper. First, if
+compared between two timepoints, demographic work such as this will
+provide a more precise answer to the question or morbidity compression. Given the chronological age ruse exemplified in the case of psychological problems (see Figures~\ref{fig:chronofalse} versus~\ref{fig:psych}), it is safe to say that unless retrospective
+thanatological measurements of morbidity dimensions are undertaken, we do
+not have direct information about whether compression is (or has
+been) happening or not. That is, changing chronological age patterns may be
+coincidental, and they are not necessarily predictive either (this is an
+empirical question). 
+
+Second, large scale panel studies may be motivated to
+implement, increase, or improve mortality follow-up modules. Information
+on the full age dimensions of health outcomes will be valuable. The good news is
+that many unlinked panel studies may be linked to death registers in
+retrospect. A few populations with long-running and fully linked
+population registers already preside over such information, and we encourage a
+more thorough exploration of the temporal richness in population change and
+population characteristics. Underused as it is, the Lexis surface does not tell
+the whole story!
+
+Third,
+physicians and the public may better situate the association of certain health outcomes with stages of the ageing process. 
+
+Fourth, this material highlights important sex differences in the onset and
+trajectory of some aspects of morbidity. Some such differences may corroborate
+extant findings, and others may provide new understanding to dimorphism in
+morbidity.
+
+We do not at this time attempt to thoroughly cluster characteristics based on the scores of the four different correlation coefficients, but this may be a fruitful exercise for further work.
+It is our hope that these results are strongly suggestive and orient
 investigation.
 
-%\FloatBarrier
-%\pagebreak
-%\subsection{ADL}
-%
-%\input{Tables/ADL}
-%
-%\FloatBarrier
-%\subsection{IADL}
-%\input{Tables/IADL}
-%\FloatBarrier
-%
-%\pagebreak
-%\subsection{Chronic conditions}
-%\input{Tables/Chronic}
-%
-%\FloatBarrier
-%
-%\subsection{Functional limitations}
-%\input{Tables/Functional}
-%
-%\citet{woolf2003burden} describe four muskuloskeletal conditions as functions of
-%chronological age.
-%
-%\FloatBarrier
-%
-%\subsection{Behaviors}
-%\input{Tables/Behaviors}
-%\FloatBarrier
-%
-%\pagebreak
-%\subsection{Psychological factors}
-%\input{Tables/Psychological}
-%\FloatBarrier
-%
-%\subsection{Healthcare utilization}
-%\input{Tables/Healthcare}
-%\FloatBarrier
-%
-%\pagebreak
-%\subsection{Cognitive functions}
-%\input{Tables/Cognitive}
+
 %
 %\FloatBarrier
 \bibliographystyle{plainnat}
@@ -512,21 +645,128 @@ investigation.
 %\pagebreak
 %
 \begin{appendices}
-\section{Variable coding}
-This appendix provides details of how individual variables were numerically
-coded for the purpose of calculating surfaces. In many cases the numeric coding
-is an arbitrary mapping of a qualitative variable. Results may vary under
-different mappings, but we assume that the fundamental findings of this study
-will be robust to more thoughtful recodings. Most question items lend themselves
-to being spread over a spectrum from good to bad, in which case we give bad the
-highest value and good the lowest value. When response universes are bounded, we
-scale responses to fit within the range [0,1]. Neither of these
-two transformations affects the determination of the degree to which a
-characteristic is thanatological.
+\section{Variables and correlations}
+
+
+
 \end{appendices}
 
+For tables displayed in following we use a shorthand to identify axis types. T
+indicates the correlation coefficient along the thanatological age axis. C
+indicates the chronological age axis. $C+T$ indicates the lifespan axis
+(right-downward slanting isolines). $C-T$ indicates the mixed axis, the
+most common type in this data. Results are available on request as machine
+readable data, and the code used to generate these and all other results is
+available freely in a repository: 
 
+\url{https://github.com/timriffe/ThanoEmpirical}
 
+% ADL
+\begin{table}
+\begin{adjustwidth}{-5em}{}% 
 
+\centering
+\caption{Activities of Daily Life (ADL)}
+\begin{tabular}{L{4em}
+L{2cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
+  \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
+ \multicolumn{4}{c}{Females} \\
+ \midrule
+Short & Long & T & C & $C+T$  & $C-T$  & T & C & $C+T$ &
+$C-T$
+\\
+  \midrule
+adl3 & ADL 3-point & 0.83 & 0.67 & 0.10 & 0.89 & 0.80 & 0.76 & 0.21 & 0.94 \\ 
+   \rowcolor[gray]{.9}adl5 & ADL 5-point & 0.83 & 0.63 & 0.06 & 0.86 & 0.81 & 0.75 & 0.19 & 0.94 \\ 
+  adl\_walk & Diff. walking across room  & 0.86 & 0.54 & 0.06 & 0.81 & 0.83 &
+  0.72 & 0.15 & 0.93 \\
+   \rowcolor[gray]{.9}adl\_dress & Diff. dressing  & 0.82 & 0.71 & 0.15 & 0.92 & 0.82 & 0.75 & 0.19 & 0.94 \\ 
+  adl\_bath & Diff. bathing or showering  & 0.84 & 0.62 & 0.04 & 0.86 & 0.82 &
+  0.75 & 0.19 & 0.94 \\
+   \rowcolor[gray]{.9}adl\_eat & Diff. eating  & 0.80 & 0.67 & 0.12 & 0.88 & 0.76 & 0.77 & 0.25 & 0.92 \\ 
+  adl\_bed & Diff. getting in/out bed  & 0.82 & 0.58 & 0.02 & 0.82 & 0.83 & 0.72 & 0.15 & 0.93 \\ 
+   \rowcolor[gray]{.9}adl\_toilet & Diff. using toilet & 0.84 & 0.56 & 0.02 & 0.81 & 0.73 & 0.81 & 0.31 & 0.94 \\ 
+   \bottomrule
+\end{tabular}
+
+  \end{adjustwidth}
+  \end{table}
+  
+% IADL
+\begin{table}
+\begin{adjustwidth}{-5em}{}% 
+
+\centering
+\caption{Instrumental Activities of Daily Life (IADL)}
+\begin{tabular}{L{4em}
+L{2cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
+  \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
+ \multicolumn{4}{c}{Females} \\
+ 
+ \midrule
+Short & Long & T & C & $C+T$  & $C-T$  & T & C & $C+T$ &
+$C-T$
+\\
+iadl3 & IADL 3-point & 0.89 & 0.60 & 0.00 & 0.87 & 0.77 & 0.80 & 0.27 & 0.96 \\ 
+   \rowcolor[gray]{.9}iadl5 & IADL 5-point & 0.90 & 0.57 & 0.05 & 0.85 & 0.83 & 0.75 & 0.18 & 0.94 \\ 
+  lim\_work & Health limits work & 0.93 & 0.51 & 0.08 & 0.82 & 0.97 & 0.34 & 0.27 & 0.71 \\ 
+   \rowcolor[gray]{.9}iadl\_map & Diff. using map & 0.73 & 0.82 & 0.32 & 0.95 & 0.79 & 0.83 & 0.29 & 0.98 \\ 
+  iadl\_tel & Diff. using telephone & 0.80 & 0.78 & 0.23 & 0.95 & 0.70 & 0.85 & 0.37 & 0.96 \\ 
+   \rowcolor[gray]{.9}iadl\_money & Diff. managing money & 0.91 & 0.56 & 0.06 & 0.85 & 0.81 & 0.78 & 0.22 & 0.96 \\ 
+  iadl\_meds & Diff. taking meds & 0.92 & 0.46 & 0.17 & 0.78 & 0.79 & 0.77 & 0.23 & 0.94 \\ 
+   \rowcolor[gray]{.9}iadl\_shop & Diff. shopping for groceries & 0.92 & 0.58 & 0.05 & 0.87 & 0.90 & 0.68 & 0.06 & 0.93 \\ 
+  iadl\_meals & Diff. preparing hot meals & 0.92 & 0.57 & 0.06 & 0.86 & 0.82 & 0.77 & 0.21 & 0.96 \\ 
+   \rowcolor[gray]{.9} \bottomrule
+\end{tabular}
+  \end{adjustwidth}
+  \end{table}
+  
+  % Behaviors:
+  
+\begin{table}
+\begin{adjustwidth}{-5em}{}% 
+
+\centering
+\caption{Health behaviors}
+\begin{tabular}{L{4em}
+L{2cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
+  \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
+ \multicolumn{4}{c}{Females} \\
+   \midrule
+ Short & Long & T & C & $C+T$  & $C-T$  & T & C & $C+T$ & $C-T$
+\\
+ alc\_ev & Alcohol, ever  & 0.78 & 0.41 & 0.08 & 0.68 & 0.62 & 0.79 & 0.40 &
+0.89 \\
+   \rowcolor[gray]{.9}alc\_days & Alcohol nr of days / week  & 0.82 & 0.17 & 0.44 & 0.54 & 0.80 & 0.34 & 0.26 & 0.64 \\ 
+  alc\_drinks & Alcohol nr drinks per drinking day  & 0.89 & 0.49 & 0.18 & 0.80 & 0.75 & 0.84 & 0.27 & 0.96 \\ 
+   \rowcolor[gray]{.9}smoke\_ev & Ever Smoker & 0.30 & 0.68 & 0.87 & 0.37 & 0.27 & 0.81 & 0.98 & 0.48 \\ 
+  smoke\_cur & Current Smoker & 0.09 & 0.88 & 0.93 & 0.61 & 0.15 & 0.93 & 0.83 & 0.77 \\ 
+   \rowcolor[gray]{.9} \bottomrule
+\end{tabular}
+  \end{adjustwidth}
+  \end{table}
+  
+  
+\begin{table}
+\begin{adjustwidth}{-5em}{}% 
+
+\centering
+\caption{Functional limitations}
+\begin{tabular}{L{4em}
+L{2cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
+  \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
+ \multicolumn{4}{c}{Females} \\
+   \midrule
+bmi & BMI & 0.92 & 0.53 & 0.05 & 0.83 & 0.74 & 0.76 & 0.29 & 0.91 \\ 
+   \rowcolor[gray]{.9}back & Back problems & 0.18 & 0.92 & 0.81 & 0.78 & 0.21 & 0.87 & 0.74 & 0.74 \\ 
+  mob & Mobility difficulty index & 0.91 & 0.61 & 0.01 & 0.89 & 0.88 & 0.73 & 0.12 & 0.95 \\ 
+   \rowcolor[gray]{.9}lg\_mus & Large muscle difficulty index & 0.86 & 0.74 & 0.15 & 0.95 & 0.81 & 0.81 & 0.25 & 0.98 \\ 
+  gross\_mot & Gross motor difficulty index & 0.91 & 0.56 & 0.06 & 0.85 & 0.86 & 0.72 & 0.13 & 0.94 \\ 
+   \rowcolor[gray]{.9}fine\_mot & Fine motor difficulty index & 0.80 & 0.73 & 0.18 & 0.92 & 0.79 & 0.78 & 0.23 & 0.94 \\ 
+   \bottomrule
+\end{tabular}
+  \end{adjustwidth}
+  \end{table}
+  
   
 \end{document}
