@@ -205,8 +205,7 @@
   note = {Available at www.mortality.org or www.humanmortality.de (data downloaded
 	on February 27, 2015).},
   owner = {triffe},
-  timestamp = {2014.07.10},
-  url = {@article{case2005sex, title={Sex differences in morbidity and mortality}, author={Case, Anne and Paxson, Christina}, journal={Demography}, volume={42}, number={2}, pages={189--214}, year={2005}, publisher={Springer} }}
+  timestamp = {2014.07.10}
 }
 
 @ARTICLE{hurd2002predictive,
@@ -391,8 +390,9 @@
   title = {Decomposing and Recomposing the Population Pyramid by Remaining Years
 	of Life},
   year = {2014},
-  note = {Poster presented at the PAA annual meeting in Boston and at the EPC
-	in Budapest.},
+  note = {Poster presented at the 2014 PAA annual meeting in Boston (April
+	2013) and at the 2014 European Population Conference in Budapest
+	(June 2014).},
   owner = {triffe},
   timestamp = {2014.07.13}
 }
