@@ -533,7 +533,8 @@ plot(Femaler[,1],Femaler[,2],type="n",xlim=c(0,1),ylim=c(0,1),
   xaxs="i",yaxs="i",cex.axis=1.2,cex.lab=1.2,xlab = "chronological correlation", ylab = "thanatological correlation", asp = 1,
   panel.first = list(
     rect(0,0,1,1,col=gray(.9),border=NA),
-    grid(col="white",lty=1)))
+    grid(col="white",lty=1),
+    segments(0,0,1,1,col="white")))
 points(Femaler[-TextF1,2],Femaler[-TextF1,1], col = "#0000FF50", pch = 19)
 text(Femaler[TextF1,2],jitter(Femaler[TextF1,1]), varnames[TextF1], cex = 1.2, xpd =TRUE)
 dev.off()
@@ -544,7 +545,7 @@ plot(Maler[,3],Maler[,4],type="n",xlim=c(0,1),ylim=c(0,1),
   xaxs="i",yaxs="i",cex.axis=1.2,cex.lab=1.2,xlab = "lifespan correlation", ylab = "chrono - thano correlation", asp = 1,
   panel.first = list(
     rect(0,0,1,1,col=gray(.9),border=NA),
-    grid(col="white",lty=1,
+    grid(col="white",lty=1),
       segments(0,0,1,1,col="white")))
 points(Maler[-TextM2,3],Maler[-TextM2,4], col = "#0000FF50", pch = 19)
 text(Maler[TextM2,3],Maler[TextM2,4], varnames[TextM2], cex = 1.2, xpd =TRUE)
@@ -556,7 +557,7 @@ plot(Femaler[,3],Femaler[,4],type="n",xlim=c(0,1),ylim=c(0,1),
   xaxs="i",yaxs="i",cex.axis=1.2,cex.lab=1.2,xlab = "lifespan correlation", ylab = "chrono - thano correlation", asp = 1,
   panel.first = list(
     rect(0,0,1,1,col=gray(.9),border=NA),
-    grid(col="white",lty=1,
+    grid(col="white",lty=1),
       segments(0,0,1,1,col="white")))
 points(Femaler[-TextF2,3],Femaler[-TextF2,4], col = "#0000FF50", pch = 19)
 text(Femaler[TextF2,3],Femaler[TextF2,4], varnames[TextF2], cex = 1.2, xpd =TRUE)

@@ -206,16 +206,7 @@
 	on February 27, 2015).},
   owner = {triffe},
   timestamp = {2014.07.10},
-  url = {@article{case2005sex,
-  title={Sex differences in morbidity and mortality},
-  author={Case, Anne and Paxson, Christina},
-  journal={Demography},
-  volume={42},
-  number={2},
-  pages={189--214},
-  year={2005},
-  publisher={Springer}
-}}
+  url = {@article{case2005sex, title={Sex differences in morbidity and mortality}, author={Case, Anne and Paxson, Christina}, journal={Demography}, volume={42}, number={2}, pages={189--214}, year={2005}, publisher={Springer} }}
 }
 
 @ARTICLE{hurd2002predictive,
@@ -455,6 +446,19 @@
   owner = {triffe},
   publisher = {Max Planck Institute for Demographic Research, Rostock, Germany},
   timestamp = {2013.11.01}
+}
+
+@ARTICLE{sanderson2013characteristics,
+  author = {Sanderson, Warren C and Scherbov, Sergei},
+  title = {The characteristics approach to the measurement of population aging},
+  journal = {Population and Development Review},
+  year = {2013},
+  volume = {39},
+  pages = {673--685},
+  number = {4},
+  owner = {triffe},
+  publisher = {Wiley Online Library},
+  timestamp = {2015.03.01}
 }
 
 @ARTICLE{sanderson2010remeasuring,
