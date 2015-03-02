@@ -1,6 +1,20 @@
 % This file was created with JabRef 2.9.2.
 % Encoding: UTF-8
 
+@ARTICLE{almond20061918,
+  author = {Almond, Douglas},
+  title = {Is the 1918 Influenza pandemic over? Long-term effects of in utero
+	Influenza exposure in the post-1940 US population},
+  journal = {Journal of political Economy},
+  year = {2006},
+  volume = {114},
+  pages = {672--712},
+  number = {4},
+  owner = {triffe},
+  publisher = {JSTOR},
+  timestamp = {2015.03.01}
+}
+
 @ARTICLE{biro2010subjective,
   author = {B{\'\i}r{\'o}, Anik{\'o}},
   title = {Subjective mortality hazard shocks and the adjustment of consumption
@@ -76,6 +90,19 @@
   timestamp = {2013.11.01}
 }
 
+@ARTICLE{case2005sex,
+  author = {Case, Anne and Paxson, Christina},
+  title = {Sex differences in morbidity and mortality},
+  journal = {Demography},
+  year = {2005},
+  volume = {42},
+  pages = {189--214},
+  number = {2},
+  owner = {triffe},
+  publisher = {Springer},
+  timestamp = {2015.03.01}
+}
+
 @ARTICLE{cleveland1992local,
   author = {Cleveland, William S and Grosse, Eric and Shyu, William M},
   title = {Local regression models},
@@ -112,6 +139,19 @@
   owner = {triffe},
   publisher = {Springer},
   timestamp = {2013.11.01}
+}
+
+@ARTICLE{fries2011compression,
+  author = {Fries, James F and Bruce, Bonnie and Chakravarty, Eliza},
+  title = {Compression of morbidity 1980--2011: a focused review of paradigms
+	and progress},
+  journal = {Journal of aging research},
+  year = {2011},
+  volume = {2011},
+  note = {Article ID 261702, 10 pages doi:10.4061/2011/261702},
+  owner = {triffe},
+  publisher = {Hindawi Publishing Corporation},
+  timestamp = {2015.03.01}
 }
 
 @TECHREPORT{gan2004subjective,
@@ -165,7 +205,17 @@
   note = {Available at www.mortality.org or www.humanmortality.de (data downloaded
 	on February 27, 2015).},
   owner = {triffe},
-  timestamp = {2014.07.10}
+  timestamp = {2014.07.10},
+  url = {@article{case2005sex,
+  title={Sex differences in morbidity and mortality},
+  author={Case, Anne and Paxson, Christina},
+  journal={Demography},
+  volume={42},
+  number={2},
+  pages={189--214},
+  year={2005},
+  publisher={Springer}
+}}
 }
 
 @ARTICLE{hurd2002predictive,
@@ -192,6 +242,17 @@
   owner = {triffe},
   publisher = {JSTOR},
   timestamp = {2013.11.01}
+}
+
+@TECHREPORT{kapteyn2006effects,
+  author = {Kapteyn, Arie and Michaud, Pierre-Carl and Smith, James P and Van
+	Soest, Arthur},
+  title = {Effects of attrition and non-response in the Health and Retirement
+	Study},
+  institution = {IZA Discussion paper},
+  year = {2006},
+  owner = {triffe},
+  timestamp = {2015.03.01}
 }
 
 @ARTICLE{kutlu2013individuals,
@@ -456,6 +517,17 @@
   timestamp = {2013.11.01}
 }
 
+@TECHREPORT{UN2012prospects,
+  author = {{{United Nations, Department of Economic and Social Affairs, Population
+	Division }}},
+  title = {World Population Prospects: The 2012 Revision, Key Findings and Advance
+	Tables.},
+  institution = {United Nations},
+  year = {2013},
+  owner = {triffe},
+  timestamp = {2015.03.01}
+}
+
 @MISC{hmd2013,
   author = {{University of California, Berkeley (USA), and Max Planck Institute
 	for Demographic Research (Germany).}},
@@ -492,6 +564,21 @@
   owner = {triffe},
   publisher = {Max Planck Institute for Demographic Research, Rostock, Germany},
   timestamp = {2013.02.22}
+}
+
+@ARTICLE{weir2011proxy,
+  author = {Weir, David and Faul, Jessica and Langa, Kenneth},
+  title = {Proxy interviews and bias in the distribution of cognitive abilities
+	due to non-response in longitudinal studies: a comparison of HRS
+	and ELSA},
+  journal = {Longitudinal and life course studies},
+  year = {2011},
+  volume = {2},
+  pages = {170},
+  number = {2},
+  owner = {triffe},
+  publisher = {NIH Public Access},
+  timestamp = {2015.03.01}
 }
 
 @ARTICLE{werblow2007population,
