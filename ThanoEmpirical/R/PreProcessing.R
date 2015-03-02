@@ -514,7 +514,7 @@ NApost <- sapply(varnames, function(vn, Dat){
 plot(NApost,NApre,asp=1)
 abline(a=0,b=1)
 hist(NApost / NApre) # OK so this wasn't pointless.
-
+mean((NApre - NApost) / NApre, na.rm=TRUE)
 save(Dat,file = "Data/Data_long_imputed.Rdata")
 
 

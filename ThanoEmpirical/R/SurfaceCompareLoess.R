@@ -22,12 +22,6 @@ cat("Working directory:\n",getwd())
 #devtools::install_github("timriffe/LexisUtils", subdir = "LexisUtils")
 
 
-logit <- function(x){
-  log(x/(1-x))
-}
-expit <- function(x){
-  exp(x)/(1+exp(x))
-}
 
 Dat <- local(get(load("Data/Data_long_imputed.Rdata")))
 SurfaceList <- local(get(load("Data/SurfaceList.Rdata")))
@@ -303,6 +297,9 @@ names(Results) <- unlist(lapply(Results, function(X){
 				}))
 save(Results,file="Data/LoessQuinquenal_imp.Rdata")
 }
+# --------------------------------------------------------
+# start correlation / exploration work here:
+
 
 Results <- local(get(load("Data/LoessQuinquenal_imp.Rdata")))
 
@@ -317,13 +314,20 @@ sum(NULLS)
 # now check for NULL values, which will have been produced if we have questions
 # introduced later than wave 3, or with missing waves thereafter. We can just throw these out
 # for the time being
-
+##############################################
+# this code block is for produce panel surfaces for
+# each variable / cohort / span / sex. Nice diagnostic. The plots
+# were not carefully made (axis labels covered, etc), but are useful for understanding.
+##############################################
 
 cellwidths <- c(1,3,3,3,1)
 cellheights <- c(1,2,2,2,2,2)
 plotn <- function(xlim = c(0,1),ylim = c(0,1), mai = c(0,0,0,0)){
   plot(NULL, type = "n", xlim = xlim, ylim = ylim,  axes = FALSE, xlab = "", ylab = "")
 }
+
+
+
 
 #.varname <- "adl3_"
 #.sex <- "Female"
@@ -437,12 +441,18 @@ lapply(varnames, function(x){
   })
 dev.off()
 
-
-A <- Surf
-A <- col(Surf)-row(Surf)
-dimnames(A) <- dimnames(Surf)
-SurfMap(A, outline = FALSE)
+###########################################################
+# This code is for generating each of the four axis correlations
+#
+##########################################################
+#A <- Surf
+#A <- col(Surf)-row(Surf)
+#dimnames(A) <- dimnames(Surf)
+#SurfMap(A, outline = FALSE)
 get_r <- function(A){
+  # it's pretty simple, really.
+  # we take the absolute value because it shouldn't matter 
+  # whether high is bad and low is good: i.e. numeric coding. 
   Along <- reshape2::melt(A)
   c(Thano = abs(cor(Along$value,Along$Var1,use="complete.obs")), 
   Chrono = abs(cor(Along$value,Along$Var2,use="complete.obs")),
@@ -450,7 +460,7 @@ get_r <- function(A){
   Mixed = abs(cor(Along$value,Along$Var1 - Along$Var2,use="complete.obs"))
   )
 }
-library(LexisUtils)
+
 
 
 Maler <- do.call(rbind,lapply(varnames, function(x, Results){
@@ -468,6 +478,9 @@ Femaler <- do.call(rbind,lapply(varnames, function(x, Results){
 rownames(Femaler) <- varnames
 
 # --------------------------------------
+# this was how I decided which points to mark in the plots:
+mark.points <- FALSE
+if (mark.points){
 plot(Maler[,1],Maler[,2],type="n")
 text(Maler[,1],Maler[,2],varnames,cex=.8)
 TextM1 <- identify(Maler[,1],Maler[,2],n=13)
@@ -485,8 +498,9 @@ TextM2 <- identify(Maler[,3],Maler[,4],n=13)
 plot(Femaler[,3],Femaler[,4],type="n")
 text(Femaler[,3],Femaler[,4],varnames,cex=.8)
 TextF2 <- identify(Femaler[,3],Femaler[,4],n=13)
+}
 
-dput(TextF2)
+# saved output using dput(), needed for below plotting
 TextM1 <- c(7L, 9L, 21L, 22L, 47L, 52L, 53L, 54L, 56L, 60L, 62L, 63L, 72L
 )
 TextM2 <- c(9L, 21L, 22L, 40L, 41L, 43L, 47L, 52L, 54L, 60L, 61L, 62L, 
@@ -496,50 +510,56 @@ TextF1 <- c(7L, 9L, 21L, 41L, 43L, 47L, 52L, 53L, 55L, 56L, 59L, 60L, 63L
 TextF2 <- c(21L, 22L, 34L, 41L, 43L, 45L, 47L, 52L, 56L, 59L, 60L, 63L, 
   74L)
 
+# the stats in the paper( > .8)
 colSums(Maler > .8)
 colSums(Femaler > .8)
+
+# the figures in the paper:
 pdf("Figures/MaleCorr1.pdf")
 par(mai=c(1,1,.5,.5))
 plot(Maler[,1],Maler[,2],type="n",xlim=c(0,1),ylim=c(0,1),
-  xaxs="i",yaxs="i",xlab = "chronological correlation", ylab = "thanatological correlation", asp = 1,
+  xaxs="i",yaxs="i",cex.axis=1.2,cex.lab=1.2,xlab = "chronological correlation", ylab = "thanatological correlation", asp = 1,
   panel.first = list(
     rect(0,0,1,1,col=gray(.9),border=NA),
-    grid(col="white",lty=1)))
+    grid(col="white",lty=1),
+  segments(0,0,1,1,col="white")))
 points(Maler[-TextM1,2],Maler[-TextM1,1], col = "#0000FF50", pch = 19)
-text(Maler[TextM1,2],Maler[TextM1,1], varnames[TextM1], cex = .9, xpd =TRUE)
+text(Maler[TextM1,2],Maler[TextM1,1], varnames[TextM1], cex = 1.2, xpd =TRUE)
 dev.off()
 
 pdf("Figures/FemaleCorr1.pdf")
 par(mai=c(1,1,.5,.5))
 plot(Femaler[,1],Femaler[,2],type="n",xlim=c(0,1),ylim=c(0,1),
-  xaxs="i",yaxs="i",xlab = "chronological correlation", ylab = "thanatological correlation", asp = 1,
+  xaxs="i",yaxs="i",cex.axis=1.2,cex.lab=1.2,xlab = "chronological correlation", ylab = "thanatological correlation", asp = 1,
   panel.first = list(
     rect(0,0,1,1,col=gray(.9),border=NA),
     grid(col="white",lty=1)))
 points(Femaler[-TextF1,2],Femaler[-TextF1,1], col = "#0000FF50", pch = 19)
-text(Femaler[TextF1,2],Femaler[TextF1,1], varnames[TextF1], cex = .9, xpd =TRUE)
+text(Femaler[TextF1,2],jitter(Femaler[TextF1,1]), varnames[TextF1], cex = 1.2, xpd =TRUE)
 dev.off()
 
 pdf("Figures/MaleCorr2.pdf")
 par(mai=c(1,1,.5,.5))
 plot(Maler[,3],Maler[,4],type="n",xlim=c(0,1),ylim=c(0,1),
-  xaxs="i",yaxs="i",xlab = "lifespan correlation", ylab = "chrono - thano correlation", asp = 1,
+  xaxs="i",yaxs="i",cex.axis=1.2,cex.lab=1.2,xlab = "lifespan correlation", ylab = "chrono - thano correlation", asp = 1,
   panel.first = list(
     rect(0,0,1,1,col=gray(.9),border=NA),
-    grid(col="white",lty=1)))
+    grid(col="white",lty=1,
+      segments(0,0,1,1,col="white")))
 points(Maler[-TextM2,3],Maler[-TextM2,4], col = "#0000FF50", pch = 19)
-text(Maler[TextM2,3],Maler[TextM2,4], varnames[TextM2], cex = .9, xpd =TRUE)
+text(Maler[TextM2,3],Maler[TextM2,4], varnames[TextM2], cex = 1.2, xpd =TRUE)
 dev.off()
 
 pdf("Figures/FemaleCorr2.pdf")
 par(mai=c(1,1,.5,.5))
 plot(Femaler[,3],Femaler[,4],type="n",xlim=c(0,1),ylim=c(0,1),
-  xaxs="i",yaxs="i",xlab = "lifespan correlation", ylab = "chrono - thano correlation", asp = 1,
+  xaxs="i",yaxs="i",cex.axis=1.2,cex.lab=1.2,xlab = "lifespan correlation", ylab = "chrono - thano correlation", asp = 1,
   panel.first = list(
     rect(0,0,1,1,col=gray(.9),border=NA),
-    grid(col="white",lty=1)))
+    grid(col="white",lty=1,
+      segments(0,0,1,1,col="white")))
 points(Femaler[-TextF2,3],Femaler[-TextF2,4], col = "#0000FF50", pch = 19)
-text(Femaler[TextF2,3],Femaler[TextF2,4], varnames[TextF2], cex = .9, xpd =TRUE)
+text(Femaler[TextF2,3],Femaler[TextF2,4], varnames[TextF2], cex = 1.2, xpd =TRUE)
 dev.off()
 
 

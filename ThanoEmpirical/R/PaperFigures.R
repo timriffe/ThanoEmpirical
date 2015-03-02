@@ -35,27 +35,33 @@ segments(rep(0,10),seq(10,100,by=10),seq(100,10,by= -10),seq(10,100,by= 10), col
 # vertical
 segments(seq(10,100,by=10),rep(0,10),seq(10,100,by=10),seq(100,10,by= -10), col = gridcol)
 
-text(55,-10,"Years lived", cex = .8)
-text(-10,55,"Years left",srt=90, cex = .8)
+# corner ticks:
+segments(110,0,110,-1,col=gridcol)
+segments(0,0,0,-1,col=gridcol)
+segments(0,0,-1,0,col=gridcol)
+segments(0,110,-1,110,col=gridcol)
+
+text(55,-10,"chronological age\n(and calendar year)", cex = .8)
+text(-10,55,"thanatological age",srt=90, cex = .8)
 
 text(0,0,0,pos=1, cex = .8)
 text(0,0,0,pos=2, cex = .8)
-text(110,0,bquote(omega == 110),cex=.8,pos=1)
-text(8,114,bquote(omega == 110),pos=2,cex=.8)
+text(113,0,bquote(omega == 110),cex=.8,pos=1)
+text(0,110,bquote(omega == 110),pos=2,cex=.8)
 arrows(0,99,99-5,0+5,col="blue",lwd=3)
 #arrows(0,55,55-15,0+15,col="blue",lwd=2)
 segments(0,71,71,0,col="red",lwd=3)
 points(71,0,pch=19,col="red")
 
-text(90,70,"(B) incomplete lifeline", cex = .8)
-segments(87,67,70,29,col="blue",lty=2)
+text(80,70,"(B) incomplete lifeline", cex = .8)
+segments(67,67,60,39,col="blue",lty=2)
 
-text(70,80,"(A) complete lifeline", cex = .8)
-segments(67,77,43,29,col="red",lty=2)
+text(60,80,"(A) complete lifeline", cex = .8)
+segments(57,77,43,29,col="red",lty=2)
 
 polygon(c(72,96,96-13,72),c(0,0,13,13),border = "forestgreen", lwd = 2, lty = 2)
-text(90,60,"(C) area studied for\n1915-1919 birth cohort", cex = .8, pos = 4)
-segments(97,57,96-13,13,col="forestgreen",lty=2)
+text(75,60,"(C) area studied for\n1915-1919 birth cohort", cex = .8, pos = 4)
+segments(90,55,96-13,13,col="forestgreen",lty=2)
 dev.off()
 
 
@@ -70,7 +76,7 @@ Surf <- Results[[grabber]][["Male"]]$Surf[,,as.character(1915)]
 # thano:
 pdf("Figures/Surf_Male_psych.pdf", width = 10, height = 6)
 #dev.new(width = 10, height = 6)
-SurfMap(Surf,napprox=9,contour=TRUE,outline=FALSE,bg=TRUE)
+SurfMap(Surf,napprox=9,contour=TRUE,outline=FALSE,bg=TRUE,xlab="chronological age", ylab = "thanatological age")
 dev.off()
 
 
@@ -80,7 +86,7 @@ Surf <- Results[[grabber]][["Female"]]$Surf[,,as.character(1915)]
 Surf[Surf < 0] <- 0
 pdf("Figures/Surf_Female_back.pdf", width = 10, height = 6)
 #dev.new(width = 10, height = 6)
-SurfMap(Surf,napprox=9,contour=TRUE,outline=FALSE,bg=TRUE)
+SurfMap(Surf,napprox=9,contour=TRUE,outline=FALSE,bg=TRUE,xlab="chronological age", ylab = "thanatological age")
 dev.off()
 
 varnames[order(Maler[,1])]
@@ -91,7 +97,7 @@ Surf <- Results[[grabber]][["Female"]]$Surf[,,as.character(1915)]
 
 pdf("Figures/Surf_Female_smoke_ev.pdf", width = 10, height = 6)
 #dev.new(width = 10, height = 6)
-SurfMap(Surf,napprox=9,contour=TRUE,outline=FALSE,bg=TRUE)
+SurfMap(Surf,napprox=9,contour=TRUE,outline=FALSE,bg=TRUE,xlab="chronological age", ylab = "thanatological age")
 dev.off()
 
 # function of both:
@@ -100,7 +106,7 @@ Surf <- Results[[grabber]][["Male"]]$Surf[,,as.character(1915)]
 
 pdf("Figures/Surf_Male_bp.pdf", width = 10, height = 6)
 #dev.new(width = 10, height = 6)
-SurfMap(Surf,napprox=9,contour=TRUE,outline=FALSE,bg=TRUE)
+SurfMap(Surf,napprox=9,contour=TRUE,outline=FALSE,bg=TRUE,xlab="chronological age", ylab = "thanatological age")
 dev.off()
 
 wmean <- function(x,w=rep(1,length(x))){
@@ -119,7 +125,7 @@ m1915se <- predict(mod,newdata=data.frame(cafloor=72:95,Coh5=1915),se=TRUE)
 pdf("Figures/MalePsychChrono.pdf",height = 4.5,width=4.5)
 par(mai=c(1.2,1,.5,.5))
 plot(72:95,m1915se$fit, type = 'l', xaxs = "i", yaxs="i", ylim=c(0,.25),
-  xlab = "years lived", ylab = "probability of psych problems",
+  xlab = "chronological", ylab = "probability of psych problems",
   panel.first = list(
     rect(72,0,95,.25,col=gray(.9),border=NA),
     segments(72,seq(.05,.2,by=.05),95,seq(.05,.2,by=.05),col="white"),
