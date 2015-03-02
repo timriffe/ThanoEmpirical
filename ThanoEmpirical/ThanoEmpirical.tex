@@ -1,6 +1,6 @@
 %%This is a very basic article template.
 %%There is just one section and two subsections.
-\documentclass[11pt,oneside,a4paper]{article}
+\documentclass[12pt,oneside,a4paper]{article}
 \usepackage{appendix}
 \usepackage{amsmath}
 \usepackage{caption}
@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{longtable}
+\usepackage{setspace}
 %\usepackage{tikz}
 \usepackage{booktabs}
 \usepackage{xcolor,colortbl}
@@ -28,19 +29,23 @@
 \newcommand\Cell[1]{{\raisebox{-0.05in}{\includegraphics[height=.2in,width=.2in]{Figures/ColorCodes/\expandafter#1}}}}  
 
 \defcitealias{HMD}{HMD}
+\doublespacing
 
 \begin{document}
 
 \title{Time-to-death patterns in markers of age and dependency}
 
-\author[1]{Tim Riffe\thanks{triffe@demog.berkeley.edu}}
-\author[1]{Pil H. Chung}
-\author[2,3]{Jeroen Spijker}
-\author[4]{John MacInnes}
-\affil[1]{Department of Demography, University of California, Berkeley}
-\affil[2]{Department of Geography, Universitat Aut{\`o}noma de Barcelona}
-\affil[3]{Vienna Institute of Demography}
-\affil[4]{School of Social and Political Science, University of Edinburgh}
+%\author[1]{Tim Riffe\thanks{triffe@demog.berkeley.edu}}
+%\author[1]{Pil H. Chung}
+%\author[2,3]{Jeroen Spijker}
+%\author[4]{John MacInnes}
+%\affil[1]{Department of Demography, University of California, Berkeley}
+%\affil[2]{Department of Geography, Universitat Aut{\`o}noma de Barcelona}
+%\affil[3]{Vienna Institute of Demography}
+%\affil[4]{School of Social and Political Science, University of Edinburgh}
+
+\author{[Authors]}
+
 
 \maketitle
 
@@ -68,9 +73,9 @@ extinction. Individuals do not know their thanatological age with certainty. To
 guess this quantity one projects an expectation of lifespan based on scenarios
 or extrapolations of how mortality rates might change over time. Data classified by chronological age, like census population counts, can be
 reclassified into thanatological age in this way.\footnote{A paper on this topic
-is currently under review \citep{riffe2014paaposter}. \citet{brouard1986structure, brouard1989mouvements} had already done the same thing some 30 years earlier, and we understand that
-S. Scherbov also unwittingly produced the same result over a decade ago.}
-
+is currently under review (self-cite blocked). \citet{brouard1986structure,
+brouard1989mouvements} had already done the same thing some 30 years earlier, and we understand that S. Scherbov also unwittingly produced the same result over a decade ago.}
+%\citep{riffe2014paaposter}
 Prospectively, decreasing mortality has the effect of moving population into higher thanatological ages, thereby increasing
 remaining life expectancy \citep{sanderson2005average}. In this case,
 the notion and measure of future remaining lifespan is elastic, subject to uncertainty.
@@ -157,9 +162,9 @@ conveniently merged across all ten waves. This data is free to download,
 and all details of data processing and methods are made freely available in an open code
 repository.\footnote{This
 repository includes R code used to process data, as well as generate results and
-figures: \url{https://github.com/timriffe/ThanoEmpirical}} We restrict the sample to only those individuals born between 1900 and 1930 that died between 1992 and 2011, which narrows the dataset down to 37051 observations of 9238 individuals. 8137 of these observations are from the 1919 individuals that died from the 1915-1919 cohort. Adjacent cohorts are kept for the sake of a
-smoother loess fit to the data, which we describe in the following paragraphs.
-
+figures: (url goes here\ldots)} We restrict the sample to only those
+individuals born between 1900 and 1930 that died between 1992 and 2011, which narrows the dataset down to 37051 observations of 9238 individuals. 8137 of these observations are from the 1919 individuals that died from the 1915-1919 cohort. Adjacent cohorts are kept for the sake of a smoother loess fit to the data, which we describe in the following paragraphs.
+%\url{https://github.com/timriffe/ThanoEmpirical}
 \begin{figure}[!h]
 \centering
 \caption{Years lived and years left over the lifespan of a birth cohort}
@@ -398,6 +403,13 @@ process. In these ages, back problems provide no information about remaining
 years of life. Of the characteristics included in this
 study, only current smoking, arthritis, and self reports of current versus former memory exhibit such clear chronological patterns (both for males and
 females).
+\begin{figure}[!h]
+ \centering
+   \caption{Psychological problems (ever) by chronological age only. Males, 1915-1919 birth
+    cohort. With 95{\%} confidence bands from loess fit.}
+    \label{fig:chronofalse}
+   \includegraphics[scale=.7]{Figures/MalePsychChrono.pdf}
+\end{figure}
 
 \begin{figure}[!h]
     % This figure was produced in
@@ -424,14 +436,7 @@ females).
 	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Surf_Female_back.pdf}}
 	\end{subfigure}
 \end{figure}
-
-\begin{figure}[!h]
- \centering
-   \caption{Psychological problems (ever) by chronological age only. Males, 1915-1919 birth
-    cohort. With 95{\%} confidence bands from loess fit.}
-    \label{fig:chronofalse}
-   \includegraphics[scale=.7]{Figures/MalePsychChrono.pdf}
-\end{figure}
+\FloatBarrier
 
 Other informative patterns also exist among the set of characteristics studied.
 These include characteristics that vary by lifespan. Characteristics that vary
@@ -647,6 +652,7 @@ coefficients, but this may be a fruitful exercise for further work. It is our ho
 future investigation.
 
 %\FloatBarrier
+\singlespacing
 \bibliographystyle{plainnat}
   \bibliography{references} 
 %  
@@ -668,7 +674,8 @@ most common type in this data. Results are available on request as machine
 readable data, and the code used to generate these and all other results is
 available freely in a repository: 
 
-\url{https://github.com/timriffe/ThanoEmpirical}
+(insert url)
+%\url{https://github.com/timriffe/ThanoEmpirical}
 
 Results are grouped by several major morbidity categories. 
 
@@ -677,13 +684,13 @@ Results are grouped by several major morbidity categories.
 \pagebreak
 % ADL
 \begin{table}
+\small
 \begin{adjustwidth}{-5em}{-2em}% 
-
 \centering
 \caption{Activities of Daily Living (ADL)}
 \label{tab:ADL}
 \begin{tabular}{L{4em}
-L{2cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
+L{3cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
   \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
  \multicolumn{4}{c}{Females} \\
  \midrule
@@ -708,12 +715,12 @@ adl3 & ADL 3-point & 0.83 & 0.67 & 0.10 & 0.89 & 0.80 & 0.76 & 0.21 & 0.94 \\
   
 % IADL
 \begin{table}
+\small
 \begin{adjustwidth}{-5em}{}% 
-
 \centering
 \caption{Instrumental Activities of Daily Living (IADL)}
 \begin{tabular}{L{4em}
-L{2cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
+L{3cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
   \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
  \multicolumn{4}{c}{Females} \\ 
  \midrule
@@ -737,11 +744,12 @@ iadl3 & IADL 3-point & 0.89 & 0.60 & 0.00 & 0.87 & 0.77 & 0.80 & 0.27 & 0.96 \\
   % Behaviors:
   
 \begin{table}
+\small
 \begin{adjustwidth}{-5em}{}% 
 \centering
 \caption{Health behaviors}
 \begin{tabular}{L{4em}
-L{2cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
+L{3cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
   \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
  \multicolumn{4}{c}{Females} \\
    \midrule
@@ -760,11 +768,12 @@ L{2cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
   
   
 \begin{table}
+\small
 \begin{adjustwidth}{-5em}{}% 
 \centering
 \caption{Functional limitations}
 \begin{tabular}{L{4em}
-L{2cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
+L{3cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
   \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
  \multicolumn{4}{c}{Females} \\
    \midrule
@@ -782,11 +791,12 @@ bmi & BMI & 0.92 & 0.53 & 0.05 & 0.83 & 0.74 & 0.76 & 0.29 & 0.91 \\
   \end{table}
   
 \begin{table}
+\small
 \begin{adjustwidth}{-5em}{}% 
 \centering
 \caption{Chronic conditions}
 \begin{tabular}{L{4em}
-L{2cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
+L{3cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
   \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
  \multicolumn{4}{c}{Females} \\
    \midrule
@@ -808,11 +818,12 @@ bp & High blood pressure, ever & 0.75 & 0.84 & 0.36 & 0.98 & 0.87 & 0.63 & 0.09 
   
   % cognitive
 \begin{table}
+\small
 \begin{adjustwidth}{-5em}{}% 
 \centering
 \caption{Cognitive function}
 \begin{tabular}{L{4em}
-L{2cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
+L{3cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
   \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
  \multicolumn{4}{c}{Females} \\
    \midrule
@@ -841,11 +852,12 @@ srm & Self-rated memory & 0.20 & 0.53 & 0.40 & 0.49 & 0.51 & 0.89 & 0.56 & 0.90 
   \end{table}
   
 \begin{table}
+\small
 \begin{adjustwidth}{-5em}{-5em}% 
 \centering
 \caption{Psychological wellbeing}
 \begin{tabular}{L{1.5cm}
-L{2cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
+L{3cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
   \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
  \multicolumn{4}{c}{Females} \\
    \midrule
@@ -868,11 +880,12 @@ cesd & Depression score & 0.96 & 0.42 & 0.24 & 0.77 & 0.89 & 0.32 & 0.28 & 0.67 
   
   % healthcare
 \begin{table}
+\small
 \begin{adjustwidth}{-5em}{-5em}% 
 \centering
 \caption{Healthcare utilization}
 \begin{tabular}{L{4em}
-L{2cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
+L{3cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
   \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
  \multicolumn{4}{c}{Females} \\
     Short & Long & T & C & $C+T$  & $C-T$  & T & C & $C+T$ & $C-T$ \\
