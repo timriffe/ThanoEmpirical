@@ -1,6 +1,9 @@
 %%This is a very basic article template.
 %%There is just one section and two subsections.
-\documentclass[12pt,oneside,a4paper]{article}
+%\documentclass[12pt,oneside,a4paper,doublespacing]{article} % for submission
+\documentclass[11pt,oneside]{article} % for sharing
+
+
 \usepackage{appendix}
 \usepackage{amsmath}
 \usepackage{caption}
@@ -29,22 +32,21 @@
 \newcommand\Cell[1]{{\raisebox{-0.05in}{\includegraphics[height=.2in,width=.2in]{Figures/ColorCodes/\expandafter#1}}}}  
 
 \defcitealias{HMD}{HMD}
-\doublespacing
+
 
 \begin{document}
 
 \title{Time-to-death patterns in markers of age and dependency}
 
-%\author[1]{Tim Riffe\thanks{triffe@demog.berkeley.edu}}
-%\author[1]{Pil H. Chung}
-%\author[2,3]{Jeroen Spijker}
-%\author[4]{John MacInnes}
-%\affil[1]{Department of Demography, University of California, Berkeley}
-%\affil[2]{Department of Geography, Universitat Aut{\`o}noma de Barcelona}
-%\affil[3]{Vienna Institute of Demography}
-%\affil[4]{School of Social and Political Science, University of Edinburgh}
+\author[1]{Tim Riffe\thanks{triffe@demog.berkeley.edu}}
+\author[1]{Pil H. Chung}
+\author[2]{Jeroen Spijker}
+\author[3]{John MacInnes}
+\affil[1]{Department of Demography, University of California, Berkeley}
+\affil[2]{Department of Geography, Universitat Aut{\`o}noma de Barcelona}
+\affil[3]{School of Social and Political Science, University of Edinburgh}
 
-\author{[Authors]}
+%\author{[Authors]}
 
 
 \maketitle
@@ -73,9 +75,14 @@ extinction. Individuals do not know their thanatological age with certainty. To
 guess this quantity one projects an expectation of lifespan based on scenarios
 or extrapolations of how mortality rates might change over time. Data classified by chronological age, like census population counts, can be
 reclassified into thanatological age in this way.\footnote{A paper on this topic
-is currently under review (self-cite blocked). \citet{brouard1986structure,
-brouard1989mouvements} had already done the same thing some 30 years earlier, and we understand that S. Scherbov also unwittingly produced the same result over a decade ago.}
+is currently under review \citep{riffe2014paaposter}. \citet{brouard1986structure,
+brouard1989mouvements} had already done the same thing some 30 years earlier, and we understand that S. Scherbov also unwittingly produced the same result over a decade ago.} 
+%\footnote{A paper on this
+% topic is currently under review (self-cite blocked). \citet{brouard1986structure,
+%brouard1989mouvements} had already done the same thing some 30 years earlier,
+% and we understand that S. Scherbov also unwittingly produced the same result over a decade ago.}
 %\citep{riffe2014paaposter}
+
 Prospectively, decreasing mortality has the effect of moving population into higher thanatological ages, thereby increasing
 remaining life expectancy \citep{sanderson2005average}. In this case,
 the notion and measure of future remaining lifespan is elastic, subject to uncertainty.
@@ -162,9 +169,13 @@ conveniently merged across all ten waves. This data is free to download,
 and all details of data processing and methods are made freely available in an open code
 repository.\footnote{This
 repository includes R code used to process data, as well as generate results and
-figures: (url goes here\ldots)} We restrict the sample to only those
+figures: \url{https://github.com/timriffe/ThanoEmpirical}}
+%\footnote{This
+%repository includes R code used to process data, as well as generate results
+% and figures: (url goes here\ldots)}
+We restrict the sample to only those
 individuals born between 1900 and 1930 that died between 1992 and 2011, which narrows the dataset down to 37051 observations of 9238 individuals. 8137 of these observations are from the 1919 individuals that died from the 1915-1919 cohort. Adjacent cohorts are kept for the sake of a smoother loess fit to the data, which we describe in the following paragraphs.
-%\url{https://github.com/timriffe/ThanoEmpirical}
+%
 \begin{figure}[!h]
 \centering
 \caption{Years lived and years left over the lifespan of a birth cohort}
@@ -674,8 +685,8 @@ most common type in this data. Results are available on request as machine
 readable data, and the code used to generate these and all other results is
 available freely in a repository: 
 
-(insert url)
-%\url{https://github.com/timriffe/ThanoEmpirical}
+%(insert url)
+\url{https://github.com/timriffe/ThanoEmpirical}
 
 Results are grouped by several major morbidity categories. 
 
