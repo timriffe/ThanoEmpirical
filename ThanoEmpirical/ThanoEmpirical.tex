@@ -29,7 +29,14 @@
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 % working on this need to concatenate file name based on sex and variable name
-\newcommand\Cell[1]{{\raisebox{-0.05in}{\includegraphics[height=.2in,width=.2in]{Figures/ColorCodes/\expandafter#1}}}}  
+%\newcommand\Cell[1]{{\raisebox{-0.05in}{\includegraphics[height=.2in,width=.2in]{Figures/ColorCodes/\expandafter#1}}}}  
+
+\newcommand\ackn[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
 
 \defcitealias{HMD}{HMD}
 
@@ -61,7 +68,12 @@ results from the birth cohort born 1915-1919 in the final 12 years of life. Our 
 that most markers used to study well-being in old-age vary along both the age
 and time-to-death dimensions, but some markers are exclusively a function of
 either time to death or chronological age, and others display different patterns
-between the sexes.
+between the sexes.\ackn{Research reported in this manuscript
+was supported by the U.S.
+National Institute On Aging of the National Institutes of Health under award
+numbers R01-AG011552 and R01-AG040245 the Spanish Ministry of Economy and
+Competitiveness under award RYC-2013-14851. The content is solely the
+responsibility of the authors and does not necessarily represent the official views of the funding agencies.}
 \end{abstract}
 
 \section*{Background}
