@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 1">
+   sodipodi:docname="PAA2015PosterDraft.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.26"
-     inkscape:cx="6504.7892"
-     inkscape:cy="3857.1938"
+     inkscape:zoom="0.13"
+     inkscape:cx="3801.1126"
+     inkscape:cy="2122.2575"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -52,7 +52,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -72,7 +72,7 @@
            x="1092.3077"
            y="50.76923"
            style="line-height:68.00010346999999911%;font-size:72px" /></flowRegion><flowPara
-         id="flowPara3001"></flowPara></flowRoot>    <flowRoot
+         id="flowPara3001" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot3005"
        style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:72px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
@@ -83,7 +83,7 @@
            x="1992.3077"
            y="120"
            style="font-size:72px" /></flowRegion><flowPara
-         id="flowPara3011"></flowPara></flowRoot>    <flowRoot
+         id="flowPara3011" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot3015"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -203,5 +203,174 @@
          id="flowPara3127"
          style="font-size:60px">University of Edinburgh</flowPara><flowPara
          id="flowPara3129"
-         style="font-size:60px" /></flowRoot>  </g>
+         style="font-size:60px" /></flowRoot>    <rect
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect3032"
+       width="1360"
+       height="880"
+       x="400"
+       y="480"
+       transform="translate(0,-3267.65)" />
+    <rect
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect3034"
+       width="2160"
+       height="2000"
+       x="1938.4615"
+       y="-2575.3423" />
+    <rect
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect3036"
+       width="880"
+       height="480"
+       x="4465.0767"
+       y="-2330.7268" />
+    <rect
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect3036-7"
+       width="880"
+       height="480"
+       x="4463.0767"
+       y="-1731.6061" />
+    <rect
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect3036-5"
+       width="880"
+       height="480"
+       x="4463.0767"
+       y="-1132.4851" />
+    <rect
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect3036-4"
+       width="880"
+       height="480"
+       x="4463.0767"
+       y="-533.36426" />
+    <rect
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect3081"
+       width="800"
+       height="480"
+       x="2000"
+       y="2880"
+       transform="translate(0,-3267.65)" />
+    <rect
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:0.72925037px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect3036-6"
+       width="657.19385"
+       height="341.8092"
+       x="5532.1724"
+       y="-2319.302" />
+    <rect
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:0.72925037px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect3036-6-9"
+       width="657.19385"
+       height="341.8092"
+       x="5532.1724"
+       y="-1720.1808" />
+    <rect
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:0.72925037px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect3036-6-6"
+       width="657.19385"
+       height="341.8092"
+       x="5532.1724"
+       y="-1121.0601" />
+    <rect
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:0.72925037px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect3036-6-0"
+       width="657.19385"
+       height="341.8092"
+       x="5532.1724"
+       y="-521.93915" />
+    <rect
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect3149"
+       width="1200"
+       height="800"
+       x="7200"
+       y="3040"
+       transform="translate(0,-3267.65)" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7192.3076"
+       y="2820"
+       id="text3151"
+       sodipodi:linespacing="125%"
+       transform="translate(0,-3267.65)"><tspan
+         sodipodi:role="line"
+         id="tspan3153"
+         x="7192.3076"
+         y="2820"
+         style="font-size:72px;font-weight:bold;-inkscape-font-specification:Sans Bold">Conclusions: 100-200</tspan><tspan
+         sodipodi:role="line"
+         x="7192.3076"
+         y="2910"
+         style="font-size:72px;font-weight:bold;-inkscape-font-specification:Sans Bold"
+         id="tspan3179" /></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3155"
+       style="font-size:40px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       transform="translate(0,-3267.65)"><flowRegion
+         id="flowRegion3157"><rect
+           id="rect3159"
+           width="567.69232"
+           height="129.23077"
+           x="392.30768"
+           y="350.76923"
+           style="font-weight:bold;-inkscape-font-specification:Sans Bold" /></flowRegion><flowPara
+         id="flowPara3161"
+         style="font-size:64px;font-weight:bold;-inkscape-font-specification:Sans Bold">Abstract: 150</flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="1953.8462"
+       y="527.69232"
+       id="text3163"
+       sodipodi:linespacing="125%"
+       transform="translate(0,-3267.65)"><tspan
+         sodipodi:role="line"
+         id="tspan3165"
+         x="1953.8462"
+         y="527.69232"
+         style="font-size:72px;font-weight:bold;-inkscape-font-specification:Sans Bold">Diagram</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="4320"
+       y="-2467.6499"
+       id="text3167"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3169"
+         x="4320"
+         y="-2467.6499"
+         style="font-size:72px;font-weight:bold;-inkscape-font-specification:Sans Bold">Figures of types of variation</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5638.4614"
+       y="881.53845"
+       id="text3171"
+       sodipodi:linespacing="125%"
+       transform="translate(0,-3267.65)"><tspan
+         sodipodi:role="line"
+         id="tspan3173"
+         x="5638.4614"
+         y="881.53845"
+         style="font-size:72px;font-weight:bold;-inkscape-font-specification:Sans Bold">Descriptions: 100</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="2015.3846"
+       y="2804.6155"
+       id="text3175"
+       sodipodi:linespacing="125%"
+       transform="translate(0,-3267.65)"><tspan
+         sodipodi:role="line"
+         id="tspan3177"
+         x="2015.3846"
+         y="2804.6155"
+         style="font-size:72px;font-weight:bold;-inkscape-font-specification:Sans Bold">Caption: 100-200</tspan></text>
+  </g>
 </svg>
