@@ -70,6 +70,7 @@ dev.off()
 # figure for a mailmail
 source("R/SurfMap.R")
 
+# use LoessQuinquennial
 # chrono: surgery
 grabber <- paste0("psych","_",.7)
 Surf <- Results[[grabber]][["Male"]]$Surf[,,as.character(1915)]
