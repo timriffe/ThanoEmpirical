@@ -17,6 +17,19 @@
    sodipodi:docname="PAA2015PosterDraft.svg">
   <defs
      id="defs4">
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;">
+      <path
+         id="path11547"
+         style="fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath10874">
@@ -65,6 +78,22 @@
          d="M 0,0 104,0 104,48 0,48 0,0 z"
          id="path24147" />
     </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath10346">
+      <path
+         inkscape:connector-curvature="0"
+         d="m 72,86.4 216,0 0,201.6 -216,0 0,-201.6 z"
+         id="path10348" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath10458">
+      <path
+         inkscape:connector-curvature="0"
+         d="m 72,86.4 216,0 0,201.6 -216,0 0,-201.6 z"
+         id="path10460" />
+    </clipPath>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -73,9 +102,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.07375"
-     inkscape:cx="3467.9798"
-     inkscape:cy="1988.5788"
+     inkscape:zoom="0.10429825"
+     inkscape:cx="3543.1278"
+     inkscape:cy="1156.5736"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1096,7 +1125,7 @@
          y="-701.65002">Chronological age &amp; calendar year</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:80px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr"
        x="1932.6685"
        y="476.54254"
        id="text6997"
@@ -1106,7 +1135,7 @@
          id="tspan6999"
          x="1932.6685"
          y="476.54254"
-         style="font-weight:bold;-inkscape-font-specification:Sans Bold;font-size:70px">Age-lifespan diagram for the 1915 birth cohort</tspan></text>
+         style="font-weight:bold;-inkscape-font-specification:Sans Bold;font-size:80px;font-family:Sans;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%">Age-lifespan diagram for the 1915 birth cohort</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot7001"
@@ -1254,19 +1283,18 @@
        transform="translate(32.152344,-3267.65)"><flowRegion
          id="flowRegion7134"><rect
            id="rect7136"
-           width="1233.3333"
-           height="844.44452"
+           width="1012.8118"
+           height="997.85071"
            x="266.66666"
            y="586.66669" /></flowRegion><flowPara
-         id="flowPara7142">We aim to determine the extent to which variables commonly used to describe health, wellbeing, and disability in old-age vary primarily as a function of years lived (chronological age), years left (thanatological</flowPara><flowPara
-         id="flowPara7150">age), or as a function of both. We analyze data from the US Health and Retirement Study to estimate chronological age and time-to-death patterns in 78 such variables. We describe results from the birth cohort born 1915-1919 in the final 12 years of life. Our results show that most markers used to study well-being in old-age vary along both the chronological and thanatological age dimensions, but some markers are exclusively a function of one dimension only, and others display different patterns between the sexes.</flowPara><flowPara
+         id="flowPara7150">We aim to determine the extent to which variables commonly used to describe health, wellbeing, and disability in old-age vary primarily as a function of years lived (chronological age), years left (thanatological age), or as a function of both. We analyze data from the US Health and Retirement Study (HRS) to estimate chronological age and time-to-death patterns in 78 such variables. We describe results from the birth cohort born 1915-1919 in the final 12 years of life. Our results show that most markers used to study well-being in old-age vary along both the chronological and thanatological age dimensions, but some markers are exclusively a function of one dimension only, and others display different patterns between the sexes.</flowPara><flowPara
          id="flowPara7152" /><flowPara
          id="flowPara7154" /><flowPara
          id="flowPara7156" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot7168"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       transform="translate(754.74302,-3179.7933)"><flowRegion
+       transform="translate(837.65827,-3240.8781)"><flowRegion
          id="flowRegion7170"><rect
            id="rect7172"
            width="955.55554"
@@ -3860,18 +3888,6 @@
          id="path8650"
          inkscape:connector-curvature="0" />
     </g>
-    <text
-       id="text8652"
-       x="7559.6094"
-       y="-2969.2107"
-       style="font-size:15px">
-      <tspan
-         id="tspan8654"
-         sodipodi:role="line"
-         y="-2969.2107"
-         x="7559.6094 7621.4492 7678.3296 7716.6494 7773.6094 7828.5693 7868.0894"
-         style="font-size:80px;font-variant:normal;font-weight:bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:DejaVu Sans Bold;-inkscape-font-specification:DejaVuSans-Bold">Authors</tspan>
-    </text>
     <text
        id="text8656"
        x="7559.8535"
@@ -8020,18 +8036,18 @@
          style="font-size:16px"
          id="flowPara28777">To be born at thanatological age 80 implies eventually dying at chronological age 80, with a completed lifespan of 80.</flowPara></flowRoot>    <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="2830.614"
-       y="-410.42645"
+       style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="2913.5293"
+       y="-471.5112"
        id="text28779"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan28781"
-         x="2830.614"
-         y="-410.42645"><tspan
-           style="font-size:70px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
+         x="2913.5293"
+         y="-471.5112"><tspan
+           style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold"
            id="tspan28783"><tspan
-             style="font-size:70px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold"
+             style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold"
              id="tspan28785">Data </tspan></tspan></tspan></text>
     <path
        id="path3934-0-2"
@@ -8123,21 +8139,21 @@
          y="-2383.0969">about here in life</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="296.51367"
-       y="-78.121979"
+       style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="7556.0156"
+       y="-1251.5991"
        id="text28779-1"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan28781-5"
-         x="296.51367"
-         y="-78.121979"
-         style="font-size:70px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">Code</tspan></text>
+         x="7556.0156"
+         y="-1251.5991"
+         style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">Code</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot28972"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       transform="translate(83.179687,-3059.65)"><flowRegion
+       transform="translate(7343.1797,-4233.1272)"><flowRegion
          id="flowRegion28974"><rect
            id="rect28976"
            width="857.6272"
@@ -8151,7 +8167,7 @@
          id="flowPara28980" /><flowPara
          id="flowPara28982" /></flowRoot>    <g
        id="g9784"
-       transform="translate(-1023.7288,214.77966)">
+       transform="translate(6212.8813,-958.69748)">
       <rect
          id="rect29910"
          height="100"
@@ -11651,7 +11667,7 @@
     </g>
     <g
        id="g9235"
-       transform="translate(-28.813558,60.576271)">
+       transform="translate(-53.177734,60.576271)">
       <rect
          id="rect6334"
          height="2.5"
@@ -16060,7 +16076,7 @@
          style="font-size:30px;font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Italic">@timriffe1</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:80px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr"
        x="7554.9756"
        y="-2093.3083"
        id="text28779-6"
@@ -16069,13 +16085,13 @@
          id="tspan28781-4"
          x="7554.9756"
          y="-2093.3083"><tspan
-           style="font-size:70px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
+           style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold"
            id="tspan28783-1"><tspan
-             style="font-size:70px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold"
+             style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold"
              id="tspan28785-0">Support </tspan></tspan></tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:80px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr"
        x="7553.5742"
        y="-1676.8521"
        id="text28779-6-9"
@@ -16084,7 +16100,7 @@
          id="tspan28781-4-8"
          x="7553.5742"
          y="-1676.8521"
-         style="font-size:70px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">Further material</tspan></text>
+         style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">Further material</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot9227"
@@ -16099,7 +16115,7 @@
          id="flowPara9233"
          style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Time-to-death patterns in markers of age and dependency (draft under revision)</flowPara></flowRoot>    <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:80px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr"
        x="294.97559"
        y="-2741.7246"
        id="text28779-1-2"
@@ -16108,6 +16124,416 @@
          id="tspan28781-5-2"
          x="294.97559"
          y="-2741.7246"
-         style="font-size:70px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">Summary</tspan></text>
-  </g>
+         style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">Summary</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7559.6094"
+       y="-2957.9695"
+       id="text10244"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan10246"
+         x="7559.6094"
+         y="-2957.9695"
+         style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">Authors</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="292.65625"
+       y="-1544.0889"
+       id="text28779-1-2-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan28781-5-2-0"
+         x="292.65625"
+         y="-1544.0889"
+         style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">Motivation</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot10271"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(0,-3267.65)"><flowRegion
+         id="flowRegion10273"><rect
+           id="rect10275"
+           width="994.74359"
+           height="1066.6528"
+           x="297.22455"
+           y="1827.1489" /></flowRegion><flowPara
+         id="flowPara10291">Most demography is well grounded in chronological age, but exclusive reliance on chronological age patterns to understand how the ageing process works is imprecise. Some life transitions, states, and changes in state intensities are almost exclusively a function of time to death. There are some instances where chronological age captures almost all pertinent variation, but this appears to be more an exception than a rule. In cases where a characteristic strongly varies as a function of time to death, the common practice of aggregation over chronological age may misrepresent time trends and misguide analyses about change over time and expectations for the future. Measurement of the end-of-life trajectories of characteristics is useful in such cases as a way of separating mortality patterns from patterns in characteristics themselves.</flowPara><flowPara
+         id="flowPara10293" /><flowPara
+         id="flowPara10295" /></flowRoot>    <g
+       transform="matrix(2.5,0,0,-2.5,729.52657,818.5572)"
+       id="g10340" />
+    <g
+       transform="matrix(2.5,0,0,-2.5,1204.9011,501.07634)"
+       id="g10342">
+      <g
+         id="g10344"
+         clip-path="url(#clipPath10346)">
+        <path
+           inkscape:connector-curvature="0"
+           d="m 72,86.4 216,0 0,201.6 -216,0 0,-201.6 z"
+           style="fill:#e6e6e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path10350" />
+        <path
+           inkscape:connector-curvature="0"
+           d="m 72,126.72 216,0"
+           style="fill:none;stroke:#ffffff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+           id="path10352" />
+        <path
+           inkscape:connector-curvature="0"
+           d="m 72,167.04 216,0"
+           style="fill:none;stroke:#ffffff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+           id="path10354" />
+        <path
+           inkscape:connector-curvature="0"
+           d="m 72,207.36 216,0"
+           style="fill:none;stroke:#ffffff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+           id="path10356" />
+        <path
+           inkscape:connector-curvature="0"
+           d="m 72,247.68 216,0"
+           style="fill:none;stroke:#ffffff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+           id="path10358" />
+        <path
+           inkscape:connector-curvature="0"
+           d="m 100.17,86.4 0,201.6"
+           style="fill:none;stroke:#ffffff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+           id="path10360" />
+        <path
+           inkscape:connector-curvature="0"
+           d="m 147.13,86.4 0,201.6"
+           style="fill:none;stroke:#ffffff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+           id="path10362" />
+        <path
+           inkscape:connector-curvature="0"
+           d="m 194.09,86.4 0,201.6"
+           style="fill:none;stroke:#ffffff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+           id="path10364" />
+        <path
+           inkscape:connector-curvature="0"
+           d="m 241.04,86.4 0,201.6"
+           style="fill:none;stroke:#ffffff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+           id="path10366" />
+        <path
+           inkscape:connector-curvature="0"
+           d="m 72,121.94 9.39,5.78 9.39,5.65 9.39,5.15 9.4,4.26 9.39,2.82 9.39,1.8 9.39,1.75 9.39,2.7 9.39,4.08 9.39,4.96 9.39,5.41 9.4,5.44 9.39,5.06 9.39,4.83 9.39,5.05 9.39,5.26 9.39,5.48 9.39,5.68 9.39,5.88 9.4,6.09 9.39,6.29 9.39,6.49 9.39,6.68"
+           style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+           id="path10368" />
+      </g>
+    </g>
+    <g
+       transform="matrix(2.5,0,0,-2.5,1204.9011,501.07634)"
+       id="g10370">
+      <path
+         inkscape:connector-curvature="0"
+         d="M 100.17,86.4 288,86.4"
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+         id="path10372" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 100.17,86.4 0,-7.2"
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+         id="path10374" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 147.13,86.4 0,-7.2"
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+         id="path10376" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 194.09,86.4 0,-7.2"
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+         id="path10378" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 241.04,86.4 0,-7.2"
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+         id="path10380" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 288,86.4 0,-7.2"
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+         id="path10382" />
+      <text
+         transform="matrix(1,0,0,-1,93.5,60.48)"
+         id="text10384">
+        <tspan
+           style="font-size:12px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="0 6.6719999"
+           y="0"
+           sodipodi:role="line"
+           id="tspan10386">75</tspan>
+      </text>
+      <text
+         transform="matrix(1,0,0,-1,140.46,60.48)"
+         id="text10388">
+        <tspan
+           style="font-size:12px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="0 6.6719999"
+           y="0"
+           sodipodi:role="line"
+           id="tspan10390">80</tspan>
+      </text>
+      <text
+         transform="matrix(1,0,0,-1,187.41,60.48)"
+         id="text10392">
+        <tspan
+           style="font-size:12px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="0 6.6719999"
+           y="0"
+           sodipodi:role="line"
+           id="tspan10394">85</tspan>
+      </text>
+      <text
+         transform="matrix(1,0,0,-1,234.37,60.48)"
+         id="text10396">
+        <tspan
+           style="font-size:12px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="0 6.6719999"
+           y="0"
+           sodipodi:role="line"
+           id="tspan10398">90</tspan>
+      </text>
+      <text
+         transform="matrix(1,0,0,-1,281.33,60.48)"
+         id="text10400">
+        <tspan
+           style="font-size:12px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="0 6.6719999"
+           y="0"
+           sodipodi:role="line"
+           id="tspan10402">95</tspan>
+      </text>
+      <path
+         inkscape:connector-curvature="0"
+         d="M 72,86.4 72,288"
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+         id="path10404" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 72,86.4 -7.2,0"
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+         id="path10406" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 72,126.72 -7.2,0"
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+         id="path10408" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 72,167.04 -7.2,0"
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+         id="path10410" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 72,207.36 -7.2,0"
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+         id="path10412" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 72,247.68 -7.2,0"
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+         id="path10414" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 72,288 -7.2,0"
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+         id="path10416" />
+      <text
+         transform="scale(1,-1)"
+         id="text10418"
+         x="38.964001"
+         y="-82.244003">
+        <tspan
+           style="font-size:12px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="38.964001 45.636002 48.972 55.644001"
+           y="-82.244003"
+           sodipodi:role="line"
+           id="tspan10420">0.00</tspan>
+      </text>
+      <text
+         transform="scale(1,-1)"
+         id="text10422"
+         x="38.928001"
+         y="-122.6">
+        <tspan
+           style="font-size:12px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="38.928001 45.599998 48.936001 55.608002"
+           y="-122.6"
+           sodipodi:role="line"
+           id="tspan10424">0.05</tspan>
+      </text>
+      <text
+         transform="scale(1,-1)"
+         id="text10426"
+         x="38.964001"
+         y="-162.884">
+        <tspan
+           style="font-size:12px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="38.964001 45.636002 48.972 55.644001"
+           y="-162.884"
+           sodipodi:role="line"
+           id="tspan10428">0.10</tspan>
+      </text>
+      <text
+         transform="scale(1,-1)"
+         id="text10430"
+         x="38.928001"
+         y="-203.24001">
+        <tspan
+           style="font-size:12px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="38.928001 45.599998 48.936001 55.608002"
+           y="-203.24001"
+           sodipodi:role="line"
+           id="tspan10432">0.15</tspan>
+      </text>
+      <text
+         transform="scale(1,-1)"
+         id="text10434"
+         x="38.964001"
+         y="-243.524">
+        <tspan
+           style="font-size:12px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="38.964001 45.636002 48.972 55.644001"
+           y="-243.524"
+           sodipodi:role="line"
+           id="tspan10436">0.20</tspan>
+      </text>
+      <text
+         transform="scale(1,-1)"
+         id="text10438"
+         x="38.928001"
+         y="-283.88">
+        <tspan
+           style="font-size:12px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="38.928001 45.599998 48.936001 55.608002"
+           y="-283.88"
+           sodipodi:role="line"
+           id="tspan10440">0.25</tspan>
+      </text>
+      <path
+         inkscape:connector-curvature="0"
+         d="m 72,86.4 216,0 0,201.6 -216,0 0,-201.6"
+         style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
+         id="path10442" />
+    </g>
+    <g
+       transform="matrix(2.5,0,0,-2.5,1204.9011,501.07634)"
+       id="g10454">
+      <g
+         id="g10456"
+         clip-path="url(#clipPath10458)">
+        <path
+           inkscape:connector-curvature="0"
+           d="m 72,95.62 9.39,11.64 9.39,10.72 9.39,8.77 9.4,6.44 9.39,4.15 9.39,2.39 9.39,1.74 9.39,2.4 9.39,4.11 9.39,5.28 9.39,5.41 9.4,4.92 9.39,4.4 9.39,4.11 9.39,3.85 9.39,3.32 9.39,2.63 9.39,1.86 9.39,1.11 9.4,0.4 9.39,-0.25 9.39,-0.87 9.39,-1.45 0,103.65 -9.39,-14.81 -9.39,-13.84 -9.39,-12.83 -9.4,-11.78 -9.39,-10.66 -9.39,-9.5 -9.39,-8.32 -9.39,-7.19 -9.39,-6.26 -9.39,-5.56 -9.39,-5.71 -9.4,-5.97 -9.39,-5.41 -9.39,-4.63 -9.39,-4.05 -9.39,-3 -9.39,-1.77 -9.39,-1.19 -9.39,-1.51 -9.4,-2.07 -9.39,-1.53 -9.39,-0.59 -9.39,0.09 0,-52.64 z"
+           style="fill:#000000;fill-opacity:0.25100002;fill-rule:nonzero;stroke:none"
+           id="path10462" />
+      </g>
+    </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot10669"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion10671"><rect
+           id="rect10673"
+           width="1022.0339"
+           height="120.33894"
+           x="764.4068"
+           y="3084.4067" /></flowRegion><flowPara
+         id="flowPara10675"></flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot10677"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(-539.48828,-3306.0016)"><flowRegion
+         id="flowRegion10679"><rect
+           id="rect10681"
+           width="936.65668"
+           height="718.78491"
+           x="837.28815"
+           y="3070.8474" /></flowRegion><flowPara
+         id="flowPara10683">As an example of a <flowSpan
+   style="font-weight:bold;-inkscape-font-specification:Sans Bold"
+   id="flowSpan11966">misleading result</flowSpan>, look at the probability of ever having had psychological problems among males, 1915-1919 birth cohort.</flowPara><flowPara
+         id="flowPara10728">It might seem reasonable to conclude from this plot that the probability of ever having had psych. problems increases with age, which can (mis)lead to other kinds of conclusions about the consequences of population ageing. In this paper, we use full information on end-of-life trajectories to demonstrate a <flowSpan
+   style="font-weight:bold;-inkscape-font-specification:Sans Bold"
+   id="flowSpan11976">better way</flowSpan> to think about such patterns.</flowPara><flowPara
+         id="flowPara10730"> </flowPara><flowPara
+         id="flowPara10685" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="292.65625"
+       y="-298.48172"
+       id="text28779-1-2-3-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan28781-5-2-0-2"
+         x="292.65625"
+         y="-298.48172"
+         style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">Example</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot10708"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(-23.728814,-3243.9212)"><flowRegion
+         id="flowRegion10710"><rect
+           id="rect10712"
+           width="122.03377"
+           height="166.10168"
+           x="1966.1017"
+           y="3214.9153" /></flowRegion><flowPara
+         id="flowPara10714"
+         style="font-size:15px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">95% confidence bands from loess fit</flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="1498.3051"
+       y="398.11279"
+       id="text10716"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan10718"
+         x="1498.3051"
+         y="398.11279">chronological age</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-135.69505"
+       y="1281.6865"
+       id="text10720"
+       sodipodi:linespacing="125%"
+       transform="matrix(0,-1,1,0,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan10722"
+         x="-135.69505"
+         y="1281.6865">probability</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="1347.4576"
+       y="2948.8137"
+       id="text10724"
+       sodipodi:linespacing="125%"
+       transform="translate(0,-3267.65)"><tspan
+         sodipodi:role="line"
+         id="tspan10726"
+         x="1347.4576"
+         y="2948.8137">Psychological problems (ever)</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:6,6;marker-end:url(#Arrow2Lend);stroke-dashoffset:0"
+       d="m 798.18295,-55.65 426.66105,0"
+       id="path11520"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot11968"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion11970"><rect
+           id="rect11972"
+           width="81.497055"
+           height="40.748528"
+           x="687.93103"
+           y="3517.0144" /></flowRegion><flowPara
+         id="flowPara11974"></flowPara></flowRoot>  </g>
 </svg>
