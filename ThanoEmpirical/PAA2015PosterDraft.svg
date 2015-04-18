@@ -102,9 +102,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.295"
-     inkscape:cx="3762.8189"
-     inkscape:cy="459.91954"
+     inkscape:zoom="0.2085965"
+     inkscape:cx="5683.8687"
+     inkscape:cy="2465.8712"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -224,18 +224,18 @@
          style="font-size:144px;font-weight:bold;-inkscape-font-specification:Sans;font-family:Sans">Time to death patterns in markers of age and dependency</flowPara></flowRoot>    <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="7192.3081"
-       y="-138.66953"
+       x="7194.3081"
+       y="-146.66953"
        id="text3151"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3153"
-         x="7192.3081"
-         y="-138.66953"
+         x="7194.3081"
+         y="-146.66953"
          style="font-size:72px;font-weight:bold;-inkscape-font-specification:Sans Bold">Conclusions</tspan><tspan
          sodipodi:role="line"
-         x="7192.3081"
-         y="-48.669533"
+         x="7194.3081"
+         y="-56.669525"
          style="font-size:72px;font-weight:bold;-inkscape-font-specification:Sans Bold"
          id="tspan3179" /></text>
     <text
@@ -1265,7 +1265,7 @@
        xml:space="preserve"
        id="flowRoot7168"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       transform="translate(440.77344,-3086.8781)"><flowRegion
+       transform="translate(440.77344,-3126.8781)"><flowRegion
          id="flowRegion7170"><rect
            id="rect7172"
            width="1023.3521"
@@ -8009,13 +8009,13 @@
        xml:space="preserve"
        style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
        x="2516.6562"
-       y="-324.78281"
+       y="-364.78281"
        id="text28779"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan28781"
          x="2516.6562"
-         y="-324.78281"><tspan
+         y="-364.78281"><tspan
            style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold"
            id="tspan28783"><tspan
              style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold"
@@ -8112,19 +8112,19 @@
        xml:space="preserve"
        style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
        x="7556.0156"
-       y="-1251.5991"
+       y="-1047.5991"
        id="text28779-1"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan28781-5"
          x="7556.0156"
-         y="-1251.5991"
+         y="-1047.5991"
          style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">Code</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot28972"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       transform="translate(7343.1797,-4233.1272)"><flowRegion
+       transform="translate(7343.1797,-4029.1272)"><flowRegion
          id="flowRegion28974"><rect
            id="rect28976"
            width="857.6272"
@@ -8138,7 +8138,7 @@
          id="flowPara28980" /><flowPara
          id="flowPara28982" /></flowRoot>    <g
        id="g9784"
-       transform="translate(6212.8813,-958.69748)">
+       transform="translate(6212.8813,-682.69748)">
       <rect
          id="rect29910"
          height="100"
@@ -11638,7 +11638,7 @@
     </g>
     <g
        id="g9235"
-       transform="translate(-53.177734,60.576271)">
+       transform="translate(-53.177734,342.57627)">
       <rect
          id="rect6334"
          height="2.5"
@@ -16020,13 +16020,13 @@
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="7557.7295"
-       y="-1524.2262"
+       y="-1278.2262"
        id="text9093"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan9095"
          x="7557.7295"
-         y="-1524.2262"
+         y="-1278.2262"
          style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">http://www.demog.berkeley.edu/~triffe/ThanoEmpirical.pdf</tspan></text>
     <path
        style="fill:#2aa9e0"
@@ -16062,29 +16062,30 @@
              id="tspan28785-0">Support </tspan></tspan></tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:80px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr"
+       style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
        x="7553.5742"
-       y="-1676.8521"
+       y="-1472.8521"
        id="text28779-6-9"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan28781-4-8"
          x="7553.5742"
-         y="-1676.8521"
-         style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">Further material</tspan></text>
+         y="-1472.8521"
+         style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">Further material</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot9227"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       transform="translate(14.323242,-3174.8703)"><flowRegion
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       transform="translate(14.323242,-2970.8703)"><flowRegion
          id="flowRegion9229"><rect
            id="rect9231"
-           width="628.81354"
-           height="69.491524"
+           width="858.92279"
+           height="107.84313"
            x="7545.7627"
-           y="1530.1694" /></flowRegion><flowPara
+           y="1530.1694"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans" /></flowRegion><flowPara
          id="flowPara9233"
-         style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Time-to-death patterns in markers of age and dependency (draft under revision)</flowPara></flowRoot>    <text
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Time-to-death patterns in markers of age and dependency (draft under revision)</flowPara></flowRoot>    <text
        xml:space="preserve"
        style="font-size:80px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr"
        x="294.97559"
@@ -24026,7 +24027,9 @@
            height="457.4603"
            x="5503.4482"
            y="1568.276" /></flowRegion><flowPara
-         id="flowPara15122">Vertical contour lines indicate characteristics that vary by chronological age. Back pain is an example of a characteristic that varies vary almost exlusively as a function of chronological age, at least for this cohort in the section of lifespans captured here. Other characteristics like this include current smoking, arthritis, and self reports of current versus former memory.</flowPara></flowRoot>    <flowRoot
+         id="flowPara15122">Vertical contour lines indicate characteristics that vary by<flowSpan
+   style="font-weight:bold;-inkscape-font-specification:Sans Bold"
+   id="flowSpan7741"> chronological age</flowSpan>. Back pain is an example of a characteristic that varies vary almost exlusively as a function of chronological age, at least for this cohort in the section of lifespans captured here. Other characteristics like this include current smoking, arthritis, and self reports of current versus former memory.</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot15116-8"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -24037,18 +24040,22 @@
            height="457.4603"
            x="5503.4482"
            y="1568.276" /></flowRegion><flowPara
-         id="flowPara15122-5">A few characteristics vary neither by chronological nor by thanatological age, but rather by the sum of these two dimensions. Characteristcs that vary by lifespan can be thought to determine or correlate with ultimate lifespan. Other such characterics include lung disease (males), frequency of dental visits (both sexes), and diabetes (females).</flowPara></flowRoot>    <flowRoot
+         id="flowPara15122-5">A few characteristics vary neither by chronological nor by thanatological age, but rather by the sum of these two dimensions. Characteristcs that vary by <flowSpan
+   style="font-weight:bold;-inkscape-font-specification:Sans Bold"
+   id="flowSpan7743">lifespan</flowSpan> can be thought to determine or correlate with ultimate lifespan. Other such characterics include lung disease (males), frequency of dental visits (both sexes), and diabetes (females).</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot15116-8-3"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        transform="translate(-3.75,-1667.5588)"><flowRegion
          id="flowRegion15118-7-8"><rect
            id="rect15120-6-2"
-           width="915.64355"
-           height="534.16345"
+           width="949.20117"
+           height="582.10291"
            x="5503.4482"
            y="1568.276" /></flowRegion><flowPara
-         id="flowPara15122-5-9">Contour lines that run perpendicular to lifelines indicate that the intensity of a given characteristic increases both with the approach to death and with chronological age. Most of the 78 variables we explore fall either in this or the thanatological category (or somewhere in between). Males from this cohort display nearly 45° contour lines for the probability of ever having been diagnosed with high blood pressure.</flowPara></flowRoot>    <g
+         id="flowPara15122-5-9">Contour lines that run perpendicular to lifelines indicate that the intensity of a given characteristic increases <flowSpan
+   style="font-weight:bold;-inkscape-font-specification:Sans Bold"
+   id="flowSpan7745">both with the approach to death and with chronological age</flowSpan>. Most of the 78 variables we explore fall either in this or the thanatological category (or somewhere in between). Males from this cohort display nearly 45° contour lines for the probability of ever having been diagnosed with high blood pressure.</flowPara></flowRoot>    <g
        id="g18549"
        transform="translate(-72,-14)">
       <rect
@@ -27563,19 +27570,22 @@
        transform="translate(0,-3129.65)"><flowRegion
          id="flowRegion18991"><rect
            id="rect18993"
-           width="968.37689"
-           height="834.14624"
+           width="1124.1797"
+           height="865.30688"
            x="7238.856"
            y="3016.0471" /></flowRegion><flowPara
-         id="flowPara18997">All 78 of the indicators we tested are commonly used to describe population ageing, and</flowPara><flowPara
-         id="flowPara19003">very few of them are exclusively a function of chronological age. If this finding is sustained in other cohorts and populations, and if other indicators here untested also display similar temporal complexity, we submit that the common discourse and debate on the nature and impacts of ageing ought to be better informed by more judicious measurement and description in terms ofthanatological and chronological age.</flowPara><flowPara
+         id="flowPara19003">All 78 of the indicators we tested are commonly used to describe population ageing, and <flowSpan
+   style="font-size:40px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold"
+   id="flowSpan7727">very few</flowSpan> of them are exclusively a function of chronological age. If this finding is sustained in other cohorts and populations, and if other indicators here untested also display similar temporal complexity, we submit that the common discourse and debate on the nature and impacts of population ageing ought to be better informed by more judicious measurement and description in terms of thanatological and chronological age. We hope that this perspective helps researchers to frame how characteristics associated with ageing vary over age and time, and to qualify the likely <flowSpan
+   style="font-size:40px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold"
+   id="flowSpan7729">future impact</flowSpan> of population ageing. We also hope that the diagram explored here finds other uses.</flowPara><flowPara
          id="flowPara19005" /><flowPara
          id="flowPara19007" /><flowPara
          id="flowPara19009" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot19017"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       transform="translate(-418.6875,-3585.1801)"><flowRegion
+       transform="translate(-418.6875,-3623.1801)"><flowRegion
          id="flowRegion19019"><rect
            id="rect19021"
            width="1794.673"
@@ -27596,7 +27606,7 @@
        xml:space="preserve"
        id="flowRoot19058"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       transform="translate(-896.6308,-3402.8637)"><flowRegion
+       transform="translate(-896.6308,-3440.8637)"><flowRegion
          id="flowRegion19060"><rect
            id="rect19062"
            width="548.54901"
@@ -27617,7 +27627,7 @@
        xml:space="preserve"
        id="flowRoot19096"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       transform="translate(-284,-3095.65)"><flowRegion
+       transform="translate(-284,-3133.65)"><flowRegion
          id="flowRegion19098"><rect
            id="rect19100"
            width="572.88153"
@@ -27625,5 +27635,29 @@
            x="3738.9832"
            y="3414.9153" /></flowRegion><flowPara
          id="flowPara19102"
-         style="font-size:50px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">nr. items (+ indices)</flowPara></flowRoot>  </g>
+         style="font-size:50px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">nr. items (+ indices)</flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr"
+       x="4827.502"
+       y="3840.6057"
+       id="text7733"
+       sodipodi:linespacing="125%"
+       transform="translate(0,-3267.65)"><tspan
+         sodipodi:role="line"
+         id="tspan7735"
+         x="4827.502"
+         y="3840.6057">(A full summary of results can be found in the paper)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="4832.2959"
+       y="3840.6057"
+       id="text7737"
+       sodipodi:linespacing="125%"
+       transform="translate(0,-3267.65)"><tspan
+         sodipodi:role="line"
+         id="tspan7739"
+         x="4832.2959"
+         y="3840.6057" /></text>
+  </g>
 </svg>
