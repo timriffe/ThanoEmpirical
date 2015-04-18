@@ -102,9 +102,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.125"
+     inkscape:zoom="0.5"
      inkscape:cx="3598.416"
-     inkscape:cy="2122.1857"
+     inkscape:cy="1670.1857"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1105,7 +1105,7 @@
        sodipodi:cy="1930"
        sodipodi:rx="10"
        sodipodi:ry="10"
-       d="m 4080,1930 a 10,10 0 1 1 -20,0 10,10 0 1 1 20,0 z"
+       d="m 4080,1930 c 0,5.5228 -4.4772,10 -10,10 -5.5228,0 -10,-4.4772 -10,-10 0,-5.5228 4.4772,-10 10,-10 5.5228,0 10,4.4772 10,10 z"
        transform="translate(-970,-2769.65)" />
     <text
        xml:space="preserve"
@@ -8062,7 +8062,7 @@
     <path
        id="path3934-0-2"
        style="fill:#00ff00;stroke:#37fb4f;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:0.5625;stroke-dasharray:6, 2;stroke-dashoffset:0"
-       d="m 3409.826,-297.65 0,-539.53589"
+       d="m 3409.826,-397.65 0,-439.53589"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <flowRoot
@@ -27707,7 +27707,7 @@
        sodipodi:linespacing="125%"
        transform="translate(0,-3267.65)"><tspan
          sodipodi:role="line"
-         id="tspan7737"></tspan></text>
+         id="tspan7737" /></text>
     <g
        id="g8604"
        transform="translate(196,-74)">
@@ -31213,7 +31213,7 @@
            height="243.24474"
            x="3869.2883"
            y="1435.0044" /></flowRegion><flowPara
-         id="flowPara9084"></flowPara></flowRoot>    <flowRoot
+         id="flowPara9084" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot9146"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -31235,7 +31235,7 @@
            height="134"
            x="4402"
            y="872" /></flowRegion><flowPara
-         id="flowPara9180"></flowPara></flowRoot>    <g
+         id="flowPara9180" /></flowRoot>    <g
        id="g10066"
        transform="translate(363.46805,-270.74059)">
       <path
@@ -31349,7 +31349,7 @@
            height="226.27417"
            x="4022.0234"
            y="3697.7461" /></flowRegion><flowPara
-         id="flowPara10092"></flowPara></flowRoot>    <flowRoot
+         id="flowPara10092" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot10094"
        style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
