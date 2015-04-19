@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="PAA2015PosterDraft.svg">
+   sodipodi:docname="PAA2015PosterDraft.pdf">
   <defs
      id="defs4">
     <marker
@@ -102,9 +102,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.56110232"
-     inkscape:cx="2569.8509"
-     inkscape:cy="2158.3317"
+     inkscape:zoom="0.07013779"
+     inkscape:cx="7600.5045"
+     inkscape:cy="1285.5347"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -130,7 +130,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1137,7 +1137,7 @@
            x="2635.2358"
            y="585.93884"
            style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans" /></flowRegion><flowPara
-         id="flowPara7007">An age-lifespan diagram separates the members of a birth cohort by their eventual completed lifespans. Births are spread out on the left axis according to the cohort's eventual lifetable death distribution, which is unknown at birth. Lifelines descend downward and to the right until death on the bottom axis. This diagram allows us to separate years lived and years left over the lifecourse for individuals of varying lifespan. Panel studies such as HRS, with detailed interview dates, birth dates, and follow-up death dates, permit use of this perspective. For the 1915-1919 birth cohort, we can fill in patterns in the little green area marked below.</flowPara></flowRoot>    <text
+         id="flowPara7007">An age-lifespan diagram separates the members of a birth cohort by their eventual completed lifespans. Births are spread out on the left axis according to the cohort's eventual lifetable death distribution, which is unknown at birth. Lifelines descend downward and to the right until death on the bottom axis. This diagram allows us to separate years lived and years left over the lifecourse for individuals of varying lifespan. Panel studies such as HRS with detailed interview dates, birth dates, and follow-up death dates, permit use of this perspective. For the 1915-1919 birth cohort, we can infer patterns in the little green area marked below.</flowPara></flowRoot>    <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="666.20013"
@@ -1278,7 +1278,7 @@
            x="266.66666"
            y="586.66669"
            style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans" /></flowRegion><flowPara
-         id="flowPara7150">We aim to determine the extent to which variables commonly used to describe health, wellbeing, and disability in old-age vary primarily as a function of years lived (chronological age), years left (thanatological age), or as a function of both. We analyze data from the US Health and Retirement Study (HRS) to estimate chronological age and time-to-death patterns in 78 such variables. We describe results from the birth cohort born 1915-1919 in the final 12 years of life. Our results show that most markers used to study well-being in old-age vary along both the chronological and thanatological age dimensions, but some markers are exclusively a function of one dimension only, and others display different patterns between the sexes.</flowPara><flowPara
+         id="flowPara7150">We aim to determine the extent to which variables commonly used to describe health, wellbeing, and disability in old-age vary primarily as a function of years lived (chronological age), years left (thanatological age), or as a function of both. We analyze data from the US Health and Retirement Study (HRS) to estimate chronological age and time-to-death patterns in 78 such variables. We describe results from the birth cohort born 1915-1919 in the final 12 years of life. Our results show that most markers used to study well-being in old-age vary along both the chronological and thanatological age dimensions, but some markers are exclusively a function of one dimension only.</flowPara><flowPara
          id="flowPara7152" /><flowPara
          id="flowPara7154" /><flowPara
          id="flowPara7156" /></flowRoot>    <flowRoot
@@ -1293,7 +1293,7 @@
            x="2083.3333"
            y="2808.8889"
            style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans" /></flowRegion><flowPara
-         id="flowPara7174">IThe HRS covers 20 years of observations (1992-2011). The 1915-1919 cohort entered observation in ages 72-76, and had reached a maximum of age 95 by 2011. In the area marked in green, we have 8137 observations of 1919 individuals from this cohort that have died since the first interview. The green area contains enough information to allow measurement within the final 12 years of life. Patterns are loess-smoothed, also borrowing information from adjacent birth cohorts.  </flowPara></flowRoot>    <g
+         id="flowPara7174">IThe HRS covers 20 years of observations (1992-2011). The 1915-1919 cohort entered observation at ages 72-76, and had reached a maximum age of 95 by 2011. In the area marked in green, we have 8137 observations of 1919 individuals from this cohort that have died since the first interview. The green area contains enough information to allow measurement within the final 12 years of life. Patterns are loess-smoothed, borrowing information from adjacent birth cohorts.  </flowPara></flowRoot>    <g
        transform="matrix(2,0,0,-2,8035.763,-1980.1609)"
        id="g24131" />
     <flowRoot
@@ -16132,9 +16132,9 @@
            x="297.22455"
            y="1827.1489"
            style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans" /></flowRegion><flowPara
-         id="flowPara10291">Most demography is well grounded in chronological age, but exclusive reliance on chronological age patterns to understand how the ageing process works is imprecise. Some life transitions, states, and changes in state intensities are almost exclusively a function of time to death. There are some instances where chronological age captures almost all pertinent variation, but this appears to be more an exception than a rule. In cases where a characteristic strongly varies as a function of time to death, the common practice of aggregation over chronological age may misrepresent time trends and misguide analyses about change over time and expectations for the future. Measurement of the <flowSpan
+         id="flowPara10291">Most demography is well grounded in chronological age, but exclusive reliance on chronological age patterns to understand how the ageing process works is imprecise. Some life transitions, states, and changes in state intensities are almost exclusively a function of time to death. There are some instances where chronological age captures almost all pertinent variation, but this appears to be more an exception than a rule. In cases where a characteristic strongly varies as a function of time to death, the common practice of aggregation over chronological age may misguide analyses about change over time and expectations for the future. Measurement of the <flowSpan
    style="font-weight:bold;-inkscape-font-specification:Sans Bold"
-   id="flowSpan9158">end-of-life trajectories</flowSpan> of characteristics is useful in such cases as a way of separating mortality patterns from patterns in characteristics themselves.</flowPara><flowPara
+   id="flowSpan9158">end-of-life trajectories</flowSpan> of characteristics is useful in such cases as a way of separating mortality patterns from patterns in the characteristics themselves.</flowPara><flowPara
          id="flowPara10293" /><flowPara
          id="flowPara10295" /></flowRoot>    <g
        transform="matrix(2.5,0,0,-2.5,729.52657,818.5572)"
@@ -16163,10 +16163,10 @@
            style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans" /></flowRegion><flowPara
          id="flowPara10683">As an example of a <flowSpan
    style="font-size:35px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold"
-   id="flowSpan11966">misleading result</flowSpan>, look at the probability of ever having had psychological problems among males, 1915-1919 birth cohort.</flowPara><flowPara
-         id="flowPara10728">It might seem reasonable to conclude from this plot that the probability of ever having had psych. problems increases with age, which can (mis)lead to other kinds of conclusions about the consequences of population ageing. In this paper, we use full information on end-of-life trajectories to demonstrate a <flowSpan
+   id="flowSpan11966">misleading result</flowSpan>, consider the probability of ever having had psychological problems among males, 1915-1919 birth cohort.</flowPara><flowPara
+         id="flowPara10728">It might seem reasonable to conclude from this plot that the probability of ever having had psychological problems increases with age, which can (mis)lead to other kinds of conclusions about the consequences of population ageing. In this paper, we use full information on end-of-life trajectories to demonstrate a <flowSpan
    style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
-   id="flowSpan11976">better way</flowSpan> to think about such patterns. We return to this specific case in the surface plots to the right, but first examine the large diagram.</flowPara><flowPara
+   id="flowSpan11976">better way</flowSpan> to think about such patterns. We return to this specific case in the surface plots to the right.</flowPara><flowPara
          id="flowPara10730" /><flowPara
          id="flowPara10685" /></flowRoot>    <text
        xml:space="preserve"
@@ -24032,7 +24032,7 @@
            style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans" /></flowRegion><flowPara
          id="flowPara15122">Vertical contour lines indicate characteristics that vary by<flowSpan
    style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
-   id="flowSpan7741"> chronological age</flowSpan>. Back pain is an example of a characteristic that varies vary almost exlusively as a function of <flowSpan
+   id="flowSpan7741"> chronological age</flowSpan>. Back pain is an example of a characteristic that varies almost exlusively as a function of <flowSpan
    style="font-weight:bold;-inkscape-font-specification:Sans Bold"
    id="flowSpan9162">chronological age</flowSpan>, at least for this cohort in the section of lifespans captured here. Other characteristics like this include current smoking, arthritis, and self reports of current versus former memory.</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
@@ -24046,7 +24046,7 @@
            x="5503.4482"
            y="1568.276"
            style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans" /></flowRegion><flowPara
-         id="flowPara15122-5">A few characteristics vary neither by chronological nor by thanatological age, but rather by the sum of these two dimensions. Characteristcs that vary by <flowSpan
+         id="flowPara15122-5">A few characteristics vary neither by chronological nor by thanatological age, but rather by the sum of these two dimensions. Characteristics that vary by <flowSpan
    style="font-size:35px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold"
    id="flowSpan7743">lifespan</flowSpan> can be thought to determine or correlate with ultimate lifespan. Other such characterics include lung disease (males), frequency of dental visits (both sexes), and diabetes (females).</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
@@ -34864,7 +34864,7 @@
          id="flowPara9233-6"
          style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Some formal demography relevant to the remaining-years perspective:</flowPara><flowPara
          style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
-         id="flowPara18955"> </flowPara><flowPara
+         id="flowPara18955" /><flowPara
          style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
          id="flowPara18949">T. Riffe &amp; A. Sole Auró &quot;Life lost, lifesaving, and causes of death&quot; Session 234 on Saturday.</flowPara><flowPara
          style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
@@ -34880,7 +34880,7 @@
          sodipodi:role="line"
          id="tspan18953"
          x="7977.0762"
-         y="-1104.8202"> </tspan></text>
+         y="-1104.8202" /></text>
     <g
        id="g22019"
        transform="matrix(0.5,0,0,0.5,3662.4517,-519.4726)">
