@@ -102,9 +102,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.07013779"
-     inkscape:cx="7622.222"
-     inkscape:cy="656.31603"
+     inkscape:zoom="0.39675925"
+     inkscape:cx="3347.5895"
+     inkscape:cy="1099.91"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1293,7 +1293,7 @@
            x="2083.3333"
            y="2808.8889"
            style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans" /></flowRegion><flowPara
-         id="flowPara7174">IThe HRS covers 20 years of observations (1992-2011). The 1915-1919 cohort entered observation at ages 72-76, and had reached a maximum age of 95 by 2011. In the area marked in green, we have 8137 observations of 1919 individuals from this cohort that have died since the first interview. The green area contains enough information to allow measurement within the final 12 years of life. Patterns are loess-smoothed, borrowing information from adjacent birth cohorts.  </flowPara></flowRoot>    <g
+         id="flowPara7174">The HRS covers 20 years of observations (1992-2011). The 1915-1919 cohort entered observation at ages 72-76, and had reached a maximum age of 95 by 2011. In the area marked in green, we have 8137 observations of 1919 individuals from this cohort that have died since the first interview. The green area contains enough information to allow measurement within the final 12 years of life. Patterns are loess-smoothed, borrowing information from adjacent birth cohorts.  </flowPara></flowRoot>    <g
        transform="matrix(2,0,0,-2,8035.763,-1980.1609)"
        id="g24131" />
     <flowRoot
@@ -27644,7 +27644,7 @@
            x="4539.8652"
            y="3730.345"
            style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans" /></flowRegion><flowPara
-         id="flowPara19092">6 (+ 2)</flowPara><flowPara
+         id="flowPara19092">6 (+2)</flowPara><flowPara
          id="flowPara19066">7 (+2)</flowPara><flowPara
          id="flowPara19074">5</flowPara><flowPara
          id="flowPara19076">6</flowPara><flowPara
@@ -27665,7 +27665,7 @@
            y="3414.9153"
            style="font-size:50px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold" /></flowRegion><flowPara
          id="flowPara19102"
-         style="font-size:50px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">nr. items (+ indices</flowPara></flowRoot>    <text
+         style="font-size:50px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">nr. items (+ indices)</flowPara></flowRoot>    <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="4832.2959"
