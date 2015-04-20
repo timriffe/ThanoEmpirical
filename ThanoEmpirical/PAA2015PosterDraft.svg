@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="PAA2015PosterDraft.pdf">
+   sodipodi:docname="PAA2015PosterDraft.svg">
   <defs
      id="defs4">
     <marker
@@ -103,8 +103,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.07013779"
-     inkscape:cx="7600.5045"
-     inkscape:cy="1285.5347"
+     inkscape:cx="7622.222"
+     inkscape:cy="656.31603"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -130,7 +130,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1423,7 +1423,7 @@
          y="-2547.0969">about here in life</tspan></text>
     <g
        id="g24820"
-       transform="translate(4,28)">
+       transform="translate(4,112)">
       <text
          sodipodi:linespacing="125%"
          id="text28779-1"
@@ -1456,7 +1456,7 @@
            id="flowPara28982" /></flowRoot>    </g>
     <g
        id="g9784"
-       transform="translate(6048.8813,-404.69748)">
+       transform="translate(6048.8813,-320.69748)">
       <rect
          id="rect29910"
          height="100"
@@ -4956,7 +4956,7 @@
     </g>
     <g
        id="g9235"
-       transform="translate(-217.17773,302.57627)">
+       transform="translate(-217.17773,386.57627)">
       <rect
          id="rect6334"
          height="2.5"
@@ -9346,8 +9346,8 @@
              style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
              y="847.77777"
              x="7227.7778"
-             height="320.36371"
-             width="819.34259"
+             height="466.50461"
+             width="835.38263"
              id="rect7180" /></flowRegion><flowPara
            id="flowPara7190">Research reported here was supported by the U.S. National Institute On Aging of the National Institutes of Health under award numbers R01-AG011552 and R01-AG040245 and by the Spanish Ministry of Economy and Competitiveness under award RYC-2013-14851. The content is solely the responsibility of the authors and does not necessarily represent the official views of the funding agencies.</flowPara><flowPara
            id="flowPara7192" /></flowRoot>      <text
@@ -16134,7 +16134,7 @@
            style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans" /></flowRegion><flowPara
          id="flowPara10291">Most demography is well grounded in chronological age, but exclusive reliance on chronological age patterns to understand how the ageing process works is imprecise. Some life transitions, states, and changes in state intensities are almost exclusively a function of time to death. There are some instances where chronological age captures almost all pertinent variation, but this appears to be more an exception than a rule. In cases where a characteristic strongly varies as a function of time to death, the common practice of aggregation over chronological age may misguide analyses about change over time and expectations for the future. Measurement of the <flowSpan
    style="font-weight:bold;-inkscape-font-specification:Sans Bold"
-   id="flowSpan9158">end-of-life trajectories</flowSpan> of characteristics is useful in such cases as a way of separating mortality patterns from patterns in the characteristics themselves.</flowPara><flowPara
+   id="flowSpan9158">end-of-life trajectories</flowSpan> of characteristics is useful in such cases as a way of separating mortality patterns from patterns in the characteristics themselves. Better measurement leads to better assessment of the potential impacts of population ageing. We tend to think that the patterns found in this work ought to attentuate the expected impacts on population ageing.</flowPara><flowPara
          id="flowPara10293" /><flowPara
          id="flowPara10295" /></flowRoot>    <g
        transform="matrix(2.5,0,0,-2.5,729.52657,818.5572)"
@@ -27571,7 +27571,8 @@
          style="fill:#000000" />
     </g>
     <g
-       id="g24832">
+       id="g24832"
+       transform="translate(0,84)">
       <text
          sodipodi:linespacing="125%"
          id="text3151"
@@ -27598,14 +27599,14 @@
              style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
              y="3016.0471"
              x="7238.856"
-             height="865.30688"
-             width="974.47388"
+             height="945.96033"
+             width="974.47412"
              id="rect18993" /></flowRegion><flowPara
            id="flowPara19003">All 78 of the indicators we tested are commonly used to describe population ageing, and <flowSpan
    id="flowSpan7727"
-   style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">very few</flowSpan> of them are exclusively a function of chronological age. If this finding is sustained in other cohorts and populations, and if other indicators here untested also display similar temporal complexity, we submit that the common discourse and debate on the nature and impacts of population ageing ought to be better informed by more judicious measurement and description in terms of thanatological and chronological age. We hope that this perspective helps researchers to frame how characteristics associated with ageing vary over age and time, and to qualify the likely <flowSpan
+   style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">very few</flowSpan> of them are exclusively a function of chronological age. If this finding is sustained in other cohorts and populations, and if other indicators here untested also display similar temporal complexity, we think that the debate on the nature and impacts of population ageing ought to be better informed by more judicious measurement and description in terms of thanatological and chronological age. We hope that this perspective helps researchers to frame how characteristics associated with ageing vary over age and time, and to qualify the likely <flowSpan
    id="flowSpan7729"
-   style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">future impact</flowSpan> of population ageing. We also hope that the diagram explored here finds other uses.</flowPara><flowPara
+   style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">future impact</flowSpan> of population ageing. These patterns suggest that more and better mortality follow ups to longitudinal surveys would add substantial value to the measurement of ageing indicators. We also hope that the diagram explored here finds other uses.</flowPara><flowPara
            id="flowPara19005" /><flowPara
            id="flowPara19007" /><flowPara
            id="flowPara19009" /></flowRoot>    </g>
@@ -31410,7 +31411,7 @@
     </g>
     <g
        id="g18495"
-       transform="translate(1107.3372,21.230729)">
+       transform="translate(1107.3372,105.23073)">
       <rect
          id="rect16349"
          height="100"
@@ -34816,31 +34817,31 @@
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="7398.1836"
-       y="-1318.2262"
+       y="-1234.2262"
        id="text9093"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan9095"
          x="7398.1836"
-         y="-1318.2262"
+         y="-1234.2262"
          style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">http://www.demog.berkeley.edu/~triffe/ThanoEmpirical.pdf</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
        x="7394.0283"
-       y="-1518.8521"
+       y="-1434.8521"
        id="text28779-6-9"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan28781-4-8"
          x="7394.0283"
-         y="-1518.8521"
+         y="-1434.8521"
          style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold">Further material</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot9227"
        style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       transform="translate(-145.22266,-3010.8703)"><flowRegion
+       transform="translate(-145.22266,-2926.8703)"><flowRegion
          id="flowRegion9229"><rect
            id="rect9231"
            width="858.92279"
@@ -34853,7 +34854,7 @@
        xml:space="preserve"
        id="flowRoot9227-3"
        style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       transform="translate(-145.22144,-2790.9117)"><flowRegion
+       transform="translate(-145.22144,-2706.9117)"><flowRegion
          id="flowRegion9229-2"><rect
            id="rect9231-5"
            width="877.1142"
@@ -34883,7 +34884,7 @@
          y="-1104.8202" /></text>
     <g
        id="g22019"
-       transform="matrix(0.5,0,0,0.5,3662.4517,-519.4726)">
+       transform="matrix(0.5,0,0,0.5,3662.4517,-435.4726)">
       <rect
          id="rect19863"
          height="200"
@@ -38305,13 +38306,13 @@
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="7164.5474"
-       y="-1443.9631"
+       y="-1359.9631"
        id="text22448"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan22456"
          x="7164.5474"
-         y="-1443.9631"><tspan
+         y="-1359.9631"><tspan
            id="tspan22462"
            style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">(paper links download pdfs)</tspan></tspan></text>
   </g>
