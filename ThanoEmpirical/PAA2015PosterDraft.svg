@@ -102,9 +102,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.19837963"
-     inkscape:cx="6212.493"
-     inkscape:cy="587.30656"
+     inkscape:zoom="0.79351852"
+     inkscape:cx="933.47635"
+     inkscape:cy="3133.3847"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1266,7 +1266,7 @@
            x="266.66666"
            y="586.66669"
            style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans" /></flowRegion><flowPara
-         id="flowPara7150">We aim to determine the extent to which variables commonly used to describe health, wellbeing, and disability in old-age vary primarily as a function of years lived (chronological age), years left (thanatological age), or as a function of both. We analyze data from the US Health and Retirement Study (HRS) to estimate chronological age and time-to-death patterns in 78 such variables. We describe results from the birth cohort born 1915-1919 in the final 12 years of life. Our results show that most markers used to study well-being in old-age vary along both the chronological and thanatological age dimensions, but some markers are exclusively a function of one dimension only.</flowPara><flowPara
+         id="flowPara7150">We aim to determine the extent to which variables commonly used to describe health, wellbeing, and disability in old-age vary primarily by years lived (chronological age), years left (thanatological age), or both. We analyze data from the US Health and Retirement Study (HRS) to estimate chronological age and time-to-death patterns in 78 such variables. We describe results from the birth cohort born 1915-1919 in the final 12 years of life. Our results show that most markers used to study well-being in old-age vary along both the chronological and thanatological age dimensions, but some markers are exclusively a function of one dimension only.</flowPara><flowPara
          id="flowPara7152" /><flowPara
          id="flowPara7154" /><flowPara
          id="flowPara7156" /></flowRoot>    <flowRoot
@@ -38413,5 +38413,25 @@
            id="tspan9186-8-9-0-6"
            sodipodi:role="line">A</tspan></text>
     </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot9119"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(-580.95683,-3270.1704)"><flowRegion
+         id="flowRegion9121"><rect
+           id="rect9123"
+           width="216.75615"
+           height="229.35812"
+           x="1338.343"
+           y="1184.5974" /></flowRegion><flowPara
+         id="flowPara9125"
+         style="font-size:14px">We use the word <flowSpan
+   style="font-style:italic;-inkscape-font-specification:Sans Italic"
+   id="flowSpan9127">function</flowSpan> here (and throughout) in a mathy or descriptive way, not to imply causation. </flowPara></flowRoot>    <path
+       style="fill:#00ff00;stroke:#00ff00;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:3, 3;stroke-dashoffset:0"
+       d="m 846.86114,1101.4236 0,66.7911"
+       id="path9132"
+       inkscape:connector-curvature="0"
+       transform="translate(0,-3267.65)" />
   </g>
 </svg>
