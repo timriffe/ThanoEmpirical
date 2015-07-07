@@ -1,12 +1,8 @@
 
-# Try splitting the data into two birth cohorts and again into two periods 
-# and see if there are any essential differences that would hint at/against
-# compression
-library(LexisUtils)
-source("R/SurfMap.R")
+
 library(parallel)
 # for Tim, this will choke
-if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm", "tim-ThinkPad-L440")){
+if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm","tim-ThinkPad-L440")){
 	# if I'm on the laptop
 	setwd("/home/tim/git/ThanoEmpirical/ThanoEmpirical")
 	Cores <- 1 # laptop overheats...
@@ -14,12 +10,24 @@ if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm", "tim-ThinkPad-L440")){
 		Cores <- 4
 	}
 } else {
-	# in that case I'm on Berkeley system, and other people in the dept can run this too
-	setwd(paste0("/data/commons/",system("whoami",intern=TRUE),"/git/ThanoEmpirical/ThanoEmpirical"))
-	Cores <- detectCores()
+	if (system("hostname",intern=TRUE) == "PC-403478"){
+		# on MPIDR PC
+		setwd("U://git//ThanoEmpirical//ThanoEmpirical")
+		Cores <- detectCores()
+	} else {
+		# in that case I'm on Berkeley system, and other people in the dept can run this too
+		setwd(paste0("/data/commons/",system("whoami",intern=TRUE),"/git/ThanoEmpirical/ThanoEmpirical"))
+		Cores <- detectCores()
+	}
 }
-cat("Working directory:\n",getwd())
-#devtools::install_github("timriffe/LexisUtils", subdir = "LexisUtils")
+getwd()
+if (! "LexisUtils" %in% rownames(installed.packages())){
+	devtools::install_github("timriffe/LexisUtils/LexisUtils")
+}
+
+library(LexisUtils)
+source("R/SurfMap.R")
+library(parallel)
 
 
 
@@ -272,6 +280,9 @@ allcomboswide <- as.data.frame(t(allcombos),stringsAsFactors = FALSE)
 
 do.this <- FALSE
 if(do.this){
+	
+	# catch so that Windows doesn't try...
+	if (!Sys.info()[['sysname']] == 'Windows'){
 Results <- mclapply(allcomboswide, function(x,Dat,.Coh5.){
     cat(x[1],"Female\n")
     Female <- try(FitLoess(varname = x[1], 
@@ -292,6 +303,32 @@ Results <- mclapply(allcomboswide, function(x,Dat,.Coh5.){
     list(Male = Male, Female = Female)
   }, Dat = Dat, .Coh5. = Coh5, mc.cores = detectCores())
 
+
+} else {
+	# to make mclapply() work on Windows (a hack is required, will warn)
+	source("http://www.stat.cmu.edu/~nmv/setup/mclapply.hack.R")
+	Results <- mclapply(allcomboswide, function(x,Dat,.Coh5.){
+				cat(x[1],"Female\n")
+				Female <- try(FitLoess(varname = x[1], 
+								Dat = Dat, 
+								sex = "f",
+								t.age = 0:12,    # some 5-year cohorts simply don't have 15 years, cut it lower
+								c.age = 70:100,  # standard matrix size, though we may NA certain unobserved cells
+								span =  as.numeric(x[2]), # will vary
+								.Coh5 = Coh5))
+				cat(x[1],"Male\n")
+				Male <- try(FitLoess(varname = x[1], 
+								Dat = Dat, 
+								sex = "m",
+								t.age = 0:12,    # some 5-year cohorts simply don't have 15 years, cut it lower
+								c.age = 70:100,  # standard matrix size, though we may NA certain unobserved cells
+								span =  as.numeric(x[2]), # will vary
+								.Coh5 = .Coh5.))
+				list(Male = Male, Female = Female)
+			}, Dat = Dat, .Coh5. = Coh5)
+	
+	
+}
 names(Results) <- unlist(lapply(Results, function(X){
 					paste0(X$Male$varname,"_", X$Male$span)
 				}))
