@@ -27,13 +27,15 @@ if (! "LexisUtils" %in% rownames(installed.packages())){
 
 library(LexisUtils)
 source("R/SurfMap.R")
-library(parallel)
 
 
 
-Dat <- local(get(load("Data/Data_long_imputed.Rdata")))
-SurfaceList <- local(get(load("Data/SurfaceList.Rdata")))
-varnames <- names(SurfaceList)
+
+Dat           <- local(get(load("Data/Data_long_imputed.Rdata")))
+SurfaceList   <- local(get(load("Data/SurfaceList.Rdata")))
+varnames      <- names(SurfaceList)
+
+
 
 Dat      <- Dat[Dat$age >= 65, ]
 Dat      <- Dat[!is.na(Dat$b_yr), ]
@@ -42,7 +44,7 @@ Coh5keep <- c(1900, 1905, 1910, 1915, 1920, 1925, 1930)
 Coh5     <- c(1905, 1910, 1915, 1920, 1925) # i.e. we use the preceding and subsequent cohorts for help fitting
 Dat      <- Dat[Dat$Coh5 %in% Coh5keep, ]
 
-
+all(varnames %in% colnames(Dat))
 
 #nrow(Dat)
 #length(unique(Dat$id))
@@ -50,20 +52,6 @@ Dat      <- Dat[Dat$Coh5 %in% Coh5keep, ]
 #length(unique(Dat$id[Dat$Coh5 == 1915]))
 
 
-#Along <- reshape2::melt(A)
-#Along2 <- reshape2::melt(t(A))
-#coefs <- lm(value~Var1+Var2, data = Along)$coef
-#
-#summary(lm(value~Var1, data = Along))
-#summary(lm(value~Var2, data = Along))
-#
-#log(coefs[2] / coefs[3])
-#
-#pca <- princomp(~Var1+Var2, data = Along, center = TRUE, scale = FALSE)
-#pca2 <- prcomp(~Var1+Var2, data = Along, center = TRUE, scale = FALSE)
-#pca3 <- prcomp(~Var1+Var2, data = Along2, center = TRUE, scale = FALSE)
-#cor(duration, waiting) 
-#
 
 
 
@@ -192,7 +180,9 @@ Dat      <- Dat[Dat$Coh5 %in% Coh5keep, ]
 #  as.character(cut(x,breaks=breaks,labels =colramp(n) ))
 #}
 
-# varname <- "back"; sex <- "f";span = 0.5;.Coh5 <- Coh5
+# varname <- "back"; sex <- "f";span = 0.5;.Coh5 <- Coh5; t.age = 0:12; c.age = 70:100
+
+
 FitLoess <- function(varname, 
   Dat, 
   sex,
@@ -203,7 +193,7 @@ FitLoess <- function(varname,
     # conservative here to cut tails
     maxL  <- 100
     minL  <- 70
-   
+
     # multiplicative give the most freedom.
     mod   <- loess(paste0(varname,'~Coh5 * ta * ca') ,
                     data = Dat[Dat$sex == sex, ], 
@@ -211,7 +201,7 @@ FitLoess <- function(varname,
                     span = span,     # a variable passed in, or smoothness
                     # is similiar conceptually to a 1:1:1 aspect ratio. Everything is in years...
                     normalize = FALSE,
-                    loess.control(trace.hat="approximate")
+                    control = loess.control(trace.hat="approximate")
     )
     
     newdata        <- expand.grid(ta = t.age+.5, ca = c.age+.5, Coh5 = .Coh5)
@@ -279,8 +269,9 @@ allcomboswide <- as.data.frame(t(allcombos),stringsAsFactors = FALSE)
 #		}, Dat = Dat, mc.cores = Cores)
 
 do.this <- FALSE
+# do.this <- TRUE
 if(do.this){
-	
+
 	# catch so that Windows doesn't try...
 	if (!Sys.info()[['sysname']] == 'Windows'){
 Results <- mclapply(allcomboswide, function(x,Dat,.Coh5.){
@@ -306,6 +297,7 @@ Results <- mclapply(allcomboswide, function(x,Dat,.Coh5.){
 
 } else {
 	# to make mclapply() work on Windows (a hack is required, will warn)
+		# x <- allcomboswide[[1]]
 	source("http://www.stat.cmu.edu/~nmv/setup/mclapply.hack.R")
 	Results <- mclapply(allcomboswide, function(x,Dat,.Coh5.){
 				cat(x[1],"Female\n")
@@ -329,6 +321,7 @@ Results <- mclapply(allcomboswide, function(x,Dat,.Coh5.){
 	
 	
 }
+
 names(Results) <- unlist(lapply(Results, function(X){
 					paste0(X$Male$varname,"_", X$Male$span)
 				}))
@@ -706,6 +699,53 @@ dev.new(width = 10, height = 6)
 SurfMap(A,napprox=9,contour=TRUE,outline=T)
 dev.off()
 
-
-
-
+#########################################################
+#
+# model for Jonas:
+# multiplicative give the most freedom.
+#mod   <- loess('gross_mot  ~Coh5 * ta * ca' ,
+#		data = Dat[Dat$sex == "f", ], 
+#		weights = p_wt2, # this, plus point density both act as weights
+#		span = span,     # a variable passed in, or smoothness
+#		# is similiar conceptually to a 1:1:1 aspect ratio. Everything is in years...
+#		normalize = FALSE,
+#		control = loess.control(trace.hat="approximate")
+#)
+#
+#save(mod, file = "U:/git/APCT/APCT/Data/gross_mot.Rdata")
+#print(object.size(mod), units="Mb")
+#Coh5  <- c(1905,1910,1915,1920,1925)
+#t.age <- 0:12
+#c.age <- 70:100
+#
+## multiplicative give the most freedom.
+#
+#newdata        <- expand.grid(ta = t.age+.5, ca = c.age+.5, Coh5 = .Coh5)
+## easier to keep dimensions straight if we predict over rectangular grid, 
+## then throw out values outside range
+## Surf is actually an array
+#Surf           <- predict(mod, newdata)
+#
+#dimnames(Surf) <- list(floor(t.age),floor(c.age), .Coh5)
+#
+## HRS wave endpoints
+#LeftYear <- 1992
+#RightYear <- 2011
+#
+## this reduces extrapolation outside of data points 
+#for (i in 1:dim(Surf)[3]){
+#	#maxL  <- 2011 - Coh5[i] - 1
+#	#maxt  <- tamax[as.character(Coh5[i])]
+#	#keept <- as.integer(rownames(Surf)) <= maxt
+#	A     <- Surf[,,i]
+#	MaxL <- RightYear - .Coh5[i] - 1
+#	A[ col(A) - 1 + 70 + row(A) - 1 > MaxL] <- NA
+## possibly need to trim lower left corner too: dimnames(A)
+#	MinL <- LeftYear - (.Coh5[i] + 5)
+#	A[col(A) + 70 - 1 < MinL] <- NA
+#	#A[!keept, ] <- NA 
+#	Surf[,,i] <- A
+#}
+#
+## and now you can use Surf
+#	
