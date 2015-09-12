@@ -96,7 +96,7 @@ varnames <- c("adl3_",
 varnames <- varnames[varnames %in% colnames(Dat)]
 
 # --------------------------------------------------
-# This is a sloppy old-school way this
+# This is sloppy old-school 
 Dat         <- data.frame(Dat)
 SurfaceList <- list()
 #Dat$mod_freq
