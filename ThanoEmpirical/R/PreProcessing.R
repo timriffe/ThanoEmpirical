@@ -4,10 +4,16 @@ if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm","tim-ThinkPad-L440")){
   # if I'm on the laptop
   setwd("/home/tim/git/ThanoEmpirical/ThanoEmpirical")
 } else {
-  # in that case I'm on Berkeley system, and other people in the dept can run this too
-  setwd(paste0("/data/commons/",system("whoami",intern=TRUE),"/git/ThanoEmpirical/ThanoEmpirical"))
+	if (system("hostname",intern=TRUE) == "PC-403478"){
+		# on MPIDR PC
+		setwd("U://git//ThanoEmpirical//ThanoEmpirical")
+	} else {
+		# in that case I'm on Berkeley system, and other people in the dept can run this too
+		setwd(paste0("/data/commons/",system("whoami",intern=TRUE),"/git/ThanoEmpirical/ThanoEmpirical"))
+	}
 }
 getwd()
+
 # install.packages("lubridate")
 library(lubridate)
 library(data.table)
@@ -84,7 +90,6 @@ imputeWeights <- function(wt,intv_dt){
 # converts to long format, assumes thano age columns already appended:
 #
 Dat         <- local(get(load("Data/thanos_long_v2_2.gz")))
-nrow(Dat)
 
 # remove missed interviews
 Dat         <- Dat[!is.na(Dat$intv_dt), ]
@@ -97,7 +102,7 @@ nrow(Dat)/ length(unique(Dat$id)) # avg interviews / id
 
 # make sex column easier to use:
 Dat$sex     <- ifelse(Dat$sex == "1.male","m","f")
-
+table(Dat$sex)
 # reduce to deceased-only
 Dat         <- Dat[Dat$dead == 1, ]
 nrow(Dat)
@@ -267,9 +272,10 @@ Dat$iwr[NAind]              <- NA
 #[1] ""                                "0. no"                          
 #[3] "1. yes"                          "NA"                             
 #[5] "4. disp prev record and no cond"
-mprob <- c(NA,0,1,0,NA)
-names(mprob) <- sort(unique(Dat$mprob))
-Dat$mprob <- mprob[Dat$mprob]
+#mprob <- c(NA,0,1,0,NA)
+#colnames(Dat)
+#names(mprob) <- sort(unique(Dat$mprob))
+#Dat$mprob <- mprob[Dat$mprob]
 # vocab
 
 # scale to fit btwn 0 and 1
