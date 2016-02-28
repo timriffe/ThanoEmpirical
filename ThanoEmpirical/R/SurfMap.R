@@ -41,16 +41,16 @@ SurfMap <- function (Surf,
 	}
 	
   # draw cells
-  rect(x,y,x+1,y+1,border=NA,col = SurfCol)
+  rect(x, y, x + 1, y + 1, border = NA, col = SurfCol)
   
-  
+
   # outline area
   if (outline){
-    ages <- as.integer(colnames(Surf))
+    ages  <- as.integer(colnames(Surf))
     thana <- as.integer(rownames(Surf))
-    MinL <- ages[colSums(Surf,na.rm=TRUE) > 0][1]
-    MaxL <- rev(ages[colSums(Surf,na.rm=TRUE) > 0])[1]
-    Th <- rev(thana[rowSums(Surf,na.rm=TRUE) > 0])[1]
+    MinL  <- ages[colSums(Surf,na.rm=TRUE) > 0][1]
+    MaxL  <- rev(ages[colSums(Surf,na.rm=TRUE) > 0])[1]
+    Th    <- rev(thana[rowSums(Surf,na.rm=TRUE) > 0])[1]
     segments(MinL,0,MinL,Th+1)
     segments(MinL,0,MaxL+1,0)
     segments(MinL,Th+1,MaxL - Th + 1,Th+1)
