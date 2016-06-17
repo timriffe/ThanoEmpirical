@@ -1,625 +1,658 @@
-% This file was created with JabRef 2.9.2.
+% This file was created with JabRef 2.10b2.
 % Encoding: UTF-8
 
-@ARTICLE{almond20061918,
-  author = {Almond, Douglas},
-  title = {Is the 1918 Influenza pandemic over? Long-term effects of in utero
-	Influenza exposure in the post-1940 US population},
-  journal = {Journal of political Economy},
-  year = {2006},
-  volume = {114},
-  pages = {672--712},
-  number = {4},
-  owner = {triffe},
-  publisher = {JSTOR},
-  timestamp = {2015.03.01}
+
+@Article{almond20061918,
+  Title                    = {Is the 1918 Influenza pandemic over? Long-term effects of in utero Influenza exposure in the post-1940 US population},
+  Author                   = {Almond, Douglas},
+  Journal                  = {Journal of political Economy},
+  Year                     = {2006},
+  Number                   = {4},
+  Pages                    = {672--712},
+  Volume                   = {114},
+
+  Owner                    = {triffe},
+  Publisher                = {JSTOR},
+  Timestamp                = {2015.03.01}
 }
 
-@ARTICLE{biro2010subjective,
-  author = {B{\'\i}r{\'o}, Anik{\'o}},
-  title = {Subjective mortality hazard shocks and the adjustment of consumption
-	expenditures},
-  journal = {Journal of Population Economics},
-  year = {2010},
-  volume = {26},
-  pages = {1--30},
-  owner = {triffe},
-  publisher = {Springer},
-  timestamp = {2013.11.01}
+@Article{biro2010subjective,
+  Title                    = {Subjective mortality hazard shocks and the adjustment of consumption expenditures},
+  Author                   = {B{\'\i}r{\'o}, Anik{\'o}},
+  Journal                  = {Journal of Population Economics},
+  Year                     = {2010},
+  Pages                    = {1--30},
+  Volume                   = {26},
+
+  Owner                    = {triffe},
+  Publisher                = {Springer},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{balia2013survival,
-  author = {Balia, Silvia},
-  title = {Survival expectations, subjective health and smoking: evidence from
-	SHARE},
-  journal = {Empirical Economics},
-  year = {2013},
-  volume = {47},
-  pages = {1--28},
-  owner = {triffe},
-  publisher = {Springer},
-  timestamp = {2014.10.07}
+@Article{balia2013survival,
+  Title                    = {Survival expectations, subjective health and smoking: evidence from SHARE},
+  Author                   = {Balia, Silvia},
+  Journal                  = {Empirical Economics},
+  Year                     = {2013},
+  Pages                    = {1--28},
+  Volume                   = {47},
+
+  Owner                    = {triffe},
+  Publisher                = {Springer},
+  Timestamp                = {2014.10.07}
 }
 
-@BOOK{brouard1989mouvements,
-  title = {Mouvements et mod{\`e}les de population},
-  publisher = {Institut de formation et de recherche d{\'e}mographiques},
-  year = {1989},
-  author = {Brouard, Nicolas},
-  owner = {triffe},
-  timestamp = {2014.06.04}
+@Book{brouard1989mouvements,
+  Title                    = {Mouvements et mod{\`e}les de population},
+  Author                   = {Brouard, Nicolas},
+  Publisher                = {Institut de formation et de recherche d{\'e}mographiques},
+  Year                     = {1989},
+
+  Owner                    = {triffe},
+  Timestamp                = {2014.06.04}
 }
 
-@ARTICLE{brouard1986structure,
-  author = {Brouard, Nicolas},
-  title = {Structure et dynamique des populations. La pyramide des ann{\'e}es
-	{\`a} vivre, aspects nationaux et exemples r{\'e}gionaux},
-  journal = {Espace, populations, soci{\'e}t{\'e}s},
-  year = {1986},
-  volume = {4},
-  pages = {157--168},
-  number = {2},
-  owner = {triffe},
-  publisher = {Universit{\'e} des Sciences et Technologies de Lille},
-  timestamp = {2014.06.04}
+@Article{brouard1986structure,
+  Title                    = {Structure et dynamique des populations. La pyramide des ann{\'e}es {\`a} vivre, aspects nationaux et exemples r{\'e}gionaux},
+  Author                   = {Brouard, Nicolas},
+  Journal                  = {Espace, populations, soci{\'e}t{\'e}s},
+  Year                     = {1986},
+  Number                   = {2},
+  Pages                    = {157--168},
+  Volume                   = {4},
+
+  Owner                    = {triffe},
+  Publisher                = {Universit{\'e} des Sciences et Technologies de Lille},
+  Timestamp                = {2014.06.04}
 }
 
-@ARTICLE{carstensen2006influence,
-  author = {Carstensen, Laura L},
-  title = {The influence of a sense of time on human development},
-  journal = {Science},
-  year = {2006},
-  volume = {312},
-  pages = {1913--1915},
-  number = {5782},
-  owner = {triffe},
-  publisher = {American Association for the Advancement of Science},
-  timestamp = {2013.11.01}
+@Article{carstensen2006influence,
+  Title                    = {The influence of a sense of time on human development},
+  Author                   = {Carstensen, Laura L},
+  Journal                  = {Science},
+  Year                     = {2006},
+  Number                   = {5782},
+  Pages                    = {1913--1915},
+  Volume                   = {312},
+
+  Owner                    = {triffe},
+  Publisher                = {American Association for the Advancement of Science},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{carstensen1999taking,
-  author = {Carstensen, Laura L and Isaacowitz, Derek M and Charles, Susan T},
-  title = {Taking time seriously: A theory of socioemotional selectivity.},
-  journal = {American Psychologist},
-  year = {1999},
-  volume = {54},
-  pages = {165},
-  number = {3},
-  owner = {triffe},
-  publisher = {American Psychological Association},
-  timestamp = {2013.11.01}
+@Article{carstensen1999taking,
+  Title                    = {Taking time seriously: A theory of socioemotional selectivity.},
+  Author                   = {Carstensen, Laura L and Isaacowitz, Derek M and Charles, Susan T},
+  Journal                  = {American Psychologist},
+  Year                     = {1999},
+  Number                   = {3},
+  Pages                    = {165},
+  Volume                   = {54},
+
+  Owner                    = {triffe},
+  Publisher                = {American Psychological Association},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{case2005sex,
-  author = {Case, Anne and Paxson, Christina},
-  title = {Sex differences in morbidity and mortality},
-  journal = {Demography},
-  year = {2005},
-  volume = {42},
-  pages = {189--214},
-  number = {2},
-  owner = {triffe},
-  publisher = {Springer},
-  timestamp = {2015.03.01}
+@Article{case2005sex,
+  Title                    = {Sex differences in morbidity and mortality},
+  Author                   = {Case, Anne and Paxson, Christina},
+  Journal                  = {Demography},
+  Year                     = {2005},
+  Number                   = {2},
+  Pages                    = {189--214},
+  Volume                   = {42},
+
+  Owner                    = {triffe},
+  Publisher                = {Springer},
+  Timestamp                = {2015.03.01}
 }
 
-@ARTICLE{cleveland1992local,
-  author = {Cleveland, William S and Grosse, Eric and Shyu, William M},
-  title = {Local regression models},
-  journal = {Statistical models in S},
-  year = {1992},
-  pages = {309--376},
-  owner = {triffe},
-  publisher = {Pacific Grove},
-  timestamp = {2014.09.23}
+@Article{cleveland1992local,
+  Title                    = {Local regression models},
+  Author                   = {Cleveland, William S and Grosse, Eric and Shyu, William M},
+  Journal                  = {Statistical models in S},
+  Year                     = {1992},
+  Pages                    = {309--376},
+
+  Owner                    = {triffe},
+  Publisher                = {Pacific Grove},
+  Timestamp                = {2014.09.23}
 }
 
-@ARTICLE{cocco2012longevity,
-  author = {Cocco, Joao F and Gomes, Francisco J},
-  title = {Longevity risk, retirement savings, and financial innovation},
-  journal = {Journal of Financial Economics},
-  year = {2012},
-  volume = {103},
-  pages = {507--529},
-  number = {3},
-  owner = {triffe},
-  publisher = {Elsevier},
-  timestamp = {2013.11.01}
+@Article{cocco2012longevity,
+  Title                    = {Longevity risk, retirement savings, and financial innovation},
+  Author                   = {Cocco, Joao F and Gomes, Francisco J},
+  Journal                  = {Journal of Financial Economics},
+  Year                     = {2012},
+  Number                   = {3},
+  Pages                    = {507--529},
+  Volume                   = {103},
+
+  Owner                    = {triffe},
+  Publisher                = {Elsevier},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{delavande2011differential,
-  author = {Delavande, Adeline and Rohwedder, Susann},
-  title = {Differential Survival in Europe and the United States: Estimates
-	Based on Subjective Probabilities of Survival},
-  journal = {Demography},
-  year = {2011},
-  volume = {48},
-  pages = {1377--1400},
-  number = {4},
-  owner = {triffe},
-  publisher = {Springer},
-  timestamp = {2013.11.01}
+@Article{delavande2011differential,
+  Title                    = {Differential Survival in Europe and the United States: Estimates Based on Subjective Probabilities of Survival},
+  Author                   = {Delavande, Adeline and Rohwedder, Susann},
+  Journal                  = {Demography},
+  Year                     = {2011},
+  Number                   = {4},
+  Pages                    = {1377--1400},
+  Volume                   = {48},
+
+  Owner                    = {triffe},
+  Publisher                = {Springer},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{fries2011compression,
-  author = {Fries, James F and Bruce, Bonnie and Chakravarty, Eliza},
-  title = {Compression of morbidity 1980--2011: a focused review of paradigms
-	and progress},
-  journal = {Journal of aging research},
-  year = {2011},
-  volume = {2011},
-  note = {Article ID 261702, 10 pages doi:10.4061/2011/261702},
-  owner = {triffe},
-  publisher = {Hindawi Publishing Corporation},
-  timestamp = {2015.03.01}
+@Article{fries2011compression,
+  Title                    = {Compression of morbidity 1980--2011: a focused review of paradigms and progress},
+  Author                   = {Fries, James F and Bruce, Bonnie and Chakravarty, Eliza},
+  Journal                  = {Journal of aging research},
+  Year                     = {2011},
+  Note                     = {Article ID 261702, 10 pages doi:10.4061/2011/261702},
+  Volume                   = {2011},
+
+  Owner                    = {triffe},
+  Publisher                = {Hindawi Publishing Corporation},
+  Timestamp                = {2015.03.01}
 }
 
-@TECHREPORT{gan2004subjective,
-  author = {Gan, Li and Gong, Guan and Hurd, Michael and McFadden, Daniel},
-  title = {Subjective mortality risk and bequests},
-  institution = {National Bureau of Economic Research},
-  year = {2004},
-  owner = {triffe},
-  timestamp = {2014.07.13}
+@TechReport{gan2004subjective,
+  Title                    = {Subjective mortality risk and bequests},
+  Author                   = {Gan, Li and Gong, Guan and Hurd, Michael and McFadden, Daniel},
+  Institution              = {National Bureau of Economic Research},
+  Year                     = {2004},
+
+  Owner                    = {triffe},
+  Timestamp                = {2014.07.13}
 }
 
-@ARTICLE{gupta2006variance,
-  author = {Gupta, Ramesh C},
-  title = {Variance residual life function in reliability studies},
-  journal = {Metron},
-  year = {2006},
-  volume = {54},
-  pages = {343--345},
-  owner = {triffe},
-  timestamp = {2014.06.05}
+@Article{gupta2006variance,
+  Title                    = {Variance residual life function in reliability studies},
+  Author                   = {Gupta, Ramesh C},
+  Journal                  = {Metron},
+  Year                     = {2006},
+  Pages                    = {343--345},
+  Volume                   = {54},
+
+  Owner                    = {triffe},
+  Timestamp                = {2014.06.05}
 }
 
-@ARTICLE{hamermesh1985expectations,
-  author = {Hamermesh, Daniel S},
-  title = {Expectations, life expectancy, and economic behavior},
-  journal = {The Quarterly Journal of Economics},
-  year = {1985},
-  volume = {100},
-  pages = {389--408},
-  number = {2},
-  owner = {triffe},
-  publisher = {Oxford University Press},
-  timestamp = {2013.11.01}
+@Article{hamermesh1985expectations,
+  Title                    = {Expectations, life expectancy, and economic behavior},
+  Author                   = {Hamermesh, Daniel S},
+  Journal                  = {The Quarterly Journal of Economics},
+  Year                     = {1985},
+  Number                   = {2},
+  Pages                    = {389--408},
+  Volume                   = {100},
+
+  Owner                    = {triffe},
+  Publisher                = {Oxford University Press},
+  Timestamp                = {2013.11.01}
 }
 
-@BOOK{hersch1944demographie,
-  title = {De la d{\'e}mographie actuelle {\`a} la d{\'e}mographie potentielle},
-  publisher = {Georg \& C SA, Librairie de l'universit{\'e} Gen{\`e}ve},
-  year = {1944},
-  author = {Hersch, Liebmann},
-  note = {Extrait des M{\'e}langes d'Etudes {\'e}conomiques et sociales offerts
-	{\`a} M. William E. Rappard},
-  owner = {triffe},
-  timestamp = {2013.11.01}
+@Book{hersch1944demographie,
+  Title                    = {De la d{\'e}mographie actuelle {\`a} la d{\'e}mographie potentielle},
+  Author                   = {Hersch, Liebmann},
+  Publisher                = {Georg \& C SA, Librairie de l'universit{\'e} Gen{\`e}ve},
+  Year                     = {1944},
+  Note                     = {Extrait des M{\'e}langes d'Etudes {\'e}conomiques et sociales offerts {\`a} M. William E. Rappard},
+
+  Owner                    = {triffe},
+  Timestamp                = {2013.11.01}
 }
 
-@MISC{HMD,
-  author = {{Human Mortality Database}},
-  title = {{{University of California, Berkeley (USA)}} and {Max Planck Institute
-	for Demographic Research (Germany)}},
-  note = {Available at www.mortality.org or www.humanmortality.de (data downloaded
-	on February 27, 2015).},
-  owner = {triffe},
-  timestamp = {2014.07.10}
+@Misc{HMD,
+  Title                    = {{{University of California, Berkeley (USA)}} and {Max Planck Institute for Demographic Research (Germany)}},
+
+  Author                   = {{Human Mortality Database}},
+  Note                     = {Available at www.mortality.org or www.humanmortality.de (data downloaded on February 27, 2015).},
+
+  Owner                    = {triffe},
+  Timestamp                = {2014.07.10}
 }
 
-@ARTICLE{hurd2002predictive,
-  author = {Hurd, Michael D and McGarry, Kathleen},
-  title = {The Predictive Validity of Subjective Probabilities of Survival*},
-  journal = {The Economic Journal},
-  year = {2002},
-  volume = {112},
-  pages = {966--985},
-  number = {482},
-  owner = {triffe},
-  publisher = {Wiley Online Library},
-  timestamp = {2013.11.01}
+@Article{hurd2002predictive,
+  Title                    = {The Predictive Validity of Subjective Probabilities of Survival*},
+  Author                   = {Hurd, Michael D and McGarry, Kathleen},
+  Journal                  = {The Economic Journal},
+  Year                     = {2002},
+  Number                   = {482},
+  Pages                    = {966--985},
+  Volume                   = {112},
+
+  Owner                    = {triffe},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{hurd1995evaluation,
-  author = {Hurd, Michael D and McGarry, Kathleen},
-  title = {Evaluation of the subjective probabilities of survival in the health
-	and retirement study},
-  journal = {Journal of Human resources},
-  year = {1995},
-  volume = {30},
-  pages = {S268--S292},
-  owner = {triffe},
-  publisher = {JSTOR},
-  timestamp = {2013.11.01}
+@Article{hurd1995evaluation,
+  Title                    = {Evaluation of the subjective probabilities of survival in the health and retirement study},
+  Author                   = {Hurd, Michael D and McGarry, Kathleen},
+  Journal                  = {Journal of Human resources},
+  Year                     = {1995},
+  Pages                    = {S268--S292},
+  Volume                   = {30},
+
+  Owner                    = {triffe},
+  Publisher                = {JSTOR},
+  Timestamp                = {2013.11.01}
 }
 
-@TECHREPORT{kapteyn2006effects,
-  author = {Kapteyn, Arie and Michaud, Pierre-Carl and Smith, James P and Van
-	Soest, Arthur},
-  title = {Effects of attrition and non-response in the Health and Retirement
-	Study},
-  institution = {IZA Discussion paper},
-  year = {2006},
-  owner = {triffe},
-  timestamp = {2015.03.01}
+@TechReport{kapteyn2006effects,
+  Title                    = {Effects of attrition and non-response in the Health and Retirement Study},
+  Author                   = {Kapteyn, Arie and Michaud, Pierre-Carl and Smith, James P and Van Soest, Arthur},
+  Institution              = {IZA Discussion paper},
+  Year                     = {2006},
+
+  Owner                    = {triffe},
+  Timestamp                = {2015.03.01}
 }
 
-@ARTICLE{kutlu2013individuals,
-  author = {Kutlu-Koc, Vesile and Kalwij, Adriaan},
-  title = {Individuals’ Survival Expectations and Actual Mortality},
-  journal = {Netspar Discussion Papers},
-  year = {2013},
-  pages = {2013--013},
-  owner = {triffe},
-  timestamp = {2014.10.07}
+@Article{kutlu2013individuals,
+  Title                    = {Individuals’ Survival Expectations and Actual Mortality},
+  Author                   = {Kutlu-Koc, Vesile and Kalwij, Adriaan},
+  Journal                  = {Netspar Discussion Papers},
+  Year                     = {2013},
+  Pages                    = {2013--013},
+
+  Owner                    = {triffe},
+  Timestamp                = {2014.10.07}
 }
 
-@ARTICLE{lee2002approach,
-  author = {Lee, Ronald and Miller, Timothy},
-  title = {An approach to forecasting health expenditures, with application
-	to the US Medicare system},
-  journal = {Health Services Research},
-  year = {2002},
-  volume = {37},
-  pages = {1365--1386},
-  number = {5},
-  owner = {triffe},
-  publisher = {Wiley Online Library},
-  timestamp = {2013.11.01}
+@Article{lee2002approach,
+  Title                    = {An approach to forecasting health expenditures, with application to the US Medicare system},
+  Author                   = {Lee, Ronald and Miller, Timothy},
+  Journal                  = {Health Services Research},
+  Year                     = {2002},
+  Number                   = {5},
+  Pages                    = {1365--1386},
+  Volume                   = {37},
+
+  Owner                    = {triffe},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2013.11.01}
 }
 
-@INCOLLECTION{lee2007demographic,
-  author = {Lee, Ronald D},
-  title = {Demographic change, welfare, and intergenerational transfers: a global
-	overview},
-  booktitle = {Ages, Generations and the Social Contract},
-  publisher = {Springer},
-  year = {2007},
-  pages = {17--43},
-  owner = {triffe},
-  timestamp = {2013.11.01}
+@InCollection{lee2007demographic,
+  Title                    = {Demographic change, welfare, and intergenerational transfers: a global overview},
+  Author                   = {Lee, Ronald D},
+  Booktitle                = {Ages, Generations and the Social Contract},
+  Publisher                = {Springer},
+  Year                     = {2007},
+  Pages                    = {17--43},
+
+  Owner                    = {triffe},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{lutz2008coming,
-  author = {Lutz, Wolfgang and Sanderson, Warren and Scherbov, Sergei},
-  title = {The coming acceleration of global population ageing},
-  journal = {Nature},
-  year = {2008},
-  volume = {451},
-  pages = {716--719},
-  number = {7179},
-  owner = {triffe},
-  publisher = {Nature Publishing Group},
-  timestamp = {2013.11.01}
+@Article{lutz2008coming,
+  Title                    = {The coming acceleration of global population ageing},
+  Author                   = {Lutz, Wolfgang and Sanderson, Warren and Scherbov, Sergei},
+  Journal                  = {Nature},
+  Year                     = {2008},
+  Number                   = {7179},
+  Pages                    = {716--719},
+  Volume                   = {451},
+
+  Owner                    = {triffe},
+  Publisher                = {Nature Publishing Group},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{miller2001increasing,
-  author = {Miller, Tim},
-  title = {Increasing longevity and Medicare expenditures},
-  journal = {Demography},
-  year = {2001},
-  volume = {38},
-  pages = {215--226},
-  number = {2},
-  owner = {triffe},
-  publisher = {Springer},
-  timestamp = {2013.11.01}
+@Article{miller2001increasing,
+  Title                    = {Increasing longevity and Medicare expenditures},
+  Author                   = {Miller, Tim},
+  Journal                  = {Demography},
+  Year                     = {2001},
+  Number                   = {2},
+  Pages                    = {215--226},
+  Volume                   = {38},
+
+  Owner                    = {triffe},
+  Publisher                = {Springer},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{mirowsky1999subjective,
-  author = {Mirowsky, John},
-  title = {Subjective life expectancy in the US: correspondence to actuarial
-	estimates by age, sex and race},
-  journal = {Social science \& medicine},
-  year = {1999},
-  volume = {49},
-  pages = {967--979},
-  number = {7},
-  owner = {triffe},
-  publisher = {Elsevier},
-  timestamp = {2013.11.01}
+@Article{mirowsky1999subjective,
+  Title                    = {Subjective life expectancy in the US: correspondence to actuarial estimates by age, sex and race},
+  Author                   = {Mirowsky, John},
+  Journal                  = {Social science \& medicine},
+  Year                     = {1999},
+  Number                   = {7},
+  Pages                    = {967--979},
+  Volume                   = {49},
+
+  Owner                    = {triffe},
+  Publisher                = {Elsevier},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{payne2013life,
-  author = {Payne, John W and Sagara, Namika and Shu, Suzanne B and Appelt, Kirstin
-	C and Johnson, Eric J},
-  title = {Life expectancy as a constructed belief: Evidence of a live-to or
-	die-by framing effect},
-  journal = {Journal of Risk and Uncertainty},
-  year = {2013},
-  volume = {46},
-  pages = {27--50},
-  number = {1},
-  owner = {triffe},
-  publisher = {Springer},
-  timestamp = {2014.10.07}
+@Article{payne2013life,
+  Title                    = {Life expectancy as a constructed belief: Evidence of a live-to or die-by framing effect},
+  Author                   = {Payne, John W and Sagara, Namika and Shu, Suzanne B and Appelt, Kirstin C and Johnson, Eric J},
+  Journal                  = {Journal of Risk and Uncertainty},
+  Year                     = {2013},
+  Number                   = {1},
+  Pages                    = {27--50},
+  Volume                   = {46},
+
+  Owner                    = {triffe},
+  Publisher                = {Springer},
+  Timestamp                = {2014.10.07}
 }
 
-@ARTICLE{perozek2008using,
-  author = {Perozek, Maria},
-  title = {Using subjective expectations to forecast longevity: Do survey respondents
-	know something we don’t know?},
-  journal = {Demography},
-  year = {2008},
-  volume = {45},
-  pages = {95--113},
-  number = {1},
-  owner = {triffe},
-  publisher = {Springer},
-  timestamp = {2013.11.01}
+@Article{perozek2008using,
+  Title                    = {Using subjective expectations to forecast longevity: Do survey respondents know something we don’t know?},
+  Author                   = {Perozek, Maria},
+  Journal                  = {Demography},
+  Year                     = {2008},
+  Number                   = {1},
+  Pages                    = {95--113},
+  Volume                   = {45},
+
+  Owner                    = {triffe},
+  Publisher                = {Springer},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{post2012longevity,
-  author = {Post, Thomas and Hanewald, Katja},
-  title = {Longevity risk, subjective survival expectations, and individual
-	saving behavior},
-  journal = {Journal of Economic Behavior \& Organization},
-  year = {2012},
-  volume = {86},
-  pages = {200–-220},
-  owner = {triffe},
-  publisher = {Elsevier},
-  timestamp = {2013.11.01}
+@Article{post2012longevity,
+  Title                    = {Longevity risk, subjective survival expectations, and individual saving behavior},
+  Author                   = {Post, Thomas and Hanewald, Katja},
+  Journal                  = {Journal of Economic Behavior \& Organization},
+  Year                     = {2012},
+  Pages                    = {200–-220},
+  Volume                   = {86},
+
+  Owner                    = {triffe},
+  Publisher                = {Elsevier},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{rao2014generalization,
-  author = {Rao, Arni SR Srinivasa and Carey, James R},
-  title = {Generalization of Carey’s equality and a theorem on stationary population},
-  journal = {Journal of mathematical biology},
-  year = {2014},
-  pages = {1--12},
-  owner = {triffe},
-  publisher = {Springer},
-  timestamp = {2015.02.11}
+@Manual{Rcore2013,
+  Title                    = {R: A Language and Environment for Statistical Computing},
+
+  Address                  = {Vienna, Austria},
+  Author                   = {{R Core Team}},
+  Organization             = {R Foundation for Statistical Computing},
+  Year                     = {2013},
+
+  Owner                    = {triffe},
+  Timestamp                = {2014.09.23},
+  Url                      = {http://www.R-project.org/}
 }
 
-@MANUAL{Rcore2013,
-  title = {R: A Language and Environment for Statistical Computing},
-  author = {{R Core Team}},
-  organization = {R Foundation for Statistical Computing},
-  address = {Vienna, Austria},
-  year = {2013},
-  owner = {triffe},
-  timestamp = {2014.09.23},
-  url = {http://www.R-project.org/}
+@Article{rao2014generalization,
+  Title                    = {Generalization of Carey’s equality and a theorem on stationary population},
+  Author                   = {Rao, Arni SR Srinivasa and Carey, James R},
+  Journal                  = {Journal of mathematical biology},
+  Year                     = {2014},
+  Pages                    = {1--12},
+
+  Owner                    = {triffe},
+  Publisher                = {Springer},
+  Timestamp                = {2015.02.11}
 }
 
-@MISC{riffe2014paaposter,
-  author = {Riffe, Timothy and Spijker, Jeroen and MacInnes, John},
-  title = {Decomposing and Recomposing the Population Pyramid by Remaining Years
-	of Life},
-  year = {2014},
-  note = {Poster presented at the 2014 PAA annual meeting in Boston (April
-	2013) and at the 2014 European Population Conference in Budapest
-	(June 2014).},
-  owner = {triffe},
-  timestamp = {2014.07.13}
+@Misc{riffe2014paaposter,
+  Title                    = {Decomposing and Recomposing the Population Pyramid by Remaining Years of Life},
+
+  Author                   = {Riffe, Timothy and Spijker, Jeroen and MacInnes, John},
+  Note                     = {Poster presented at the 2014 PAA annual meeting in Boston (April 2013) and at the 2014 European Population Conference in Budapest (June 2014).},
+  Year                     = {2014},
+
+  Owner                    = {triffe},
+  Timestamp                = {2014.07.13}
 }
 
-@PHDTHESIS{riffe2013two,
-  author = {Riffe, Timothy LM},
-  title = {The Two-Sex Problem in Populations Structured by Remaining Years
-	of Life},
-  school = {Universitat Aut\`{o}noma de Barcelona},
-  year = {2013},
-  owner = {triffe},
-  publisher = {Universitat Aut{\`o}noma de Barcelona},
-  timestamp = {2013.09.24}
+@PhdThesis{riffe2013two,
+  Title                    = {The Two-Sex Problem in Populations Structured by Remaining Years of Life},
+  Author                   = {Riffe, Timothy LM},
+  School                   = {Universitat Aut\`{o}noma de Barcelona},
+  Year                     = {2013},
+
+  Owner                    = {triffe},
+  Publisher                = {Universitat Aut{\`o}noma de Barcelona},
+  Timestamp                = {2013.09.24}
 }
 
-@ARTICLE{ryder1975notes,
-  author = {Ryder, Norman B},
-  title = {Notes on stationary populations},
-  journal = {Population Index},
-  year = {1975},
-  volume = {41},
-  pages = {3--28},
-  number = {1},
-  owner = {triffe},
-  publisher = {JSTOR},
-  timestamp = {2013.11.01}
+@Article{ryder1975notes,
+  Title                    = {Notes on stationary populations},
+  Author                   = {Ryder, Norman B},
+  Journal                  = {Population Index},
+  Year                     = {1975},
+  Number                   = {1},
+  Pages                    = {3--28},
+  Volume                   = {41},
+
+  Owner                    = {triffe},
+  Publisher                = {JSTOR},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{salm2010subjective,
-  author = {Salm, Martin},
-  title = {Subjective mortality expectations and consumption and saving behaviours
-	among the elderly},
-  journal = {Canadian Journal of Economics/Revue canadienne d'{\'e}conomique},
-  year = {2010},
-  volume = {43},
-  pages = {1040--1057},
-  number = {3},
-  owner = {triffe},
-  publisher = {Wiley Online Library},
-  timestamp = {2014.07.13}
+@Article{salm2010subjective,
+  Title                    = {Subjective mortality expectations and consumption and saving behaviours among the elderly},
+  Author                   = {Salm, Martin},
+  Journal                  = {Canadian Journal of Economics/Revue canadienne d'{\'e}conomique},
+  Year                     = {2010},
+  Number                   = {3},
+  Pages                    = {1040--1057},
+  Volume                   = {43},
+
+  Owner                    = {triffe},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2014.07.13}
 }
 
-@ARTICLE{sanderson2007new,
-  author = {Sanderson, Warren and Scherbov, Sergei},
-  title = {A new perspective on population aging},
-  journal = {Demographic research},
-  year = {2007},
-  volume = {16},
-  pages = {27--58},
-  number = {2},
-  owner = {triffe},
-  publisher = {Max Planck Institute for Demographic Research, Rostock, Germany},
-  timestamp = {2013.11.01}
+@Article{sanderson2007new,
+  Title                    = {A new perspective on population aging},
+  Author                   = {Sanderson, Warren and Scherbov, Sergei},
+  Journal                  = {Demographic research},
+  Year                     = {2007},
+  Number                   = {2},
+  Pages                    = {27--58},
+  Volume                   = {16},
+
+  Owner                    = {triffe},
+  Publisher                = {Max Planck Institute for Demographic Research, Rostock, Germany},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{sanderson2013characteristics,
-  author = {Sanderson, Warren C and Scherbov, Sergei},
-  title = {The characteristics approach to the measurement of population aging},
-  journal = {Population and Development Review},
-  year = {2013},
-  volume = {39},
-  pages = {673--685},
-  number = {4},
-  owner = {triffe},
-  publisher = {Wiley Online Library},
-  timestamp = {2015.03.01}
+@Article{sanderson2013characteristics,
+  Title                    = {The characteristics approach to the measurement of population aging},
+  Author                   = {Sanderson, Warren C and Scherbov, Sergei},
+  Journal                  = {Population and Development Review},
+  Year                     = {2013},
+  Number                   = {4},
+  Pages                    = {673--685},
+  Volume                   = {39},
+
+  Owner                    = {triffe},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2015.03.01}
 }
 
-@ARTICLE{sanderson2010remeasuring,
-  author = {Sanderson, Warren C and Scherbov, Sergei},
-  title = {Remeasuring aging},
-  journal = {Science(Washington)},
-  year = {2010},
-  volume = {329},
-  pages = {1287--1288},
-  number = {5997},
-  owner = {triffe},
-  publisher = {American Association for the Advancement of Science, 1200 New York
-	Avenue, NW Washington DC 20005 USA},
-  timestamp = {2013.11.01}
+@Article{sanderson2010remeasuring,
+  Title                    = {Remeasuring aging},
+  Author                   = {Sanderson, Warren C and Scherbov, Sergei},
+  Journal                  = {Science(Washington)},
+  Year                     = {2010},
+  Number                   = {5997},
+  Pages                    = {1287--1288},
+  Volume                   = {329},
+
+  Owner                    = {triffe},
+  Publisher                = {American Association for the Advancement of Science, 1200 New York Avenue, NW Washington DC 20005 USA},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{sanderson2005average,
-  author = {Sanderson, Warren C and Scherbov, Sergei},
-  title = {Average remaining lifetimes can increase as human populations age},
-  journal = {Nature},
-  year = {2005},
-  volume = {435},
-  pages = {811--813},
-  number = {7043},
-  owner = {triffe},
-  publisher = {Nature Publishing Group},
-  timestamp = {2013.11.01}
+@Article{sanderson2005average,
+  Title                    = {Average remaining lifetimes can increase as human populations age},
+  Author                   = {Sanderson, Warren C and Scherbov, Sergei},
+  Journal                  = {Nature},
+  Year                     = {2005},
+  Number                   = {7043},
+  Pages                    = {811--813},
+  Volume                   = {435},
+
+  Owner                    = {triffe},
+  Publisher                = {Nature Publishing Group},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{seshamani2004longitudinal,
-  author = {Seshamani, Meena and Gray, Alastair M},
-  title = {A longitudinal study of the effects of age and time to death on hospital
-	costs},
-  journal = {Journal of health economics},
-  year = {2004},
-  volume = {23},
-  pages = {217--235},
-  number = {2},
-  owner = {triffe},
-  publisher = {Elsevier},
-  timestamp = {2014.07.13}
+@Article{seshamani2004longitudinal,
+  Title                    = {A longitudinal study of the effects of age and time to death on hospital costs},
+  Author                   = {Seshamani, Meena and Gray, Alastair M},
+  Journal                  = {Journal of health economics},
+  Year                     = {2004},
+  Number                   = {2},
+  Pages                    = {217--235},
+  Volume                   = {23},
+
+  Owner                    = {triffe},
+  Publisher                = {Elsevier},
+  Timestamp                = {2014.07.13}
 }
 
-@ARTICLE{jjbmj,
-  author = {Spijker, Jeroen and MacInnes, John},
-  title = {Population ageing: the timebomb that isn’t?},
-  journal = {British Medical Journal},
-  year = {2013},
-  volume = {347},
-  owner = {triffe},
-  timestamp = {2013.11.08}
+@Article{jjbmj,
+  Title                    = {Population ageing: the timebomb that isn’t?},
+  Author                   = {Spijker, Jeroen and MacInnes, John},
+  Journal                  = {British Medical Journal},
+  Year                     = {2013},
+  Volume                   = {347},
+
+  Owner                    = {triffe},
+  Timestamp                = {2013.11.08}
 }
 
-@BOOK{topoleski2004uncertainty,
-  title = {Uncertainty about Projections of Medicare Cost in Growth},
-  publisher = {Congressional Budget Office},
-  year = {2004},
-  author = {Topoleski, Julie H},
-  owner = {triffe},
-  timestamp = {2013.11.01}
+@Book{topoleski2004uncertainty,
+  Title                    = {Uncertainty about Projections of Medicare Cost in Growth},
+  Author                   = {Topoleski, Julie H},
+  Publisher                = {Congressional Budget Office},
+  Year                     = {2004},
+
+  Owner                    = {triffe},
+  Timestamp                = {2013.11.01}
 }
 
-@TECHREPORT{UN2012prospects,
-  author = {{{United Nations, Department of Economic and Social Affairs, Population
-	Division }}},
-  title = {World Population Prospects: The 2012 Revision, Key Findings and Advance
-	Tables.},
-  institution = {United Nations},
-  year = {2013},
-  owner = {triffe},
-  timestamp = {2015.03.01}
+@TechReport{UN2012prospects,
+  Title                    = {World Population Prospects: The 2012 Revision, Key Findings and Advance Tables.},
+  Author                   = {{{United Nations, Department of Economic and Social Affairs, Population Division }}},
+  Institution              = {United Nations},
+  Year                     = {2013},
+
+  Owner                    = {triffe},
+  Timestamp                = {2015.03.01}
 }
 
-@MISC{hmd2013,
-  author = {{University of California, Berkeley (USA), and Max Planck Institute
-	for Demographic Research (Germany).}},
-  title = {Human Mortality Database},
-  howpublished = {Available at www.mortality.org or www.humanmortality.de},
-  year = {2013},
-  note = {data downloaded June, 2013},
-  owner = {triffe},
-  timestamp = {2013.11.01}
+@Misc{hmd2013,
+  Title                    = {Human Mortality Database},
+
+  Author                   = {{University of California, Berkeley (USA), and Max Planck Institute for Demographic Research (Germany).}},
+  HowPublished             = {Available at www.mortality.org or www.humanmortality.de},
+  Note                     = {data downloaded June, 2013},
+  Year                     = {2013},
+
+  Owner                    = {triffe},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{van2010living,
-  author = {Van Solinge, Hanna and Henkens, K{\`e}ne},
-  title = {Living longer, working longer? The impact of subjective life expectancy
-	on retirement intentions and behaviour},
-  journal = {The European Journal of Public Health},
-  year = {2010},
-  volume = {20},
-  pages = {47--51},
-  number = {1},
-  owner = {triffe},
-  publisher = {Oxford Univ Press},
-  timestamp = {2013.11.01}
+@Article{van2010living,
+  Title                    = {Living longer, working longer? The impact of subjective life expectancy on retirement intentions and behaviour},
+  Author                   = {Van Solinge, Hanna and Henkens, K{\`e}ne},
+  Journal                  = {The European Journal of Public Health},
+  Year                     = {2010},
+  Number                   = {1},
+  Pages                    = {47--51},
+  Volume                   = {20},
+
+  Owner                    = {triffe},
+  Publisher                = {Oxford Univ Press},
+  Timestamp                = {2013.11.01}
 }
 
-@ARTICLE{vaupel2009life,
-  author = {Vaupel, James W},
-  title = {Life lived and left: Carey's equality},
-  journal = {Demographic Research},
-  year = {2009},
-  volume = {20},
-  pages = {7--10},
-  number = {3},
-  owner = {triffe},
-  publisher = {Max Planck Institute for Demographic Research, Rostock, Germany},
-  timestamp = {2013.02.22}
+@Article{vaupel2009life,
+  Title                    = {Life lived and left: Carey's equality},
+  Author                   = {Vaupel, James W},
+  Journal                  = {Demographic Research},
+  Year                     = {2009},
+  Number                   = {3},
+  Pages                    = {7--10},
+  Volume                   = {20},
+
+  Owner                    = {triffe},
+  Publisher                = {Max Planck Institute for Demographic Research, Rostock, Germany},
+  Timestamp                = {2013.02.22}
 }
 
-@ARTICLE{weir2011proxy,
-  author = {Weir, David and Faul, Jessica and Langa, Kenneth},
-  title = {Proxy interviews and bias in the distribution of cognitive abilities
-	due to non-response in longitudinal studies: a comparison of HRS
-	and ELSA},
-  journal = {Longitudinal and life course studies},
-  year = {2011},
-  volume = {2},
-  pages = {170},
-  number = {2},
-  owner = {triffe},
-  publisher = {NIH Public Access},
-  timestamp = {2015.03.01}
+@Unpublished{pancho2015,
+  Title                    = {Symmetries between life lived and left in finite stationary populations},
+  Author                   = {Francisco Villavicencio and Tim Riffe},
+  Note                     = {in review},
+  Year                     = {2016},
+
+  Owner                    = {riffe},
+  Timestamp                = {2015.08.05}
 }
 
-@ARTICLE{werblow2007population,
-  author = {Werblow, Andreas and Felder, Stefan and Zweifel, Peter},
-  title = {Population ageing and health care expenditure: a school of ‘red herrings’?},
-  journal = {Health economics},
-  year = {2007},
-  volume = {16},
-  pages = {1109--1126},
-  number = {10},
-  owner = {triffe},
-  publisher = {Wiley Online Library},
-  timestamp = {2014.10.07}
+@Article{weir2011proxy,
+  Title                    = {Proxy interviews and bias in the distribution of cognitive abilities due to non-response in longitudinal studies: a comparison of HRS and ELSA},
+  Author                   = {Weir, David and Faul, Jessica and Langa, Kenneth},
+  Journal                  = {Longitudinal and life course studies},
+  Year                     = {2011},
+  Number                   = {2},
+  Pages                    = {170},
+  Volume                   = {2},
+
+  Owner                    = {triffe},
+  Publisher                = {NIH Public Access},
+  Timestamp                = {2015.03.01}
 }
 
-@ARTICLE{woolf2003burden,
-  author = {Woolf, Anthony D and Pfleger, Bruce},
-  title = {Burden of major musculoskeletal conditions},
-  journal = {Bulletin of the World Health Organization},
-  year = {2003},
-  volume = {81},
-  pages = {646--656},
-  number = {9},
-  owner = {triffe},
-  publisher = {SciELO Public Health},
-  timestamp = {2014.10.08},
-  url = {http://www.scielosp.org/scielo.php?script=sci_arttext&pid=S0042-96862003000900007}
+@Article{werblow2007population,
+  Title                    = {Population ageing and health care expenditure: a school of ‘red herrings’?},
+  Author                   = {Werblow, Andreas and Felder, Stefan and Zweifel, Peter},
+  Journal                  = {Health economics},
+  Year                     = {2007},
+  Number                   = {10},
+  Pages                    = {1109--1126},
+  Volume                   = {16},
+
+  Owner                    = {triffe},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2014.10.07}
 }
 
-@ELECTRONIC{HRS,
-  month = {September},
-  year = {2013},
-  title = {{RAND HRS Data, Version M}},
-  address = {Santa Monica, CA},
-  note = {Produced by the RAND Center for the Study of Aging, with funding
-	from the National Institute on Aging and the Social Security Administration.},
-  owner = {triffe},
-  timestamp = {2014.07.14}
+@Article{woolf2003burden,
+  Title                    = {Burden of major musculoskeletal conditions},
+  Author                   = {Woolf, Anthony D and Pfleger, Bruce},
+  Journal                  = {Bulletin of the World Health Organization},
+  Year                     = {2003},
+  Number                   = {9},
+  Pages                    = {646--656},
+  Volume                   = {81},
+
+  Owner                    = {triffe},
+  Publisher                = {SciELO Public Health},
+  Timestamp                = {2014.10.08},
+  Url                      = {http://www.scielosp.org/scielo.php?script=sci_arttext&pid=S0042-96862003000900007}
+}
+
+@Electronic{HRS,
+  Title                    = {{RAND HRS Data, Version M}},
+
+  Address                  = {Santa Monica, CA},
+  Month                    = {September},
+  Note                     = {Produced by the RAND Center for the Study of Aging, with funding from the National Institute on Aging and the Social Security Administration.},
+  Year                     = {2013},
+
+  Owner                    = {triffe},
+  Timestamp                = {2014.07.14}
 }
 
