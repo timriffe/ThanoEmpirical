@@ -87,9 +87,10 @@ imputeWeights <- function(wt,intv_dt){
     return(wt2)
 }
 
-# converts to long format, assumes thano age columns already appended:
-#
+#----------------------------------------------------------
+# load in long files from PHC
 Dat         <- local(get(load("Data/thanos_long_v2_2.gz")))
+#Dat         <- local(get(load("Data/thanos_long_v3_1.RData")))
 
 # remove missed interviews
 Dat         <- Dat[!is.na(Dat$intv_dt), ]
