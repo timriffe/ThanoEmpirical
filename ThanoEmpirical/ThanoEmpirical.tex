@@ -90,12 +90,12 @@ thanatological age at birth. These concepts are identical with length of life,
 which is not to be confused with life expectancy, the mean length of life..}
 based on scenarios or extrapolations of how mortality rates might change over time. Data classified by chronological age, like census population counts, can be reclassified into thanatological age in this way \citep{brouard1986structure}.
 
-Prospectively, decreasing mortality has the effect of moving population into higher thanatological ages, thereby increasing
-remaining life expectancy \citep{sanderson2005average}. In this case,
+Prospectively, decreasing mortality is equivalent to moving population into
+higher thanatological ages, thereby increasing remaining life expectancy \citep{sanderson2005average}. In this case,
 the notion and measure of future remaining lifespan is elastic, subject to
 uncertainty.
 In retrospect (after the death of a cohort), the thanatological age structure of
-a population is a fixed characteristic. Furthermore, since a closed birth
+a cohort is a fixed characteristic. Furthermore, since a closed birth
 cohort is akin to a stationary population,\footnote{The age structure of a birth
 cohort over time is proportional to the survivorship column of its lifetable, which is proportional to the stable age structure determined by the Lotka-Euler renewal model when the intrinsic growth rate is equal to zero.} one may be
 tempted to assume that since chronological and thanatological age structures are
@@ -111,7 +111,9 @@ that for cohorts the mean duration spent in each state is indeed identical, no
 matter whether measured by chronological or thanatological age. Cohort
 expectancies are immune from age classification biases. However, distinct
 patterns emerge in period aggregates due to an interaction between lifespan
-variation and the age profiles of demographic characteristics. In the Results section, we provide an example of a deceptive pattern over chronological age that is due to such an interaction with lifespan.
+variation and the age profiles of demographic characteristics. 
+%In the Results section, we provide an example of a deceptive pattern over
+% chronological age that is due to such an interaction with lifespan.
 
 Some life
 transitions, states, and changes in state intensities are almost exclusively a
@@ -124,31 +126,31 @@ future. Measurement of the
 end-of-life trajectories of characteristics is useful in such cases as a way of separating
 mortality patterns from patterns in characteristics themselves.
 Characteristic measurements are taken while the respondent is alive, but
-thanatological age at each interview is unknown until the date of death is
-known, and is therefore retrospectively assigned. This final analytical step
+thanatological age at each observation is unknown until the date of death is
+known, and it is therefore retrospectively assigned. This final analytical step
 lends clarity to the understanding of how characteristics vary within and
 between lifespans.
 
 Incorporating a time-to-death perspective in demographic studies is especially
-important when assessing the impact of ``population ageing''.
+important when assessing the impact of ``population ageing.''
 To the extent that the health, welfare, and social care demands of a
 population are functions of thanatological rather than chronological age
 structure, forecasts of the social and economic ``costs'' of ageing that are
-based only on chronological age profiles are prone to misinterpretation.
-In our concluding discussion we return to this point.
+based only on chronological age profiles are prone to bias
+\citep{stearns2004time}.
 
 Research exploring time-to-death patterns has been done in other
-domains, and topics examined can be roughly categorized into two types: 1) things that are a
-function of apparent or perceived time to death
+domains, and topics examined can be roughly categorized into two types: 1)
+things that are a function of apparent or perceived time to death
 \citep{hamermesh1985expectations,hurd1995evaluation,carstensen2006influence,gan2004subjective,biro2010subjective,salm2010subjective,van2010living,cocco2012longevity,payne2013life,balia2013survival},
 and 2) things that are a function of actual time to death
 \citep{miller2001increasing,seshamani2004longitudinal,werblow2007population,
-wolf2015disability}.
+wolf2015disability,stearns2004time}.
 The first kind are mostly studies on cognitive transitions and economic or
 health behaviors, while the second kind are mostly studies on health
 expenditure, except \citet{wolf2015disability}, which proposes a model to
 separate latent time-to-death trajectories.
-Another branch of research relates perceived and actual remaining lifetime
+A third branch of research relates perceived and actual remaining lifetime
 \citep{perozek2008using,delavande2011differential,post2012longevity,kutlu2013individuals}.
 In this paper we will expand the second group, focusing on a broad range of
 questions from ten waves of the US Health and Retirement Study \citep{HRS}.
@@ -167,8 +169,8 @@ patterns.
 Our analytical approach is retrospective rather than
 prospective, meaning that no lifetable assumptions are made in the measurement
 of thanatological age, and no censoring adjustments are necessary. Although more
-data are available for adjacent cohorts, we report results only for the cohort
-born from 1915 to 1919, which contains the most extensive set of observations in
+data are available for earlier and later cohorts, we report results only for the
+cohort born from 1915 to 1919, which contains the most extensive set of observations in
 the dataset used. In the following section we describe the methods in
 greater detail. We then demonstrate the four age axes by way of example,
 and summarize all characteristics tested in terms of these four axes. Finally,
@@ -179,8 +181,8 @@ we discuss some implications and applications of this work.
 
 All findings reported in this paper are based on data from the US Health and
 Retirement Study (HRS). We use the RAND edition of the data, which is
-conveniently merged across all ten waves. This data is free to download,
-and all details of data processing and methods are made freely available in an open code
+conveniently merged across all ten waves available as of 2014.
+These data are free to download, and all details of data processing and methods are made freely available in an open code
 repository.\footnote{This
 repository includes R code used to process data, as well as generate results and
 figures: \url{https://github.com/timriffe/ThanoEmpirical}}
@@ -188,7 +190,10 @@ figures: \url{https://github.com/timriffe/ThanoEmpirical}}
 %repository includes R code used to process data, as well as generate results
 % and figures: (url goes here\ldots)}
 We restrict the sample to only those
-individuals born between 1900 and 1930 that died between 1992 and 2011, which narrows the dataset down to 37051 observations of 9238 individuals. 8137 of these observations are from the 1919 individuals that died from the 1915-1919 cohort. Adjacent cohorts are kept for the sake of a smoother loess fit to the data, which we describe in the following paragraphs.
+individuals born between 1900 and 1930 that died between 1992 and 2011, which
+narrows the dataset down to 37,051 observations of 9,238 individuals. Of
+these observations, 8,137 are from the 1,919 individuals that died from the
+1915-1919 cohort. Adjacent cohorts are kept for the sake of a smoother fit to the data.
 %
 \begin{figure}[!h]
 \centering
@@ -198,8 +203,8 @@ individuals born between 1900 and 1930 that died between 1992 and 2011, which na
 \end{figure}
 
 Underpinning this investigation are a series of demographic surfaces indicating
-the average intensity of a given marker along the chronological and thanatological
-time dimensions within a series of quinquennial birth cohorts, from which we
+the average prevalence of a given marker along the chronological and
+thanatological time dimensions within a series of quinquennial birth cohorts, from which we
 focus only on the central 1915-1919 birth cohort.
 This visual tool is similar to but orthogonal to the familiar Lexis surface.
 Figure~\ref{fig:LexisOrtho} orients the reader with the temporal coordinates we
@@ -213,37 +218,40 @@ chronological age. The blue arrow (B) indicates a hypothetical lifeline that
 will eventually expire at age 99, although this property is unknown until death. The
 present study contains only complete lifelines, such as that depicted in the
 color red (A) in Figure~\ref{fig:LexisOrtho}, which completes its lifespan at
-age 71. In this diagram, diagonal lines represent death cohorts, rather than the
-birth cohorts found in the standard Lexis diagram.
+age 71. In this diagram, diagonal lines represent death cohorts (or lifespan
+cohorts), rather than the birth cohorts found in the standard Lexis diagram.
 
 We limit the current study to the 1915-1919 cohort due
 to the characteristics of the data source. Using the HRS, enough
 observations are available such that we can measure the patterns of
 within the area outlined in green (C) in Figure~\ref{fig:LexisOrtho}. The
 left bound of this area is chronological age 72, and the diagonal right
-bound belongs to the completed lifespan of 95. While there are some observations
-at thanatological ages greater than 12, there are too few to produce reliable
-estimates.\footnote{Since the HRS spans 20 calendar years (1992-2011), the
-theoretical upper bound of observation for thanatological age is 20.} Future
-waves will expand the area applicable to all but the oldest birth cohorts that are already extinct in the data.
+bound belongs to the completed lifespan of 95. Since the HRS spans 20 calendar years (1992-2011), the
+theoretical upper bound of observation for thanatological age is 20.
+There are few observations of individuals in this sample between 13 and 20
+remaining years of life, and so we analyze only thanatological ages less than or
+equal to 12. Further waves will expand the analyzable thanatological age range
+for this and younger birth cohorts in the HRS. 
 
 The 1915-1919 birth cohort was exposed to the 1918 Spanish influenza
 epidemic as toddlers (1915-1917 cohorts), as infants (1917-1918) cohort and
-in-utero (1919 cohort). There is some evidence that this exposure manifested in
-various ways in late life \citep[e.g.,][]{almond20061918}, and so the reader may
-rightly question whether the results presented here are in some way anomalous.
-While more precise methods may detect effects, the methods we expound here are
-not precise. Specifically, the smoothing procedure we apply borrows
-information from adjacent birth cohorts, which itself may erase whatever
-otherwise detectable health artifacts this cohort may have carried into late
-life. At these ages, we assume that other risk factors, some of them cumulative
-over the life course, senescence itself and other forces likely drive patterns
-to a much greater extent. Our justification is here speculative, but we report
-that the results for this cohort do not appear visually distinct from those
-present in other cohorts. More importantly, our goal here is not to describe the
-end-of-life experience of this birth cohort, but to add resolution to the
-measurement and description of ageing and morbidity indicators, and contribute
-to the practice of demography in general.
+in-utero (1919 cohort). There is evidence that this exposure manifested in
+various ways in late life \citep[e.g.,][]{almond20061918,myrskyla2013early}, and
+so the reader may rightly question whether the results presented here are anomalous.
+The potential anomalous effects from this cohort are
+``smoothed-out'' in our analysis, due both to the width of the cohort and to the
+nature of the statistical method we use to estimate aggregate patterns from
+individual observations, which borrows information from observations in earlier
+and later cohorts. Further, at these ages we assume that other risk factors,
+some of them cumulative over the life course, and senescence itself likely drive
+patterns to a much greater extent than might early-life selection or late-life
+onsets of poor health due to the Spanish influenza.
+Finally, since our analysis is disaggregated by both chronological and
+thanatological age, the health prevalence patterns we analyze can be thought of
+as ``purged of mortality''. Since results on late-life health for this exposure
+are not purged of mortality in this way, it is possible that an interaction
+explains part of the findings. Our justification is here speculative, but we
+report that the results for this cohort do not appear visually distinct from those present in other cohorts. More importantly, our goal here is not to describe the end-of-life experience of this birth cohort, but to add resolution to the measurement and description of ageing and morbidity indicators, and contribute to the practice of demography in general.
 
 \paragraph*{Age}
 Thanatological age is calculated for each individual as the lag between
