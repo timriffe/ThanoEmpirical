@@ -180,8 +180,8 @@ we discuss some implications and applications of this work.
 \section*{Data \& Method}
 
 All findings reported in this paper are based on data from the US Health and
-Retirement Study (HRS). We use the RAND edition of the data, which is
-conveniently merged across all ten waves available as of 2014.
+Retirement Study (HRS). We use version M of the RAND edition of the data, which
+is conveniently merged across all ten waves available as of 2013.
 These data are free to download, and all details of data processing and methods are made freely available in an open code
 repository.\footnote{This
 repository includes R code used to process data, as well as generate results and
@@ -193,7 +193,8 @@ We restrict the sample to only those
 individuals born between 1900 and 1930 that died between 1992 and 2011, which
 narrows the dataset down to 37,051 observations of 9,238 individuals. Of
 these observations, 8,137 are from the 1,919 individuals that died from the
-1915-1919 cohort. Adjacent cohorts are kept for the sake of a smoother fit to the data.
+1915-1919 cohort. Observations from adjacent cohorts are kept for the sake of a
+smoother fit to the data.
 %
 \begin{figure}[!h]
 \centering
@@ -230,7 +231,7 @@ bound belongs to the completed lifespan of 95. Since the HRS spans 20 calendar y
 theoretical upper bound of observation for thanatological age is 20.
 There are few observations of individuals in this sample between 13 and 20
 remaining years of life, and so we analyze only thanatological ages less than or
-equal to 12. Further waves will expand the analyzable thanatological age range
+equal to 12. Further waves will expand the observable thanatological age range
 for this and younger birth cohorts in the HRS. 
 
 The 1915-1919 birth cohort was exposed to the 1918 Spanish influenza
@@ -244,14 +245,17 @@ nature of the statistical method we use to estimate aggregate patterns from
 individual observations, which borrows information from observations in earlier
 and later cohorts. Further, at these ages we assume that other risk factors,
 some of them cumulative over the life course, and senescence itself likely drive
-patterns to a much greater extent than might early-life selection or late-life
-onsets of poor health due to the Spanish influenza.
-Finally, since our analysis is disaggregated by both chronological and
-thanatological age, the health prevalence patterns we analyze can be thought of
-as ``purged of mortality''. Since results on late-life health for this exposure
-are not purged of mortality in this way, it is possible that an interaction
-explains part of the findings. Our justification is here speculative, but we
-report that the results for this cohort do not appear visually distinct from those present in other cohorts. More importantly, our goal here is not to describe the end-of-life experience of this birth cohort, but to add resolution to the measurement and description of ageing and morbidity indicators, and contribute to the practice of demography in general.
+health patterns to a much greater extent than might early-life selection or
+late-life onsets of poor health due to the Spanish influenza.
+%Finally, since our analysis is disaggregated by both chronological and
+%thanatological age, the health prevalence patterns we analyze can be thought of
+%as ``purged of mortality''. It is conceivable, and we do not investigate
+% whether health and longevity interactions explain 
+We also verify that patterns for this cohort do not appear visually distinct
+from those found in earlier and later cohorts. More importantly, our goal here
+is not to describe the end-of-life experience of this particular birth cohort, but to add
+resolution to the measurement and description of ageing and morbidity
+indicators, and contribute to the practice of demography in general. 
 
 \paragraph*{Age}
 Thanatological age is calculated for each individual as the lag between
@@ -263,16 +267,15 @@ we are interested in viewing characteristics over both chronological age and
 thanatological age simultaneously, we require observations spread over a wide
 range of combinations of thanatological and chronological age.
 
-The current HRS dataset runs from 1992 to 2011, which
+Version M of the RAND HRS dataset runs from 1992 to 2011, which
 means that each birth cohort is observed over a different range of ages. For
 example, the 1925-1929 cohort enters observation in 1992 at age 62 (at the
 youngest) and acheives a maximum completed age of 85 by the end of 2011. On the
 other end, the 1905-1909 enters the HRS in 1992 at age 72 at the youngest and
 has a maximum completed lifespan of 105 by the last wave in 2011, albeit with
-few observations at the upper extreme. Results from these and other birth cohorts are also
-valid, but portions of these surfaces are based on fewer data points (lifespans $>$ 100) or ages in which labor market
-exits appear to drive patterns at least as much as senescence (ages $<$ 67,
-approximately). We selected the 1915-1919 cohort because
+few observations at the upper extreme. Results from these and other birth
+cohorts can also be obtained, but portions of these surfaces are based on fewer
+data points (lifespans $>$ 100) or ages in which labor market exits appear to drive patterns at least as much as senescence (ages $<$ 67, approximately). We selected the 1915-1919 cohort because
 its observation window is centered on the chronological ages in which most
 deaths occur and in which most recent mortality improvements in
 low-mortality countries have occurred ,\footnote{Own calculations based on UN
@@ -299,7 +302,7 @@ grouped roughly into the following categories:
   \item Healthcare Utilization: 14 items.
 \end{enumerate}
 
-The the specific variables included in our survey are found in the appendix
+The specific variables included in our survey are found in the appendix
 tables following the same numbering scheme as above. In all, we summarize
 results from 78 individual and composite items.
 We excluded variables that were not asked continuously from at least wave 3 through 9. Variables not available in the
@@ -426,7 +429,11 @@ to an interaction between the thanatological pattern seen in
 Figure~\ref{fig:psych} and the age pattern of mortality itself. We argue that it
 is imprecise to consider chronological age a risk factor for characteristics that display such strong thanatological patterns, as an
 apparent chronological age pattern along said margin is a deceptive artifact.
-Instead, such characteristics appear to more closely operate as effects of the body shutting down or possibly as a signal on average that death is not far off, a demographic corroboration of substantive findings in the psychology literature \citep{carstensen2006influence}. Many characteristics studied here display patterns that are strongly thanatological.
+Instead, such characteristics appear to more closely operate as effects of the
+body shutting down or possibly as a signal on average that death is not far off,
+a demographic corroboration of substantive findings in the psychology literature
+\citep{carstensen2006influence}. Many characteristics studied
+here display patterns that are strongly thanatological.
 
 Figure~\ref{fig:back} tells just the opposite story about back pain for females.
 Back pain is a function of
@@ -436,13 +443,6 @@ process. In these ages, back problems provide no information about remaining
 years of life. Of the characteristics included in this
 study, only current smoking, arthritis, and self reports of current versus former memory exhibit such clear chronological patterns (both for males and
 females).
-\begin{figure}[!h]
- \centering
-   \caption{Psychological problems (ever) by chronological age only. Males, 1915-1919 birth
-    cohort. With 95{\%} confidence bands from loess fit.}
-    \label{fig:chronofalse}
-   \includegraphics[scale=.7]{Figures/MalePsychChrono.pdf}
-\end{figure}
 
 \begin{figure}[!h]
     % This figure was produced in
@@ -469,7 +469,14 @@ females).
 	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Surf_Female_back.pdf}}
 	\end{subfigure}
 \end{figure}
-\FloatBarrier
+
+\begin{figure}[!h]
+ \centering
+   \caption{Psychological problems (ever) by chronological age only. Males, 1915-1919 birth
+    cohort. With 95{\%} confidence bands from loess fit.}
+    \label{fig:chronofalse}
+   \includegraphics[scale=.7]{Figures/MalePsychChrono.pdf}
+\end{figure}
 
 Other informative patterns also exist among the set of characteristics studied.
 These include characteristics that vary by lifespan. Characteristics that vary
@@ -486,14 +493,14 @@ worthy of further study.
 The fourth major axis of contour variation runs perpendicular to lifelines. One
 characteristic that clearly displays this pattern is ever having been
 diagnosed with high blood pressure among males. This characteristic varies by
-lifespan, and thanatological age within lifespan within the window of study.
+lifespan, and thanatological age within lifespan for this window of study.
 In other words, longer lifespans display later onset but greater eventual odds of
-having been diagnosed with high blood pressure. Arithmetically, $years~lived - years~left$ is the
-operative predictor of blood pressure. For example, for
-such characteristics, the condition of a 70-year old with five
+having been diagnosed with high blood pressure. Arithmetically, $chronological
+age - thanatological age$ is the operative predictor of blood pressure. For
+example, for such characteristics, the condition of a 70-year old with five
 remaining years of life may resemble that of an 80-year old with
-15 remaining years of life. Such characteristics are not very useful alone for
-predicting eventual lifespan.\footnote{We do not have expertise to comment further on blood pressure, but instead only provide an interpretation of the surface presented.} Contours such as this imply that variation for a characteristic
+15 remaining years of life. Such characteristics are not very useful alone for predicting eventual
+lifespan.\footnote{We do not have expertise to comment further on blood pressure, but instead only provide an interpretation of the surface presented.} Contours such as this imply that variation for a characteristic
 
 \begin{figure}[!h]
     % This figure was produced in
@@ -621,7 +628,7 @@ surfaces would clearly aid in disentangling morbidity processes.
 Research to better document the multidimensional age variation of particular
 characteristics would benefit from more careful measurement than that conducted
 here.
-Despite such shortcomings, the principle aim of this study has been satisfied:
+Despite such shortcomings, the principal aim of this study has been satisfied:
 this survey of characteristics highlights the complex variety of age and
 lifespan dimensions over which some key aspects of the aging process unfold. All
 of the indicators we tested are commonly used to describe population ageing, and
