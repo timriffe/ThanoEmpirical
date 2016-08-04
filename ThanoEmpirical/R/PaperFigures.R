@@ -71,7 +71,7 @@ dev.off()
 source("R/SurfMap.R")
 
 # use LoessQuinquennial
-# chrono: surgery
+# chrono: psych
 grabber <- paste0("psych","_",.7)
 Surf <- Results[[grabber]][["Male"]]$Surf[,,as.character(1915)]
 # thano:
