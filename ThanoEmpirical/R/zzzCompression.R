@@ -1,3 +1,5 @@
+# TR: deprecated Aug 4, 2016, not used in paper
+
 
 # what are some thano by chrono patterns that would produce 
 # expansion vs compression of morbidity?
