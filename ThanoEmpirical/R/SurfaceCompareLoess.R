@@ -331,7 +331,10 @@ save(Results,file="Data/LoessQuinquenal_imp.Rdata")
 # start correlation / exploration work here:
 
 
-Results <- local(get(load("Data/LoessQuinquenal_imp.Rdata")))
+#Results <- local(get(load("Data/LoessQuinquenal_imp.Rdata")))
+Results <- local(get(load("Data/LoessQuinquenal.Rdata")))
+
+
 
 NULLS <- unlist(lapply(Results, function(X){
       is.null(X$Male) | is.null(X$Female)
@@ -472,40 +475,28 @@ lapply(varnames, function(x){
 dev.off()
 
 ###########################################################
-# This code is for generating each of the four axis correlations
+
+
+
+
+
+
+
+
+
+#Maler <- do.call(rbind,lapply(varnames, function(x, Results){
+#    grabber <- paste0(x,"_",.7)
+#    A <- Results[[grabber]][["Male"]]$Surf[,,"1915"]
+#    get_r(A)
+#  }, Results = Results))
+#rownames(Maler) <- varnames
 #
-##########################################################
-#A <- Surf
-#A <- col(Surf)-row(Surf)
-#dimnames(A) <- dimnames(Surf)
-#SurfMap(A, outline = FALSE)
-get_r <- function(A){
-  # it's pretty simple, really.
-  # we take the absolute value because it shouldn't matter 
-  # whether high is bad and low is good: i.e. numeric coding. 
-  Along <- reshape2::melt(A)
-  c(Thano = abs(cor(Along$value,Along$Var1,use="complete.obs")), 
-  Chrono = abs(cor(Along$value,Along$Var2,use="complete.obs")),
-  Lifespan = abs(cor(Along$value,Along$Var2 + Along$Var1,use="complete.obs")),
-  Mixed = abs(cor(Along$value,Along$Var1 - Along$Var2,use="complete.obs"))
-  )
-}
-
-
-
-Maler <- do.call(rbind,lapply(varnames, function(x, Results){
-    grabber <- paste0(x,"_",.7)
-    A <- Results[[grabber]][["Male"]]$Surf[,,"1915"]
-    get_r(A)
-  }, Results = Results))
-rownames(Maler) <- varnames
-
-Femaler <- do.call(rbind,lapply(varnames, function(x, Results){
-      grabber <- paste0(x,"_",.7)
-      A <- Results[[grabber]][["Female"]]$Surf[,,"1915"]
-      get_r(A)
-    }, Results = Results))
-rownames(Femaler) <- varnames
+#Femaler <- do.call(rbind,lapply(varnames, function(x, Results){
+#      grabber <- paste0(x,"_",.7)
+#      A <- Results[[grabber]][["Female"]]$Surf[,,"1915"]
+#      get_r(A)
+#    }, Results = Results))
+#rownames(Femaler) <- varnames
 
 # --------------------------------------
 # this was how I decided which points to mark in the plots:
