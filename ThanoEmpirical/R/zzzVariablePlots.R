@@ -1,4 +1,4 @@
-# this script now deprecated.
+# TR: this script now deprecated.
 
 # Plots are now done for cohorts separately from a joint loess smooth.
 # See SurfaceCompareLoess for the goodies (both loess and plotting)
