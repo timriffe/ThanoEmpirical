@@ -1,3 +1,4 @@
+# TR: Aug 4, 2016: results not used in paper
 
 # just to point out that when looked at along a single age-margin, the same characteristic
 # may appear to be a function of years lived and years left, so we must look at a 
