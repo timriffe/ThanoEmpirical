@@ -1,5 +1,5 @@
 
-# for Tim, this will choke
+# 
 if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm","tim-ThinkPad-L440")){
   # if I'm on the laptop
   setwd("/home/tim/git/ThanoEmpirical/ThanoEmpirical")
@@ -25,25 +25,33 @@ convertYN <- function(x){
     xx[grepl("no", x)]  <- 0
     invisible(xx)
 }
+
+# TR: changed Aug 4, 2016. No more intermediate values: percent incorrect.
 convertCI <-  function(x){
   xx                  <- rep(NA, length(x))
   
   xx[x == "1.correct"] <- 0
   xx[x == "2.correct, 1st try"] <- 0
-  xx[x == "1.correct, 2nd try"] <- .5
+  #xx[x == "1.correct, 2nd try"] <- .5
+  xx[x == "1.correct, 2nd try"] <- 0
   xx[x == "0.incorrect"]  <- 1
   invisible(as.numeric(xx))
 }
+
 convertCESD <- function(x){
   xx <- rep(NA,length(x))
   xx[x == "0.no"]                    <- 0
   xx[x == "4. none or almost none"]  <- 0
-  xx[x == "3. some of the time"]     <- .5
-  xx[x == "2. most of the time" ]    <- .75
+  # TR: changed Aug 4, 2016. No more intermediate values: percent incorrect.
+#  xx[x == "3. some of the time"]     <- .5
+#  xx[x == "2. most of the time" ]    <- .75
+  xx[x == "3. some of the time"]     <- 0
+  xx[x == "2. most of the time" ]    <- 1
   xx[x ==  "1.yes"]                  <- 1
   xx[x ==  "1. all or almost all"]   <- 1
   xx
 }
+
 convertDates <- function(Dat){
     # can't be done with apply because we can't have Date class matrices...
     DateInd       <- grep(pattern="_dt",colnames(Dat))
@@ -64,6 +72,8 @@ getChronoAge <- function(Date, BirthDate){
     out[Ind] <- lubridate::decimal_date(Date[Ind]) - lubridate::decimal_date(BirthDate[Ind])
     out
 }
+
+# keep this
 imputeWeights <- function(wt,intv_dt){
     if (all(wt == 0)){
         wt2 <- NA * wt
@@ -90,6 +100,8 @@ imputeWeights <- function(wt,intv_dt){
 #----------------------------------------------------------
 # load in long files from PHC
 Dat         <- local(get(load("Data/thanos_long_v2_2.gz")))
+
+# we could expand to newer data, but would require a lot more work.
 #Dat         <- local(get(load("Data/thanos_long_v3_1.RData")))
 
 # remove missed interviews
