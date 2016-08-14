@@ -334,6 +334,18 @@
   Timestamp                = {2013.11.01}
 }
 
+@Article{myrskyla2013early,
+  Title                    = {Early life exposure to the 1918 influenza pandemic and old-age mortality by cause of death},
+  Author                   = {Myrskyl{\"a}, Mikko and Mehta, Neil K and Chang, Virginia W},
+  Journal                  = {American journal of public health},
+  Year                     = {2013},
+  Number                   = {7},
+  Pages                    = {e83--e90},
+  Volume                   = {103},
+
+  Publisher                = {American Public Health Association}
+}
+
 @Article{payne2013life,
   Title                    = {Life expectancy as a constructed belief: Evidence of a live-to or die-by framing effect},
   Author                   = {Payne, John W and Sagara, Namika and Shu, Suzanne B and Appelt, Kirstin C and Johnson, Eric J},
@@ -386,6 +398,19 @@
   Owner                    = {triffe},
   Timestamp                = {2014.09.23},
   Url                      = {http://www.R-project.org/}
+}
+
+@Electronic{HRS,
+  Title                    = {{RAND HRS Data, Version M}},
+
+  Address                  = {Santa Monica, CA},
+  Author                   = {RAND},
+  Month                    = {September},
+  Note                     = {Produced by the RAND Center for the Study of Aging, with funding from the National Institute on Aging and the Social Security Administration.},
+  Year                     = {2013},
+
+  Owner                    = {triffe},
+  Timestamp                = {2014.07.14}
 }
 
 @Article{rao2014generalization,
@@ -668,17 +693,5 @@
   Publisher                = {SciELO Public Health},
   Timestamp                = {2014.10.08},
   Url                      = {http://www.scielosp.org/scielo.php?script=sci_arttext&pid=S0042-96862003000900007}
-}
-
-@Electronic{HRS,
-  Title                    = {{RAND HRS Data, Version M}},
-
-  Address                  = {Santa Monica, CA},
-  Month                    = {September},
-  Note                     = {Produced by the RAND Center for the Study of Aging, with funding from the National Institute on Aging and the Social Security Administration.},
-  Year                     = {2013},
-
-  Owner                    = {triffe},
-  Timestamp                = {2014.07.14}
 }
 
