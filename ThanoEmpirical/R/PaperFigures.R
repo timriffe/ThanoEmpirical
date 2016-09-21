@@ -14,7 +14,7 @@ if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm", "tim-ThinkPad-L440")){
 }
 cat("Working directory:\n",getwd())
 source("R/SurfMap.R")
-
+library(RColorBrewer)
 
 # this script contains just the figures used in the final submission to VYPR.
 # many other figures are produced here and there in other R scripts, but are not included.
@@ -48,7 +48,7 @@ text(0,0,0,pos=1, cex = .8)
 text(0,0,0,pos=2, cex = .8)
 text(113,0,bquote(omega == 110),cex=.8,pos=1)
 text(0,110,bquote(omega == 110),pos=2,cex=.8)
-arrows(0,99,99-5,0+5,col="blue",lwd=3)
+arrows(0,99,99-5,0+5,col="blue",lwd=2, lty = "41")
 #arrows(0,55,55-15,0+15,col="blue",lwd=2)
 segments(0,71,71,0,col="red",lwd=3)
 points(71,0,pch=19,col="red")
@@ -59,9 +59,11 @@ segments(67,67,60,39,col="blue",lty=2)
 text(60,80,"(A) complete lifeline", cex = .8)
 segments(57,77,43,29,col="red",lty=2)
 
-polygon(c(72,96,96-13,72),c(0,0,13,13),border = "forestgreen", lwd = 2, lty = 2)
+
+polygon(c(72,96,96-13,72),c(0,0,13,13),border = brewer.pal(8,"Greens")[8], lwd = 1, lty = 1,
+		col = paste0(brewer.pal(8,"Greens")[5],"50"))
 text(75,60,"(C) area studied for\n1915-1919 birth cohort", cex = .8, pos = 4)
-segments(90,55,96-13,13,col="forestgreen",lty=2)
+segments(90,55,96-13,13,col=brewer.pal(8,"Greens")[8],lty=2)
 dev.off()
 
 
