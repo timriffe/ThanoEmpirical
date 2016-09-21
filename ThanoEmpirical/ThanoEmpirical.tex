@@ -132,10 +132,10 @@ lends clarity to the understanding of how characteristics vary within and
 between lifespans.
 
 Incorporating a time-to-death perspective in demographic studies is especially
-important when assessing the impact of ``population ageing.''
+important when assessing the impact of ``population aging.''
 To the extent that the health, welfare, and social care demands of a
 population are functions of thanatological rather than chronological age
-structure, forecasts of the social and economic ``costs'' of ageing that are
+structure, forecasts of the social and economic ``costs'' of aging that are
 based only on chronological age profiles are prone to bias
 \citep{stearns2004time}.
 
@@ -190,11 +190,11 @@ figures: \url{https://github.com/timriffe/ThanoEmpirical}}
 %repository includes R code used to process data, as well as generate results
 % and figures: (url goes here\ldots)}
 We restrict the sample to only those
-individuals born between 1900 and 1930 that died between 1992 and 2011, which
-narrows the dataset down to 37,051 observations of 9,238 individuals. Of
-these observations, 8,137 are from the 1,919 individuals that died from the
-1915-1919 cohort. Observations from adjacent cohorts are kept for the sake of a
-smoother fit to the data.
+individuals born between 1900 and 1930 who died between 1992 and 2011, which
+narrows the dataset down to 37,051 interviews of 9,238 individuals. Of
+these interviews, 8,137 are from the 1,919 individuals who died from the
+1915-1919 cohort. Observations from earlier and later cohorts are kept for the
+sake of adding information when fitting models to the data.
 %
 \begin{figure}[!h]
 \centering
@@ -224,15 +224,18 @@ cohorts), rather than the birth cohorts found in the standard Lexis diagram.
 
 We limit the current study to the 1915-1919 cohort due
 to the characteristics of the data source. Using the HRS, enough
-observations are available such that we can measure the patterns of
-within the area outlined in green (C) in Figure~\ref{fig:LexisOrtho}. The
+observations are available from the 1915-1919 cohort that we can measure
+the patterns of within the area outlined in green (C) in Figure~\ref{fig:LexisOrtho}. The
 left bound of this area is chronological age 72, and the diagonal right
 bound belongs to the completed lifespan of 95. Since the HRS spans 20 calendar years (1992-2011), the
-theoretical upper bound of observation for thanatological age is 20.
-There are few observations of individuals in this sample between 13 and 20
-remaining years of life, and so we analyze only thanatological ages less than or
-equal to 12. Further waves will expand the observable thanatological age range
-for this and younger birth cohorts in the HRS. 
+theoretical upper bound of observation of thanatological age is 20.
+However, individuals in this sample between
+thanatological ages 13 and 20 (i.e., individuals that
+entered the study around 1992 and also died around 2011) are scarce,
+and so we study only thanatological ages less than or equal to 12, ergo the
+final 12 years of life. As further waves are added to the HRS and mortality
+linkage continues, the portion of the lifecourse that may be studied in this way
+will expand.
 
 The 1915-1919 birth cohort was exposed to the 1918 Spanish influenza
 epidemic as toddlers (1915-1917 cohorts), as infants (1917-1918) cohort and
@@ -242,8 +245,8 @@ so the reader may rightly question whether the results presented here are anomal
 The potential anomalous effects from this cohort are
 ``smoothed-out'' in our analysis, due both to the width of the cohort and to the
 nature of the statistical method we use to estimate aggregate patterns from
-individual observations, which borrows information from observations in earlier
-and later cohorts. Further, at these ages we assume that other risk factors,
+individual observations. Specifically, loess smoothing borrows information
+from observations in earlier and later cohorts. Further, at these ages we assume that other risk factors,
 some of them cumulative over the life course, and senescence itself likely drive
 health patterns to a much greater extent than might early-life selection or
 late-life onsets of poor health due to the Spanish influenza.
@@ -254,7 +257,7 @@ late-life onsets of poor health due to the Spanish influenza.
 We also verify that patterns for this cohort do not appear visually distinct
 from those found in earlier and later cohorts. More importantly, our goal here
 is not to describe the end-of-life experience of this particular birth cohort, but to add
-resolution to the measurement and description of ageing and morbidity
+resolution to the measurement and description of aging and morbidity
 indicators, and contribute to the practice of demography in general. 
 
 \paragraph*{Age}
@@ -274,15 +277,15 @@ youngest) and acheives a maximum completed age of 85 by the end of 2011. On the
 other end, the 1905-1909 enters the HRS in 1992 at age 72 at the youngest and
 has a maximum completed lifespan of 105 by the last wave in 2011, albeit with
 few observations at the upper extreme. Results from these and other birth
-cohorts can also be obtained, but portions of these surfaces are based on fewer
-data points (lifespans $>$ 100) or ages in which labor market exits appear to drive patterns at least as much as senescence (ages $<$ 67, approximately). We selected the 1915-1919 cohort because
-its observation window is centered on the chronological ages in which most
-deaths occur and in which most recent mortality improvements in
-low-mortality countries have occurred ,\footnote{Own calculations based on UN
+cohorts are also obtained from these data, but portions of these surfaces are
+based on fewer data points (lifespans $>$ 100) or ages in which labor market
+exits appear to drive patterns at least as much as senescence (ages $<$ 67,
+approximately). We focus on the 1915-1919 cohort because its observation window
+is centered on the chronological ages in which most deaths occur and in which most recent mortality improvements in low-mortality countries have occurred,\footnote{Own calculations based on UN
 data \citep{UN2012prospects}. The modal ages at death for the 1915-1919 cohort
 are 80-81 for males and around 87 for females. These calculations are based on
 partially observed cohort mortality rates, $M(x)$ \citep{HMD}.} and because the
-HRS provides a good density and spread of data points over this window. The lower and upper age bounds may vary if questions were not available in the first, second or final waves.
+HRS provides a good density and spread of data points over this window. The lower and upper age bounds vary if questions were not available in the first, second or final waves.
 
 \paragraph*{Characteristics}
 We aim for a broad overview of the age variation across different dimensions of
@@ -305,8 +308,8 @@ grouped roughly into the following categories:
 The specific variables included in our survey are found in the appendix
 tables following the same numbering scheme as above. In all, we summarize
 results from 78 individual and composite items.
-We excluded variables that were not asked continuously from at least wave 3 through 9. Variables not available in the
-first or second wave have left age bounds at higher ages than 72, whereas items
+We exclude variables that were not asked continuously from at least wave 3 through 9. Variables not available in the
+first or second wave have left age bounds at ages higher than 72, whereas items
 not asked in wave ten have upper lifespan bounds that are below 95.
 
 Each survey question must be in a format suitable for numeric operations.
@@ -402,7 +405,7 @@ meaningful category for this study.}
 We first present examples of four surfaces that exemplify the major ways in
 which characteristics tend to vary temporally over the lifespan within a birth
 cohort. These four major patterns of variation provide a way to categorize and
-understand markers of ageing. We summarize the results of our set of 78
+understand markers of aging. We summarize the results of our set of 78
 characteristics by calculating Pearson correlation coefficients for each of
 these four axes and display results graphically, as well as in an appendix
 table.
@@ -438,7 +441,7 @@ here display patterns that are strongly thanatological.
 Figure~\ref{fig:back} tells just the opposite story about back pain for females.
 Back pain is a function of
 chronological age, at least at the population level until around chronological
-age 90. This is the dominant way of thinking about most aspects of the ageing
+age 90. This is the dominant way of thinking about most aspects of the aging
 process. In these ages, back problems provide no information about remaining
 years of life. Of the characteristics included in this
 study, only current smoking, arthritis, and self reports of current versus former memory exhibit such clear chronological patterns (both for males and
@@ -632,11 +635,11 @@ here.
 Despite such shortcomings, the principal aim of this study has been satisfied:
 this survey of characteristics highlights the complex variety of age and
 lifespan dimensions over which some key aspects of the aging process unfold. All
-of the indicators we tested are commonly used to describe population ageing, and
+of the indicators we tested are commonly used to describe population aging, and
 very few of them are exclusively a function of chronological age. If this
 finding is sustained in other cohorts and populations, and if other indicators
 here untested also display similar temporal complexity, we submit that the
-common discourse and debate on the nature and impacts of ageing ought to be
+common discourse and debate on the nature and impacts of aging ought to be
 better informed by more judicious measurement and description in terms of
 thanatological and chronological age.
 
@@ -649,7 +652,7 @@ understanding of the temporal accounting that relates demographic time
 perspectives. Further exploration and experimentation with these formal
 demographic concepts will lead to a more judicious toolkit for demographic
 measurement and the practice of demography, and ultimately a wiser contribution
-to the discourse on population ageing. A series of direct applications and
+to the discourse on population aging. A series of direct applications and
 implications derive from the concepts and results presented in this paper. 
 
 First, if
@@ -673,7 +676,7 @@ population characteristics. Underused as it is, the Lexis surface does not tell
 the whole story! 
 
 Third, health care providers and the public may better situate the association
-of certain health outcomes with stages of the ageing process. This is both a
+of certain health outcomes with stages of the aging process. This is both a
 question of allocating resources and a question of how individuals conceive of
 themselves with respect to age. In this regard, we add to the chorus of
 researchers working to change the measurement of age to reflect the changing
