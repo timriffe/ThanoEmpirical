@@ -10,9 +10,9 @@ get_r <- function(A){
 	# whether high is bad and low is good: i.e. numeric coding. 
 	Along <- reshape2::melt(A)
 	c(T  = abs(cor(Along$value, Along$Var1, use = "complete.obs")), 
-			A   = abs(cor(Along$value, Along$Var2, use = "complete.obs")),
-			L = abs(cor(Along$value, Along$Var2 + Along$Var1, use = "complete.obs")),
-			M    = abs(cor(Along$value, Along$Var1 - Along$Var2, use = "complete.obs"))
+	  A  = abs(cor(Along$value, Along$Var2, use = "complete.obs")),
+	  L  = abs(cor(Along$value, Along$Var2 + Along$Var1, use = "complete.obs")),
+	  M  = abs(cor(Along$value, Along$Var1 - Along$Var2, use = "complete.obs"))
 	)
 }
 
