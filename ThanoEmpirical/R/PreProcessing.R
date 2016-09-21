@@ -1,5 +1,5 @@
 
-# 
+# Sets working directory for Tim's machines
 if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm","tim-ThinkPad-L440")){
   # if I'm on the laptop
   setwd("/home/tim/git/ThanoEmpirical/ThanoEmpirical")
@@ -14,18 +14,22 @@ if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm","tim-ThinkPad-L440")){
 }
 getwd()
 
-# install.packages("lubridate")
+
 library(lubridate)
 library(data.table)
 
-# cleaning/processing functions
+#---------------------------------------------------------
+# start utility function preamble
+#----------------------------------------------------------
+# convert yes no coded questions into binary
 convertYN <- function(x){
     xx                  <- rep(NA, length(x))
     xx[grepl("yes", x)] <- 1
     xx[grepl("no", x)]  <- 0
     invisible(xx)
 }
-
+#-----------------------------------------------------
+# convert odd binary with first and second try into single binary
 # TR: changed Aug 4, 2016. No more intermediate values: percent incorrect.
 convertCI <-  function(x){
   xx                  <- rep(NA, length(x))
@@ -37,7 +41,8 @@ convertCI <-  function(x){
   xx[x == "0.incorrect"]  <- 1
   invisible(as.numeric(xx))
 }
-
+#-----------------------------------------------------
+# convert CESD variables into binary
 convertCESD <- function(x){
   xx <- rep(NA,length(x))
   xx[x == "0.no"]                    <- 0
@@ -52,14 +57,20 @@ convertCESD <- function(x){
   xx
 }
 
+#-----------------------------------------------------
+# convert dates to R internal format
 convertDates <- function(Dat){
-    # can't be done with apply because we can't have Date class matrices...
-    DateInd       <- grep(pattern="_dt",colnames(Dat))
+    # can't be done with apply because we can't have Date class matrices.
+	# all date columns can be detected with the pattern _dt, it turns out.
+    DateInd       <- grep(pattern = "_dt",colnames(Dat))
     for (i in DateInd){
-        Dat[,i]    <- as.Date(Dat[,i],origin="1960-1-1")
+        Dat[,i]    <- as.Date(Dat[, i], origin = "1960-1-1")
     }
     invisible(Dat)
 }
+
+#-----------------------------------------------------
+# two functions to get exact years lived and left
 getThanoAge <- function(Date, DeathDate){
     out <- rep(NA, length(Date))
     Ind <- !is.na(Date)
@@ -73,23 +84,35 @@ getChronoAge <- function(Date, BirthDate){
     out
 }
 
-# keep this
+
+# -------------------------------#
+# Weight imputation function     #
+# see code for annotation        #
+# -------------------------------#
 imputeWeights <- function(wt,intv_dt){
+	# positive weights, also used for indexing
+	ind <- wt > 0
+	# if all weights 0, replace w NA
     if (all(wt == 0)){
         wt2 <- NA * wt
         return(wt2)
     }
-    if (sum(wt>0) == 1){
-        wt2 <- approx(x = intv_dt[wt>0],
-                y = wt[wt>0],
+	# if only one valid weight, all later
+	# observations will keep that weight.
+    if (sum(ind) == 1){
+        wt2 <- approx(x = intv_dt[ind],
+                y = wt[ind],
                 xout = intv_dt,
                 rule = 1:2,
                 method = "constant",
                 f = .5)$y
     }
-    if (sum(wt>0)>=2){
-        wt2 <- approx(x = intv_dt[wt>0],
-                y = wt[wt>0],
+	# if at least two valid observations, we
+	# interpolate linearly for any missing,
+	# but extrapolate (rightward) with constant
+    if (sum(ind)>=2){
+        wt2 <- approx(x = intv_dt[ind],
+                y = wt[ind],
                 xout = intv_dt,
                 rule = 1:2,
                 method = "linear")$y 
@@ -97,37 +120,59 @@ imputeWeights <- function(wt,intv_dt){
     return(wt2)
 }
 
+# end utility function preamble
+#----------------------------------------------------------
+
 #----------------------------------------------------------
 # load in long files from PHC
 Dat         <- local(get(load("Data/thanos_long_v2_2.gz")))
 
-# we could expand to newer data, but would require a lot more work.
+#--------------------------------------------------------------------------#
+# we could expand to newer data, but would require a lot more work.        #
+# would rather wait until more waves are out, linked, and integrated       #
+# into the RAND data. Especially since mortality linking has been changing #
+# and some changes will have retrospective impacts. Could cause bad        #
+# headache to get into now.                                                #
+#--------------------------------------------------------------------------#
 #Dat         <- local(get(load("Data/thanos_long_v3_1.RData")))
 
 # remove missed interviews
 Dat         <- Dat[!is.na(Dat$intv_dt), ]
+
+# more potential stats for paper:
 nrow(Dat)
 nrow(Dat)/ length(unique(Dat$id)) # avg interviews / id
-# change all factors to character (to be later recoded in some instances)
-#str(Dat)
 
-#Dat[sapply(Dat, is.factor)] <- lapply(Dat[sapply(Dat, is.factor)], as.character)
+# TR: factors not present in later revisions.
+# change all factors to character (to be later recoded in some instances)
+## Dat[sapply(Dat, is.factor)] <- lapply(Dat[sapply(Dat, is.factor)], as.character)
 
 # make sex column easier to use:
 Dat$sex     <- ifelse(Dat$sex == "1.male","m","f")
 table(Dat$sex)
+
 # reduce to deceased-only
 Dat         <- Dat[Dat$dead == 1, ]
-nrow(Dat)
+# stats for paper
+nrow(Dat) 
 nrow(Dat)/ length(unique(Dat$id))
 
 # convert dates to native R format
 Dat         <- convertDates(Dat)
 
-# merge weights:
+# --------------------------------------------------#
+# merge weights (big assumption here:               #
+# weights in institutions are valid and             #
+# comparable with weights outside institutions.     #
+# soooo annoying ppl in institutions don't have     #
+# comparable weights.                               #
+# --------------------------------------------------#
 Dat$nh_wt[is.na(Dat$nh_wt)] <- 0
 Dat$p_wt <- Dat$p_wt + Dat$nh_wt
 
+# --------------------------------------------------#
+# now we do weight interpolation/extrapolation      #
+# --------------------------------------------------#
 Dat <- data.table(Dat)
 # take care of the rest: 
 
