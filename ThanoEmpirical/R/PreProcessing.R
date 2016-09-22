@@ -190,7 +190,7 @@ Dat$ca <- getChronoAge(Dat$intv_dt, Dat$b_dt)
 # there is one individual with an NA b_dt, and NA age,
 # but thano age is known
 
-# convert yes/no responses to 1,0
+# locate yes/no, correct/incorrect columns
 YNcols <- apply(Dat, 2, function(x){
         xx <- unique(x)
         length(xx) <= 4 & any(grepl("yes",xx))
@@ -200,15 +200,24 @@ CIcols <- apply(Dat, 2, function(x){
           length(xx) <= 5 & any(grepl("correct",xx))
         }) 
 
+# which columns are these anyway?
 colnames(Dat)[YNcols]
-
 colnames(Dat)[CIcols] 
 
-Dat <- data.frame(Dat)
+# convert to binary
+Dat         <- data.frame(Dat)
 Dat[YNcols] <- lapply(Dat[YNcols], convertYN)
 Dat[CIcols] <- lapply(Dat[CIcols], convertCI)
 #head(Dat)
 
+#--------------------------------------------------------
+# boo hoo, lots of variables not included, although it would
+# make sense to look at raw tabulations in 2x2 cells for some
+# of these, even if with breaks. We could include many due to
+# coding breaks, inconsistent inclusion, and things of that 
+# nature. Unfortunately I didn't note each of the reasons
+# very thoroughly.
+#--------------------------------------------------------
 # remove lt, vig, ulc, too inconsistent
 Dat$lt        <- NULL
 Dat$vig       <- NULL
@@ -230,7 +239,7 @@ Dat$mprob 		<- NULL
 Dat$mprobev 	<- NULL
 Dat$med_explog 	<- NULL
 Dat$med_exp 	<- NULL
-# recode medical expenditure to actual values:
+# recode medical expenditure to mid-range values:
 
 #1=0 to $1,000                 500
 #2=~$1000                     1000
@@ -261,15 +270,20 @@ Dat$med_exp 	<- NULL
 #
 #Dat$med_exp         <- rec.vec[as.character(Dat$med_exp)]
 #Dat$med_explog      <- log(Dat$med_exp )
-# recode self reported health 1 = excellent - 5 = poor
-srhrec              <- c(0:4,NA)
+
+
+# recode self reported health to binary:
+# excellent to good = 0, fair, poor = 1.
+srhrec              <- c(0,0,0,1,1,NA)
 names(srhrec)       <- sort(unique(Dat$srh))
 Dat$srh             <- srhrec[Dat$srh] / 4 # now all between 0 and 1. 1 worst.
 names(srhrec)       <- sort(unique(Dat$srm))
-Dat$srm             <- srhrec[Dat$srm] / 4 
+Dat$srm             <- srhrec[Dat$srm] 
 
-# same, worse, better recode:  (1 bad, 0 good)
-pastmem             <- c(0:2,NA)
+# now move to binary
+
+# same, worse, better recode:  0 betterm 0 same 1 worse
+pastmem             <- c(0,0,1,NA)
 names(pastmem)      <- sort(unique(Dat$pastmem))
 Dat$pastmem         <- pastmem[Dat$pastmem] / 2
 
@@ -282,12 +296,19 @@ Dat[cesdquestions]  <- lapply(Dat[cesdquestions],convertCESD)
 # and we want high = bad.
 Dat$cesd_enjoy      <- 1 - Dat$cesd_enjoy
 Dat$cesd_happy      <- 1 - Dat$cesd_happy
+
+# ---------------------------------------------------------------
 # create a single Total Word Recall variables, twr
 #"tr20w"(waves(2-10),"tr40w" (waves1-2)
-# i.e. 1 is the worst recall, and 0 is the best recall
+# i.e. 1 is the worst recall, and 0 is the best recall. This
+# will operate the same as a binary var, but I don't want to make
+# it binary because I wouldn't know where to set the breakpoint.
+# plus I doubt it would affect the aggregate pattern conclusions anyway.
+# same story for vocab, total memory, delayed word recall, 
+# immediate word recall
+# ---------------------------------------------------------------
 Dat$tr20w                   <- 1 - Dat$tr20w / 20
 Dat$tr40w                   <- 1 - Dat$tr40w / 40
-
 NAind                       <- is.na(Dat$tr20w) & is.na(Dat$tr40w)
 BothInd                     <- !is.na(Dat$tr20w) & !is.na(Dat$tr40w)
 Dat$tr20w[is.na(Dat$tr20w)] <- 0
@@ -295,6 +316,7 @@ Dat$tr40w[is.na(Dat$tr40w)] <- 0
 sum(BothInd) == 0 # (otherwise we'd need to divide these by two after adding)
 Dat$twr                     <- Dat$tr20w + Dat$tr40w
 Dat$twr[NAind]              <- NA
+
 
 # vocab: 1 worst 0 best
 Dat$vocab <- 1 - Dat$vocab / 10
@@ -311,7 +333,7 @@ BothInd                     <- !is.na(Dat$dr20w) & !is.na(Dat$dr10w)
 Dat$dr20w[is.na(Dat$dr20w)] <- 0
 Dat$dr10w[is.na(Dat$dr10w)] <- 0
 sum(BothInd) == 0 # (otherwise we'd need to divide these by two after adding)
-Dat$dwr                    <- Dat$dr20w + Dat$dr10w
+Dat$dwr                     <- Dat$dr20w + Dat$dr10w
 Dat$dwr[NAind]              <- NA
 
 # immediate word recall
@@ -336,34 +358,103 @@ Dat$iwr[NAind]              <- NA
 #Dat$mprob <- mprob[Dat$mprob]
 # vocab
 
+# ------------------------------------------------------
+# TR: now change to binary coding, using ad hoc breaks
 # scale to fit btwn 0 and 1
-rescale <- function(var,Dat,compelment = FALSE){
-  Dat[[var]] <- Dat[[var]] / max(Dat[[var]], na.rm = TRUE)
-  if (compelment){
-    Dat[[var]] <- 1 - Dat[[var]]
-  }
-  Dat
-}
+#rescale <- function(var,Dat,complement = FALSE){
+#  Dat[[var]] <- Dat[[var]] / max(Dat[[var]], na.rm = TRUE)
+#  if (compelment){
+#    Dat[[var]] <- 1 - Dat[[var]]
+#  }
+#  Dat
+#}
+# ------------------------------------------------------
 
-Dat     <- rescale("mob", Dat, FALSE)
-Dat     <- rescale("lg_mus", Dat, FALSE) 
-Dat     <- rescale("gross_mot", Dat, FALSE)
-Dat     <- rescale("fine_mot", Dat, FALSE)
+# TR: mob through cesd all change to binary, with ad hoc breaks
+# -------------------
+# mob 
+# Dat     <- rescale("mob", Dat, FALSE)
+hist(Dat$mob) # break at > 1
+Dat$mob <- ifelse(is.na(Dat$mob), NA, ifelse(Dat$mob > 1, 1, 0) )
 
-Dat     <- rescale("ss", Dat, TRUE) # complement because more was better in original
-Dat     <- rescale("cc", Dat, FALSE)
-Dat     <- rescale("alc_days", Dat, FALSE)
+# -------------------
+# lg_mus
+#Dat     <- rescale("lg_mus", Dat, FALSE) 
+hist(Dat$lg_mus) # break at > 1
+Dat$lg_mus <- ifelse(is.na(Dat$lg_mus), NA, ifelse(Dat$lg_mus > 1, 1, 0) )
 
-Dat     <- rescale("adl3_", Dat, FALSE)
-Dat     <- rescale("adl5_", Dat, FALSE)
-Dat     <- rescale("iadl3_", Dat, FALSE)
-Dat     <- rescale("iadl5_", Dat, FALSE)
-Dat     <- rescale("cesd", Dat, FALSE)
+# -------------------
+# gross_mot
+#Dat     <- rescale("gross_mot", Dat, FALSE)
+hist(Dat$gross_mot) # > 1
+Dat$gross_mot <- ifelse(is.na(Dat$gross_mot), NA, ifelse(Dat$gross_mot > 1, 1, 0) )
 
+# -------------------
+# gross_mot
+#Dat     <- rescale("fine_mot", Dat, FALSE)
+hist(Dat$fine_mot) # > 0
+Dat$fine_mot <- ifelse(is.na(Dat$fine_mot), NA, ifelse(Dat$fine_mot > 0, 1, 0) )
+
+# -------------------
+# ss
+#Dat     <- rescale("ss", Dat, TRUE) # complement because more was better in original
+hist(Dat$ss) # < 4
+Dat$ss <- ifelse(is.na(Dat$ss), NA, ifelse(Dat$ss < 4, 1, 0) )
+
+# -------------------
+# cc nr chronic cond
+#Dat     <- rescale("cc", Dat, FALSE)
+hist(Dat$cc) # > 2?
+Dat$cc <- ifelse(is.na(Dat$cc), NA, ifelse(Dat$cc > 2, 1, 0) )
+
+# -------------------
+# alc_days
+#Dat     <- rescale("alc_days", Dat, FALSE)
+hist(Dat$alc_days) # > 1
+Dat$alc_days <- ifelse(is.na(Dat$alc_days), NA, ifelse(Dat$alc_days > 1, 1, 0) )
+
+# -------------------
+# adl3_
+#Dat     <- rescale("adl3_", Dat, FALSE)
+hist(Dat$adl3_) # > 0
+Dat$adl3_ <- ifelse(is.na(Dat$adl3_), NA, ifelse(Dat$adl3_ > 0, 1, 0) )
+
+# -------------------
+# adl5_
+#Dat     <- rescale("adl5_", Dat, FALSE)
+hist(Dat$adl5_) # > 0
+Dat$adl5_ <- ifelse(is.na(Dat$adl5_), NA, ifelse(Dat$adl5_ > 0, 1, 0) )
+
+# -------------------
+# iadl3_
+# Dat     <- rescale("iadl3_", Dat, FALSE)
+hist(Dat$iadl3_) # > 0
+Dat$iadl3_ <- ifelse(is.na(Dat$iadl3_), NA, ifelse(Dat$iadl3_ > 0, 1, 0) )
+
+# -------------------
+# iadl5_
+#Dat     <- rescale("iadl5_", Dat, FALSE)
+hist(Dat$iadl5_) # > 0
+Dat$iadl5_ <- ifelse(is.na(Dat$iadl5_), NA, ifelse(Dat$iadl5_ > 0, 1, 0) )
+
+# -------------------
+# cesd
+#Dat     <- rescale("cesd", Dat, FALSE)
+hist(Dat$cesd) # > 2
+Dat$cesd <- ifelse(is.na(Dat$cesd), NA, ifelse(Dat$cesd > 2, 1, 0) )
+
+# -------------------
 # TODO: does high = bad for these variables?
+# it doesn't matter if all we want to do is measure
+# which direction things correlate in, but it's nice
+# to know for visual interpretation of surfaces. 
 # "bmi"        "back"       "dent"       "alc_ev"   
 # "pastmem"    "dwr"        "twr"        "iwr" 
+# -------------------
 
+
+# -------------------
+# check cases by wave ( tapering in recent waves because selected down to deaths..)
 #checkwaves <- function(var,Dat){
 #  table(Dat[[var]],Dat[["wave"]])
 #}
@@ -372,6 +463,7 @@ Dat     <- rescale("cesd", Dat, FALSE)
 #checkwaves("iadl3_",Dat)
 #checkwaves("iadl5_",Dat)
 #checkwaves("cesd",Dat)
+# -------------------
 
 # -------------------------------------------------------
 # for binning purposes, akin to 'completed age'
@@ -382,18 +474,29 @@ Dat$cafloor <- floor(Dat$ca)
 # still rather close. Likely died shortly after interview.
 Dat$tafloor[Dat$tafloor < 0] <- 0
 
+# We use higher bin widths fur purposes of visualizing raw data,
+# Just diagnostics. larger widths help cancel out noise. This
+# Such binning can be done as an alternative to the loess smoothing,
+# where we take weighted means in cells. It'd probably make sense
+# to keep the final year of life in a single year width, but the 
+# general pattern ought to remain visible.
 Dat$cafloor2 <- Dat$cafloor - Dat$cafloor %% 2
 Dat$tafloor2 <- Dat$tafloor - Dat$tafloor %% 2
 
 Dat$cafloor3 <- Dat$cafloor - Dat$cafloor %% 3
 Dat$tafloor3 <- Dat$tafloor - Dat$tafloor %% 3
+#----------------------------------------------
 # save out, so this doesn't need to be re-run every time
 save(Dat,file = "Data/Data_long.Rdata")
+# next step would be CreateMatrices.R, usually
+
+#----------------------------------------------
+
 
 #Dat <- local(get(load("Data/Data_long.Rdata")))
 
 #apply(Dat[,colnames(Dat)%in%varnames],2,range,na.rm=TRUE)
-############################################################################################
+#----------------------------------------------
 # BELOW is just to generate metadata for an appendix:
 # these are the ones we keep:
 varnames <- c("adl3_", "adl5_", "iadl3_", "iadl5_", "cesd", "lim_work", "srh", 
@@ -413,175 +516,190 @@ varnames <- c("adl3_", "adl5_", "iadl3_", "iadl5_", "cesd", "lim_work", "srh",
 
 varnames <- varnames[varnames %in% colnames(Dat)]
 
+# ---------------------------------------------
+# optional imputing of questions. Asked stats geeks and
+# multiple imputation is not advised. Within individual 
+# trajectories are probably innocuous, as well, just
+# increases number of points. Let's generate downstream 
+# results using the non-imputed version
+# ---------------------------------------------
 
+skip <- TRUE
+if (!skip){
+	
 # 1) how many NAs are there for each of these questions? Important to know,
 # because we're about to do some major imputing!!
-
-NApre <- sapply(varnames, function(vn, Dat){
-    sum(is.na(Dat[[vn]]))
-  }, Dat = Dat) # save this object to compare!
-
+	
+	NApre <- sapply(varnames, function(vn, Dat){
+				sum(is.na(Dat[[vn]]))
+			}, Dat = Dat) # save this object to compare!
+	
 # for each of these varnames, lets interpolate to fill missings for waves in
 # which the person was interviewed but not asked.
-imputeSkippedQuestions <- function(vn,intv_dt){
-  nas <- is.na(vn)
-  if (all(nas)){
-    return(vn)
-  }
-  if (sum(!nas)==1){
-    vn <- approx(x = intv_dt,
-      y = vn,
-      xout = intv_dt,
-      rule = 1:2,
-      method = "constant")$y
-    return(vn)
-  }
- 
-  if (sum(!nas > 1)){
-    
-    vn <- approx(x = intv_dt,
-      y = vn,
-      xout = intv_dt,
-      rule = 1:2,
-      method = "linear")$y
-    return(vn)
-  }
-
-}
-
+	imputeSkippedQuestions <- function(vn,intv_dt){
+		nas <- is.na(vn)
+		if (all(nas)){
+			return(vn)
+		}
+		if (sum(!nas)==1){
+			vn <- approx(x = intv_dt,
+					y = vn,
+					xout = intv_dt,
+					rule = 1:2,
+					method = "constant")$y
+			return(vn)
+		}
+		
+		if (sum(!nas > 1)){
+			
+			vn <- approx(x = intv_dt,
+					y = vn,
+					xout = intv_dt,
+					rule = 1:2,
+					method = "linear")$y
+			return(vn)
+		}
+		
+	}
+	
 # which varnames will need to be NA'd for entire waves afterwards?:
-NAout <- sapply(varnames, function(vn, Dat){
-    tapply(Dat[[vn]],Dat$wave,function(x){
-        all(is.na(x))
-      })
-  }, Dat = Dat)
+	NAout <- sapply(varnames, function(vn, Dat){
+				tapply(Dat[[vn]],Dat$wave,function(x){
+							all(is.na(x))
+						})
+			}, Dat = Dat)
 # this object will help re-impute NAs where necessary
-
-Dat  <- data.table(Dat)
-{
-############## yikes, it was faster to write all this than to figure out how to 
+	
+	Dat  <- data.table(Dat)
+	{
+		############## yikes, it was faster to write all this than to figure out how to 
 # do it elegantly in data.table....... sorry dear reader! it's more complicated
 # than a simple column apply because intv_dt is needed as well
-Dat[,adl3_:=imputeSkippedQuestions(adl3_,intv_dt), by = list(id) ]
-Dat[,adl5_:=imputeSkippedQuestions(adl5_,intv_dt), by = list(id) ]
-Dat[,iadl3_:=imputeSkippedQuestions(iadl3_,intv_dt), by = list(id) ]
-Dat[,iadl5_:=imputeSkippedQuestions(iadl5_,intv_dt), by = list(id) ]
-Dat[,cesd:=imputeSkippedQuestions(cesd,intv_dt), by = list(id) ]
-Dat[,lim_work:=imputeSkippedQuestions(lim_work,intv_dt), by = list(id) ]
-Dat[,srh:=imputeSkippedQuestions(srh,intv_dt), by = list(id) ]
-Dat[,bmi:=imputeSkippedQuestions(bmi,intv_dt), by = list(id) ]
-Dat[,back:=imputeSkippedQuestions(back,intv_dt), by = list(id) ]
-Dat[,hosp:=imputeSkippedQuestions(hosp,intv_dt), by = list(id) ]
-
-Dat$hosp_stays <- as.numeric(Dat$hosp_stays) 
-Dat[,hosp_stays:=imputeSkippedQuestions(hosp_stays,intv_dt), by = list(id) ] # Error, investigate
-
-Dat[,hosp_nights:=imputeSkippedQuestions(hosp_nights,intv_dt), by = list(id) ]
-Dat[,nh:=imputeSkippedQuestions(nh,intv_dt), by = list(id) ]
-
-Dat$nh_stays <- as.numeric(Dat$nh_stays) 
-Dat[,nh_stays:=imputeSkippedQuestions(nh_stays,intv_dt), by = list(id) ] # Error, investigate
-Dat$nh_nights <- as.numeric(Dat$nh_nights) 
-Dat[,nh_nights:=imputeSkippedQuestions(nh_nights,intv_dt), by = list(id) ] # Error, investigate
-
-Dat[,nh_now:=imputeSkippedQuestions(nh_now,intv_dt), by = list(id) ]
-Dat[,doc:=imputeSkippedQuestions(doc,intv_dt), by = list(id) ]
-Dat[,hhc:=imputeSkippedQuestions(hhc,intv_dt), by = list(id) ]
-Dat[,meds:=imputeSkippedQuestions(meds,intv_dt), by = list(id) ]
-Dat[,surg:=imputeSkippedQuestions(surg,intv_dt), by = list(id) ]
-Dat[,dent:=imputeSkippedQuestions(dent,intv_dt), by = list(id) ]
-Dat[,shf:=imputeSkippedQuestions(shf,intv_dt), by = list(id) ]
-Dat[,adl_walk:=imputeSkippedQuestions(adl_walk,intv_dt), by = list(id) ]
-Dat[,adl_dress:=imputeSkippedQuestions(adl_dress,intv_dt), by = list(id) ]
-Dat[,adl_bath:=imputeSkippedQuestions(adl_bath,intv_dt), by = list(id) ]
-Dat[,adl_eat:=imputeSkippedQuestions(adl_eat,intv_dt), by = list(id) ]
-Dat[,adl_bed:=imputeSkippedQuestions(adl_bed,intv_dt), by = list(id) ]
-Dat[,adl_toilet:=imputeSkippedQuestions(adl_toilet,intv_dt), by = list(id) ]
-Dat[,iadl_map:=imputeSkippedQuestions(iadl_map,intv_dt), by = list(id) ]
-Dat[,iadl_tel:=imputeSkippedQuestions(iadl_tel,intv_dt), by = list(id) ]
-Dat[,iadl_money:=imputeSkippedQuestions(iadl_money,intv_dt), by = list(id) ]
-Dat[,iadl_meds:=imputeSkippedQuestions(iadl_meds,intv_dt), by = list(id) ]
-Dat[,iadl_shop:=imputeSkippedQuestions(iadl_shop,intv_dt), by = list(id) ]
-Dat[,iadl_meals:=imputeSkippedQuestions(iadl_meals,intv_dt), by = list(id) ]
-Dat[,mob:=imputeSkippedQuestions(mob,intv_dt), by = list(id) ]
-Dat[,lg_mus:=imputeSkippedQuestions(lg_mus,intv_dt), by = list(id) ]
-Dat[,gross_mot:=imputeSkippedQuestions(gross_mot,intv_dt), by = list(id) ]
-Dat[,fine_mot:=imputeSkippedQuestions(fine_mot,intv_dt), by = list(id) ]
-Dat[,bp:=imputeSkippedQuestions(bp,intv_dt), by = list(id) ]
-Dat[,diab:=imputeSkippedQuestions(diab,intv_dt), by = list(id) ]
-Dat[,cancer:=imputeSkippedQuestions(cancer,intv_dt), by = list(id) ]
-Dat[,lung:=imputeSkippedQuestions(lung,intv_dt), by = list(id) ]
-Dat[,heart:=imputeSkippedQuestions(heart,intv_dt), by = list(id) ]
-Dat[,stroke:=imputeSkippedQuestions(stroke,intv_dt), by = list(id) ]
-Dat[,psych:=imputeSkippedQuestions(psych,intv_dt), by = list(id) ]
-Dat[,arth:=imputeSkippedQuestions(arth,intv_dt), by = list(id) ]
-Dat[,cc:=imputeSkippedQuestions(cc,intv_dt), by = list(id) ]
-Dat[,alc_ev:=imputeSkippedQuestions(alc_ev,intv_dt), by = list(id) ]
-Dat[,alc_days:=imputeSkippedQuestions(alc_days,intv_dt), by = list(id) ]
-
-Dat$alc_drinks <- as.numeric(Dat$alc_drinks) # data.table needs consistent classes...
-Dat[,alc_drinks:=imputeSkippedQuestions(alc_drinks,intv_dt), by = list(id) ] # Error, investigate (see line above)
-
-Dat[,smoke_ev:=imputeSkippedQuestions(smoke_ev,intv_dt), by = list(id) ]
-Dat[,smoke_cur:=imputeSkippedQuestions(smoke_cur,intv_dt), by = list(id) ]
-Dat[,cesd_depr:=imputeSkippedQuestions(cesd_depr,intv_dt), by = list(id) ]
-Dat[,cesd_eff:=imputeSkippedQuestions(cesd_eff,intv_dt), by = list(id) ]
-Dat[,cesd_sleep:=imputeSkippedQuestions(cesd_sleep,intv_dt), by = list(id) ]
-Dat[,cesd_happy:=imputeSkippedQuestions(cesd_happy,intv_dt), by = list(id) ]
-Dat[,cesd_lone:=imputeSkippedQuestions(cesd_lone,intv_dt), by = list(id) ]
-Dat[,cesd_sad:=imputeSkippedQuestions(cesd_sad,intv_dt), by = list(id) ]
-Dat[,cesd_going:=imputeSkippedQuestions(cesd_going,intv_dt), by = list(id) ]
-Dat[,cesd_enjoy:=imputeSkippedQuestions(cesd_enjoy,intv_dt), by = list(id) ]
-Dat[,srm:=imputeSkippedQuestions(srm,intv_dt), by = list(id) ]
-Dat[,pastmem:=imputeSkippedQuestions(pastmem,intv_dt), by = list(id) ]
-Dat[,ss:=imputeSkippedQuestions(ss,intv_dt), by = list(id) ]
-Dat[,c20b:=imputeSkippedQuestions(c20b,intv_dt), by = list(id) ]
-Dat[,name_mo:=imputeSkippedQuestions(name_mo,intv_dt), by = list(id) ]
-Dat[,name_dmo:=imputeSkippedQuestions(name_dmo,intv_dt), by = list(id) ]
-Dat[,name_yr:=imputeSkippedQuestions(name_yr,intv_dt), by = list(id) ]
-Dat[,name_dwk:=imputeSkippedQuestions(name_dwk,intv_dt), by = list(id) ]
-Dat[,name_sci:=imputeSkippedQuestions(name_sci,intv_dt), by = list(id) ] 
-Dat[,name_cac:=imputeSkippedQuestions(name_cac,intv_dt), by = list(id) ]
-Dat[,name_pres:=imputeSkippedQuestions(name_pres,intv_dt), by = list(id) ]
-Dat[,name_pres:=imputeSkippedQuestions(name_pres,intv_dt), by = list(id) ]
-Dat[,vocab:=imputeSkippedQuestions(vocab,intv_dt), by = list(id) ]
-Dat[,tm:=imputeSkippedQuestions(tm,intv_dt), by = list(id) ]
-Dat[,dwr:=imputeSkippedQuestions(dwr,intv_dt), by = list(id) ]
-Dat[,twr:=imputeSkippedQuestions(twr,intv_dt), by = list(id) ]
-Dat[,iwr:=imputeSkippedQuestions(iwr,intv_dt), by = list(id) ]
-### again, sorry this was insanely bad coding.
-}
+		Dat[,adl3_:=imputeSkippedQuestions(adl3_,intv_dt), by = list(id) ]
+		Dat[,adl5_:=imputeSkippedQuestions(adl5_,intv_dt), by = list(id) ]
+		Dat[,iadl3_:=imputeSkippedQuestions(iadl3_,intv_dt), by = list(id) ]
+		Dat[,iadl5_:=imputeSkippedQuestions(iadl5_,intv_dt), by = list(id) ]
+		Dat[,cesd:=imputeSkippedQuestions(cesd,intv_dt), by = list(id) ]
+		Dat[,lim_work:=imputeSkippedQuestions(lim_work,intv_dt), by = list(id) ]
+		Dat[,srh:=imputeSkippedQuestions(srh,intv_dt), by = list(id) ]
+		Dat[,bmi:=imputeSkippedQuestions(bmi,intv_dt), by = list(id) ]
+		Dat[,back:=imputeSkippedQuestions(back,intv_dt), by = list(id) ]
+		Dat[,hosp:=imputeSkippedQuestions(hosp,intv_dt), by = list(id) ]
+		
+		Dat$hosp_stays <- as.numeric(Dat$hosp_stays) 
+		Dat[,hosp_stays:=imputeSkippedQuestions(hosp_stays,intv_dt), by = list(id) ] # Error, investigate
+		
+		Dat[,hosp_nights:=imputeSkippedQuestions(hosp_nights,intv_dt), by = list(id) ]
+		Dat[,nh:=imputeSkippedQuestions(nh,intv_dt), by = list(id) ]
+		
+		Dat$nh_stays <- as.numeric(Dat$nh_stays) 
+		Dat[,nh_stays:=imputeSkippedQuestions(nh_stays,intv_dt), by = list(id) ] # Error, investigate
+		Dat$nh_nights <- as.numeric(Dat$nh_nights) 
+		Dat[,nh_nights:=imputeSkippedQuestions(nh_nights,intv_dt), by = list(id) ] # Error, investigate
+		
+		Dat[,nh_now:=imputeSkippedQuestions(nh_now,intv_dt), by = list(id) ]
+		Dat[,doc:=imputeSkippedQuestions(doc,intv_dt), by = list(id) ]
+		Dat[,hhc:=imputeSkippedQuestions(hhc,intv_dt), by = list(id) ]
+		Dat[,meds:=imputeSkippedQuestions(meds,intv_dt), by = list(id) ]
+		Dat[,surg:=imputeSkippedQuestions(surg,intv_dt), by = list(id) ]
+		Dat[,dent:=imputeSkippedQuestions(dent,intv_dt), by = list(id) ]
+		Dat[,shf:=imputeSkippedQuestions(shf,intv_dt), by = list(id) ]
+		Dat[,adl_walk:=imputeSkippedQuestions(adl_walk,intv_dt), by = list(id) ]
+		Dat[,adl_dress:=imputeSkippedQuestions(adl_dress,intv_dt), by = list(id) ]
+		Dat[,adl_bath:=imputeSkippedQuestions(adl_bath,intv_dt), by = list(id) ]
+		Dat[,adl_eat:=imputeSkippedQuestions(adl_eat,intv_dt), by = list(id) ]
+		Dat[,adl_bed:=imputeSkippedQuestions(adl_bed,intv_dt), by = list(id) ]
+		Dat[,adl_toilet:=imputeSkippedQuestions(adl_toilet,intv_dt), by = list(id) ]
+		Dat[,iadl_map:=imputeSkippedQuestions(iadl_map,intv_dt), by = list(id) ]
+		Dat[,iadl_tel:=imputeSkippedQuestions(iadl_tel,intv_dt), by = list(id) ]
+		Dat[,iadl_money:=imputeSkippedQuestions(iadl_money,intv_dt), by = list(id) ]
+		Dat[,iadl_meds:=imputeSkippedQuestions(iadl_meds,intv_dt), by = list(id) ]
+		Dat[,iadl_shop:=imputeSkippedQuestions(iadl_shop,intv_dt), by = list(id) ]
+		Dat[,iadl_meals:=imputeSkippedQuestions(iadl_meals,intv_dt), by = list(id) ]
+		Dat[,mob:=imputeSkippedQuestions(mob,intv_dt), by = list(id) ]
+		Dat[,lg_mus:=imputeSkippedQuestions(lg_mus,intv_dt), by = list(id) ]
+		Dat[,gross_mot:=imputeSkippedQuestions(gross_mot,intv_dt), by = list(id) ]
+		Dat[,fine_mot:=imputeSkippedQuestions(fine_mot,intv_dt), by = list(id) ]
+		Dat[,bp:=imputeSkippedQuestions(bp,intv_dt), by = list(id) ]
+		Dat[,diab:=imputeSkippedQuestions(diab,intv_dt), by = list(id) ]
+		Dat[,cancer:=imputeSkippedQuestions(cancer,intv_dt), by = list(id) ]
+		Dat[,lung:=imputeSkippedQuestions(lung,intv_dt), by = list(id) ]
+		Dat[,heart:=imputeSkippedQuestions(heart,intv_dt), by = list(id) ]
+		Dat[,stroke:=imputeSkippedQuestions(stroke,intv_dt), by = list(id) ]
+		Dat[,psych:=imputeSkippedQuestions(psych,intv_dt), by = list(id) ]
+		Dat[,arth:=imputeSkippedQuestions(arth,intv_dt), by = list(id) ]
+		Dat[,cc:=imputeSkippedQuestions(cc,intv_dt), by = list(id) ]
+		Dat[,alc_ev:=imputeSkippedQuestions(alc_ev,intv_dt), by = list(id) ]
+		Dat[,alc_days:=imputeSkippedQuestions(alc_days,intv_dt), by = list(id) ]
+		
+		Dat$alc_drinks <- as.numeric(Dat$alc_drinks) # data.table needs consistent classes...
+		Dat[,alc_drinks:=imputeSkippedQuestions(alc_drinks,intv_dt), by = list(id) ] # Error, investigate (see line above)
+		
+		Dat[,smoke_ev:=imputeSkippedQuestions(smoke_ev,intv_dt), by = list(id) ]
+		Dat[,smoke_cur:=imputeSkippedQuestions(smoke_cur,intv_dt), by = list(id) ]
+		Dat[,cesd_depr:=imputeSkippedQuestions(cesd_depr,intv_dt), by = list(id) ]
+		Dat[,cesd_eff:=imputeSkippedQuestions(cesd_eff,intv_dt), by = list(id) ]
+		Dat[,cesd_sleep:=imputeSkippedQuestions(cesd_sleep,intv_dt), by = list(id) ]
+		Dat[,cesd_happy:=imputeSkippedQuestions(cesd_happy,intv_dt), by = list(id) ]
+		Dat[,cesd_lone:=imputeSkippedQuestions(cesd_lone,intv_dt), by = list(id) ]
+		Dat[,cesd_sad:=imputeSkippedQuestions(cesd_sad,intv_dt), by = list(id) ]
+		Dat[,cesd_going:=imputeSkippedQuestions(cesd_going,intv_dt), by = list(id) ]
+		Dat[,cesd_enjoy:=imputeSkippedQuestions(cesd_enjoy,intv_dt), by = list(id) ]
+		Dat[,srm:=imputeSkippedQuestions(srm,intv_dt), by = list(id) ]
+		Dat[,pastmem:=imputeSkippedQuestions(pastmem,intv_dt), by = list(id) ]
+		Dat[,ss:=imputeSkippedQuestions(ss,intv_dt), by = list(id) ]
+		Dat[,c20b:=imputeSkippedQuestions(c20b,intv_dt), by = list(id) ]
+		Dat[,name_mo:=imputeSkippedQuestions(name_mo,intv_dt), by = list(id) ]
+		Dat[,name_dmo:=imputeSkippedQuestions(name_dmo,intv_dt), by = list(id) ]
+		Dat[,name_yr:=imputeSkippedQuestions(name_yr,intv_dt), by = list(id) ]
+		Dat[,name_dwk:=imputeSkippedQuestions(name_dwk,intv_dt), by = list(id) ]
+		Dat[,name_sci:=imputeSkippedQuestions(name_sci,intv_dt), by = list(id) ] 
+		Dat[,name_cac:=imputeSkippedQuestions(name_cac,intv_dt), by = list(id) ]
+		Dat[,name_pres:=imputeSkippedQuestions(name_pres,intv_dt), by = list(id) ]
+		Dat[,name_pres:=imputeSkippedQuestions(name_pres,intv_dt), by = list(id) ]
+		Dat[,vocab:=imputeSkippedQuestions(vocab,intv_dt), by = list(id) ]
+		Dat[,tm:=imputeSkippedQuestions(tm,intv_dt), by = list(id) ]
+		Dat[,dwr:=imputeSkippedQuestions(dwr,intv_dt), by = list(id) ]
+		Dat[,twr:=imputeSkippedQuestions(twr,intv_dt), by = list(id) ]
+		Dat[,iwr:=imputeSkippedQuestions(iwr,intv_dt), by = list(id) ]
+		### again, sorry this was insanely bad coding.
+	}
 # now re-insert NAs for waves that simply didn't include question X:
-
-
+	
+	
 # this picks up almost everything...
 #ImputeThese <- sapply(varnames, function(vn, Dat){
 #    checkImpute <- any(tapply(Dat[[vn]],Dat$wave,function(x){
 #    any(is.na(x)) & any(!is.na(x))
 #  }))
 #  },Dat=Dat)
-
-imputeNAsInTheseVars <- colnames(NAout)[colSums(NAout) > 0]
-NAout <- NAout[,imputeNAsInTheseVars]
-waves <- 1:10
-vn <-"name_cac"
-for (vn in imputeNAsInTheseVars){
-  wavesi <- waves[NAout[,vn]]
-  Dat[[vn]][Dat$wave %in% wavesi] <- NA
+	
+	imputeNAsInTheseVars <- colnames(NAout)[colSums(NAout) > 0]
+	NAout <- NAout[,imputeNAsInTheseVars]
+	waves <- 1:10
+	vn <-"name_cac"
+	for (vn in imputeNAsInTheseVars){
+		wavesi <- waves[NAout[,vn]]
+		Dat[[vn]][Dat$wave %in% wavesi] <- NA
+	}
+	
+# compare with NApre
+	NApost <- sapply(varnames, function(vn, Dat){
+				sum(is.na(Dat[[vn]]))
+			}, Dat = Dat) 
+	
+	plot(NApost,NApre,asp=1)
+	abline(a=0,b=1)
+	hist(NApost / NApre) # OK so this wasn't pointless.
+	mean((NApre - NApost) / NApre, na.rm=TRUE)
+	save(Dat,file = "Data/Data_long_imputed.Rdata")
 }
 
-# compare with NApre
-NApost <- sapply(varnames, function(vn, Dat){
-    sum(is.na(Dat[[vn]]))
-  }, Dat = Dat) 
-
-plot(NApost,NApre,asp=1)
-abline(a=0,b=1)
-hist(NApost / NApre) # OK so this wasn't pointless.
-mean((NApre - NApost) / NApre, na.rm=TRUE)
-save(Dat,file = "Data/Data_long_imputed.Rdata")
+# end
 
 
+# ------------------------------------------------------
+# DEPRECATED. MAY NO LONGER PERTAIN TO ABOVE CODE
 # now we compare before and after values for these variables.
 # this is just for the sake of a variable appendix.
 
