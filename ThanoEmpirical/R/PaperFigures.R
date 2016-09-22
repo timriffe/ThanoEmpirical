@@ -19,8 +19,12 @@ library(RColorBrewer)
 # this script contains just the figures used in the final submission to VYPR.
 # many other figures are produced here and there in other R scripts, but are not included.
 
-
-# this is the figure that looks like a Lexis diagram.
+# ---------------------------------------------
+# Figure 1
+#
+# LexisOrtho (I don't remember why ortho...)
+# this is the TAL aka Lifecourse diagram
+# ---------------------------------------------
 gridcol <- gray(.6) # medium gray, not overwhelming.
 
 pdf("Figures/LexisOrtho.pdf",width=4.5,height=4.5)
@@ -65,70 +69,102 @@ polygon(c(72,96,96-13,72),c(0,0,13,13),border = brewer.pal(8,"Greens")[8], lwd =
 text(75,60,"(C) area studied for\n1915-1919 birth cohort", cex = .8, pos = 4)
 segments(90,55,96-13,13,col=brewer.pal(8,"Greens")[8],lty=2)
 dev.off()
+# end figure 1
+# ---------------------------------------------
 
 
-#################################################################################
 
 # figure for a mailmail
-source("R/SurfMap.R")
+
 
 # use LoessQuinquennial
+
+
+# ----------------------------
+# thanatological
 # chrono: psych
 grabber <- paste0("psych","_",.7)
 Surf <- Results[[grabber]][["Male"]]$Surf[,,as.character(1915)]
-# thano:
+# 
 pdf("Figures/Surf_Male_psych.pdf", width = 10, height = 6)
 #dev.new(width = 10, height = 6)
-SurfMap(Surf,napprox=9,contour=TRUE,outline=FALSE,bg=TRUE,xlab="chronological age", ylab = "thanatological age")
+SurfMap(Surf,
+		napprox = 9,
+		contour = TRUE,
+		outline = FALSE,
+		bg = TRUE,
+		xlab = "chronological age", 
+		ylab = "thanatological age")
 dev.off()
 
 
-# chrono:
-grabber <- paste0("back","_",.7)
-Surf <- Results[[grabber]][["Female"]]$Surf[,,as.character(1915)]
+# ----------------------------
+# chronological
+grabber        <- paste0("back","_",.7)
+Surf           <- Results[[grabber]][["Female"]]$Surf[,,as.character(1915)]
 Surf[Surf < 0] <- 0
 pdf("Figures/Surf_Female_back.pdf", width = 10, height = 6)
 #dev.new(width = 10, height = 6)
-SurfMap(Surf,napprox=9,contour=TRUE,outline=FALSE,bg=TRUE,xlab="chronological age", ylab = "thanatological age")
+SurfMap(Surf,
+		napprox = 9,
+		contour = TRUE,
+		outline = FALSE,
+		bg = TRUE,
+		xlab = "chronological age", 
+		ylab = "thanatological age")
 dev.off()
 
-varnames[order(Maler[,1])]
-
+# ----------------------------
 # lifespan:
 grabber <- paste0("smoke_ev","_",.7)
-Surf <- Results[[grabber]][["Female"]]$Surf[,,as.character(1915)]
+Surf    <- Results[[grabber]][["Female"]]$Surf[,,as.character(1915)]
 
 pdf("Figures/Surf_Female_smoke_ev.pdf", width = 10, height = 6)
 #dev.new(width = 10, height = 6)
-SurfMap(Surf,napprox=9,contour=TRUE,outline=FALSE,bg=TRUE,xlab="chronological age", ylab = "thanatological age")
+SurfMap(Surf,
+		napprox = 9,
+		contour = TRUE,
+		outline = FALSE,
+		bg = TRUE,
+		xlab = "chronological age", 
+		ylab = "thanatological age")
 dev.off()
 
+#------------------------------------------------
 # function of both:
 grabber <- paste0("bp","_",.7)
-Surf <- Results[[grabber]][["Male"]]$Surf[,,as.character(1915)]
+Surf    <- Results[[grabber]][["Male"]]$Surf[,,as.character(1915)]
 
 pdf("Figures/Surf_Male_bp.pdf", width = 10, height = 6)
 #dev.new(width = 10, height = 6)
-SurfMap(Surf,napprox=9,contour=TRUE,outline=FALSE,bg=TRUE,xlab="chronological age", ylab = "thanatological age")
+SurfMap(Surf,
+		napprox = 9,
+		contour = TRUE,
+		outline = FALSE,
+		bg = TRUE,
+		xlab = "chronological age", 
+		ylab = "thanatological age")
 dev.off()
 
-wmean <- function(x,w=rep(1,length(x))){
-  if (length(x)==0){
-    return(NA)
-  }
-  sum(x * w, na.rm = TRUE) / sum(w, na.rm = TRUE)
-}
-
-library(data.table)
-# just to make a point, as in the paper
-mod <- stats::loess('psych~cafloor+Coh5',data=Dat[Dat$sex=="m",],weight=p_wt2)
-m1915se <- predict(mod,newdata=data.frame(cafloor=72:95,Coh5=1915),se=TRUE)
+#------------------------------------------------
+# just to make a point, fit chronological
+# age pattern of psychological problems
+# for 1915 cohort.
+# It shows an increasing pattern over age, due to
+# an interaction with lifespan.
+#------------------------------------------------
+mod     <- stats::loess('psych~cafloor+Coh5',
+		                data = Dat[Dat$sex == "m",],
+						weight = p_wt2)
+m1915se <- predict(mod,
+		           newdata = data.frame(cafloor = 72:95, Coh5 = 1915),
+		           se = TRUE)
 
 
 pdf("Figures/MalePsychChrono.pdf",height = 4.5,width=4.5)
-par(mai=c(1.2,1,.5,.5))
+par(mai = c(1.2,1,.5,.5))
 plot(72:95,m1915se$fit, type = 'l', xaxs = "i", yaxs="i", ylim=c(0,.25),
-  xlab = "chronological", ylab = "probability of psych problems",
+  xlab = "chronological", ylab = "prevalence of psych problems",
   panel.first = list(
     rect(72,0,95,.25,col=gray(.9),border=NA),
     segments(72,seq(.05,.2,by=.05),95,seq(.05,.2,by=.05),col="white"),
@@ -138,3 +174,4 @@ polygon(c(72:95,95:72),
   col = "#00000040", border = NA)
 dev.off()
 
+# end
