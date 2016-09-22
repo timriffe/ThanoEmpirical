@@ -37,7 +37,7 @@
   \addtocounter{footnote}{-1}%
   \endgroup
 }
-
+\newcommand{\hm}[2]{\includegraphics[scale=.32]{Figures/HeatTables/1915/#1#2.pdf}}
 \defcitealias{HMD}{HMD}
 
 
@@ -712,16 +712,28 @@ future investigation.
 
 For tables displayed in this appendix we use a shorthand to identify axis types.
 T indicates the correlation coefficient along the thanatological age axis. C
-indicates the chronological age axis. $C+T$ indicates the lifespan axis
-(right-downward slanting isolines). $C-T$ indicates the mixed axis, the
-most common type in this data. Results are available on request as machine
-readable data, and the code used to generate these and all other results is
-available freely in a repository: 
+indicates the chronological age axis. $L$ indicates the lifespan axis
+(right-downward slanting isolines). $M$ indicates the mixed axis, the
+most common type in this data. The code used to generate these and all other
+results, including results for all 5-year cohorts from 1905-1925 and different
+degrees of smoothing, are available freely in a repository. The repository also
+contains a csv of these summary results.
 
 %(insert url)
 \url{https://github.com/timriffe/ThanoEmpirical}
 
 Results are grouped by several major morbidity categories. 
+
+\begin{table}
+\centering
+\caption{Activities of Daily Living (ADL)}
+\begin{tabular}{llcc}
+Short & Long & Females & Males \\
+      &      & \texttt{L~~~A~~~T~~~M} &  \texttt{L~~~A~~~T~~~M} \\
+adl3 & ADL 3 point & \hm{f}{adl3} & \hm{m}{adl3}
+\end{tabular}
+\end{table}
+
 
 \listoftables
 

@@ -70,6 +70,13 @@ head(Results_r)
 
 SurfaceList   <- local(get(load("Data/SurfaceList.Rdata")))
 varnames      <- names(SurfaceList)
+
+# remove underscore, LaTeX has probs with it
+varnames <- gsub("_","", varnames)
+Results_r$var  <- gsub("_","", Results_r$var)
+
+
+
 # remove extra var
 Results_r <- Results_r[Results_r$var %in% varnames, ]
 
@@ -103,7 +110,7 @@ row.heat <- function(x){
 #}
 #x <- grabr(Res.7,"m",1920,"adl3_")
 grabr <- function(Dat, sex, cohort, varname){
-	ind        <- with(Dat, Cohort == 1925 & sex == "m" & var == "adl3_")
+	ind        <- with(Dat, Cohort == cohort & sex == sex & var == varname)
 	out        <- Dat$r[ind]
 	names(out) <- Dat$Dim[ind]
 	out
@@ -112,12 +119,13 @@ grabr <- function(Dat, sex, cohort, varname){
 #
 #row.boxes(grabr(Res.7,"m",1920,"adl3_"))
 row.heat(grabr(Res.7,"m",1920,"adl3_"))
-
-for (coh in seq(1905,1925,by=5)){
+coh <- 1915;sex <- "f"; v <- "lung"
+for (coh in seq(1905,1925, by = 5)){
 	for (sex in c("m","f")){
 		for (v in varnames){
 			path <- file.path("Figures/HeatTables",
-					coh,paste0(sex, v, ".pdf"))
+					coh, paste0(sex, v, ".pdf"))
+			#x <- grabr(Res.7, sex, coh, v)
 			pdf(path, height = 1.06, width = 4.06)
 			row.heat(grabr(Res.7, sex, coh, v))
 			dev.off()
