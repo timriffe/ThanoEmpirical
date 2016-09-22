@@ -69,29 +69,31 @@ FitLoess <- function(varname,
 	maxL  <- 100
 	minL  <- 70
 	
-	# multiplicative gives the most freedom.
+	# multiplicative gives the most freedom. ta and ca are decimals
 	mod   <- loess(paste0(varname,'~Coh5 * ta * ca') ,
-			data = Dat[Dat$sex == sex, ], 
-			weights = p_wt2, # this, plus point density both act as weights
-			span = span,     # a variable passed in, or smoothness
-			# is similiar conceptually to a 1:1:1 aspect ratio. Everything is in years...
-			normalize = FALSE,
-			control = loess.control(trace.hat="approximate")
+					data = Dat[Dat$sex == sex, ], 
+					weights = p_wt2, # this, plus point density both act as weights
+					span = span,     # a variable passed in, or smoothness
+									 # is similiar conceptually to a 1:1:1 aspect ratio. 
+			                         # Everything is in years...
+					normalize = FALSE,
+					control = loess.control(trace.hat = "approximate")
 	)
+	# use midpoints for chrono and thano age
+	newdata        <- expand.grid(ta = t.age + .5, ca = c.age + .5, Coh5 = .Coh5)
 	
-	newdata        <- expand.grid(ta = t.age+.5, ca = c.age+.5, Coh5 = .Coh5)
 	# easier to keep dimensions straight if we predict over rectangular grid, 
 	# then throw out values outside range
 	#newdata        <- newdata + .5
 	Surf           <- predict(mod, newdata)
 	
-	dimnames(Surf) <- list(floor(t.age),floor(c.age), .Coh5)
+	dimnames(Surf) <- list(floor(t.age), floor(c.age), .Coh5)
 	
 	# need to trim on the left side where applicable, since some questions didn't enter until
 	# wave 2 or 3. There are many such cases, so check and make sure we dont' extrapolate.
 	# sex <- "m"
 	# varname <- "cesd"
-	MissingWaves <- tapply(Dat[Dat$sex==sex,varname],Dat[Dat$sex==sex,"wave"], function(x){
+	MissingWaves <- tapply(Dat[Dat$sex == sex, varname], Dat[Dat$sex == sex, "wave"], function(x){
 				all(is.na(x))
 			})
 	LeftYear  <- 1992
@@ -116,14 +118,14 @@ FitLoess <- function(varname,
 		#maxL  <- 2011 - Coh5[i] - 1
 		#maxt  <- tamax[as.character(Coh5[i])]
 		#keept <- as.integer(rownames(Surf)) <= maxt
-		A     <- Surf[,,i]
-		MaxL <- RightYear - .Coh5[i] - 1
+		A     <- Surf[, , i]
+		MaxL  <- RightYear - .Coh5[i] - 1
 		A[ col(A) - 1 + 70 + row(A) - 1 > MaxL] <- NA
-# possibly need to trim lower left corner too: dimnames(A)
-		MinL <- LeftYear - (.Coh5[i] + 5)
+        # possibly need to trim lower left corner too: dimnames(A)
+		MinL  <- LeftYear - (.Coh5[i] + 5)
 		A[col(A) + 70 - 1 < MinL] <- NA
 		#A[!keept, ] <- NA 
-		Surf[,,i] <- A
+		Surf[, , i] <- A
 	}
 	list(Surf = Surf, span = span, sex = sex, varname = varname, Cohorts = Coh5)
 }

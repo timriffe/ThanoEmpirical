@@ -80,10 +80,12 @@ for (varname in varnames){
 # ------------------------------------------------------   
 
 
-source("R/SurfMap.R")
-SurfMap(MeanM[,,"1930"], contour=FALSE,outline=FALSE,bg=TRUE)
+#source("R/SurfMap.R")
+#SurfMap(MeanM[,,"1930"], contour=FALSE,outline=FALSE,bg=TRUE)
 
 
 
 # ------------------------------------------------------        
 save(SurfaceList, file = "Data/SurfaceList.Rdata")
+
+# end

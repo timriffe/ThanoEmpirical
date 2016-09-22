@@ -1,4 +1,4 @@
-## this script now deprecated. The current relevant script is:
+## this script now DEPRECATED. The current relevant script is:
 ## SurfaceCompareLoess.R, which controls for cohort composition. 
 ## This one does not control for cohort composition.
 #
