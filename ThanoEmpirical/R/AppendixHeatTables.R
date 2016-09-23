@@ -150,4 +150,101 @@ for (coh in seq(1905,1925, by = 5)){
 	}
 }
 sort(varnames)
+
+# ---------------------------------------------
+# make four histograms:
+Hist7 <- Res.7[Res.7$Cohort == 1915, ]
+#
+hist(Hist7[Hist7$sex == "f" & Hist7$Dim == "L", "r"])
+hist(Hist7[Hist7$sex == "f" & Hist7$Dim == "A", "r"])
+hist(Hist7[Hist7$sex == "f" & Hist7$Dim == "T", "r"])
+hist(Hist7[Hist7$sex == "f" & Hist7$Dim == "M", "r"])
+#
+
+hist(Hist7[Hist7$sex == "m" & Hist7$Dim == "L", "r"])
+hist(Hist7[Hist7$sex == "m" & Hist7$Dim == "A", "r"])
+hist(Hist7[Hist7$sex == "m" & Hist7$Dim == "T", "r"])
+hist(Hist7[Hist7$sex == "m" & Hist7$Dim == "M", "r"])
+
+
+Hist7$rbin <- round(Hist7$r * 100) %/% 10 * 10
+
+barplot(table(Hist7[Hist7$sex == "m" & Hist7$Dim == "L", "rbin"]),space=0)
+
+varnames
+categories <- rep(NA, length(varnames))
+names(categories) <- varnames
+categories[c("adl3","adl5","adlwalk","adldress",
+				"adlbath","adleat","adlbed","adltoilet")]         <- "ADL"
+categories[c("iadl3","iadl5","limwork","iadlmap",
+				"iadltel","iadlmoney","iadlmeds",
+				"iadlshop","iadlmeals")]                          <- "IADL"
+categories[c("alcev","alcdays","alcdrinks","smokeev","smokecur")] <- "HB"
+categories[c("bmi","back","mob","lgmus","grossmot","finemot")]    <- "FUNC"
+categories[c("cc","bp","diab","cancer","lung","heart",
+				"stroke","psych","arth")]                         <- "CHR"
+categories[c("srm","pastmem","ss","c20b","namemo","namedmo",
+				"nameyr","namedwk","namesci","namecac","namepres",
+				"namevp","vocab","tm","dwr","twr","iwr")]         <- "COG"
+
+categories[c("cesd","srh","cesddepr","cesdsleep","cesdhappy",
+				"cesdlone","cesdsad","cesdgoing","cesdenjoy")]    <- "PSY"
+categories[c("hosp","hospstays","hospnights","nh","nhstays",
+				"nhnights","nhnow","doc","docvisits","hhc",
+				"meds","surg","dent","shf" )]                     <- "HU"
+Hist7$cat <- categories[Hist7$var]
+unique(categories)
+LM <- Hist7$sex == "m" & Hist7$Dim == "L"
+AM <- Hist7$sex == "m" & Hist7$Dim == "A"
+TM <- Hist7$sex == "m" & Hist7$Dim == "T"
+MM <- Hist7$sex == "m" & Hist7$Dim == "M"
+
+LF <- Hist7$sex == "f" & Hist7$Dim == "L"
+AF <- Hist7$sex == "f" & Hist7$Dim == "A"
+TF <- Hist7$sex == "f" & Hist7$Dim == "T"
+MF <- Hist7$sex == "f" & Hist7$Dim == "M"
+
+
+Hist7$rbin <- as.factor(Hist7$rbin)
+
+rgbv <- function(x){
+	rgb(x[1],x[2],x[3])
+}
+# from colorgorical
+Palette <- apply(rbind(
+				c(47,23,177),
+				c(157,216,78), 
+				c(248,73,182), 
+				c(54,229,21), 
+				c(148,20,131), 
+				c(72,149,15), 
+				c(188,28,250), 
+				c(109,125,76), 
+				c(198,151,244)) / 255, 1, rgbv)
+
+cats <- c("ADL", "IADL","Health Behav.","Func. Lim.",
+		"Chronic", "Cognitive", "Psychological", "Healthcare")
+cats2 <- c("ADL", "IADL","HB","FUNC","CHR","COG","PSY","HU")
+
+
+Hist7$R   <- Hist7$r * 100
+Hist7$dim <- as.factor(Hist7$Dim )
+
+pdf("Figures/HistFem.pdf",width=3,height=7)
+histogram(~R | dim, data = Hist7[Hist7$sex == "f", ], col = gray(.4), 
+		par.settings = list(strip.background=list(col=gray(.9))), layout=c(1,4),type="count",
+		breaks = seq(0,100,by=10),index.cond=list(c(3,4,1,2)), 
+		xlab = list(label="correlation coef * 100"),
+		ylim=c(0,47))
+dev.off()
+pdf("Figures/HistMal.pdf",width=3,height=7)
+histogram(~R | dim, data = Hist7[Hist7$sex == "m", ], col = gray(.4), 
+		par.settings = list(strip.background=list(col=gray(.9))), layout=c(1,4),type="count",
+		breaks = seq(0,100,by=10),index.cond=list(c(3,4,1,2)), 
+		xlab = list(label="correlation coef * 100"),
+		ylim=c(0,47))
+dev.off()
+
+length(varnames)
+
 # end
