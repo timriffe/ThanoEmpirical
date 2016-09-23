@@ -6,6 +6,7 @@
 
 \usepackage{appendix}
 \usepackage{amsmath}
+\usepackage{array}
 \usepackage{caption}
 \usepackage{placeins}
 \usepackage{graphicx}
@@ -27,7 +28,7 @@
 \renewcommand{\listtablename}{List of Appendix Tables}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-
+%\newcolumntype{C}{ >{\centering\arraybackslash} m{4cm} }
 % working on this need to concatenate file name based on sex and variable name
 %\newcommand\Cell[1]{{\raisebox{-0.05in}{\includegraphics[height=.2in,width=.2in]{Figures/ColorCodes/\expandafter#1}}}}  
 
@@ -37,7 +38,7 @@
   \addtocounter{footnote}{-1}%
   \endgroup
 }
-\newcommand{\hm}[2]{\includegraphics[scale=.32]{Figures/HeatTables/1915/#1#2.pdf}}
+\newcommand{\hm}[2]{\includegraphics[scale=.31]{Figures/HeatTables/1915/#1#2.pdf}}
 \defcitealias{HMD}{HMD}
 
 
@@ -706,8 +707,6 @@ future investigation.
 \begin{appendices}
 \section{Variables and correlations}
 
-
-
 \end{appendices}
 
 For tables displayed in this appendix we use a shorthand to identify axis types.
@@ -722,156 +721,135 @@ contains a csv of these summary results.
 %(insert url)
 \url{https://github.com/timriffe/ThanoEmpirical}
 
-Results are grouped by several major morbidity categories. 
-
-\begin{table}
-\centering
-\caption{Activities of Daily Living (ADL)}
-\begin{tabular}{llcc}
-Short & Long & Females & Males \\
-      &      & \texttt{L~~~A~~~T~~~M} &  \texttt{L~~~A~~~T~~~M} \\
-adl3 & ADL 3 point & \hm{f}{adl3} & \hm{m}{adl3}
-\end{tabular}
-\end{table}
-
+Results are grouped by several major morbidity categories and presented in
+heatmap tables, where shades of gray are scaled
 
 \listoftables
 
 \pagebreak
-% ADL
+
 \begin{table}
-\small
-\begin{adjustwidth}{-5em}{-2em}% 
 \centering
 \caption{Activities of Daily Living (ADL)}
-\label{tab:ADL}
-\begin{tabular}{L{4em}
-L{3cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
-  \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
- \multicolumn{4}{c}{Females} \\
- \midrule
-Short & Long & T & C & $C+T$  & $C-T$  & T & C & $C+T$ &
-$C-T$ \\
-\midrule 
-adl3 & ADL 3-point & 0.83 & 0.67 & 0.10 & 0.89 & 0.80 & 0.76 & 0.21 & 0.94 \\ 
-   \rowcolor[gray]{.9}adl5 & ADL 5-point & 0.83 & 0.63 & 0.06 & 0.86 & 0.81 & 0.75 & 0.19 & 0.94 \\ 
-  adl\_walk & Diff. walking across room  & 0.86 & 0.54 & 0.06 & 0.81 & 0.83 &
-  0.72 & 0.15 & 0.93 \\
-   \rowcolor[gray]{.9}adl\_dress & Diff. dressing  & 0.82 & 0.71 & 0.15 & 0.92 & 0.82 & 0.75 & 0.19 & 0.94 \\ 
-  adl\_bath & Diff. bathing or showering  & 0.84 & 0.62 & 0.04 & 0.86 & 0.82 &
-  0.75 & 0.19 & 0.94 \\
-   \rowcolor[gray]{.9}adl\_eat & Diff. eating  & 0.80 & 0.67 & 0.12 & 0.88 & 0.76 & 0.77 & 0.25 & 0.92 \\ 
-  adl\_bed & Diff. getting in/out bed  & 0.82 & 0.58 & 0.02 & 0.82 & 0.83 & 0.72 & 0.15 & 0.93 \\ 
-   \rowcolor[gray]{.9}adl\_toilet & Diff. using toilet & 0.84 & 0.56 & 0.02 & 0.81 & 0.73 & 0.81 & 0.31 & 0.94 \\ 
-   \bottomrule
+\label{tab:adl}
+\begin{tabular}{L{2.5cm}|L{3cm}C{3.2cm}C{3.2cm}}
+Short & Description & Females & Males \\
+      &      & \texttt{L~~~A~~~T~~~M} &  \texttt{L~~~A~~~T~~~M} \\ \toprule
+ADL3 & ADL 3 point & \hm{f}{adl3} & \hm{m}{adl3} \\
+ADL5 & ADL 5 point & \hm{f}{adl5} & \hm{m}{adl5} \\
+WALK & Difficulty walking across room & \hm{f}{adlwalk} & \hm{m}{adlwalk} \\
+DRESS & Difficulty dressing & \hm{f}{adldress} & \hm{m}{adldress} \\
+BATH & Difficulty bathing or showering  & \hm{f}{adlbath} &\hm{m}{adlbath} \\
+EAT & Difficuty eating  & \hm{f}{adleat} &\hm{m}{adleat} \\
+BED & Difficuty getting in/out bed  & \hm{f}{adlbed} &\hm{m}{adlbed} \\
+TOILET & Difficulty using toilet & \hm{f}{adltoilet} &\hm{m}{adltoilet} \\
+\bottomrule
 \end{tabular}
+\end{table}
 
-  \end{adjustwidth}
-  \end{table}
-  
-% IADL
 \begin{table}
-\small
-\begin{adjustwidth}{-5em}{}% 
 \centering
 \caption{Instrumental Activities of Daily Living (IADL)}
-\begin{tabular}{L{4em}
-L{3cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
-  \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
- \multicolumn{4}{c}{Females} \\ 
- \midrule
-Short & Long & T & C & $C+T$  & $C-T$  & T & C & $C+T$ &
-$C-T$ \\
-\midrule 
-iadl3 & IADL 3-point & 0.89 & 0.60 & 0.00 & 0.87 & 0.77 & 0.80 & 0.27 & 0.96 \\ 
-   \rowcolor[gray]{.9}iadl5 & IADL 5-point & 0.90 & 0.57 & 0.05 & 0.85 & 0.83 & 0.75 & 0.18 & 0.94 \\ 
-  lim\_work & Health limits work & 0.93 & 0.51 & 0.08 & 0.82 & 0.97 & 0.34 & 0.27 & 0.71 \\ 
-   \rowcolor[gray]{.9}iadl\_map & Diff. using map & 0.73 & 0.82 & 0.32 & 0.95 & 0.79 & 0.83 & 0.29 & 0.98 \\ 
-  iadl\_tel & Diff. using telephone & 0.80 & 0.78 & 0.23 & 0.95 & 0.70 & 0.85 & 0.37 & 0.96 \\ 
-   \rowcolor[gray]{.9}iadl\_money & Diff. managing money & 0.91 & 0.56 & 0.06 & 0.85 & 0.81 & 0.78 & 0.22 & 0.96 \\ 
-  iadl\_meds & Diff. taking meds & 0.92 & 0.46 & 0.17 & 0.78 & 0.79 & 0.77 & 0.23 & 0.94 \\ 
-   \rowcolor[gray]{.9}iadl\_shop & Diff. shopping for groceries & 0.92 & 0.58 & 0.05 & 0.87 & 0.90 & 0.68 & 0.06 & 0.93 \\ 
-  iadl\_meals & Diff. preparing hot meals & 0.92 & 0.57 & 0.06 & 0.86 & 0.82 & 0.77 & 0.21 & 0.96 \\ 
-   \rowcolor[gray]{.9} \bottomrule
+\label{tab:iadl}
+\begin{tabular}{L{2.5cm}|L{3cm}C{3.2cm}C{3.2cm}}
+Short & Description & Females & Males \\
+      &      & \texttt{L~~~A~~~T~~~M} &  \texttt{L~~~A~~~T~~~M} \\ \toprule
+IADL3 & IADL 3 point & \hm{f}{iadl3} & \hm{m}{iadl3} \\
+IADL5 & IADL 5 point & \hm{f}{iadl5} & \hm{m}{iadl5} \\
+WORK & Health limits work & \hm{f}{limwork} & \hm{m}{limwork} \\
+MAP & Difficulty using maps & \hm{f}{iadlmap} & \hm{m}{iadlmap} \\
+TEL & Difficulty using telephone & \hm{f}{iadltel} & \hm{m}{iadltel} \\
+MONEY & Difficulty managing money & \hm{f}{iadlmoney} & \hm{m}{iadlmoney} \\
+MEDS & Difficulty taking medications & \hm{f}{iadlmeds} & \hm{m}{iadlmeds} \\
+SHOP & Difficulty grocery shopping &  \hm{f}{iadlshop} &
+\hm{m}{iadlshop}\\
+MEALS & Difficulty prep. hot meals &  \hm{f}{iadlmeals} & \hm{m}{iadlmeals} \\
+\bottomrule
 \end{tabular}
-  \end{adjustwidth}
-  \end{table}
-  
-  % Behaviors:
+\end{table}
   
 \begin{table}
-\small
-\begin{adjustwidth}{-5em}{}% 
 \centering
 \caption{Health behaviors}
-\begin{tabular}{L{4em}
-L{3cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
-  \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
- \multicolumn{4}{c}{Females} \\
-   \midrule
- Short & Long & T & C & $C+T$  & $C-T$  & T & C & $C+T$ & $C-T$ \\
-\midrule 
- alc\_ev & Alcohol, ever  & 0.78 & 0.41 & 0.08 & 0.68 & 0.62 & 0.79 & 0.40 &
-0.89 \\
-   \rowcolor[gray]{.9}alc\_days & Alcohol nr of days / week  & 0.82 & 0.17 & 0.44 & 0.54 & 0.80 & 0.34 & 0.26 & 0.64 \\ 
-  alc\_drinks & Alcohol nr drinks per drinking day  & 0.89 & 0.49 & 0.18 & 0.80 & 0.75 & 0.84 & 0.27 & 0.96 \\ 
-   \rowcolor[gray]{.9}smoke\_ev & Ever Smoker & 0.30 & 0.68 & 0.87 & 0.37 & 0.27 & 0.81 & 0.98 & 0.48 \\ 
-  smoke\_cur & Current Smoker & 0.09 & 0.88 & 0.93 & 0.61 & 0.15 & 0.93 & 0.83 & 0.77 \\ 
-   \rowcolor[gray]{.9} \bottomrule
+\label{tab:health}
+\begin{tabular}{L{2.5cm}|L{3cm}C{3.2cm}C{3.2cm}}
+Short & Description & Females & Males \\
+      &      & \texttt{L~~~A~~~T~~~M} &  \texttt{L~~~A~~~T~~~M} \\ \toprule
+ALCEV & Alcohol, ever-drinker  & \hm{f}{alcev} & \hm{m}{alcev} \\
+ALCDAYS & Drinking days / week  & \hm{f}{alcdays} & \hm{m}{alcdays} \\
+ALCDRINKS & Nr drinks per drinking day  & \hm{f}{alcdrinks} & \hm{m}{alcdrinks} \\
+SMOKEEV & Ever-smoker & \hm{f}{smokeev} & \hm{m}{smokeev} \\
+SMOKECUR & Current-smoker & \hm{f}{smokecur} & \hm{m}{smokecur} \\
+\bottomrule
 \end{tabular}
-  \end{adjustwidth}
-  \end{table}
-  
-  
+\end{table}
+
+
 \begin{table}
-\small
-\begin{adjustwidth}{-5em}{}% 
 \centering
 \caption{Functional limitations}
-\begin{tabular}{L{4em}
-L{3cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
-  \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
- \multicolumn{4}{c}{Females} \\
-   \midrule
-    Short & Long & T & C & $C+T$  & $C-T$  & T & C & $C+T$ & $C-T$ \\
-\midrule 
-bmi & BMI & 0.92 & 0.53 & 0.05 & 0.83 & 0.74 & 0.76 & 0.29 & 0.91 \\ 
-   \rowcolor[gray]{.9}back & Back problems & 0.18 & 0.92 & 0.81 & 0.78 & 0.21 & 0.87 & 0.74 & 0.74 \\ 
-  mob & Mobility difficulty index & 0.91 & 0.61 & 0.01 & 0.89 & 0.88 & 0.73 & 0.12 & 0.95 \\ 
-   \rowcolor[gray]{.9}lg\_mus & Large muscle difficulty index & 0.86 & 0.74 & 0.15 & 0.95 & 0.81 & 0.81 & 0.25 & 0.98 \\ 
-  gross\_mot & Gross motor difficulty index & 0.91 & 0.56 & 0.06 & 0.85 & 0.86 & 0.72 & 0.13 & 0.94 \\ 
-   \rowcolor[gray]{.9}fine\_mot & Fine motor difficulty index & 0.80 & 0.73 & 0.18 & 0.92 & 0.79 & 0.78 & 0.23 & 0.94 \\ 
-   \bottomrule
+\label{tab:func}
+\begin{tabular}{L{2.5cm}|L{3cm}C{3.2cm}C{3.2cm}}
+Short & Description & Females & Males \\
+      &      & \texttt{L~~~A~~~T~~~M} &  \texttt{L~~~A~~~T~~~M} \\ \toprule
+BMI & Body mass index  & \hm{f}{bmi} & \hm{m}{bmi} \\
+BACK & Back problems  & \hm{f}{back} & \hm{m}{back} \\
+MOB & Mobility difficulty index & \hm{f}{mob} & \hm{m}{mob} \\
+LGMUS & Large muscle difficulty index & \hm{f}{lgmus} & \hm{m}{lgmus} \\
+GROSSMOT & Gross motor difficulty index & \hm{f}{grossmot} & \hm{m}{grossmot}\\
+FINEMOT & Fine motor difficulty index & \hm{f}{finemot} & \hm{m}{finemot}\\
+\bottomrule
 \end{tabular}
-  \end{adjustwidth}
-  \end{table}
+\end{table}
   
 \begin{table}
-\small
-\begin{adjustwidth}{-5em}{}% 
 \centering
 \caption{Chronic conditions}
-\begin{tabular}{L{4em}
-L{3cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
-  \multicolumn{2}{c|}{Variable}&\multicolumn{4}{c|}{Males} &
- \multicolumn{4}{c}{Females} \\
-   \midrule
-    Short & Long & T & C & $C+T$  & $C-T$  & T & C & $C+T$ & $C-T$ \\
-\midrule 
-bp & High blood pressure, ever & 0.75 & 0.84 & 0.36 & 0.98 & 0.87 & 0.63 & 0.09 & 0.88 \\ 
-   \rowcolor[gray]{.9}diab & Diabetes, ever  & 0.65 & 0.28 & 0.69 & 0.09 & 0.80 & 0.22 & 0.72 & 0.21 \\ 
-  cancer & Cancer, ever & 0.93 & 0.41 & 0.18 & 0.74 & 0.96 & 0.31 & 0.29 & 0.68 \\ 
-   \rowcolor[gray]{.9}lung & Lung disease & 0.64 & 0.50 & 0.90 & 0.07 & 0.88 & 0.07 & 0.62 & 0.36 \\ 
-  heart & Heart problems, ever  & 0.96 & 0.36 & 0.24 & 0.72 & 0.83 & 0.77 & 0.25 & 0.96 \\ 
-   \rowcolor[gray]{.9}stroke & Stroke, ever  & 0.95 & 0.50 & 0.10 & 0.82 & 0.69 & 0.90 & 0.47 & 0.99 \\ 
-  psych & Psych problems , ever & 0.96 & 0.36 & 0.24 & 0.72 & 0.61 & 0.78 & 0.40 & 0.87 \\ 
-   \rowcolor[gray]{.9}arth & Arthritis, ever  & 0.34 & 0.92 & 0.71 & 0.84 & 0.28 & 0.92 & 0.75 & 0.82 \\ 
-  cc & Nr chronic conditions & 0.91 & 0.61 & 0.03 & 0.88 & 0.76 & 0.83 & 0.35 & 0.97 \\ 
-   \rowcolor[gray]{.9} \bottomrule
+\label{tab:chron}
+\begin{tabular}{L{2.5cm}|L{3cm}C{3.2cm}C{3.2cm}}
+Short & Description & Females & Males \\
+      &      & \texttt{L~~~A~~~T~~~M} &  \texttt{L~~~A~~~T~~~M} \\ \toprule
+CC & Number of chronic conditions & \hm{f}{cc} & \hm{m}{cc} \\
+BP & High blood pressure, ever & \hm{f}{bp} & \hm{m}{bp} \\
+DIAB & Diabetes, ever & \hm{f}{diab} & \hm{m}{diab} \\
+CANCER & Cancer, ever & \hm{f}{cancer} & \hm{m}{cancer} \\
+LUNG & Lung disease & \hm{f}{lung} & \hm{m}{lung} \\
+HEART & Heart problems, ever  & \hm{f}{heart} & \hm{m}{heart} \\
+STROKE & Stroke, ever  & \hm{f}{stroke} & \hm{m}{stroke} \\
+PSYCH & Psychological problems , ever  & \hm{f}{psych} & \hm{m}{psych} \\
+ARTH & Arthritis, ever  & \hm{f}{arth} & \hm{m}{arth} \\
+\bottomrule
 \end{tabular}
-  \end{adjustwidth}
-  \end{table}
+\end{table}
   
+  
+\begin{table}
+\centering
+\caption{Cognitive function}
+\label{tab:cog}
+\begin{tabular}{L{2.5cm}|L{3cm}C{3.2cm}C{3.2cm}}
+Short & Description & Females & Males \\
+      &      & \texttt{L~~~A~~~T~~~M} &  \texttt{L~~~A~~~T~~~M} \\ \toprule
+SRM & Self-rated memory & \hm{f}{srm} & \hm{m}{srm} \\
+PASTMEM & Memory compared to past & \hm{f}{pastmem} & \hm{m}{pastmem} \\
+SS & Serial 7s & \hm{f}{ss} & \hm{m}{ss}\\
+C20B & Backwards counting &  \hm{f}{c20b} & \hm{m}{c20b}\\
+NAMEMO & Naming month &  \hm{f}{namemo} & \hm{m}{namemo}\\
+NAMEDMO & Naming day of month &  \hm{f}{namedmo} & \hm{m}{namedmo}\\
+NAMEYR & Naming year &  \hm{f}{nameyr} & \hm{m}{nameyr}\\
+NAMEDWK & Naming day of week &  \hm{f}{namedwk} & \hm{m}{namedwk}\\
+NAMESCI & Naming scissors &  \hm{f}{namesci} & \hm{m}{namesci}\\
+NAMECAC & Naming cactus &  \hm{f}{namecac} & \hm{m}{namecac}\\
+NAMEPRES & Naming president &  \hm{f}{namepres} & \hm{m}{namepres}\\
+NAMEVP & Naming vice president &  \hm{f}{namevp} & \hm{m}{namevp}\\
+VOCAB & Vocabulary score & \hm{f}{vocab} & \hm{m}{vocab}\\
+TM & Mental status summary & \hm{f}{tm} & \hm{m}{tm}\\
+DWR & Delayed word recall & \hm{f}{dwr} & \hm{m}{dwr}\\
+TWR & Total word recall & \hm{f}{twr} & \hm{m}{twr}\\
+IWR & Delayed word recall & \hm{f}{dwr} & \hm{m}{dwr}\\
+\bottomrule
+\end{tabular}
+\end{table}
   % cognitive
 \begin{table}
 \small
@@ -885,20 +863,6 @@ L{3cm}|C{1cm}C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}C{1cm}}
    \midrule
     Short & Long & T & C & $C+T$  & $C-T$  & T & C & $C+T$ & $C-T$ \\
 \midrule 
-srm & Self-rated memory & 0.20 & 0.53 & 0.40 & 0.49 & 0.51 & 0.89 & 0.56 & 0.90 \\ 
-   \rowcolor[gray]{.9}pastmem & Memory compared to past & 0.29 & 0.90 & 0.71 & 0.81 & 0.28 & 0.87 & 0.69 & 0.78 \\ 
-  ss & Serial 7s & 0.76 & 0.72 & 0.20 & 0.89 & 0.86 & 0.69 & 0.10 & 0.92 \\ 
-   \rowcolor[gray]{.9}c20b & Backwards counting & 0.80 & 0.71 & 0.16 & 0.91 & 0.71 & 0.80 & 0.31 & 0.92 \\ 
-  name\_mo & Naming month & 0.77 & 0.47 & 0.06 & 0.72 & 0.62 & 0.88 & 0.46 & 0.94 \\ 
-   \rowcolor[gray]{.9}name\_dmo & Naming day of month & 0.79 & 0.79 & 0.24 & 0.95 & 0.85 & 0.70 & 0.12 & 0.92 \\ 
-  name\_yr & Naming year & 0.80 & 0.74 & 0.20 & 0.93 & 0.64 & 0.92 & 0.48 & 0.97 \\ 
-   \rowcolor[gray]{.9}name\_dwk & Naming day of week & 0.73 & 0.68 & 0.18 & 0.85 & 0.74 & 0.84 & 0.34 & 0.97 \\ 
-  name\_sci & Naming scissors & 0.79 & 0.41 & 0.14 & 0.68 & 0.55 & 0.90 & 0.53 & 0.92 \\ 
-   \rowcolor[gray]{.9}name\_cac & Naming cactus & 0.54 & 0.84 & 0.47 & 0.87 & 0.71 & 0.86 & 0.38 & 0.97 \\ 
-  name\_pres & Naming president & 0.83 & 0.00 & 0.57 & 0.41 & 0.85 & 0.72 & 0.14 & 0.94 \\ 
-   \rowcolor[gray]{.9}name\_vp & Naming VP & 0.79 & 0.58 & 0.04 & 0.81 & 0.74 & 0.52 & 0.01 & 0.74 \\ 
-  vocab & Vocabulary score & 0.79 & 0.61 & 0.02 & 0.83 & 0.73 & 0.57 & 0.02 & 0.77 \\ 
-   \rowcolor[gray]{.9}tm & Mental status summary & 0.81 & 0.69 & 0.13 & 0.90 & 0.83 & 0.79 & 0.22 & 0.97 \\ 
   dwr & Delayed word recall & 0.83 & 0.66 & 0.14 & 0.88 & 0.80 & 0.78 & 0.27 & 0.96 \\ 
    \rowcolor[gray]{.9}twr & Total word recall & 0.77 & 0.72 & 0.23 & 0.90 & 0.78 & 0.81 & 0.33 & 0.97 \\ 
   iwr & Immediate word recall & 0.71 & 0.78 & 0.33 & 0.92 & 0.75 & 0.85 & 0.38 & 0.99 \\ 
@@ -965,8 +929,7 @@ hosp & Overnight hospital: 24 mo & 0.78 & 0.59 & 0.10 & 0.81 & 0.75 & 0.74 & 0.2
   \end{adjustwidth}
   \end{table}
   
-  
-  
+
   
   
 \end{document}

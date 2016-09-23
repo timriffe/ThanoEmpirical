@@ -68,10 +68,11 @@ FitLoess <- function(varname,
 	# conservative here to cut tails
 	maxL  <- 100
 	minL  <- 70
+	Dati  <- Dat[Dat$sex == sex, ]
 	
 	# multiplicative gives the most freedom. ta and ca are decimals
 	mod   <- loess(paste0(varname,'~Coh5 * ta * ca') ,
-					data = Dat[Dat$sex == sex, ], 
+					data = Dati, 
 					weights = p_wt2, # this, plus point density both act as weights
 					span = span,     # a variable passed in, or smoothness
 									 # is similiar conceptually to a 1:1:1 aspect ratio. 
@@ -93,7 +94,7 @@ FitLoess <- function(varname,
 	# wave 2 or 3. There are many such cases, so check and make sure we dont' extrapolate.
 	# sex <- "m"
 	# varname <- "cesd"
-	MissingWaves <- tapply(Dat[Dat$sex == sex, varname], Dat[Dat$sex == sex, "wave"], function(x){
+	MissingWaves <- tapply(Dati[, varname], Dati[, "wave"], function(x){
 				all(is.na(x))
 			})
 	LeftYear  <- 1992

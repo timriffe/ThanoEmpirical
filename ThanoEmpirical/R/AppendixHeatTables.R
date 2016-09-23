@@ -21,7 +21,7 @@ cat("Working directory:\n",getwd())
 # load in loess results
 Results <- local(get(load("Data/LoessQuinquenal.Rdata")))
 
-# --------------------------------
+#-------------------------------
 # function used, given a thano x chrono surface:
 get_r <- function(A){
 	# it's pretty simple, really.
@@ -42,24 +42,34 @@ Results <- lapply(Results, function(x){
 			x$Male$Surf[x$Male$Surf < 0] <- NA
 			x
 		})
+
 # --------------------------------------------
 # This gets the correlations for each dim, cohort, sex, and span.
 Results_r <- do.call(rbind,
 		lapply(Results, function(x){
 					Surfsm     <- x$Male$Surf
-					outm       <- reshape2::melt(apply(Surfsm,3,get_r),varnames=c("Dim","Cohort"),value.name="r")
+					outm       <- reshape2::melt(
+							         apply(Surfsm, 3, get_r),
+							         varnames = c("Dim","Cohort"),
+							         value.name = "r")
 					outm$var   <- x$Male$varname
 					outm$span  <- x$Male$span
 					outm$sex   <- "m"
 					Surfsf     <- x$Female$Surf
-					outf       <- reshape2::melt(apply(Surfsm,3,get_r),varnames=c("Dim","Cohort"),value.name="r")
+					outf       <- reshape2::melt(
+							         apply(Surfsf ,3, get_r),
+									 varnames = c("Dim","Cohort"),
+									 value.name = "r")
 					outf$var   <- x$Female$varname
 					outf$span  <- x$Female$span
 					outf$sex   <- "f"
-					rbind(outf,outm)
+					out <- rbind(outf,outm)
+					out$Dim <- as.character(out$Dim)
+					out
 				})
 )
-head(Results_r)
+head(Results_r[Results_r$sex == "f", ])
+head(Results_r[Results_r$sex == "m", ])
 # --------------------------------------------
 
 
@@ -98,6 +108,7 @@ row.heat <- function(x){
 	par(xaxs = "i", yaxs = "i", mai = c(.03, .03, .03, .03))
 	plot(NULL, xlim = c(0, n), ylim = c(0, 1), axes = FALSE, xlab = "", ylab = "", asp = 1)
 	rect(0:nm1, 0, 1:n, 1, border = "white", lwd = 3, col = gray(1 - x))
+	text(0:nm1 + .5, .5, round(x * 100), col = ifelse(x < .5, "black", "white"), cex = 2)
 }
 #row.boxes <- function(x){
 #	x   <- x[c("L","A","T","M")]
@@ -109,17 +120,20 @@ row.heat <- function(x){
 #	rect(0:nm1,0,0:nm1+sqrt(x),sqrt(x),border=NA,col="black")
 #}
 #x <- grabr(Res.7,"m",1920,"adl3_")
+
 grabr <- function(Dat, sex, cohort, varname){
-	ind        <- with(Dat, Cohort == cohort & sex == sex & var == varname)
+	ind        <- Dat$Cohort == cohort & Dat$sex == sex & Dat$var == varname
 	out        <- Dat$r[ind]
 	names(out) <- Dat$Dim[ind]
 	out
 }
 
 #
-#row.boxes(grabr(Res.7,"m",1920,"adl3_"))
-row.heat(grabr(Res.7,"m",1920,"adl3_"))
-coh <- 1915;sex <- "f"; v <- "lung"
+x <- grabr(Res.7,"m",1915,"adl3")
+row.heat(grabr(Res.7,"m",1915,"adl3"))
+row.heat(grabr(Res.7,"f",1915,"adl3"))
+#coh <- 1915;sex <- "f"
+# cohort <- coh, varname = "adl3"
 for (coh in seq(1905,1925, by = 5)){
 	for (sex in c("m","f")){
 		for (v in varnames){
@@ -127,10 +141,13 @@ for (coh in seq(1905,1925, by = 5)){
 					coh, paste0(sex, v, ".pdf"))
 			#x <- grabr(Res.7, sex, coh, v)
 			pdf(path, height = 1.06, width = 4.06)
-			row.heat(grabr(Res.7, sex, coh, v))
+			row.heat(grabr(Dat = Res.7, 
+						   sex = sex, 
+						   cohort = coh,
+						   varname = v))
 			dev.off()
 		}
 	}
 }
-
+sort(varnames)
 # end
