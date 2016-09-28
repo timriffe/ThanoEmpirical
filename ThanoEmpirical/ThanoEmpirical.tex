@@ -99,9 +99,9 @@ higher thanatological ages, thereby increasing remaining life expectancy \citep{
 the notion and measure of future remaining lifespan is elastic, subject to
 uncertainty.
 In retrospect (after the death of a cohort), the thanatological age structure of
-a cohort is a fixed characteristic. Furthermore, since a closed birth
-cohort is akin to a stationary population,\footnote{The age structure of a birth
-cohort over time is proportional to the survivorship column of its lifetable, which is proportional to the stable age structure determined by the Lotka-Euler renewal model when the intrinsic growth rate is equal to zero.} one may be
+a cohort at a given past point in time is a fixed characteristic. Furthermore,
+since a closed birth cohort is akin to a stationary
+population,\footnote{The age structure of a birth cohort over time is proportional to the survivorship column of its lifetable, which is proportional to the stable age structure determined by the Lotka-Euler renewal model when the intrinsic growth rate is equal to zero.} one may be
 tempted to assume that since chronological and thanatological age structures are
 symmetrical in stationary populations
 \citep{brouard1989mouvements,vaupel2009life,pancho2015} that the patterns of
@@ -190,9 +190,7 @@ These data are free to download, and all details of data processing and methods 
 repository.\footnote{This
 repository includes R code used to process data, as well as generate results and
 figures: \url{https://github.com/timriffe/ThanoEmpirical}}
-%\footnote{This
-%repository includes R code used to process data, as well as generate results
-% and figures: (url goes here\ldots)}
+
 We restrict the sample to only those
 individuals born between 1900 and 1930 who died between 1992 and 2011, which
 narrows the dataset down to 37,051 interviews of 9,238 individuals. Of
@@ -336,8 +334,8 @@ these cases, we attempted to assign numerical codes that were consistent over th
 \textit{impressions} about how characteristics change over age.\footnote{The
 pre-processing of variables is full of details that would clutter this paper.
 Rather than a lengthy and detailed appendix describing the case by case
-treatment of variables, we make the full code base used in the generation of
-results available in an open repository.}
+treatment of variables, please consult the annotated code in the open
+repository.}
 
 % DEPRECATED: no longer doing this!
 %Some questionnaire items in the HRS are only asked every second interview. In
@@ -580,7 +578,8 @@ variables with strong patterns of variation in the M direction, there are also
 strong correlations in the A and/or T directions. Of these, M is most commonly
 paired with T. Characteristics that show strong correlation in both M and T
 display surfaces with contour lines slanted less than $45^\circ$. A more
-detailed table of results by variable, pattern, and sex is given in an appendix.
+detailed table of results by variable, pattern, and sex is given in the
+appendix.
 
 %\begin{figure}[!h]
 %    % This figure was produced in
@@ -650,13 +649,25 @@ detailed table of results by variable, pattern, and sex is given in an appendix.
 \FloatBarrier
 \section*{Discussion}
 The distribution of tested characteristics with respect to the
-four axis orientations described here is striking. However, these findings
-must be tempered by noting that 1) the summary measure (correlation coefficient)
-used here blends out some information, 2) these results may
-not necessarily extrapolate to the set of all testable questions in the HRS, and
-3) this relationship does not necessarily hold in other windows of the lifespan
-or other birth cohorts. Comparable results for other five-year birth cohorts
-(1905-1925) are given in an open repository.
+four primary patterns of variations is
+striking. Chronological age describes prevalence patterns for many conditions
+well, but time-to-death patterns are more more prevalent among the measures
+tested.
+For measures that vary both with the increase of age and the approach to death, the approach to
+death is most often the stronger of the two measures. Characteristics that vary
+by length of life are few, but their patterns are clear. The upshot, as
+illustrated by comparing figures \ref{fig:psych} and \ref{fig:chronofalse}, is
+that representing morbidity or disability variables as chronological age
+patterns can in many or most cases be misleading as model of morbidity
+processes, and biased as a basis for prediction.
+
+These empirical
+findings must be tempered by noting that 1) the summary measure (correlation
+coefficient) used here blends out some information, 2) these results may not
+extrapolate to the set of all testable questions in the HRS, and 3)
+this relationship does not necessarily hold in other windows of the lifespan or
+other birth cohorts. Comparable results for other five-year birth cohorts
+in the HRS (1905-1925) are given in the manuscript repository. 
 
 Further, the patterns
 presented here are valid for the whole population (of a given sex) taken
@@ -670,47 +681,46 @@ characteristics and causes of death. At the time of this research, we did not
 have access to cause of death information from the HRS mortality followup. For
 detailed investigations of particular characteristics, cause-conditioning
 surfaces would clearly aid in disentangling morbidity processes, both for
-purposes of understanding and cause and time of death prediction.
+purposes of understanding and for cause and time of death prediction.
 
 Research to better document the multidimensional age variation of particular
 characteristics would benefit from more careful measurement and modeling than
-that conducted here.
-Despite such shortcomings, the principal aim of this study has been satisfied:
-this survey of characteristics highlights the complex variety of age and
-lifespan dimensions over which some key aspects of the aging process unfold. All
+that conducted here. Despite such shortcomings, the principal aim of this study
+has been satisfied: this survey of characteristics highlights the complex
+variety of age and lifespan dimensions over which some key aspects of the aging process unfold. All
 of the indicators we tested are commonly used to describe population aging, and
 very few of them are exclusively a function of chronological age. If this
 finding is sustained in other cohorts and populations, and if other indicators
 here untested also display similar temporal complexity, we submit that the
 common discourse and debate on the nature and impacts of aging ought to be
 better informed by more judicious measurement and description in terms of
-thanatological and chronological age. This could potentially benefit scientific
-understanding of health and disability processes, actuarial accuracy of
-morbidity projections, and those policies that depend on accurate
-morbidity projections. 
+thanatological and chronological age. This would benefit scientific
+understanding of health and disability processes, and it would improve
+the actuarial accuracy of morbidity projections and any policies that count
+on accurate morbidity projections. 
 
 That accounting for time-to-death in predictions of
 healthcare expenditure reduces bias has already been established in the health
-economics literature \citep[e.g.,][]{stearns2004time}. Adding the time-to-death
-dimension to morbidity predictions works in the same way mechanically as it does for
-healthcare expenditure, and the direction of bias would commonly be the same as
-that already pointed out by health economists for expenditure. A common finding
+economics literature \citep[e.g.,][]{stearns2004time}. A common finding
 on healthcare expenditure prediction is that in times of mortality improvements,
 predictions based on chronological age patterns of healthcare
 expenditure (Sullivan-style predictions \citep{sullivan1970}) tend
-to overestimate.
+to overestimate total expenditure \citep[e.g.,][]{geue2014population}. 
 Since the patterns of variation among the morbidity dimensions we study are
 similar to those of healthcare expenditure over chronological age and
 time-to-death, we here infer that Sullivan-style predictions of morbidity are
 biased in the same direction.\footnote{Other work in progress treats this point
-in greater detail \citep{vanRaalte2015HLE}.}
+in greater detail \citep{vanRaalte2015HLE}.} The consequences of overestimating
+future morbidity prevalence are complex and varied, ranging from
+budget misallocations to lowered expectations on the benefits of lengthening
+life.
 
 We hope that the conceptual model of the
-lifespan presented here, which complements the Lexis diagram, will be of use to
-demographers, public health researchers, and epidemiologists. Other combinations
-of lifespan time dimensions are also possible, and these would highlight different patterns in data. The variety and
-availability of such options, perhaps now placed in starker relief, demands a more nuanced
-understanding of the temporal accounting that relates demographic time
+lifecourse presented here, which complements the Lexis diagram, will be of use
+to demographers, public health researchers, and epidemiologists. Other combinations
+of lifespan time dimensions are also possible, and these would highlight
+different patterns in data \citep{rsv2015}. The variety and availability of such
+options, perhaps now placed in starker relief, demands a more nuanced understanding of the temporal accounting that relates demographic time
 perspectives. Further exploration and experimentation with these formal
 demographic concepts will lead to a more precise toolkit for demographic
 measurement and the practice of demography, and ultimately a wiser contribution
@@ -777,8 +787,8 @@ For tables displayed in this appendix we use a shorthand to identify axis types.
 (right-downward slanting isolines), the least common in these data. \texttt{M}
 indicates the mixed axis, the most common type in these data. The code used to generate these and all other
 results, including results for all 5-year cohorts from 1905-1925 and different
-degrees of smoothing, is available freely in a repository. The repository also
-contains a csv of these summary results.
+degrees of smoothing, is available freely the repository. The repository
+also contains a csv of these summary results.
 
 %(insert url)
 \url{https://github.com/timriffe/ThanoEmpirical}

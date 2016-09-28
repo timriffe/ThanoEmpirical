@@ -216,7 +216,7 @@ histogram(~R | Dim,
 		ylim = c(0, 47))
 dev.off()
 
-pdf("Figures/HistMal.pdf", width=  , height = 7)
+pdf("Figures/HistMal.pdf", width = 3, height = 7)
 histogram(~R | Dim, 
 		data = Hist7[Hist7$sex == "m", ], 
 		col = gray(.4), 
