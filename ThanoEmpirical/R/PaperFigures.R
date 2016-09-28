@@ -15,7 +15,7 @@ if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm", "tim-ThinkPad-L440")){
 cat("Working directory:\n",getwd())
 source("R/SurfMap.R")
 library(RColorBrewer)
-
+library(lattice)
 # this script contains just the figures used in the final submission to VYPR.
 # many other figures are produced here and there in other R scripts, but are not included.
 
@@ -173,5 +173,46 @@ polygon(c(72:95,95:72),
   c(m1915se$fit - m1915se$se.fit * 2, rev(m1915se$fit + m1915se$se.fit * 2)), 
   col = "#00000040", border = NA)
 dev.off()
+
+# --------------------------------
+# correlation histograms:
+
+#
+Results_r  <- local(get(load("Data/Correlations.Rdata")))
+Hist7      <- Results_r[Results_r$span == "0.7" & Results_r$Cohort == 1915, ]
+Hist7$rbin <- round(Hist7$r * 100) %/% 10 * 10
+Hist7$rbin <- as.factor(Hist7$rbin)
+Hist7$R    <- Hist7$r * 100
+Hist7$Dim  <- as.factor(Hist7$Dim )
+
+#
+pdf("Figures/HistFem.pdf", width = 3, height = 7)
+histogram(~R | Dim, 
+		data = Hist7[Hist7$sex == "f", ], 
+		col = gray(.4), 
+		par.settings = list(strip.background = list(col = gray(.9))), 
+		layout = c(1,4), 
+		type = "count",
+		breaks = seq(0,100, by = 10),
+		index.cond = list(c(3, 4, 1, 2)), 
+		xlab = list(label = "correlation coef * 100"),
+		ylab = list(label = "variable count"),
+		ylim = c(0, 47))
+dev.off()
+
+pdf("Figures/HistMal.pdf", width=  , height = 7)
+histogram(~R | Dim, 
+		data = Hist7[Hist7$sex == "m", ], 
+		col = gray(.4), 
+		par.settings = list(strip.background = list(col = gray(.9))), 
+		layout = c(1, 4), 
+		type = "count",
+		breaks = seq(0, 100, by = 10),
+		index.cond = list(c(3, 4, 1, 2)), 
+		xlab = list(label = "correlation coef * 100"),
+		ylab = list(label = "variable count"),
+		ylim = c(0, 47))
+dev.off()
+
 
 # end
