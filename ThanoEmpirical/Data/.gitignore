@@ -16,13 +16,10 @@
 /thanos_wide_v2_2.txt
 /thanos_long_v2_2.gz
 /PercentThano2.csv
-<<<<<<< HEAD
-/LoessListCohrts5.Rdata
-=======
->>>>>>> refs/remotes/origin/master
-/LoessQuinquenal.Rdata
-/Data_long_imputed.Rdata
-/LoessQuinquenal_imp.Rdata
-/thanos_long_v3_1.RData
-/Correlations.Rdata
 /PercentThano.csv
+
+/LoessListCohrts5.Rdata
+
+/thanos_long_v3_1.RData
+/LoessQuinquenal.Rdata
+/Correlations.Rdata
