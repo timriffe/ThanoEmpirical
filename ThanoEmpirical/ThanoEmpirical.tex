@@ -163,9 +163,9 @@ morbidity, as measured by a set of 78 characteristics and indices. To do this,
 we score the degree to which these characteristics vary in terms of thanatological
 age, chronological age, or both. In all, we define four different age and
 lifespan pattern families, which we use to classify the end-of-life prevalence
-of each characteristic tested. The axis along which a given characteristic varies ought
-to determine how we measure, understand, and respond to the characteristic. We show that often chronological age ought to be used in conjunction with
-thanatological age in order to classify patterns, but in many cases
+of each characteristic tested. The pattern of variation exhibited by a given
+characteristic ought to determine how we measure, understand, and respond to the
+characteristic. We show that often chronological age ought to be used in conjunction with thanatological age in order to classify patterns, but in many cases
 chronological age provides no information at all, and it even obfuscates true temporal
 patterns.
 
@@ -175,9 +175,10 @@ of thanatological age, and no censoring adjustments are necessary. Although more
 data are available for earlier and later cohorts, we report results only for the
 cohort born from 1915 to 1919, which contains the most extensive set of observations in
 the dataset used. In the following section we describe the methods in
-greater detail. We then demonstrate the four age axes by way of example,
-and summarize all characteristics tested in terms of these four axes. Finally,
-we discuss some implications and applications of this work.
+greater detail. We then demonstrate the four primary age patterns by way of
+example, and summarize all characteristics tested in terms of these four
+patterns.
+Finally, we discuss some implications and applications of this work.
 
 
 \section*{Data \& Method}
@@ -199,7 +200,8 @@ sake of adding information when fitting models to the data.
 %
 \begin{figure}[!h]
 \centering
-\caption{Years lived and years left over the lifespan of a birth cohort}
+\caption{Chronological age and thanatological age over the lifecourse of a birth
+cohort}
 \label{fig:LexisOrtho}
 	\includegraphics{Figures/LexisOrtho.pdf}
 \end{figure}
@@ -498,7 +500,12 @@ age~-~thanatological~age$ is the operative predictor of blood pressure. For
 example, for such characteristics, the condition of a 70-year old with five
 remaining years of life may resemble that of an 80-year old with
 15 remaining years of life. Such characteristics are not very useful alone for predicting eventual
-lifespan.\footnote{We do not have expertise to comment further on blood pressure, but instead only provide an interpretation of the surface presented.} 
+lifespan.\footnote{We do not have expertise to comment further on blood
+pressure, but instead only provide an interpretation of the surface presented.}
+Some characteristics appear to follow this pattern, albeit with contour lines at
+angles less than 45$^\circ$, which may suggest thanatological morbidity
+prevalence somehow \textit{proportional} to length of life. We do not measure
+this possibility explicitly.
 
 \begin{figure}[!h]
     % This figure was produced in
@@ -527,6 +534,8 @@ lifespan.\footnote{We do not have expertise to comment further on blood pressure
 	\end{subfigure}
 \end{figure}
 \FloatBarrier
+
+
 
 \paragraph{Summary of results for all characteristics}
 We produce surfaces such as those in Figures~\ref{fig:thanochrono}
@@ -756,11 +765,13 @@ experience of age \citep[see e.g.,][]{sanderson2013characteristics}.
 
 The lifecourse surfaces underlying this study highlight important sex
 differences in the aggregate onset and trajectory of some aspects of morbidity.
-Some of these differences may corroborate extant findings, and others may
-provide new understanding to sexual dimorphism in morbidity. In general, these methods and measurements are applicable to describe any between-group disparity in demographic or social outcomes, especially those
-that directly or indirectly relate to remaining years of life. Numerous other
-avenues of potential investigation may also be devised from the present work. It
-is our hope that these results are strongly suggestive and orient future investigation.
+Some of these differences may corroborate extant findings, such as the
+male-female health-survival paradox, and others may provide new understanding to
+sexual dimorphism in morbidity. Specifically, females have been found to live
+longer but in worse health than males \citep[e.g.,][]{case2005sex}, and this is
+consistent with females having somewhat more chronologically-varying health
+patterns than males. In general, these methods and measurements are
+applicable to describe any between-group disparity in demographic or social outcomes, especially those that directly or indirectly relate to remaining years of life. Numerous other avenues of potential investigation may also be devised from the present work. It is our hope that these results are strongly suggestive and orient future investigation.
 
 %\FloatBarrier
 \singlespacing
@@ -771,16 +782,15 @@ is our hope that these results are strongly suggestive and orient future investi
 %\pagebreak
 %
 \begin{appendices}
-\section{Variables and correlations}
-
-\end{appendices}
+\section*{Appendix: Variables and correlations}
 
 For tables displayed in this appendix we use a shorthand to identify axis types.
 \texttt{T} indicates the correlation coefficient along the thanatological age axis.
 \texttt{A} indicates the chronological age axis. \texttt{L} indicates the lifespan axis
 (right-downward slanting isolines), the least common in these data. \texttt{M}
-indicates the mixed axis, the most common type in these data. The code used to generate these and all other
-results, including results for all 5-year cohorts from 1905-1925 and different
+indicates the mixed axis, upward-right slanting isolines, the most common type
+in these data.
+The code used to generate these and all other results, including results for all 5-year cohorts from 1905-1925 and different
 degrees of smoothing, is available freely the repository. The repository
 also contains a csv of these summary results.
 
@@ -980,5 +990,6 @@ SHF & Visited special healthcare facility & \hm{f}{shf} &\hm{m}{shf} \\
 \bottomrule
 \end{tabular}
 \end{table}
-  
+
+  \end{appendices}
 \end{document}

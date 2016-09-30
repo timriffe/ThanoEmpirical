@@ -58,16 +58,16 @@ arrows(0,99,99-5,0+5,col="blue",lwd=2, lty = "41")
 segments(0,71,71,0,col="red",lwd=3)
 points(71,0,pch=19,col="red")
 
-text(80,70,"(B) incomplete lifeline", cex = .8)
+text(60,72,"(B) incomplete lifeline\n of individual who\n will die at age 99", cex = .7, pos = 4)
 segments(67,67,60,39,col="blue",lty=2)
 
-text(60,80,"(A) complete lifeline", cex = .8)
-segments(57,77,43,29,col="red",lty=2)
+text(50,87,"(A) complete lifeline\n of individual that dies\n at age 71", cex = .7, pos = 4)
+segments(57,82,43,29,col="red",lty=2)
 
 
 polygon(c(72,96,96-13,72),c(0,0,13,13),border = brewer.pal(8,"Greens")[8], lwd = 1, lty = 1,
 		col = paste0(brewer.pal(8,"Greens")[5],"50"))
-text(75,60,"(C) area studied for\n1915-1919 birth cohort", cex = .8, pos = 4)
+text(75,60,"(C) area studied for\n1915-1919 birth cohort", cex = .7, pos = 4)
 segments(90,55,96-13,13,col=brewer.pal(8,"Greens")[8],lty=2)
 dev.off()
 # end figure 1
