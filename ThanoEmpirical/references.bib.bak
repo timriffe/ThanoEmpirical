@@ -171,6 +171,20 @@
   Timestamp                = {2014.07.13}
 }
 
+@Article{geue2014population,
+  Title                    = {Population ageing and healthcare expenditure projections: new evidence from a time to death approach},
+  Author                   = {Geue, Claudia and Briggs, Andrew and Lewsey, James and Lorgelly, Paula},
+  Journal                  = {The European Journal of Health Economics},
+  Year                     = {2014},
+  Number                   = {8},
+  Pages                    = {885--896},
+  Volume                   = {15},
+
+  Owner                    = {tim},
+  Publisher                = {Springer},
+  Timestamp                = {2016.09.28}
+}
+
 @Article{gupta2006variance,
   Title                    = {Variance residual life function in reliability studies},
   Author                   = {Gupta, Ramesh C},
@@ -213,6 +227,7 @@
 
   Author                   = {{Human Mortality Database}},
   Note                     = {Available at www.mortality.org or www.humanmortality.de (data downloaded on February 27, 2015).},
+  Year                     = {2015},
 
   Owner                    = {triffe},
   Timestamp                = {2014.07.10}
@@ -400,6 +415,13 @@
   Url                      = {http://www.R-project.org/}
 }
 
+@InProceedings{vanRaalte2015HLE,
+  Title                    = {Accounting for temporal variation in morbidity},
+  Author                   = {van Raalte, Alyson and Riffe, Tim},
+  Year                     = {2016},
+  Publisher                = {Presented at the Annual Meeting of the Population Association of America}
+}
+
 @Electronic{HRS,
   Title                    = {{RAND HRS Data, Version M}},
 
@@ -423,6 +445,18 @@
   Owner                    = {triffe},
   Publisher                = {Springer},
   Timestamp                = {2015.02.11}
+}
+
+@Article{rsv2015,
+  Title                    = {A unified framework of demographic time},
+  Author                   = {Riffe, T. and Sch\"{o}ley, J. and Villavicencio, F.},
+  Journal                  = {MPIDR Working Papers},
+  Year                     = {2015},
+  Number                   = {8},
+  Pages                    = {22},
+  Volume                   = {WP-2015},
+
+  Owner                    = {riffe}
 }
 
 @Misc{riffe2014paaposter,
@@ -545,6 +579,20 @@
   Timestamp                = {2014.07.13}
 }
 
+@Article{van2010living,
+  Title                    = {Living longer, working longer? The impact of subjective life expectancy on retirement intentions and behaviour},
+  Author                   = {van Solinge, Hanna and Henkens, K{\`e}ne},
+  Journal                  = {The European Journal of Public Health},
+  Year                     = {2010},
+  Number                   = {1},
+  Pages                    = {47--51},
+  Volume                   = {20},
+
+  Owner                    = {triffe},
+  Publisher                = {Oxford Univ Press},
+  Timestamp                = {2013.11.01}
+}
+
 @Article{jjbmj,
   Title                    = {Population ageing: the timebomb that isn’t?},
   Author                   = {Spijker, Jeroen and MacInnes, John},
@@ -566,6 +614,18 @@
   Volume                   = {13},
 
   Publisher                = {Wiley Online Library}
+}
+
+@Article{sullivan1970,
+  Title                    = {{A} single index of mortality and morbidity},
+  Author                   = {Sullivan, DF},
+  Journal                  = {HSMHA Health Reports},
+  Year                     = {1971},
+  Pages                    = {347-354},
+  Volume                   = {86},
+
+  Owner                    = {vanraalte},
+  Timestamp                = {2015.09.23}
 }
 
 @Book{topoleski2004uncertainty,
@@ -600,20 +660,6 @@
   Timestamp                = {2013.11.01}
 }
 
-@Article{van2010living,
-  Title                    = {Living longer, working longer? The impact of subjective life expectancy on retirement intentions and behaviour},
-  Author                   = {Van Solinge, Hanna and Henkens, K{\`e}ne},
-  Journal                  = {The European Journal of Public Health},
-  Year                     = {2010},
-  Number                   = {1},
-  Pages                    = {47--51},
-  Volume                   = {20},
-
-  Owner                    = {triffe},
-  Publisher                = {Oxford Univ Press},
-  Timestamp                = {2013.11.01}
-}
-
 @Article{vaupel2009life,
   Title                    = {Life lived and left: Carey's equality},
   Author                   = {Vaupel, James W},
@@ -628,14 +674,20 @@
   Timestamp                = {2013.02.22}
 }
 
-@Unpublished{pancho2015,
+@Article{pancho2015,
   Title                    = {Symmetries between life lived and left in finite stationary populations},
   Author                   = {Francisco Villavicencio and Tim Riffe},
-  Note                     = {in review},
+  Journal                  = {Demographic Research},
   Year                     = {2016},
+  Note                     = {in review},
+  Number                   = {14},
+  Pages                    = {381--398},
+  Volume                   = {35},
 
+  Doi                      = {10.4054/DemRes.2016.35.14},
   Owner                    = {riffe},
-  Timestamp                = {2015.08.05}
+  Timestamp                = {2015.08.05},
+  Url                      = {http://www.demographic-research.org/volumes/vol35/14/35-14.pdf}
 }
 
 @Article{weir2011proxy,
