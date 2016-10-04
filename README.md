@@ -1,7 +1,7 @@
 ThanoEmpirical
 ==============
 
-This repo includes R code and tex files for a study in progress, provisionally titled "Time-to-death patterns in markers of age and dependency" with [Pil H. Chung](http://www.paulchung.org/), [Jeroen Spijker](http://www.ced.uab.es/index.php?module=pagesetter&func=viewpub&tid=12&pid=21) and [John MacInnes](http://www.sps.ed.ac.uk/staff/sociology/macinnes_john). 
+This repo includes R code and tex files for a study in progress, provisionally titled "Time-to-death patterns in markers of age and dependency" with [Pil H. Chung](http://www.paulchung.org/), [Jeroen Spijker](http://ced.uab.es/en/directori/jeroen-spijker/) and [John MacInnes](http://www.sps.ed.ac.uk/staff/sociology/macinnes_john). 
 
 The manuscript is citable as:
 
