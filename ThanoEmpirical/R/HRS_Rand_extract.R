@@ -1,3 +1,11 @@
+# Script written by Pil H Chung. He was previously doing this in STATA
+# TR hasn't run this script 
+# This would be the very first step after getting
+# the RAND version M data file. The next step is
+# PreProcessing.R
+#------------------------------------
+
+
 setwd("~/randMstataSE") # location of RAND data product
 library(foreign)
 
