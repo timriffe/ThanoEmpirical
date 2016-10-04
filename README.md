@@ -19,9 +19,35 @@ https://ssl.isr.umich.edu/hrs/start.php
 
 Under the 'RAND Contributed Files' section, click the link for 'RAND HRS Data File (v.M)'; this will take you to the download section. Here, click the link for 'randmstata.zip' - this file contains all the data and documentation that is needed. Unzip the downloaded file into your research directory.
 
-All coded needed to extract and process these data are contained in this repository. Step-by-step instructions will be posted when finalized.
+All coded needed to extract and process these data are contained in this repository, and these are found in the scripts are found in the R/ folder. The scripts expect to see some other folders too, so set up a structure something like this. 
+
+MainFolder/
+    R/
+    Data/               <- put 'rndhrs_m.dta' in there, as extracted from the above-mentioned download
+    Figures/
+        HeatTables/
+            1905/
+            1910/
+            1915/
+            1920/
+            1925/
+    Appendix/
+        Results
+
+In the header of each R script you'll see how TR's working directory is set automatically. On your system, you can just replace all that with your own setwd() command. Having done this, execute the scripts in this order:
+
+1) HRS_Rand_extract.R
+2) PreProcessing.R
+3) CreateMatrices.R
+4) loessSmoothing.R
+5) Correlations.R
+6) PaperFigures.R
+7) AppendixHeatTables.R
+8) (optional) SurfaceCompare.R   <-some diagnostic surfaces, not so pretty, but interpretable.
+
+
 
 Note
 ========
-The loess smoothing procedure here is a temporary procedure until a more adequate method is identified. The loess smoothing ignores within-individual autocorrelation, and it also appears to have some undesirable edge-effects that may even tilt results somewhat. Don't fret, though, the major stuff holds still. The final VYPR submission will likely be updated plenty in advance.
+The loess smoothing procedure used in this paper is rough around the edges, literally, as it may have edge-effects. The loess smoothing also ignores within-individual autocorrelation, and it also appears to have some undesirable edge-effects that may even tilt results somewhat. Don't fret, though, the major finds are robust, since we used very rough methods. We were not able to identify the perfect method prior to finalizing this paper, so this statistical question still remains open. Since we'll be using such results in the future, and eventually measurement will matter a lot, it'd be nice to receive a tip. Like, maybe a glm with fixed effects? Would that smooth as a side-effect? Because that's all we want now. Any statisticians out there?
 
