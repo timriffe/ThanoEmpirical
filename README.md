@@ -38,6 +38,7 @@ All code needed to extract and process these data are contained in this reposito
      *            1915/
      *            1920/
      *            1925/
+   *        PanelCoh5/     
   *    Appendix/
    *        Results/
 
@@ -52,7 +53,7 @@ In the header of each R script you'll see how TR's working directory is set auto
 7. AppendixHeatTables.R
 8. (optional) SurfaceCompare.R   <-some diagnostic surfaces, not so pretty, but interpretable.
 
-
+Several objects will be created in the Data, Figures, and Appendix folders. Notably, the csv produced in the Appendix folder can be analyzed and/or visualized further, and the large list of loess-smoothed surfaces (with visual diagnostics produced in Figures/PanelCoh5/) is also ripe for further analysis (better than correlations?), or to be compared with alternative smoothing methods (See note below). One could also check whether the M pattern appears to respect some rule of proportionality by length of life (i.e. mrbidity kicking in at 9/10 through life). Ergo, there are many empirical things one could do to improve or complement the work presented here. Have at it!
 
 Note
 ========
