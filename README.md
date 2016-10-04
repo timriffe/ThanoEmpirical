@@ -42,7 +42,7 @@ All code needed to extract and process these data are contained in this reposito
   *    Appendix/
    *        Results/
 
-In the header of each R script you'll see how TR's working directory is set automatically. On your system, you can just replace all that with your own setwd() command. Having done this, execute the scripts in this order:
+In the header of each R script you'll see how TR's working directory is set automatically. On your system, you can just replace all that with your own setwd() command. Having done this, execute the following scripts in this order:
 
 1. HRS_Rand_extract.R
 2. PreProcessing.R
@@ -54,6 +54,8 @@ In the header of each R script you'll see how TR's working directory is set auto
 8. (optional) SurfaceCompare.R   <-some diagnostic surfaces, not so pretty, but interpretable.
 
 Several objects will be created in the Data, Figures, and Appendix folders. Notably, the csv produced in the Appendix folder can be analyzed and/or visualized further, and the large list of loess-smoothed surfaces (with visual diagnostics produced in Figures/PanelCoh5/) is also ripe for further analysis (better than correlations?), or to be compared with alternative smoothing methods (See note below). One could also check whether the M pattern appears to respect some rule of proportionality by length of life (i.e. mrbidity kicking in at 9/10 through life). Ergo, there are many empirical things one could do to improve or complement the work presented here. Have at it!
+
+R scripts that start with zzz are deprecated from earlier stages of this project. These are either exploratory or discarded ways of doing things. The repository also contains our award-winning poster from the 2015 PAA, as well as a presentation given at the VID in December, 2014.
 
 Note
 ========
