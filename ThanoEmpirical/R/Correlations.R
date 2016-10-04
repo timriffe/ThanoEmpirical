@@ -1,8 +1,7 @@
-# Author: tim
-###############################################################################
-# This script gets the correlation directions for each matrix
-#
-# Author: tim
+# TR
+# this script follows loessSmoothing.R
+# it does the easy-peasy correlations analysis (though the code may look exotic)
+# This script is followed by PaperFigures.R and AppendixHeatTables.R
 ###############################################################################
 
 # for Tim, this will choke

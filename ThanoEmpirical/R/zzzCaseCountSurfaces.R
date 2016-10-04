@@ -1,4 +1,8 @@
-
+# TR
+# this was an early diagnostic to see where cases are. This is where we decided
+# to chop off at thanatological age 12, rather than include the entire
+# triangle
+# Now deprecated to reduce clutter.
 
 # for Tim, this will choke
 if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm", "tim-ThinkPad-L440")){

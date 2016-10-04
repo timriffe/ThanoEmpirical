@@ -1,5 +1,6 @@
+# Tr:
 # This script gets the correlation directions for each matrix
-#
+# The script follows Correlations.R
 # Author: tim
 ###############################################################################
 

@@ -72,11 +72,11 @@ results from the birth cohort born 1915-1919 in the final 12 years of life. Our 
 that most markers used to study well-being in old-age vary along both the age
 and time-to-death dimensions, but some markers are exclusively a function of
 either time to death or chronological age, and others display different patterns
-between the sexes.\ackn{Research reported in this manuscript
-was supported by the U.S.
+between the sexes.\ackn{We would like to thank the editors of this issue, who also organized the 2014 conference that inspired us to undertake this project. We also thank two anonymous reviewers whose comments improved the manuscript greatly. Research reported in this manuscript
+was supported by the U.S. 
 National Institute On Aging of the National Institutes of Health under award
-numbers R01-AG011552 and R01-AG040245 the Spanish Ministry of Economy and
-Competitiveness under award RYC-2013-14851. The content is solely the
+numbers R01-AG011552 and R01-AG040245, the Spanish Ministry of Economy and
+Competitiveness under award RYC-2013-14851, and the UK ESRC grant ES/K004611/1. The content is solely the
 responsibility of the authors and does not necessarily represent the official views of the funding agencies.}
 \end{abstract}
 
@@ -115,8 +115,6 @@ matter whether measured by chronological or thanatological age. Cohort
 expectancies are immune from age classification biases. However, distinct
 patterns emerge in period aggregates due to an interaction between lifespan
 variation and the age profiles of demographic characteristics. 
-%In the Results section, we provide an example of a deceptive pattern over
-% chronological age that is due to such an interaction with lifespan.
 
 Some life
 transitions, states, and changes in state intensities are almost exclusively a
@@ -203,7 +201,7 @@ sake of adding information when fitting models to the data.
 \caption{Chronological age and thanatological age over the lifecourse of a birth
 cohort}
 \label{fig:LexisOrtho}
-	\includegraphics{Figures/LexisOrtho.pdf}
+	\includegraphics{Figures/Figure1.pdf}
 \end{figure}
 
 Underpinning this investigation are a series of demographic surfaces indicating
@@ -254,10 +252,7 @@ from observations in earlier and later cohorts. Further, at these ages we assume
 some of them cumulative over the life course, and senescence itself likely drive
 health patterns to a much greater extent than might early-life selection or
 late-life onsets of poor health due to the Spanish influenza.
-%Finally, since our analysis is disaggregated by both chronological and
-%thanatological age, the health prevalence patterns we analyze can be thought of
-%as ``purged of mortality''. It is conceivable, and we do not investigate
-% whether health and longevity interactions explain 
+
 We also verify that patterns for this cohort do not appear visually distinct
 from those found in earlier and later cohorts. More importantly, our goal here
 is not to describe the end-of-life experience of this particular birth cohort, but to add
@@ -338,20 +333,6 @@ pre-processing of variables is full of details that would clutter this paper.
 Rather than a lengthy and detailed appendix describing the case by case
 treatment of variables, please consult the annotated code in the open
 repository.}
-
-% DEPRECATED: no longer doing this!
-%Some questionnaire items in the HRS are only asked every second interview. In
-%these cases, we impute within-individual trajectories assuming a linear
-%trend. For example one item asks respondents whether they experience back
-%pain. If in wave 3 an individual responded ``no'', wave 4 is skipped, and in
-%wave 5 the respondent answered ``yes'', then we assign 0 to wave 3, 0.5 to wave
-%4 and 1 to wave 5 for this question. If a response is missing in a given wave,
-%but available in the previous wave, we carry it over as a constant, but we do
-%not impute backwards in time. We also do not impute questions that were not
-% part of the questionnaire for a given wave. These within-individual procedures reduce
-%missing cases for within valid interviews by 30-40\%, which in some cases
-% provides our statistical procedures with a better fit, but does not skew results.
-% TODO continue here
 
 \paragraph*{Weighting}
 The population universe of the HRS and this study is the resident
@@ -445,8 +426,6 @@ study, only current smoking, arthritis, and self reports of current versus forme
 females).
 
 \begin{figure}[!h]
-    % This figure was produced in
-    % \makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/SurfExampleMalesSRH.pdf}}
     \centering
     \caption{Examples of characteristics that vary along the thanatological and
     chronological age axes.}
@@ -457,7 +436,7 @@ females).
     }
     \label{fig:psych}
 	\vspace{-2em}
-	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Surf_Male_psych.pdf}}
+	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Figure2a.pdf}}
 	\end{subfigure}
 	
 	\begin{subfigure}{\linewidth}
@@ -466,7 +445,7 @@ females).
     cohort.}
     \label{fig:back}
 	\vspace{-2em}
-	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Surf_Female_back.pdf}}
+	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Figure2b.pdf}}
 	\end{subfigure}
 \end{figure}
 
@@ -475,9 +454,8 @@ females).
    \caption{Psychological problems (ever) by chronological age only. Males, 1915-1919 birth
     cohort. With 95{\%} confidence bands from loess fit.}
     \label{fig:chronofalse}
-   \includegraphics[scale=.7]{Figures/MalePsychChrono.pdf}
+   \includegraphics[scale=.7]{Figures/Figure3.pdf}
 \end{figure}
-
 
 Other informative patterns also exist among the set of characteristics studied.
 These include characteristics that vary by lifespan, which display downward
@@ -509,7 +487,6 @@ this possibility explicitly.
 
 \begin{figure}[!h]
     % This figure was produced in
-    % \makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/SurfExampleMalesSRH.pdf}}
     \centering
     \caption{Examples of characteristics that vary by lifespan only or by
     thanatological age within lifespan.}
@@ -521,7 +498,7 @@ this possibility explicitly.
     }
     \label{fig:evsmkng}
 	\vspace{-2em}
-	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Surf_Female_smoke_ev.pdf}}
+	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Figure4a.pdf}}
 	\end{subfigure}
 	
 	\begin{subfigure}{\linewidth}
@@ -530,7 +507,7 @@ this possibility explicitly.
     cohort.}
     \label{fig:bp}
 	\vspace{-2em}
-	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Surf_Male_bp.pdf}}
+	\makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/Figure4b.pdf}}
 	\end{subfigure}
 \end{figure}
 \FloatBarrier
@@ -564,12 +541,12 @@ Figure~\ref{fig:bp}).}
  \begin{subfigure}{.5\linewidth}
  \caption{Females}
   \vspace{-2em}
- \includegraphics[scale=.8]{Figures/HistFem.pdf}
+ \includegraphics[scale=.8]{Figures/Figure5a.pdf}
  \end{subfigure}~
  \begin{subfigure}{.5\linewidth}
  \caption{Males}
  \vspace{-2em}
- \includegraphics[scale=.8]{Figures/HistMal.pdf}
+ \includegraphics[scale=.8]{Figures/Figure5b.pdf}
  \end{subfigure}
 \end{figure}
 
@@ -598,71 +575,6 @@ display surfaces with contour lines slanted less than $45^\circ$. A more
 detailed table of correlation results by variable, pattern, and sex is given in
 the appendix.
 
-%\begin{figure}[!h]
-%    % This figure was produced in
-%    % \makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/SurfExampleMalesSRH.pdf}}
-%    \centering
-%    \caption{Thanatological versus chronological correlation, with selected
-%    characteristics labeled. 1915-1919 birth cohort, chronological ages 72-95.}
-%    \label{fig:thanochronocorr}
-%    \makebox[\linewidth][c]{
-%    \begin{subfigure}{0.7\textwidth}
-%    \caption{Males}
-%    \label{fig:malcorr1}
-%	\vspace{-2em}
-%	\includegraphics[width=.95\textwidth]{Figures/MaleCorr1.pdf}
-%	\end{subfigure}
-%	\hspace{-1em}
-%	\begin{subfigure}{.7\textwidth}
-%    \caption{Females}
-%    \label{fig:femcorr1}
-%	\vspace{-2em}
-%	\includegraphics[width=.95\textwidth]{Figures/FemaleCorr1.pdf}
-%	\end{subfigure}
-%	}
-%\end{figure}
-%	
-%Figure~\ref{fig:thanochronocorr} displays the simple correlation coefficients
-%that belong to the chronological and thanatological axes. For males, 45
-%variables display thanatological correlations of greater than 0.8, versus nine chronological
-%correlations above the same threshold. For females, the figures are 32 and 29,
-%respectively, a different picture overall. Both point clouds are in high
-%thanatological ages, but females lean further towards chronological variation
-%within this cohort. That thanatological patterns are somewhat less accentuated for females may
-%corroborate aspects of the existing literature on sex differences in morbidity and mortality \citep{case2005sex}.
-%	
-%%\begin{figure}[!h]
-%%    % This figure was produced in
-%    % \makebox[\textwidth][c]{\includegraphics[scale=.6]{Figures/SurfExampleMalesSRH.pdf}}
-%    \centering
-%    \caption{Lifespan versus mixed correlation, with selected
-%    characteristics labeled. 1915-1919 birth cohort, chronological ages 72-95.}
-%    \label{fig:lifespanmixed}
-%	    \makebox[\linewidth][c]{
-%    \begin{subfigure}{0.7\textwidth}
-%    \caption{Males}
-%    \label{fig:malcorr2}
-%	\vspace{-2em}
-%	\includegraphics[width=.95\textwidth]{Figures/MaleCorr2.pdf}
-%	\end{subfigure}
-%	\hspace{-1em}
-%	\begin{subfigure}{.7\textwidth}
-%    \caption{Females}
-%    \label{fig:femcorr2}
-%	\vspace{-2em}
-%	\includegraphics[width=.95\textwidth]{Figures/FemaleCorr2.pdf}
-%	\end{subfigure}
-%	}
-%	
-%\end{figure}
-%
-%Figure~\ref{fig:lifespanmixed} displays correlation coefficients
-%that belong to the lifespan and ``mixed'' axes. Among males, four variables
-%display lifespan correlations of greater than 0.8, versus 49 mixed correlations above
-%the same threshold. For females, the respective figures are three and 55. The
-%mixed axis ($chrono age - thano age$) is the winner among the set of
-%characteristics tested. The appendix provides detailed results. 
-%
 \FloatBarrier
 \section*{Discussion}
 The distribution of tested characteristics with respect to the
@@ -780,7 +692,7 @@ applicable to describe any between-group disparity in demographic or social outc
 %  
 
 %\pagebreak
-%
+
 \begin{appendices}
 \section*{Appendix: Variables and correlations}
 
@@ -794,7 +706,6 @@ The code used to generate these and all other results, including results for all
 degrees of smoothing, is available freely the repository. The repository
 also contains a csv of these summary results.
 
-%(insert url)
 \url{https://github.com/timriffe/ThanoEmpirical}
 
 Results are grouped by several major morbidity categories and presented in

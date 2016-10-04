@@ -1,3 +1,8 @@
+# TR: 
+# this script produces all figures for the final paper.
+# this script follows Correlations.R 
+# ------------------------------------------------
+
 
 # for Tim, this will choke
 if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm", "tim-ThinkPad-L440")){
@@ -28,7 +33,7 @@ library(lattice)
 # ---------------------------------------------
 gridcol <- gray(.6) # medium gray, not overwhelming.
 
-pdf("Figures/LexisOrtho.pdf",width=4.5,height=4.5)
+pdf("Figures/Figure1.pdf",width=4.5,height=4.5)
 par(mai=c(.5,.5,.5,.5),xpd=TRUE)
 plot(NULL, type="n",xlim=c(0,110),ylim=c(0,110), axes=FALSE,xlab="",ylab="", asp=1)
 segments(rep(0,11),seq(10,111,by=10),seq(10,111,by=10),rep(0,11), col = gridcol)
@@ -85,7 +90,7 @@ Results <- local(get(load("Data/LoessQuinquenal.Rdata")))
 grabber <- paste0("psych", "_", .7)
 Surf <- Results[[grabber]][["Male"]]$Surf[, , as.character(1915)]
 # 
-pdf("Figures/Surf_Male_psych.pdf", width = 10, height = 6)
+pdf("Figures/Figure2a.pdf", width = 10, height = 6)
 #dev.new(width = 10, height = 6)
 SurfMap(Surf,
 		napprox = 9,
@@ -102,7 +107,7 @@ dev.off()
 grabber        <- paste0("back", "_", .7)
 Surf           <- Results[[grabber]][["Female"]]$Surf[, , as.character(1915)]
 Surf[Surf < 0] <- 0
-pdf("Figures/Surf_Female_back.pdf", width = 10, height = 6)
+pdf("Figures/Figure2b.pdf", width = 10, height = 6)
 #dev.new(width = 10, height = 6)
 SurfMap(Surf,
 		napprox = 9,
@@ -118,7 +123,7 @@ dev.off()
 grabber <- paste0("smoke_ev", "_", .7)
 Surf    <- Results[[grabber]][["Female"]]$Surf[, , as.character(1915)]
 
-pdf("Figures/Surf_Female_smoke_ev.pdf", width = 10, height = 6)
+pdf("Figures/Figure4a.pdf", width = 10, height = 6)
 #dev.new(width = 10, height = 6)
 SurfMap(Surf,
 		napprox = 9,
@@ -134,7 +139,7 @@ dev.off()
 grabber <- paste0("bp", "_", .7)
 Surf    <- Results[[grabber]][["Male"]]$Surf[, , as.character(1915)]
 
-pdf("Figures/Surf_Male_bp.pdf", width = 10, height = 6)
+pdf("Figures/Figure4b.pdf", width = 10, height = 6)
 #dev.new(width = 10, height = 6)
 SurfMap(Surf,
 		napprox = 9,
@@ -176,7 +181,7 @@ m1915se  <- predict(mod,
 		           se = TRUE)
 
 # produce figure 3
-pdf("Figures/MalePsychChrono.pdf",height = 4.5,width=4.5)
+pdf("Figures/Figure3.pdf",height = 4.5,width=4.5)
 par(mai = c(1.2,1,.5,.5))
 plot(72:95, m1915se$fit, type = 'l', xaxs = "i", yaxs="i", ylim=c(0,.25),
   xlab = "chronological", ylab = "prevalence of psych problems",
@@ -202,7 +207,7 @@ Hist7$R    <- Hist7$r * 100
 Hist7$Dim  <- as.factor(Hist7$Dim )
 
 #
-pdf("Figures/HistFem.pdf", width = 3, height = 7)
+pdf("Figures/Figure5a.pdf", width = 3, height = 7)
 histogram(~R | Dim, 
 		data = Hist7[Hist7$sex == "f", ], 
 		col = gray(.4), 
@@ -216,7 +221,7 @@ histogram(~R | Dim,
 		ylim = c(0, 47))
 dev.off()
 
-pdf("Figures/HistMal.pdf", width = 3, height = 7)
+pdf("Figures/Figure5b.pdf", width = 3, height = 7)
 histogram(~R | Dim, 
 		data = Hist7[Hist7$sex == "m", ], 
 		col = gray(.4), 

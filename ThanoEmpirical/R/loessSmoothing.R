@@ -1,4 +1,16 @@
-# Author: tim
+# TR
+# This script follows CreateMatrices.R 
+# this is where the smoothing happens. We smooth over thanatological age, 
+# chronological age, and 5-year birth cohorts.
+# Using a loess smoother is rough around the edges, literally, as it may have
+# edge-effects, and we definitely don't do anything about within-person
+# autocorrelation. Not worries about edge-effects (at thanatological age 0)
+# because raw means shows them, and we think it's real. In any case,
+# the correlations analysis is really rough, and wouldn't pick up a super-steep
+# ascent anyway. That's why we're not worried about getting the estimate perfect.
+# My guess is that the estimates for many variables in thanatological age 0 are
+# underestimates.
+# This script is followed by Correlations.R
 ###############################################################################
 
 
