@@ -1,3 +1,10 @@
+# --------------------------------------
+# TR
+# This script recodes most variables, makes some new ones.
+# This is the step after extracting from the RAND version M
+# file in HRS_Rand_extract.R
+# the next script to run after this one is CreateMatrices.R
+# --------------------------------------
 
 # Sets working directory for Tim's machines
 if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm","tim-ThinkPad-L440")){
