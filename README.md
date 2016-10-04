@@ -26,15 +26,15 @@ All code needed to extract and process these data are contained in this reposito
  *MainFolder/
   *    R/
   *    Data/             
-  *    Figures/
+  *    Figures/  <-put the extracted RAND file, rndhrs_m.dta, in here
    *        HeatTables/
     *            1905/
     *            1910/
     *            1915/
-    *           1920/
+    *            1920/
     *            1925/
   *    Appendix/
-   *        Results
+   *        Results/
 
 In the header of each R script you'll see how TR's working directory is set automatically. On your system, you can just replace all that with your own setwd() command. Having done this, execute the scripts in this order:
 
