@@ -21,7 +21,7 @@ Under the 'RAND Contributed Files' section, click the link for 'RAND HRS Data Fi
 
 Reproducing
 ===========
-All code needed to extract and process these data are contained in this repository, and these are found in the scripts are found in the R/ folder. The scripts expect to see some other folders too, so set up a structure something like this. 
+All code needed to extract and process these data are contained in this repository, and these are found in the scripts are found in the R/ folder. The scripts expect to see some other folders too, so set up a structure something like this. (please ignore bullets, not sure how to get indentation without them...)
 
  *MainFolder/
   *    R/
