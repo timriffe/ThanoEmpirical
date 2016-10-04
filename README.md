@@ -36,14 +36,14 @@ MainFolder/
 
 In the header of each R script you'll see how TR's working directory is set automatically. On your system, you can just replace all that with your own setwd() command. Having done this, execute the scripts in this order:
 
-1) HRS_Rand_extract.R
-2) PreProcessing.R
-3) CreateMatrices.R
-4) loessSmoothing.R
-5) Correlations.R
-6) PaperFigures.R
-7) AppendixHeatTables.R
-8) (optional) SurfaceCompare.R   <-some diagnostic surfaces, not so pretty, but interpretable.
+1. HRS_Rand_extract.R
+2. PreProcessing.R
+3. CreateMatrices.R
+4. loessSmoothing.R
+5. Correlations.R
+6. PaperFigures.R
+7. AppendixHeatTables.R
+8. (optional) SurfaceCompare.R   <-some diagnostic surfaces, not so pretty, but interpretable.
 
 
 
