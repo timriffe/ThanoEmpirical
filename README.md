@@ -23,18 +23,18 @@ Reproducing
 ===========
 All code needed to extract and process these data are contained in this repository, and these are found in the scripts are found in the R/ folder. The scripts expect to see some other folders too, so set up a structure something like this. 
 
-.MainFolder/
-..    R/
-..    Data/             
-..    Figures/
-....        HeatTables/
-......            1905/
-......            1910/
-......            1915/
-......           1920/
-......            1925/
-..    Appendix/
-....        Results
+.*MainFolder/
+..*    R/
+..*    Data/             
+..*    Figures/
+...*        HeatTables/
+....*            1905/
+....*            1910/
+....*            1915/
+....*           1920/
+....*            1925/
+..*    Appendix/
+...*        Results
 
 In the header of each R script you'll see how TR's working directory is set automatically. On your system, you can just replace all that with your own setwd() command. Having done this, execute the scripts in this order:
 
