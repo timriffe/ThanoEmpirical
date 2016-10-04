@@ -1,4 +1,14 @@
-# for Tim, this will choke
+# TR
+# This script creates weighted means tabulations for the same study area,
+# but NOT by cohort. This was the very very first thing we did as an exploratory
+# diagnostic. It was here where we noticed that TTD patterns are strong, but also
+# realized that the surface needs to be controlled for birth cohorts. The
+# purpose of this script now is just to create a de facto variable list that we
+# use to keep everything selected and aligned as we move forward.
+# It's a bit of chaff, but no big deal. The next script after this
+# is loessSmoothing.R
+# -----------------------------------
+
 if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm", "tim-ThinkPad-L440")){
   # if I'm on the laptop
   setwd("/home/tim/git/ThanoEmpirical/ThanoEmpirical")
@@ -60,7 +70,7 @@ varnames <- varnames[varnames %in% colnames(Dat)]
 Dat         <- data.frame(Dat)
 SurfaceList <- list()
 for (varname in varnames){
-    
+    # Note, not controlling for birth cohorts here
     Dati              <- Dat[, c("sex","tafloor","cafloor","p_wt2",varname)]
     colnames(Dati)[5] <- "V1" # this way at least we know what to ask for ;-P
     Mean <-  data.table(Dati)[,  list(V1 = wmean(V1,p_wt2)),

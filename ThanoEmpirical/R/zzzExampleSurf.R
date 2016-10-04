@@ -1,4 +1,12 @@
-
+# TR: deprecated.
+# in an early version of this paper, before doing the simple correlations analysis,
+# we were instead doing a primitive sort of gradient analysis, where we took
+# anchor points on the surface, and detected which way is up. If the arrows
+# pointed down, then is was thanatological, if left-right then chronological,
+# and so measuring the angle was a way to judge 'how thanatological' something
+# was. We then steered away from this method. Might still be meaningful, but then
+# you loose the lifespan, and mixed (proportional) patterns
+# ----------------------------------------------------------
 # This is for an example surface to show how slopes are calculated.
 
 
