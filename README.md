@@ -28,11 +28,11 @@ All code needed to extract and process these data are contained in this reposito
   *    Data/             
   *    Figures/  <-put the extracted RAND file, rndhrs_m.dta, in here
    *        HeatTables/
-    *            1905/
-    *            1910/
-    *            1915/
-    *            1920/
-    *            1925/
+     *            1905/
+     *            1910/
+     *            1915/
+     *            1920/
+     *            1925/
   *    Appendix/
    *        Results/
 
