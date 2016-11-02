@@ -476,6 +476,7 @@ Dat$cesd <- ifelse(is.na(Dat$cesd), NA, ifelse(Dat$cesd > 2, 1, 0) )
 # for binning purposes, akin to 'completed age'
 Dat$tafloor <- floor(Dat$ta)
 Dat$cafloor <- floor(Dat$ca)
+
 # I guess actual interview date could be some weeks prior to registered
 # interview date? There are two negative thano ages at wave 4 otherwise, but
 # still rather close. Likely died shortly after interview.
@@ -524,11 +525,12 @@ varnames <- c("adl3_", "adl5_", "iadl3_", "iadl5_", "cesd", "lim_work", "srh",
 varnames <- varnames[varnames %in% colnames(Dat)]
 
 # ---------------------------------------------
-# optional imputing of questions. Asked stats geeks and
+# optional imputing of questions. Asked stats geeks, and
 # multiple imputation is not advised. Within individual 
 # trajectories are probably innocuous, as well, just
 # increases number of points. Let's generate downstream 
-# results using the non-imputed version
+# results using the non-imputed version. Ergo, the following
+# code chunk is not used for the published analysis
 # ---------------------------------------------
 
 skip <- TRUE
