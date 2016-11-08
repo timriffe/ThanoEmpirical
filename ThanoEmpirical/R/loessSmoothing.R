@@ -47,8 +47,8 @@ varnames      <- names(SurfaceList)
 
 # cut data down, define time vars
 
-# no ages under 65
-Dat      <- Dat[Dat$age >= 65, ]
+# no ages under 65 (age represented in months)
+Dat      <- Dat[(Dat$age / 12) >= 65, ]
 
 # birth year must be known
 Dat      <- Dat[!is.na(Dat$b_yr), ]
