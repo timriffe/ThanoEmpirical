@@ -18,6 +18,9 @@
 # TR: I suspect that the cohort trends in ns() aren't flexible enough,
 #    maybe still better to interract with ta,ca ? This requires further 
 #    diagnostics
+# it's important to note that this alternative fitting code isn't finalized yet.
+# It will be updated when we arrive at a final recommendation for fitting.
+#
 
 if (system("hostname",intern=TRUE) %in% c("triffe-N80Vm","tim-ThinkPad-L440")){
 	# if I'm on the laptop
