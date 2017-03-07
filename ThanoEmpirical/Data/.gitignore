@@ -25,3 +25,5 @@
 /Correlations.Rdata
 /LoessQuinquenal_imp.Rdata
 /Data_long_imputed.Rdata
+/CorrelationResultsBoot.Rdata
+/ResultsLongBoot.Rdata
