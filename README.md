@@ -35,21 +35,22 @@ Under the 'RAND Contributed Files' section, click the link for 'RAND HRS Data Fi
 
 Reproducing
 ===========
-All code needed to extract and process these data are contained in this repository, and these are found in the scripts are found in the R/ folder. The scripts expect to see some other folders too, so set up a structure something like this. (please ignore bullets, not sure how to get indentation without them...)
+All code needed to extract and process these data are contained in this repository, and these are found in the scripts are found in the R/ folder. The scripts expect to see some other folders too, so set up a structure something like this.
 
- MainFolder/
-      &nbsp;&nbsp;R/
-      &nbsp;&nbsp;Data/             <-put the extracted RAND file, rndhrs_m.dta, in here
-      &nbsp;&nbsp;Figures/  
-           &nbsp;&nbsp;&nbsp;&nbsp;HeatTables/
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1905/
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1910/
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1915/
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1920/
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1925/
-           &nbsp;&nbsp;&nbsp;&nbsp;PanelCoh5/     
-       &nbsp;&nbsp;Appendix/
-            &nbsp;&nbsp;&nbsp;&nbsp;Results/
+ 
+     MainFolder/
+       R/
+       Data/             <-put the extracted RAND file, rndhrs_m.dta, in here
+       Figures/  
+         HeatTables/
+           1905/
+           1910/
+           1915/
+           1920/
+           1925/
+         PanelCoh5/     
+       Appendix/
+         Results/
 
 In the header of each R script you'll see how TR's working directory is set automatically. On your system, you can just replace all that with your own setwd() command. Having done this, execute the following scripts in this order:
 
