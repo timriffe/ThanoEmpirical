@@ -35,21 +35,22 @@ Under the 'RAND Contributed Files' section, click the link for 'RAND HRS Data Fi
 
 Reproducing
 ===========
-All code needed to extract and process these data are contained in this repository, and these are found in the scripts are found in the R/ folder. The scripts expect to see some other folders too, so set up a structure something like this. (please ignore bullets, not sure how to get indentation without them...)
+All code needed to extract and process these data are contained in this repository, and these are found in the scripts are found in the R/ folder. The scripts expect to see some other folders too, so set up a structure something like this.
 
- *MainFolder/
-  *    R/
-  *    Data/             
-  *    Figures/  <-put the extracted RAND file, rndhrs_m.dta, in here
-   *        HeatTables/
-     *            1905/
-     *            1910/
-     *            1915/
-     *            1920/
-     *            1925/
-   *        PanelCoh5/     
-  *    Appendix/
-   *        Results/
+ 
+     MainFolder/
+       R/
+       Data/             <-put the extracted RAND file, rndhrs_m.dta, in here
+       Figures/  
+         HeatTables/
+           1905/
+           1910/
+           1915/
+           1920/
+           1925/
+         PanelCoh5/     
+       Appendix/
+         Results/
 
 In the header of each R script you'll see how TR's working directory is set automatically. On your system, you can just replace all that with your own setwd() command. Having done this, execute the following scripts in this order:
 
@@ -68,5 +69,5 @@ R scripts that start with zzz are deprecated from earlier stages of this project
 
 Note
 ========
-The loess smoothing procedure used in this paper is rough around the edges, literally, as it may have edge-effects. The loess smoothing also ignores within-individual autocorrelation. Don't fret, though, the major finds are robust, since we used very rough methods. We were not able to identify the perfect method prior to finalizing this paper, so this statistical question still remains open. Since we'll be using such results in the future, and eventually measurement will matter a lot, it'd be nice to receive a tip. Like, maybe a glm with fixed effects? Would that smooth as a side-effect? Because that's all we want now. Any statisticians out there?
+We (with help from Maarten J. Bijlsma) have since compared the loess smoothing method with a better-suited GLM with binomial link (where appropriate) over age, time-to-death, and cohort (as with the loess used in the paper). This produces results that are nearly the same. We then modified this procedure to re-run results on sampled person-ids in the data, producing ca 1000 smooth fits, and then took median and means of these as the best-we-can-do-right-now fits. Again, the rough loess fits are super close to these. If we re-run the correlation analyses you end up with distributions that are essentially the same (slightly jittered as one would expect). To see this analyses, see the script R/ns_glm_smoothing.R .
 
