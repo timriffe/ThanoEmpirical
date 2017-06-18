@@ -283,7 +283,7 @@ Dat$med_exp 	<- NULL
 # excellent to good = 0, fair, poor = 1.
 srhrec              <- c(0,0,0,1,1,NA)
 names(srhrec)       <- sort(unique(Dat$srh))
-Dat$srh             <- srhrec[Dat$srh] / 4 # now all between 0 and 1. 1 worst.
+#Dat$srh             <- srhrec[Dat$srh] / 4 # now all between 0 and 1. 1 worst.
 names(srhrec)       <- sort(unique(Dat$srm))
 Dat$srm             <- srhrec[Dat$srm] 
 
@@ -292,7 +292,7 @@ Dat$srm             <- srhrec[Dat$srm]
 # same, worse, better recode:  0 betterm 0 same 1 worse
 pastmem             <- c(0,0,1,NA)
 names(pastmem)      <- sort(unique(Dat$pastmem))
-Dat$pastmem         <- pastmem[Dat$pastmem] / 2
+#Dat$pastmem         <- pastmem[Dat$pastmem] / 2
 
 # do cesd questions (1 bad, 0 good)
 cesdquestions       <- colnames(Dat)[grepl("cesd", colnames(Dat))]
