@@ -11,7 +11,7 @@ Here's a bibtex entry:
 ```
 @Article{riffe2015ttd,
   Title                    = {Time-to-death patterns in markers of age and dependency},
-  Year                     = {2017}
+  Year                     = {2017},
   Author                   = {{Riffe, T.} and Chung, P. H. and Spijker, J. and MacInnes, J.},
   Journal                  = {Vienna Yearbook of Population Research},
   Volume                   = {14},
