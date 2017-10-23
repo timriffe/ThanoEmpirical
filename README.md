@@ -5,16 +5,17 @@ This repo includes R code and tex files for a study in progress, provisionally t
 
 The manuscript is citable as:
 
-Riffe T., Chung P.H., Spijker J., and MacInnes J. 'Time-to-death patterns in markers of age and dependency' Vienna Yearbook of Population Research. V15. (in press)
+Riffe T., Chung P.H., Spijker J., and MacInnes J. (2017) 'Time-to-death patterns in markers of age and dependency' Vienna Yearbook of Population Research. V14, pp 229-254.
 
 Here's a bibtex entry:
 ```
 @Article{riffe2015ttd,
   Title                    = {Time-to-death patterns in markers of age and dependency},
+  Year                     = {2017}
   Author                   = {{Riffe, T.} and Chung, P. H. and Spijker, J. and MacInnes, J.},
   Journal                  = {Vienna Yearbook of Population Research},
-  Note                     = {(in press)},
-  Volume                   = {15}
+  Volume                   = {14},
+  Pages                    = {229--254}
 }
 ```
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Time-to-death patterns in markers of age and dependency</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://sites.google.com/site/timriffepersonal/" property="cc:attributionName" rel="cc:attributionURL">Timothy L. M. Riffe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
@@ -63,7 +64,7 @@ In the header of each R script you'll see how TR's working directory is set auto
 7. AppendixHeatTables.R
 8. (optional) SurfaceCompare.R   <-some diagnostic surfaces, not so pretty, but interpretable.
 
-Several objects will be created in the Data, Figures, and Appendix folders. Notably, the csv produced in the Appendix folder can be analyzed and/or visualized further, and the large list of loess-smoothed surfaces (with visual diagnostics produced in Figures/PanelCoh5/) is also ripe for further analysis (better than correlations?), or to be compared with alternative smoothing methods (See note below). One could also check whether the M pattern appears to respect some rule of proportionality by length of life (i.e. mrbidity kicking in at 9/10 through life). Ergo, there are many empirical things one could do to improve or complement the work presented here. Have at it!
+Several objects will be created in the Data, Figures, and Appendix folders. Notably, the csv produced in the Appendix folder can be analyzed and/or visualized further, and the large list of loess-smoothed surfaces (with visual diagnostics produced in Figures/PanelCoh5/) is also ripe for further analysis (better than correlations?), or to be compared with alternative smoothing methods (See note below). One could also check whether the M pattern appears to respect some rule of proportionality by length of life (i.e. morbidity kicking in at 9/10 through life). Ergo, there are many empirical things one could do to improve or complement the work presented here. Have at it!
 
 R scripts that start with zzz are deprecated from earlier stages of this project. These are either exploratory or discarded ways of doing things. The repository also contains our award-winning poster from the 2015 PAA, as well as a presentation given at the VID in December, 2014.
 
