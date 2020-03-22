@@ -5,13 +5,13 @@ This repo includes R code and tex files for a study in progress, provisionally t
 
 The manuscript is citable as:
 
-Riffe T., Chung P.H., Spijker J., and MacInnes J. (2017) 'Time-to-death patterns in markers of age and dependency' Vienna Yearbook of Population Research. V14, pp 229-254.
+Riffe T., Chung P.H., Spijker J., and MacInnes J. (2016) 'Time-to-death patterns in markers of age and dependency' Vienna Yearbook of Population Research. V14, pp 229-254.
 
 Here's a bibtex entry:
 ```
 @Article{riffe2015ttd,
   Title                    = {Time-to-death patterns in markers of age and dependency},
-  Year                     = {2017},
+  Year                     = {2016},
   Author                   = {{Riffe, T.} and Chung, P. H. and Spijker, J. and MacInnes, J.},
   Journal                  = {Vienna Yearbook of Population Research},
   Volume                   = {14},
